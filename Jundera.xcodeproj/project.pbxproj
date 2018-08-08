@@ -13,6 +13,8 @@
 		77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EF40211B837500A6F736 /* Assets.xcassets */; };
 		77F1EF44211B837500A6F736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EF42211B837500A6F736 /* LaunchScreen.storyboard */; };
 		77F1EF4F211B837500A6F736 /* JunderaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1EF4E211B837500A6F736 /* JunderaTests.swift */; };
+		77F1EF5A211B83E300A6F736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */; };
+		FCCB581FA9876A08FAF66C43 /* Pods_Jundera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3F92B613BE9A6A9FB5B203 /* Pods_Jundera.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		77F1EF36211B837300A6F736 /* Jundera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jundera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F1EF39211B837300A6F736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77F1EF3B211B837300A6F736 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		77F1EF4A211B837500A6F736 /* JunderaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JunderaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F1EF4E211B837500A6F736 /* JunderaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunderaTests.swift; sourceTree = "<group>"; };
 		77F1EF50211B837500A6F736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9FC0B253E598B62A10199A9C /* Pods-Jundera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.debug.xcconfig"; sourceTree = "<group>"; };
+		FA3F92B613BE9A6A9FB5B203 /* Pods_Jundera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jundera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCB581FA9876A08FAF66C43 /* Pods_Jundera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +69,8 @@
 				77F1EF38211B837300A6F736 /* Jundera */,
 				77F1EF4D211B837500A6F736 /* JunderaTests */,
 				77F1EF37211B837300A6F736 /* Products */,
+				ED91CBF5533064CDA6DF16FC /* Pods */,
+				8467FDC0E05DC576A238A759 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +92,7 @@
 				77F1EF40211B837500A6F736 /* Assets.xcassets */,
 				77F1EF42211B837500A6F736 /* LaunchScreen.storyboard */,
 				77F1EF45211B837500A6F736 /* Info.plist */,
+				77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */,
 			);
 			path = Jundera;
 			sourceTree = "<group>";
@@ -96,6 +106,23 @@
 			path = JunderaTests;
 			sourceTree = "<group>";
 		};
+		8467FDC0E05DC576A238A759 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F92B613BE9A6A9FB5B203 /* Pods_Jundera.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED91CBF5533064CDA6DF16FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FC0B253E598B62A10199A9C /* Pods-Jundera.debug.xcconfig */,
+				1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77F1EF53211B837500A6F736 /* Build configuration list for PBXNativeTarget "Jundera" */;
 			buildPhases = (
+				0A7F89A4C8C2285056E0EDA4 /* [CP] Check Pods Manifest.lock */,
 				77F1EF32211B837300A6F736 /* Sources */,
 				77F1EF33211B837300A6F736 /* Frameworks */,
 				77F1EF34211B837300A6F736 /* Resources */,
+				05C28322B7736A65785803E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F1EF44211B837500A6F736 /* LaunchScreen.storyboard in Resources */,
+				77F1EF5A211B83E300A6F736 /* GoogleService-Info.plist in Resources */,
 				77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */,
 				77F1EF3F211B837300A6F736 /* Main.storyboard in Resources */,
 			);
@@ -191,6 +221,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C28322B7736A65785803E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Jundera/Pods-Jundera-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jundera/Pods-Jundera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A7F89A4C8C2285056E0EDA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jundera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77F1EF32211B837300A6F736 /* Sources */ = {
@@ -356,15 +429,13 @@
 		};
 		77F1EF54211B837500A6F736 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FC0B253E598B62A10199A9C /* Pods-Jundera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Jundera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +445,13 @@
 		};
 		77F1EF55211B837500A6F736 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Jundera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -398,11 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -419,11 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
