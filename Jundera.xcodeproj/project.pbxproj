@@ -235,8 +235,8 @@
 				77EE526D211BDCFF0065E364 /* ProfileViewController.swift */,
 				77EE526B211BDCFF0065E364 /* SearchViewController.swift */,
 				77EE526A211BDCFF0065E364 /* SettingTableViewController.swift */,
-				77EE5268211BDCFF0065E364 /* SignInViewController.swift */,
 				77EE5262211BDCFE0065E364 /* SignUpViewController.swift */,
+				77EE5268211BDCFF0065E364 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
