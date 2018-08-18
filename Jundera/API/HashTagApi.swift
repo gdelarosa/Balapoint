@@ -12,7 +12,4 @@ import FirebaseDatabase
 class HashTagApi {
     
     var REF_HASHTAG = Database.database().reference().child("hashtag")
-    
- 
-    
 }

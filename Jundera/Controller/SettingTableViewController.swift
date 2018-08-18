@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  View Controller will allow user to edit their profile. 
 
 import UIKit
 
@@ -28,6 +28,10 @@ class SettingTableViewController: UITableViewController {
         emailTextField.delegate = self
         goalTextField.delegate = self
         fetchCurrentUser()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false //Testing for Profile Editing
     }
     
     func fetchCurrentUser() {

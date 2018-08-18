@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 12/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  What user will first see after logging in or signing up.
     
 import UIKit
 import SDWebImage
@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var posts = [Post]()
     var users = [Userr]()
     

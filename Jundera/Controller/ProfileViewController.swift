@@ -4,15 +4,17 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  User Profile - User can edit their information and view their posts
 
 import UIKit
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var user: Userr!
     var posts: [Post] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -24,7 +26,7 @@ class ProfileViewController: UIViewController {
     func fetchUser() {
         Api.Userr.observeCurrentUser { (user) in
             self.user = user
-            self.navigationItem.title = user.username
+            //self.navigationItem.title = user.username
             self.collectionView.reloadData()
         }
     }
@@ -44,7 +46,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true 
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

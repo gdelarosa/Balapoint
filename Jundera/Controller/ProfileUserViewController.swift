@@ -4,13 +4,14 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  Other User Profile - Logged in user can view another person's profile 
 
 import UIKit
 
 class ProfileUserViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var userr: Userr!
     var posts: [Post] = []
     var userId = ""
@@ -30,7 +31,7 @@ class ProfileUserViewController: UIViewController {
             self.isFollowing(userId: userr.id!, completed: { (value) in
                 userr.isFollowing = value
                 self.userr = userr
-                self.navigationItem.title = userr.username
+                //self.navigationItem.title = userr.username
                 self.collectionView.reloadData()
             })
         }
