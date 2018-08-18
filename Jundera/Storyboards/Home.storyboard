@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="msA-aM-zcz">
             <objects>
-                <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Metis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wGN-oX-yKn"/>
                         <viewControllerLayoutGuide type="bottom" id="cWe-XL-AUU"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="450" id="VoG-1z-zvf" customClass="HomeTableViewCell" customModule="Metis" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="450" id="VoG-1z-zvf" customClass="HomeTableViewCell" customModule="Jundera" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="450"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VoG-1z-zvf" id="2Rz-KO-OMQ">
@@ -129,8 +129,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PurpleBack" translatesAutoresizingMaskIntoConstraints="NO" id="Y9D-mR-U7d">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9D-mR-U7d">
                                                     <rect key="frame" x="28" y="436" width="319" height="3"/>
+                                                    <color key="backgroundColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="OAv-ds-xuH"/>
                                                     </constraints>
@@ -229,7 +230,7 @@
         <!--Comment View Controller-->
         <scene sceneID="s7s-ZJ-pFZ">
             <objects>
-                <viewController storyboardIdentifier="CommentViewController" id="Vjj-M9-yXD" customClass="CommentViewController" customModule="Metis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentViewController" id="Vjj-M9-yXD" customClass="CommentViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fil-qH-4Ln"/>
                         <viewControllerLayoutGuide type="bottom" id="LaF-L0-zfD"/>
@@ -242,7 +243,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="82" id="VSe-Cn-7wa" customClass="CommentTableViewCell" customModule="Metis" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="82" id="VSe-Cn-7wa" customClass="CommentTableViewCell" customModule="Jundera" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSe-Cn-7wa" id="kLU-AP-PF2">
@@ -372,7 +373,7 @@
         <scene sceneID="NA5-Al-Kln">
             <objects>
                 <navigationController storyboardIdentifier="NavigationHome" automaticallyAdjustsScrollViewInsets="NO" id="cEK-gf-Stg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="HomeSelected" selectedImage="Home!" id="TVN-Hu-R2C">
+                    <tabBarItem key="tabBarItem" title="" image="Home" selectedImage="HomeSelected" id="TVN-Hu-R2C">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
@@ -394,10 +395,9 @@
     </scenes>
     <resources>
         <image name="Comment" width="25" height="25"/>
-        <image name="Home!" width="25" height="25"/>
-        <image name="HomeSelected" width="25" height="25"/>
+        <image name="Home" width="27" height="27"/>
+        <image name="HomeSelected" width="27" height="27"/>
         <image name="Icon_Mute" width="25" height="25"/>
-        <image name="PurpleBack" width="1024" height="1024"/>
         <image name="like" width="25" height="25"/>
         <image name="share" width="37" height="41"/>
     </resources>

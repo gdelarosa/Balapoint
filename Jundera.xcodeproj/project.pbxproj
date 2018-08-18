@@ -51,8 +51,6 @@
 		77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526D211BDCFF0065E364 /* ProfileViewController.swift */; };
 		77EE527C211BDCFF0065E364 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526E211BDCFF0065E364 /* DiscoverViewController.swift */; };
 		77EE527D211BDCFF0065E364 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526F211BDCFF0065E364 /* FilterViewController.swift */; };
-		77EE5281211BDD4E0065E364 /* LoopingVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE527F211BDD4D0065E364 /* LoopingVideoView.swift */; };
-		77EE5282211BDD4E0065E364 /* rainbow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5280211BDD4E0065E364 /* rainbow.mp4 */; };
 		77EE5287211BEAA40065E364 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5283211BEAA30065E364 /* ProgressHUD.bundle */; };
 		77EE528C211BEB350065E364 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EE528B211BEB340065E364 /* ProgressHUD.m */; };
 		77EE528F211C9DC30065E364 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EE528E211C9DC30065E364 /* Default-568h@2x.png */; };
@@ -119,8 +117,6 @@
 		77EE526D211BDCFF0065E364 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		77EE526E211BDCFF0065E364 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		77EE526F211BDCFF0065E364 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		77EE527F211BDD4D0065E364 /* LoopingVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingVideoView.swift; sourceTree = "<group>"; };
-		77EE5280211BDD4E0065E364 /* rainbow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rainbow.mp4; sourceTree = "<group>"; };
 		77EE5283211BEAA30065E364 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		77EE528A211BEB340065E364 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		77EE528B211BEB340065E364 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 		77EE5224211BD96F0065E364 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				77EE527E211BDD3F0065E364 /* LoopingVideo */,
 				77EE528E211C9DC30065E364 /* Default-568h@2x.png */,
 				77F1EF40211B837500A6F736 /* Assets.xcassets */,
 				77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */,
@@ -263,15 +258,6 @@
 				77EE5250211BDCD90065E364 /* User.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		77EE527E211BDD3F0065E364 /* LoopingVideo */ = {
-			isa = PBXGroup;
-			children = (
-				77EE527F211BDD4D0065E364 /* LoopingVideoView.swift */,
-				77EE5280211BDD4E0065E364 /* rainbow.mp4 */,
-			);
-			path = LoopingVideo;
 			sourceTree = "<group>";
 		};
 		77F1EF2D211B837300A6F736 = {
@@ -427,7 +413,6 @@
 				77EE5235211BDC630065E364 /* Activity.storyboard in Resources */,
 				77EE5233211BDC630065E364 /* Start.storyboard in Resources */,
 				77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */,
-				77EE5282211BDD4E0065E364 /* rainbow.mp4 in Resources */,
 				77EE5232211BDC630065E364 /* Main.storyboard in Resources */,
 				77EE5287211BEAA40065E364 /* ProgressHUD.bundle in Resources */,
 				77EE528F211C9DC30065E364 /* Default-568h@2x.png in Resources */,
@@ -529,7 +514,6 @@
 				77EE5244211BDC790065E364 /* PostApi.swift in Sources */,
 				77EE5261211BDCF60065E364 /* FilterCollectionViewCell.swift in Sources */,
 				77EE524D211BDCCC0065E364 /* Config.swift in Sources */,
-				77EE5281211BDD4E0065E364 /* LoopingVideoView.swift in Sources */,
 				77EE5240211BDC790065E364 /* Post_CommentApi.swift in Sources */,
 				77EE528C211BEB350065E364 /* ProgressHUD.m in Sources */,
 				77EE5252211BDCD90065E364 /* Post.swift in Sources */,

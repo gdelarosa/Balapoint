@@ -334,7 +334,7 @@
         <scene sceneID="2vZ-hz-Cxs">
             <objects>
                 <navigationController storyboardIdentifier="NavigationProfile" automaticallyAdjustsScrollViewInsets="NO" id="QUM-BN-r01" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Profile" selectedImage="Profile_Selected" id="bWu-XS-DDK">
+                    <tabBarItem key="tabBarItem" title="" image="Profile" selectedImage="ProfileSelected" id="bWu-XS-DDK">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
@@ -789,8 +789,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Profile" width="25" height="25"/>
-        <image name="Profile_Selected" width="25" height="25"/>
+        <image name="Profile" width="23" height="27"/>
+        <image name="ProfileSelected" width="23" height="27"/>
         <image name="PurpleBack" width="1024" height="1024"/>
         <image name="discover" width="22" height="22"/>
         <image name="placeholderImg" width="225" height="225"/>
