@@ -17,7 +17,8 @@ protocol HomeTableViewCellDelegate {
 
 class HomeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImageView: UIImageView! //Will not need for home but for detail post
+    //@IBOutlet weak var profileImageView: UIImageView! //Will not need for home but for detail post
+    @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel! // User name of whom posted
     @IBOutlet weak var goalLabel: UILabel! //Title
     @IBOutlet weak var postImageView: UIImageView! //Post Image
@@ -29,6 +30,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var heightConstraintPhoto: NSLayoutConstraint!
    // @IBOutlet weak var volumeView: UIView!
    // @IBOutlet weak var volumeButton: UIButton!
+    @IBOutlet weak var postDateLabel: UILabel!
     
     var delegate: HomeTableViewCellDelegate?
     //var player: AVPlayer?
@@ -49,27 +51,19 @@ class HomeTableViewCell: UITableViewCell {
     var isMuted = true
     
     func updateView() {
-        captionLabel.text = post?.caption
+        captionLabel.text = post?.caption //header
+        postTitleLabel.text = post?.title //added for title
+        
         if (post?.ratio) != nil {
             //heightConstraintPhoto.constant = UIScreen.main.bounds.width / ratio
             layoutIfNeeded()
 
         }
+        
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
-//        if let videoUrlString = post?.videoUrl, let videoUrl = URL(string: videoUrlString) {
-//            self.volumeView.isHidden = false
-//            player = AVPlayer(url: videoUrl)
-//            playerLayer = AVPlayerLayer(player: player)
-//            playerLayer?.frame = postImageView.frame
-//            playerLayer?.frame.size.width = UIScreen.main.bounds.width
-//            self.contentView.layer.addSublayer(playerLayer!)
-//            self.volumeView.layer.zPosition = 1
-//            player?.play()
-//            player?.isMuted = isMuted
-//        }
      
         self.updateLike(post: (self.post!))
     }
@@ -88,12 +82,13 @@ class HomeTableViewCell: UITableViewCell {
     
     func updateLike(post: Post) {
         
-        let imageName = post.likes == nil || !post.isLiked! ? "Saved" : "SavedSelected"
+        let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell"
         likeImageView.image = UIImage(named: imageName)
         guard let count = post.likeCount else {
             return
         }
         if count != 0 {
+            print("Liked Item")
             //likeCountButton.setTitle("\(count) likes", for: UIControlState.normal)
         } else {
             //likeCountButton.setTitle("Be the first support this", for: UIControlState.normal)
@@ -103,6 +98,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func setupUserInfo() {
         nameLabel.text = user?.username
+      
         //goalLabel.text = user?.goal
 //        if let photoUrlString = user?.profileImageUrl {
 //            let photoUrl = URL(string: photoUrlString)
@@ -116,6 +112,8 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.text = ""
        //goalLabel.text = ""
         captionLabel.text = ""
+        postTitleLabel.text = "" //added for title
+        postDateLabel.text = "" //added for Date
         
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
 //        commentImageView.addGestureRecognizer(tapGesture)
@@ -132,7 +130,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     
-    @objc func nameLabel_TouchUpInside() {
+    @objc func nameLabel_TouchUpInside() { //If Name label is tapped then user will go to that user's profile. 
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
         }
@@ -148,6 +146,7 @@ class HomeTableViewCell: UITableViewCell {
         }) { (errorMessage) in
            // ProgressHUD.showError(errorMessage)
         }
+        print("You Tapped The Save Icon")
         //incrementLikes(forRef: postRef)
     }
     
@@ -161,7 +160,7 @@ class HomeTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         print("Reusing cell")
-        profileImageView.image = UIImage(named: "placeholderImg")
+        //profileImageView.image = UIImage(named: "placeholderImg")
         //playerLayer?.removeFromSuperlayer()
        // player?.pause()
         //self.volumeView.isHidden = true

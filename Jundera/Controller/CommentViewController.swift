@@ -19,6 +19,7 @@ class CommentViewController: UIViewController {
     var comments = [Comment]()
     var users = [Userr]()
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         title = "Comment"
         tableView.dataSource = self

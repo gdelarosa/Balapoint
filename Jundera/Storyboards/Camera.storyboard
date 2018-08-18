@@ -26,9 +26,9 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="456"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-photo" translatesAutoresizingMaskIntoConstraints="NO" id="HZJ-6L-E0e">
-                                        <rect key="frame" x="8" y="10" width="359" height="209"/>
+                                        <rect key="frame" x="242" y="10" width="125" height="134"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="359" id="fHr-9P-lhy"/>
+                                            <constraint firstAttribute="width" constant="125" id="fHr-9P-lhy"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e3I-DW-326">
@@ -46,6 +46,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-7E-EYx">
+                                        <rect key="frame" x="9" y="10" width="225" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your headline here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrw-5V-ISW">
+                                        <rect key="frame" x="9" y="62" width="225" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -55,12 +69,12 @@
                                     <constraint firstAttribute="trailing" secondItem="e3I-DW-326" secondAttribute="trailing" constant="48" id="Lfh-2S-uN9"/>
                                     <constraint firstItem="HZJ-6L-E0e" firstAttribute="trailing" secondItem="e3I-DW-326" secondAttribute="trailing" constant="40" id="Srn-Lq-Rpf"/>
                                     <constraint firstAttribute="height" constant="456" id="cfu-Vt-QcV"/>
-                                    <constraint firstItem="HZJ-6L-E0e" firstAttribute="leading" secondItem="6hs-wE-rgv" secondAttribute="leadingMargin" id="cmE-qw-FQN"/>
-                                    <constraint firstItem="e3I-DW-326" firstAttribute="top" secondItem="HZJ-6L-E0e" secondAttribute="bottom" constant="23" id="gnD-SF-ujh"/>
+                                    <constraint firstItem="HZJ-6L-E0e" firstAttribute="leading" secondItem="6hs-wE-rgv" secondAttribute="leadingMargin" constant="234" id="cmE-qw-FQN"/>
+                                    <constraint firstItem="e3I-DW-326" firstAttribute="top" secondItem="HZJ-6L-E0e" secondAttribute="bottom" constant="98" id="gnD-SF-ujh"/>
                                     <constraint firstItem="HZJ-6L-E0e" firstAttribute="top" secondItem="6hs-wE-rgv" secondAttribute="top" constant="10" id="h4P-ux-ZIa"/>
                                     <constraint firstItem="HZJ-6L-E0e" firstAttribute="trailing" secondItem="6hs-wE-rgv" secondAttribute="trailingMargin" id="o50-Ti-I7b"/>
-                                    <constraint firstItem="HZJ-6L-E0e" firstAttribute="leading" secondItem="e3I-DW-326" secondAttribute="leading" id="p2O-9W-w0j"/>
-                                    <constraint firstItem="t0z-E9-cnA" firstAttribute="top" secondItem="HZJ-6L-E0e" secondAttribute="bottom" constant="8" symbolic="YES" id="xSD-PM-IG4"/>
+                                    <constraint firstItem="HZJ-6L-E0e" firstAttribute="leading" secondItem="e3I-DW-326" secondAttribute="leading" constant="234" id="p2O-9W-w0j"/>
+                                    <constraint firstItem="t0z-E9-cnA" firstAttribute="top" secondItem="HZJ-6L-E0e" secondAttribute="bottom" constant="83" id="xSD-PM-IG4"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHO-DK-mjg">
@@ -97,7 +111,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="e3I-DW-326" id="MMV-Su-bHR"/>
+                        <outlet property="header" destination="mrw-5V-ISW" id="awZ-do-Tnw"/>
                         <outlet property="photo" destination="HZJ-6L-E0e" id="M8n-mQ-cqH"/>
+                        <outlet property="postTitle" destination="LB6-7E-EYx" id="Sic-7r-LQJ"/>
                         <outlet property="removeButton" destination="Irk-3v-oBE" id="D6Z-UE-un4"/>
                         <outlet property="shareButton" destination="mHO-DK-mjg" id="Ydg-hB-eZv"/>
                         <segue destination="Dac-wY-xnm" kind="presentation" identifier="filter_segue" id="SAB-h8-VD9"/>
@@ -242,7 +258,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Create" width="16" height="16"/>
+        <image name="Create" width="24" height="27"/>
         <image name="CreateSelected" width="24" height="27"/>
         <image name="placeholder-photo" width="840" height="600"/>
     </resources>

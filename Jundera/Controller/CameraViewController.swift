@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  For Creating a new post. TODO: Change this VC file name. 
 
 import UIKit
 import AVFoundation
@@ -15,9 +15,11 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var postTitle: UITextField!
+    @IBOutlet weak var header: UITextField!
     
     var selectedImage: UIImage?
-    var videoUrl: URL?
+    var videoUrl: URL? //Wont need
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +70,7 @@ class CameraViewController: UIViewController {
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             let ratio = profileImg.size.width / profileImg.size.height
            
-            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: captionTextView.text!, onSuccess: {
+            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: captionTextView.text!, title: postTitle.text!, onSuccess: {
                 print("Successfully sent to database!")
             self.clean()
             self.tabBarController?.selectedIndex = 0
@@ -87,10 +89,11 @@ class CameraViewController: UIViewController {
     
     func clean() {
         self.captionTextView.text = ""
+        self.postTitle.text = "" //added
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
     }
-    
+    //Wont need to segue to a filtre
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "filter_segue" {
             let filterVC = segue.destination as! FilterViewController
@@ -100,6 +103,7 @@ class CameraViewController: UIViewController {
     }
     
 }
+// Extension for camera
 extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")

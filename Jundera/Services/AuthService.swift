@@ -48,9 +48,6 @@ class AuthService {
                         self.setUserInfomation(profileImageUrl: profileImageUrl, username: username, email: email, uid: uid, onSuccess: onSuccess)
                     }
                 })
-//                let profileImageUrl = metadata?.downloadURL()?.absoluteString
-//
-//                self.setUserInfomation(profileImageUrl: profileImageUrl!, username: username, email: email, uid: uid!, onSuccess: onSuccess)
             })
         })
         
@@ -72,24 +69,18 @@ class AuthService {
             } else {
                 let uid = Api.Userr.CURRENT_USER?.uid
                 let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(uid!)
-                let storageItem = Storage.storage().reference().child(uid!) //added
+                //let storageItem = Storage.storage().reference().child(uid!) //added
                 
                 
                 storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         return
                     }
-                    //TO DO: Fix this
-                  // let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    
-                  
                     storageRef.downloadURL(completion: { (url, error) in
                         if let profileImageUrl = url?.absoluteString {
                             self.updateDatabase(profileImageUrl: profileImageUrl, username: username, email: email, goal: goal, onSuccess: onSuccess, onError: onError)
                         }
                     })
-                   
-//                    self.updateDatabase(profileImageUrl: profileImageUrl!, username: username, email: email, goal: goal, onSuccess: onSuccess, onError: onError)
                 })
             }
         })

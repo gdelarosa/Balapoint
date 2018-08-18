@@ -19,7 +19,9 @@ class Post {
     var likes: Dictionary<String, Any>?
     var isLiked: Bool?
     var ratio: CGFloat?
-    var videoUrl: String?
+    var videoUrl: String? //Not needed
+    var title: String?
+    var date: Date?
 }
 
 extension Post {
@@ -33,6 +35,9 @@ extension Post {
         post.likeCount = dict["likeCount"] as? Int
         post.likes = dict["likes"] as? Dictionary<String, Any>
         post.ratio = dict["ratio"] as? CGFloat
+        post.title = dict["title"] as? String
+        post.date = dict["date"] as? Date //added Date
+        
         if let currentUserId = Auth.auth().currentUser?.uid {
             if post.likes != nil {
                 post.isLiked = post.likes![currentUserId] != nil
@@ -41,7 +46,7 @@ extension Post {
       
         return post
     }
-    
+    //Probs dont need
     static func transformPostVideo() {
         
     }

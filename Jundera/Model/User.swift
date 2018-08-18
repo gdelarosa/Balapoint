@@ -15,7 +15,8 @@ class Userr {
     var username: String?
     var id: String?
     var isFollowing: Bool?
-    var goal: String?
+    var goal: String? //Won't need but will have to have a bio of sorts like goal. 
+    var postTitle: String?
 }
 
 extension Userr {
@@ -25,7 +26,8 @@ extension Userr {
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String
         user.id = key
-        user.goal = dict["goal"] as? String
+        user.goal = dict["goal"] as? String //Won't need
+        user.postTitle = dict["title"] as? String
         return user
     }
 }
