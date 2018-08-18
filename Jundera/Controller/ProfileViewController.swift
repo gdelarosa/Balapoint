@@ -43,6 +43,10 @@ class ProfileViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true 
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Profile_SettingSegue" {
             let settingVC = segue.destination as! SettingTableViewController

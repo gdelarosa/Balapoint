@@ -28,6 +28,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
+    
     var user: Userr? {
         didSet {
             updateView()
