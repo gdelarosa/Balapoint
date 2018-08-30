@@ -124,7 +124,7 @@
 		77EE528B211BEB340065E364 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		77EE528D211BEB670065E364 /* Jundera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jundera-Bridging-Header.h"; sourceTree = "<group>"; };
 		77EE528E211C9DC30065E364 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		77F1EF36211B837300A6F736 /* Jundera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jundera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F1EF36211B837300A6F736 /* Balapoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balapoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F1EF39211B837300A6F736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77F1EF40211B837500A6F736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77F1EF45211B837500A6F736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		77F1EF37211B837300A6F736 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77F1EF36211B837300A6F736 /* Jundera.app */,
+				77F1EF36211B837300A6F736 /* Balapoint.app */,
 				77F1EF4A211B837500A6F736 /* JunderaTests.xctest */,
 			);
 			name = Products;
@@ -345,7 +345,7 @@
 			);
 			name = Jundera;
 			productName = Jundera;
-			productReference = 77F1EF36211B837300A6F736 /* Jundera.app */;
+			productReference = 77F1EF36211B837300A6F736 /* Balapoint.app */;
 			productType = "com.apple.product-type.application";
 		};
 		77F1EF49211B837500A6F736 /* JunderaTests */ = {
@@ -680,8 +680,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
+				PRODUCT_NAME = Balapoint;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -701,8 +701,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
+				PRODUCT_NAME = Balapoint;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
