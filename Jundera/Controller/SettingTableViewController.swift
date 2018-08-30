@@ -44,6 +44,7 @@ class SettingTableViewController: UITableViewController {
             }
         }
     }
+    
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
         if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
            // ProgressHUD.show("Waiting...")
@@ -66,6 +67,7 @@ class SettingTableViewController: UITableViewController {
            // ProgressHUD.showError(errorMessage)
         }
     }
+    
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -75,6 +77,7 @@ class SettingTableViewController: UITableViewController {
 }
 
 extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{

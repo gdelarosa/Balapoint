@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
 		77EE522F211BDC630065E364 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* Camera.storyboard */; };
 		77EE5230211BDC630065E364 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5229211BDC630065E364 /* Discover.storyboard */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
+		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EE5228211BDC630065E364 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		77EE5229211BDC630065E364 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				77EE526A211BDCFF0065E364 /* SettingTableViewController.swift */,
 				77EE5262211BDCFE0065E364 /* SignUpViewController.swift */,
 				77EE5268211BDCFF0065E364 /* SignInViewController.swift */,
+				7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -383,7 +386,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77F1EF31211B837300A6F736 /* Build configuration list for PBXProject "Jundera" */;
+			buildConfigurationList = 77F1EF31211B837300A6F736 /* Build configuration list for PBXProject "Balapoint" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -510,6 +513,7 @@
 				77F1EF3A211B837300A6F736 /* AppDelegate.swift in Sources */,
 				77EE5260211BDCF60065E364 /* CommentTableViewCell.swift in Sources */,
 				77EE5272211BDCFF0065E364 /* DetailViewController.swift in Sources */,
+				7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */,
 				77EE5273211BDCFF0065E364 /* HomeViewController.swift in Sources */,
 				77EE5244211BDC790065E364 /* PostApi.swift in Sources */,
 				77EE5261211BDCF60065E364 /* FilterCollectionViewCell.swift in Sources */,
@@ -676,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Jundera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -697,7 +701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Jundera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -749,7 +753,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77F1EF31211B837300A6F736 /* Build configuration list for PBXProject "Jundera" */ = {
+		77F1EF31211B837300A6F736 /* Build configuration list for PBXProject "Balapoint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77F1EF51211B837500A6F736 /* Debug */,

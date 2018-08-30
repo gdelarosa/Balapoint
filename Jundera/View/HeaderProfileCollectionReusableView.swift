@@ -16,6 +16,10 @@ protocol HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC()
 }
 
+protocol HeaderProfileCollectionReusableViewDelegateUserSettingVC {
+    func goToUsersSettings()
+}
+
 class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -24,10 +28,12 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
+    @IBOutlet weak var userSettingsButton: UIButton! // Settings button for user
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
+    var delegateUserSettings: HeaderProfileCollectionReusableViewDelegateUserSettingVC?
     
     var user: Userr? {
         didSet {
@@ -62,11 +68,18 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         }
         
         if user?.id == Api.Userr.CURRENT_USER?.uid {
-            followButton.setTitle("Edit Profile", for: UIControlState.normal)
+            followButton.setTitle("Edit", for: UIControlState.normal)
             followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
 
         } else {
             updateStateFollowButton()
+        }
+        
+        if user?.id == Api.Userr.CURRENT_USER?.uid {
+            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
+            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
+        } else {
+            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden. 
         }
     }
     
@@ -80,6 +93,10 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     @objc func goToSettingVC() {
         delegate2?.goToSettingVC()
+    }
+    
+    @objc func goToUsersSettings() {
+        delegateUserSettings?.goToUsersSettings()
     }
     
     func updateStateFollowButton() {

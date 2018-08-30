@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Segues to Users Profile Update Settings
         if segue.identifier == "Profile_SettingSegue" {
             let settingVC = segue.destination as! SettingTableViewController
             settingVC.delegate = self
@@ -60,11 +61,20 @@ class ProfileViewController: UIViewController {
             let postId = sender  as! String
             detailVC.postId = postId
         }
+        // Segues to the actual Settings VC
+        if segue.identifier == "User_SettingSegue" {
+            print("Pressed")
+            let userSettingVC = segue.destination as! UserSettingsTableViewController
+            userSettingVC.delegate = self as! UserSettingTableViewControllerDelegate
+            //userSettingVC.delegate = self
+        }
     }
 
 }
 
+// Will return the posts in the users profile. TODO: Update UI.
 extension ProfileViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -82,6 +92,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         if let user = self.user {
             headerViewCell.user = user
             headerViewCell.delegate2 = self
+            headerViewCell.delegateUserSettings = self //added. Not sure if this is actually needed. Will circle back.
         }
         return headerViewCell
     }
@@ -89,8 +100,18 @@ extension ProfileViewController: UICollectionViewDataSource {
 }
 
 extension ProfileViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
+    
     func goToSettingVC() {
+        print("Pressed to go to EDIT profile")
         performSegue(withIdentifier: "Profile_SettingSegue", sender: nil)
+    }
+}
+
+// Will lead to SETTINGS.
+extension ProfileViewController: HeaderProfileCollectionReusableViewDelegateUserSettingVC  {
+    func goToUsersSettings() {
+        print("Pressed to go to SETTINGS VC")
+        performSegue(withIdentifier: "User_SettingSegue", sender: nil)
     }
 }
 

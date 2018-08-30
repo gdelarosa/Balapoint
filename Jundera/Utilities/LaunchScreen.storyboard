@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="neB-Sy-asr">
-                                <rect key="frame" x="115" y="258" width="144" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoB" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-dc-YIj">
+                                <rect key="frame" x="109" y="259" width="157" height="148"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="neB-Sy-asr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Xok-KC-ARQ"/>
-                            <constraint firstItem="neB-Sy-asr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238" id="ZuS-Zb-C6i"/>
-                            <constraint firstItem="neB-Sy-asr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="dPO-3C-O5Z"/>
-                            <constraint firstItem="neB-Sy-asr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ueL-Jb-6jN"/>
+                            <constraint firstItem="V8X-dc-YIj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2gs-Uv-HK4"/>
+                            <constraint firstItem="V8X-dc-YIj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="239" id="2va-YG-wjo"/>
+                            <constraint firstItem="V8X-dc-YIj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="cG3-IY-Nbg"/>
+                            <constraint firstItem="V8X-dc-YIj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fpL-iU-BJm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="261" height="388"/>
+        <image name="LogoB" width="900" height="900"/>
     </resources>
 </document>

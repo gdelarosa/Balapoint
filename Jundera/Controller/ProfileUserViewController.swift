@@ -83,16 +83,24 @@ extension ProfileUserViewController: UICollectionViewDataSource {
             headerViewCell.user = user
             headerViewCell.delegate = self.delegate
             headerViewCell.delegate2 = self
+            
         }
         return headerViewCell
     }
 }
-
+// Will lead to EDITING profile
 extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
     }
 }
+//// Will lead to SETTINGS. not working
+//extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateUserSettingVC {
+//    func goToUsersSettings() {
+//        print("Pressed")
+//        performSegue(withIdentifier: "User_SettingSegue", sender: nil)
+//    }
+//}
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
