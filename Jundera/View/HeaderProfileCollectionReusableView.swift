@@ -48,7 +48,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     func updateView() {        
         self.nameLabel.text = user!.username
-        self.goalLabel.text = user!.goal
+        //self.goalLabel.text = user!.goal
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             

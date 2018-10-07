@@ -19,18 +19,17 @@ class Post {
     var likes: Dictionary<String, Any>?
     var isLiked: Bool?
     var ratio: CGFloat?
-    var videoUrl: String? //Not needed
     var title: String?
     var date: Date?
 }
 
 extension Post {
+    
     static func transformPostPhoto(dict: [String: Any], key: String) -> Post {
         let post = Post()
         post.id = key
         post.caption = dict["caption"] as? String
         post.photoUrl = dict["photoUrl"] as? String
-        post.videoUrl = dict["videoUrl"] as? String
         post.uid = dict["uid"] as? String
         post.likeCount = dict["likeCount"] as? Int
         post.likes = dict["likes"] as? Dictionary<String, Any>

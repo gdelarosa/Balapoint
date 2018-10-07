@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
         <scene sceneID="msA-aM-zcz">
             <objects>
-                <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wGN-oX-yKn"/>
                         <viewControllerLayoutGuide type="bottom" id="cWe-XL-AUU"/>
@@ -27,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="172" id="VoG-1z-zvf" customClass="HomeTableViewCell" customModule="Jundera" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="172" id="VoG-1z-zvf" customClass="HomeTableViewCell" customModule="Balapoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="172"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VoG-1z-zvf" id="2Rz-KO-OMQ">
@@ -47,13 +45,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Saved" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-aN-Ui7">
-                                                    <rect key="frame" x="31" y="132" width="18" height="25"/>
+                                                    <rect key="frame" x="31" y="126" width="18" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="qzc-NZ-kdS"/>
                                                         <constraint firstAttribute="width" constant="18" id="wie-8R-KV4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hidden gems I'm willing to share in my neighborhood of Avalon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Am-BIT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden gems I'm willing to share in my neighborhood of Avalon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Am-BIT">
                                                     <rect key="frame" x="25" y="84" width="234" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="6Rk-u8-BRC"/>
@@ -77,6 +75,9 @@
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="bwH-bt-NH6">
+                                                    <rect key="frame" x="267" y="21" width="95" height="115"/>
+                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JAf-Ao-6LM">
                                                     <rect key="frame" x="267" y="21" width="95" height="115"/>
                                                     <constraints>
@@ -89,8 +90,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="-6" id="0iH-Bd-ZJH"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="top" secondItem="w06-SR-xaX" secondAttribute="top" id="3e7-kZ-0Yz"/>
+                                                <constraint firstItem="bwH-bt-NH6" firstAttribute="trailing" secondItem="JAf-Ao-6LM" secondAttribute="trailing" id="56E-ER-j2U"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="baseline" secondItem="7Ma-zl-z3F" secondAttribute="baseline" id="7fQ-wc-k9t"/>
-                                                <constraint firstItem="vMY-aN-Ui7" firstAttribute="top" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="12" id="Ayt-Bx-55v"/>
+                                                <constraint firstItem="bwH-bt-NH6" firstAttribute="bottom" secondItem="JAf-Ao-6LM" secondAttribute="bottom" id="ASb-c2-87z"/>
+                                                <constraint firstItem="vMY-aN-Ui7" firstAttribute="top" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="6" id="Ayt-Bx-55v"/>
                                                 <constraint firstItem="8HR-Am-BIT" firstAttribute="top" secondItem="w06-SR-xaX" secondAttribute="bottom" constant="8" symbolic="YES" id="CS4-OL-by8"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="leading" secondItem="w06-SR-xaX" secondAttribute="trailing" constant="9" id="NvE-G5-XpY"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="topMargin" id="PDD-KQ-0gM"/>
@@ -101,12 +104,15 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="JAf-Ao-6LM" secondAttribute="trailing" constant="-2" id="Zr3-LX-OUj"/>
                                                 <constraint firstAttribute="trailing" secondItem="dHw-2h-ayO" secondAttribute="trailing" constant="31" id="aGB-os-Lss"/>
                                                 <constraint firstItem="w06-SR-xaX" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="topMargin" constant="10" id="bdq-d5-Yjd"/>
+                                                <constraint firstItem="bwH-bt-NH6" firstAttribute="leading" secondItem="8HR-Am-BIT" secondAttribute="trailing" constant="8" symbolic="YES" id="bec-RL-wdu"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leading" constant="11" id="h6M-ct-8rV"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="firstBaseline" secondItem="7Ma-zl-z3F" secondAttribute="firstBaseline" id="iQE-4b-SVo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Ma-zl-z3F" secondAttribute="trailing" constant="26" id="kLL-Hb-NOt"/>
-                                                <constraint firstItem="vMY-aN-Ui7" firstAttribute="bottom" secondItem="fEI-ug-Ldb" secondAttribute="bottom" id="qI6-aw-rTx"/>
+                                                <constraint firstItem="bwH-bt-NH6" firstAttribute="leading" secondItem="JAf-Ao-6LM" secondAttribute="leading" id="l1P-T4-Zwc"/>
+                                                <constraint firstItem="bwH-bt-NH6" firstAttribute="top" secondItem="JAf-Ao-6LM" secondAttribute="top" id="mvH-3q-7Js"/>
+                                                <constraint firstItem="vMY-aN-Ui7" firstAttribute="bottom" secondItem="fEI-ug-Ldb" secondAttribute="bottom" constant="-6" id="qI6-aw-rTx"/>
                                                 <constraint firstItem="7Ma-zl-z3F" firstAttribute="top" secondItem="JAf-Ao-6LM" secondAttribute="bottom" constant="2" id="qnW-Xq-xVe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vMY-aN-Ui7" secondAttribute="bottom" constant="4" id="ue7-gr-TmR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vMY-aN-Ui7" secondAttribute="bottom" constant="10" id="ue7-gr-TmR"/>
                                                 <constraint firstAttribute="bottom" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="5" id="wFF-X4-W2D"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="11" id="wFY-Mv-lQg"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="leading" secondItem="vMY-aN-Ui7" secondAttribute="trailing" constant="27" id="y2y-MD-7UD"/>
@@ -114,6 +120,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="8HR-Am-BIT" id="Fuv-n1-tln"/>
+                                            <outlet property="imageBackgroundShadow" destination="bwH-bt-NH6" id="Xon-zK-aoY"/>
                                             <outlet property="likeImageView" destination="vMY-aN-Ui7" id="CLR-jf-8FE"/>
                                             <outlet property="nameLabel" destination="fEI-ug-Ldb" id="X0c-6D-SRe"/>
                                             <outlet property="postDateLabel" destination="7Ma-zl-z3F" id="9iN-Qe-dL1"/>
@@ -124,7 +131,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-fS-EhU">
-                                <rect key="frame" x="178" y="324" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <constraints>
@@ -159,7 +166,7 @@
         <!--Comment View Controller-->
         <scene sceneID="s7s-ZJ-pFZ">
             <objects>
-                <viewController storyboardIdentifier="CommentViewController" id="Vjj-M9-yXD" customClass="CommentViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentViewController" id="Vjj-M9-yXD" customClass="CommentViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fil-qH-4Ln"/>
                         <viewControllerLayoutGuide type="bottom" id="LaF-L0-zfD"/>
@@ -172,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="82" id="VSe-Cn-7wa" customClass="CommentTableViewCell" customModule="Jundera" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="82" id="VSe-Cn-7wa" customClass="CommentTableViewCell" customModule="Balapoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSe-Cn-7wa" id="kLU-AP-PF2">
@@ -325,6 +332,7 @@
     <resources>
         <image name="Home" width="27" height="27"/>
         <image name="HomeSelected" width="27" height="27"/>
+        <image name="ImageBackground" width="104" height="123"/>
         <image name="PostCell_Background" width="333" height="164"/>
         <image name="Saved" width="18" height="27"/>
     </resources>

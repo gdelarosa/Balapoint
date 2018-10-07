@@ -12,7 +12,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="RI3-P6-dN8">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="097-w8-9Hf" customClass="SignInViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="097-w8-9Hf" customClass="SignInViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rdv-cb-WF9"/>
                         <viewControllerLayoutGuide type="bottom" id="kor-sC-4NC"/>
@@ -46,14 +46,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-3C-Xfe">
-                                <rect key="frame" x="323" y="621" width="30" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.87186706849999995" green="0.87186706849999995" blue="0.87186706849999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-Jw-Wy3">
                                 <rect key="frame" x="103" y="595" width="169" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -84,6 +76,17 @@
                                 <color key="textColor" red="0.047058823529411764" green="0.070588235294117646" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-3C-Xfe">
+                                <rect key="frame" x="327" y="610" width="30" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.87186706849999995" green="0.87186706849999995" blue="0.87186706849999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipToHomeButton:" destination="097-w8-9Hf" eventType="touchUpInside" id="sfA-DS-juv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -91,6 +94,7 @@
                         <outlet property="emailTextField" destination="6aY-zc-8S3" id="8ok-mT-QYU"/>
                         <outlet property="passwordTextField" destination="vnJ-SL-WOp" id="rdT-3u-0Of"/>
                         <outlet property="signInButton" destination="265-Mg-Oly" id="cpn-mm-GPx"/>
+                        <outlet property="skipButton" destination="h4e-3C-Xfe" id="xDb-qT-Sgp"/>
                         <segue destination="4MG-Ov-gdp" kind="presentation" identifier="signInToTabbarVC" id="67q-py-SuJ"/>
                     </connections>
                 </viewController>
@@ -101,7 +105,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="zMU-I9-LHe">
             <objects>
-                <viewController id="VTE-tb-V8W" customClass="SignUpViewController" customModule="Jundera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VTE-tb-V8W" customClass="SignUpViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XaW-FK-Oxh"/>
                         <viewControllerLayoutGuide type="bottom" id="GB4-9v-2XM"/>
@@ -155,19 +159,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-OU-G8C">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="r2Q-Ta-VsS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <state key="normal" title="Already have an account? Sign In">
-                                    <color key="titleColor" red="0.064956501080000006" green="0.092213887829999994" blue="0.1761025433" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss_onClick:" destination="VTE-tb-V8W" eventType="touchUpInside" id="uuu-LI-2Rw"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="P38-dn-qAE">
                                 <rect key="frame" x="147.5" y="61" width="80" height="80"/>
                                 <constraints>
@@ -175,6 +166,19 @@
                                     <constraint firstAttribute="width" constant="80" id="T0J-5S-Zl6"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-OU-G8C">
+                                <rect key="frame" x="68" y="623" width="239" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="r2Q-Ta-VsS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                <state key="normal" title="Already have an account? Sign In">
+                                    <color key="titleColor" red="0.064956501080000006" green="0.092213887829999994" blue="0.1761025433" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss_onClick:" destination="VTE-tb-V8W" eventType="touchUpInside" id="uuu-LI-2Rw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -184,8 +188,8 @@
                             <constraint firstItem="P38-dn-qAE" firstAttribute="top" secondItem="XaW-FK-Oxh" secondAttribute="bottom" constant="41" id="RxL-Hw-plB"/>
                             <constraint firstItem="P38-dn-qAE" firstAttribute="centerX" secondItem="qoP-KS-OIZ" secondAttribute="centerX" id="YVy-Jw-IZS"/>
                             <constraint firstItem="GB4-9v-2XM" firstAttribute="top" secondItem="GCc-OU-G8C" secondAttribute="bottom" id="gjJ-I5-VcY"/>
-                            <constraint firstAttribute="trailing" secondItem="GCc-OU-G8C" secondAttribute="trailing" id="jTS-zY-imA"/>
-                            <constraint firstItem="GCc-OU-G8C" firstAttribute="leading" secondItem="qoP-KS-OIZ" secondAttribute="leading" id="s3T-hv-2zR"/>
+                            <constraint firstAttribute="trailing" secondItem="GCc-OU-G8C" secondAttribute="trailing" constant="68" id="jTS-zY-imA"/>
+                            <constraint firstItem="GCc-OU-G8C" firstAttribute="leading" secondItem="qoP-KS-OIZ" secondAttribute="leading" constant="68" id="s3T-hv-2zR"/>
                             <constraint firstAttribute="trailing" secondItem="VGC-TB-dJi" secondAttribute="trailing" constant="20" id="zag-Jh-B1k"/>
                         </constraints>
                     </view>
@@ -200,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40x-c8-q1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="854"/>
+            <point key="canvasLocation" x="-567.20000000000005" y="853.22338830584715"/>
         </scene>
         <!--TabBarId-->
         <scene sceneID="B3f-EJ-SUh">
@@ -215,6 +219,6 @@
         <image name="placeholderImg" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JRp-rs-fkO"/>
+        <segue reference="67q-py-SuJ"/>
     </inferredMetricsTieBreakers>
 </document>

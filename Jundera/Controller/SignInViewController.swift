@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,5 +65,12 @@ class SignInViewController: UIViewController {
             //ProgressHUD.showError(error!)
         })
     }
+    
+    // Allows user to skip but restricts use. Will only be allowed to browse essentially.
+    // TO DO: Sign up Anonymous with Firebase. 
+    @IBAction func skipToHomeButton(_ sender: Any) {
+        
+    }
+    
     
 }

@@ -12,6 +12,7 @@ import FirebaseDatabase
 class PostApi {
     
     var REF_POSTS = Database.database().reference().child("posts")
+    
     func observePosts(completion: @escaping (Post) -> Void) {
         REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
@@ -54,6 +55,18 @@ class PostApi {
             })
         })
     }
+    
+//    //Date 10/7
+//    func setDate() {
+//        REF_POSTS.setValue(ServerValue.timestamp())
+//        REF_POSTS.observe(.value, with: {
+//            snap in
+//            if let t = snap.value as? TimeInterval {
+//                print(NSDate(timeIntervalSince1970: t/1000))
+//            }
+//        })
+//    }
+   
     
     func removeObserveLikeCount(id: String, likeHandler: UInt) {
         Api.Post.REF_POSTS.child(id).removeObserver(withHandle: likeHandler)

@@ -38,7 +38,7 @@ class SettingTableViewController: UITableViewController {
         Api.Userr.observeCurrentUser { (userr) in
             self.usernnameTextField.text = userr.username
             self.emailTextField.text = userr.email
-            self.goalTextField.text = userr.goal
+            //self.goalTextField.text = userr.goal
             if let profileUrl = URL(string: userr.profileImageUrl!) {
                 self.profileImageView.sd_setImage(with: profileUrl)
             }
