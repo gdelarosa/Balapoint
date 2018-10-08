@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 5),
             scrollEnabled: true,
             indicatorOptions: SegmentioIndicatorOptions(),
-            horizontalSeparatorOptions: nil,
+            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(),
             verticalSeparatorOptions: nil,
             imageContentMode: .center,
             labelTextAlignment: .center,
@@ -85,12 +85,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
 
      func segmentioContent() -> [SegmentioItem] {
         return [
+            SegmentioItem(title: "Home", image: nil),
             SegmentioItem(title: "Tech", image: nil),
             SegmentioItem(title: "Food", image: nil),
             SegmentioItem(title: "Travel", image: nil),
             SegmentioItem(title: "Beauty", image: nil),
             SegmentioItem(title: "Politics", image: nil),
-            SegmentioItem(title: "College", image: nil)
+            SegmentioItem(title: "College", image: nil),
+            SegmentioItem(title: "Health", image: nil),
+            SegmentioItem(title: "Science", image: nil)
         ]
     }
     

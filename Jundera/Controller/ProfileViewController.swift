@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
         if segue.identifier == "User_SettingSegue" {
             print("Pressed")
             let userSettingVC = segue.destination as! UserSettingsTableViewController
-            userSettingVC.delegate = self as! UserSettingTableViewControllerDelegate
+            userSettingVC.delegate = self as? UserSettingTableViewControllerDelegate
             //userSettingVC.delegate = self
         }
     }
