@@ -8,12 +8,14 @@
     
 import UIKit
 import SDWebImage
+import Segmentio
 
-
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var swipeMenu: Segmentio!
     
     var posts = [Post]()
     var users = [Userr]()
@@ -24,12 +26,72 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         loadPosts()
+        loadMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = true
         
+    }
+    
+    /// Swipe Menu using Segmentio Pod
+    func loadMenu() {
+        swipeMenu.setup(content: segmentioContent(),
+                        style: SegmentioStyle.onlyLabel,
+                        options: segmentioOptions())
+
+        swipeMenu.selectedSegmentioIndex = 0
+        swipeMenu.valueDidChange = { segmentio, segmentIndex in
+            print("Selected item: ", segmentIndex)
+        }
+    }
+    
+   func segmentioOptions() -> SegmentioOptions {
+    
+    let SegmentioStates = (
+        defaultState: SegmentioState(
+            backgroundColor: .clear,
+            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            titleTextColor: .black
+        ),
+        selectedState: SegmentioState(
+            backgroundColor: .white,
+            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            titleTextColor: .black
+        ),
+        highlightedState: SegmentioState(
+            backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
+            titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
+            titleTextColor: .black
+        )
+    )
+        
+        return SegmentioOptions(
+            backgroundColor: .white,
+            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 5),
+            scrollEnabled: true,
+            indicatorOptions: SegmentioIndicatorOptions(),
+            horizontalSeparatorOptions: nil,
+            verticalSeparatorOptions: nil,
+            imageContentMode: .center,
+            labelTextAlignment: .center,
+            labelTextNumberOfLines: 1,
+            segmentStates: SegmentioStates,
+            animationDuration: 0.3
+        )
+
+    }
+
+     func segmentioContent() -> [SegmentioItem] {
+        return [
+            SegmentioItem(title: "Tech", image: nil),
+            SegmentioItem(title: "Food", image: nil),
+            SegmentioItem(title: "Travel", image: nil),
+            SegmentioItem(title: "Beauty", image: nil),
+            SegmentioItem(title: "Politics", image: nil),
+            SegmentioItem(title: "College", image: nil)
+        ]
     }
     
     func loadPosts() {

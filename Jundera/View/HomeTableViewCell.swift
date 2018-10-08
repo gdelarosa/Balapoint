@@ -17,17 +17,14 @@ protocol HomeTableViewCellDelegate {
 
 class HomeTableViewCell: UITableViewCell {
 
-    //@IBOutlet weak var profileImageView: UIImageView! //Will not need for home but for detail post
+    
     @IBOutlet weak var postTitleLabel: UILabel! // Post Title
     @IBOutlet weak var nameLabel: UILabel! // User name of whom posted
-    //@IBOutlet weak var goalLabel: UILabel! //Title
     @IBOutlet weak var postImageView: UIImageView! //Post Image
     @IBOutlet weak var likeImageView: UIImageView! // Save Post
-    //@IBOutlet weak var likeCountButton: UIButton! //Saved
     @IBOutlet weak var captionLabel: UILabel! // Heading
-   // @IBOutlet weak var heightConstraintPhoto: NSLayoutConstraint!
     @IBOutlet weak var postDateLabel: UILabel!
-    @IBOutlet weak var imageBackgroundShadow: UIImageView!
+    @IBOutlet weak var imageBackgroundShadow: UIImageView! //Might not use after all
     
     var delegate: HomeTableViewCellDelegate?
     
@@ -44,7 +41,8 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        
+        //setShadow()
+        imageBackgroundShadow.isHidden = false
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
         
@@ -61,6 +59,15 @@ class HomeTableViewCell: UITableViewCell {
         self.updateLike(post: (self.post!))
     }
     
+//    func setShadow() {
+//        postImageView.layer.shadowColor = UIColor.black.cgColor
+//        postImageView.layer.shadowOpacity = 1
+//        postImageView.layer.shadowOffset = CGSize.zero
+//        postImageView.layer.shadowRadius = 10
+//        postImageView.layer.shadowPath = UIBezierPath(rect: postImageView.bounds).cgPath
+//
+//    }
+    
     func updateLike(post: Post) {
         
         let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell"
@@ -70,21 +77,12 @@ class HomeTableViewCell: UITableViewCell {
         }
         if count != 0 {
             print("Liked Item")
-            //likeCountButton.setTitle("\(count) likes", for: UIControlState.normal)
-        } else {
-            //likeCountButton.setTitle("Be the first support this", for: UIControlState.normal)
         }
        
     }
     
     func setupUserInfo() {
         nameLabel.text = user?.username
-      
-//        if let photoUrlString = user?.profileImageUrl {
-//            let photoUrl = URL(string: photoUrlString)
-//            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
-//
-//        }
     }
     
       override func awakeFromNib() {
@@ -103,8 +101,11 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.isUserInteractionEnabled = true
 
     }
+    
     // CAUSES A CRASH
-    @objc func nameLabel_TouchUpInside() { //If Name label is tapped then user will go to that user's profile. 
+    /// If a user taps on the user name label they will go to that profile.
+    
+    @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
         }
@@ -118,10 +119,9 @@ class HomeTableViewCell: UITableViewCell {
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
         }) { (errorMessage) in
-           // ProgressHUD.showError(errorMessage)
+            print("Error: \(String(describing: errorMessage))")
         }
         print("You Tapped The Save Icon")
-        //incrementLikes(forRef: postRef)
     }
     
     @objc func commentImageView_TouchUpInside() {
@@ -140,6 +140,4 @@ class HomeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-
 }
-

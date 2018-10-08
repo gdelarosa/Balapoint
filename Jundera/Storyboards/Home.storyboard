@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="172" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2V7-TV-WOy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="172" id="VoG-1z-zvf" customClass="HomeTableViewCell" customModule="Balapoint" customModuleProvider="target">
@@ -60,7 +60,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where The Locals Go During Summer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where The Locals Go During Summer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
                                                     <rect key="frame" x="25" y="21" width="233" height="55"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -133,25 +133,55 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-fS-EhU">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="ogN-ob-dCy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZeP-ac-4dh" id="mdu-cP-aEe"/>
+                                </connections>
+                            </searchBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V91-wx-Gz4" customClass="Segmentio" customModule="Segmentio">
+                                <rect key="frame" x="0.0" y="64" width="375" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2V7-TV-WOy" firstAttribute="leading" secondItem="lBI-Vj-Fsn" secondAttribute="leading" id="2wB-eF-aLR"/>
                             <constraint firstAttribute="bottom" secondItem="2V7-TV-WOy" secondAttribute="bottom" id="A59-Q5-Fww"/>
                             <constraint firstItem="W9U-fS-EhU" firstAttribute="centerY" secondItem="lBI-Vj-Fsn" secondAttribute="centerY" id="GuL-Np-1Yq"/>
+                            <constraint firstAttribute="trailing" secondItem="ogN-ob-dCy" secondAttribute="trailing" id="ILO-JC-t97"/>
                             <constraint firstItem="W9U-fS-EhU" firstAttribute="centerX" secondItem="lBI-Vj-Fsn" secondAttribute="centerX" id="KHh-Xj-tQv"/>
                             <constraint firstAttribute="trailing" secondItem="2V7-TV-WOy" secondAttribute="trailing" id="Z0a-6I-gp4"/>
-                            <constraint firstItem="2V7-TV-WOy" firstAttribute="top" secondItem="lBI-Vj-Fsn" secondAttribute="top" id="zPO-t9-9xR"/>
+                            <constraint firstItem="ogN-ob-dCy" firstAttribute="top" secondItem="lBI-Vj-Fsn" secondAttribute="top" constant="20" id="hLe-7z-dCj"/>
+                            <constraint firstItem="ogN-ob-dCy" firstAttribute="leading" secondItem="lBI-Vj-Fsn" secondAttribute="leading" id="pgu-rN-Ia2"/>
+                            <constraint firstItem="2V7-TV-WOy" firstAttribute="top" secondItem="lBI-Vj-Fsn" secondAttribute="top" constant="114" id="zPO-t9-9xR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Xwx-Sg-AIS"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="W9U-fS-EhU" id="pdU-f5-iW4"/>
+                        <outlet property="searchBar" destination="ogN-ob-dCy" id="fd1-cE-DTv"/>
+                        <outlet property="searchDisplayController" destination="Zbs-tl-1Mv" id="94J-wN-qoF"/>
+                        <outlet property="swipeMenu" destination="V91-wx-Gz4" id="OxX-cb-nES"/>
                         <outlet property="tableView" destination="2V7-TV-WOy" id="Df0-ZL-dI2"/>
                         <segue destination="Vjj-M9-yXD" kind="show" identifier="CommentSegue" id="3Wk-zo-lxR"/>
                         <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="tl5-Cp-x7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56B-CE-3Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Zbs-tl-1Mv">
+                    <connections>
+                        <outlet property="delegate" destination="ZeP-ac-4dh" id="q1n-vQ-FaN"/>
+                        <outlet property="searchBar" destination="ogN-ob-dCy" id="Ejf-GF-0Oz"/>
+                        <outlet property="searchContentsController" destination="ZeP-ac-4dh" id="pK6-GE-mWy"/>
+                        <outlet property="searchResultsDataSource" destination="ZeP-ac-4dh" id="bLR-x4-7V6"/>
+                        <outlet property="searchResultsDelegate" destination="ZeP-ac-4dh" id="cST-KS-GVx"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-879.20000000000005" y="187.55622188905548"/>
         </scene>
