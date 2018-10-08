@@ -36,7 +36,6 @@ class HelperService {
         
         storageRef.putFile(from: videoUrl, metadata: nil) { (metadata, error) in
             if error != nil {
-               // ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             storageRef.downloadURL(completion: { (url, error) in
@@ -57,7 +56,6 @@ class HelperService {
         
         storageRef.putData(data, metadata: nil) { (metadata, error) in
             if error != nil {
-                //ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             storageRef.downloadURL(completion: { (url, error) in

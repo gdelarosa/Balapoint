@@ -97,6 +97,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         ]
     }
     
+    fileprivate func goToControllerAtIndex(_ index: Int) {
+        swipeMenu.selectedSegmentioIndex = index
+    }
+    
     func loadPosts() {
         
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in

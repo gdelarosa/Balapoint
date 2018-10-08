@@ -9,14 +9,14 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController {
+class CreatePostViewController: UIViewController {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var postTitle: UITextField!
-    @IBOutlet weak var header: UITextField!
+    @IBOutlet weak var postTitle: UITextField! // Title
+    @IBOutlet weak var header: UITextField! // Header
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
@@ -45,12 +45,9 @@ class CameraViewController: UIViewController {
         if selectedImage != nil {
            self.shareButton.isEnabled = true
            self.removeButton.isEnabled = true
-            self.shareButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         } else {
            self.shareButton.isEnabled = true
             self.removeButton.isEnabled = false
-            self.shareButton.backgroundColor = .lightGray
-
         }
     }
     
@@ -66,11 +63,11 @@ class CameraViewController: UIViewController {
     }
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-      // ProgressHUD.show("Waiting...", interaction: false)
+      
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             let ratio = profileImg.size.width / profileImg.size.height
            
-            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: captionTextView.text!, title: postTitle.text!, onSuccess: {
+            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: header.text!, title: postTitle.text!, onSuccess: {
                 print("Successfully sent to database!")
             self.clean()
             self.tabBarController?.selectedIndex = 0
@@ -78,7 +75,6 @@ class CameraViewController: UIViewController {
         
         } else {
             print("FAILED")
-         // ProgressHUD.showError("Error with image uploading")
         }
     }
     
@@ -88,23 +84,16 @@ class CameraViewController: UIViewController {
     }
     
     func clean() {
-        self.captionTextView.text = ""
+        self.header.text = ""
         self.postTitle.text = "" //added
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
     }
-    //Wont need to segue to a filtre
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "filter_segue" {
-            let filterVC = segue.destination as! FilterViewController
-            filterVC.selectedImage = self.selectedImage
-            filterVC.delegate = self
-        }
-    }
     
 }
+
 // Extension for camera
-extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreatePostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")
         print(info)
@@ -122,7 +111,7 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
             selectedImage = image
             photo.image = image
             dismiss(animated: true, completion: { 
-            self.performSegue(withIdentifier: "filter_segue", sender: nil)
+            print("Image should appear in post")
             })
         }
     }
@@ -141,9 +130,3 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
     }
 }
 
-extension CameraViewController: FilterViewControllerDelegate {
-    func updatePhoto(image: UIImage) {
-        self.photo.image = image
-        self.selectedImage = image
-    }
-}

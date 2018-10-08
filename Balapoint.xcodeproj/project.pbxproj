@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
+		774C9212216B146D00702A69 /* SavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C9211216B146D00702A69 /* SavedPostsApi.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
-		77EE522F211BDC630065E364 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* Camera.storyboard */; };
+		77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* CreatePost.storyboard */; };
 		77EE5230211BDC630065E364 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5229211BDC630065E364 /* Discover.storyboard */; };
 		77EE5231211BDC630065E364 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522A211BDC630065E364 /* Home.storyboard */; };
 		77EE5232211BDC630065E364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522B211BDC630065E364 /* Main.storyboard */; };
 		77EE5233211BDC630065E364 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522C211BDC630065E364 /* Start.storyboard */; };
 		77EE5234211BDC630065E364 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522D211BDC630065E364 /* Profile.storyboard */; };
-		77EE5235211BDC630065E364 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522E211BDC630065E364 /* Activity.storyboard */; };
 		77EE523F211BDC790065E364 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5236211BDC780065E364 /* FollowApi.swift */; };
 		77EE5240211BDC790065E364 /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5237211BDC780065E364 /* Post_CommentApi.swift */; };
 		77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5238211BDC780065E364 /* MyPostsApi.swift */; };
@@ -39,7 +39,6 @@
 		77EE5260211BDCF60065E364 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5259211BDCF60065E364 /* CommentTableViewCell.swift */; };
 		77EE5261211BDCF60065E364 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE525A211BDCF60065E364 /* FilterCollectionViewCell.swift */; };
 		77EE5270211BDCFF0065E364 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5262211BDCFE0065E364 /* SignUpViewController.swift */; };
-		77EE5271211BDCFF0065E364 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5263211BDCFE0065E364 /* ActivityViewController.swift */; };
 		77EE5272211BDCFF0065E364 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5264211BDCFF0065E364 /* DetailViewController.swift */; };
 		77EE5273211BDCFF0065E364 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5265211BDCFF0065E364 /* HomeViewController.swift */; };
 		77EE5274211BDCFF0065E364 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5266211BDCFF0065E364 /* ProfileUserViewController.swift */; };
@@ -48,7 +47,7 @@
 		77EE5277211BDCFF0065E364 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5269211BDCFF0065E364 /* PeopleViewController.swift */; };
 		77EE5278211BDCFF0065E364 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526A211BDCFF0065E364 /* SettingTableViewController.swift */; };
 		77EE5279211BDCFF0065E364 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526B211BDCFF0065E364 /* SearchViewController.swift */; };
-		77EE527A211BDCFF0065E364 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526C211BDCFF0065E364 /* CameraViewController.swift */; };
+		77EE527A211BDCFF0065E364 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526C211BDCFF0065E364 /* CreatePostViewController.swift */; };
 		77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526D211BDCFF0065E364 /* ProfileViewController.swift */; };
 		77EE527C211BDCFF0065E364 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526E211BDCFF0065E364 /* DiscoverViewController.swift */; };
 		77EE527D211BDCFF0065E364 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE526F211BDCFF0065E364 /* FilterViewController.swift */; };
@@ -75,14 +74,14 @@
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		774C9211216B146D00702A69 /* SavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsApi.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		77EE5228211BDC630065E364 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		77EE5228211BDC630065E364 /* CreatePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
 		77EE5229211BDC630065E364 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		77EE522A211BDC630065E364 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		77EE522B211BDC630065E364 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		77EE522C211BDC630065E364 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		77EE522D211BDC630065E364 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		77EE522E211BDC630065E364 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		77EE5236211BDC780065E364 /* FollowApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
 		77EE5237211BDC780065E364 /* Post_CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		77EE5238211BDC780065E364 /* MyPostsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		77EE5259211BDCF60065E364 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		77EE525A211BDCF60065E364 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		77EE5262211BDCFE0065E364 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		77EE5263211BDCFE0065E364 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		77EE5264211BDCFF0065E364 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		77EE5265211BDCFF0065E364 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		77EE5266211BDCFF0065E364 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +113,7 @@
 		77EE5269211BDCFF0065E364 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		77EE526A211BDCFF0065E364 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		77EE526B211BDCFF0065E364 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		77EE526C211BDCFF0065E364 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		77EE526C211BDCFF0065E364 /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		77EE526D211BDCFF0065E364 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		77EE526E211BDCFF0065E364 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		77EE526F211BDCFF0065E364 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -158,8 +156,7 @@
 		77EE5220211BD9520065E364 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				77EE522E211BDC630065E364 /* Activity.storyboard */,
-				77EE5228211BDC630065E364 /* Camera.storyboard */,
+				77EE5228211BDC630065E364 /* CreatePost.storyboard */,
 				77EE5229211BDC630065E364 /* Discover.storyboard */,
 				77EE522A211BDC630065E364 /* Home.storyboard */,
 				77EE522B211BDC630065E364 /* Main.storyboard */,
@@ -181,6 +178,7 @@
 				77EE5237211BDC780065E364 /* Post_CommentApi.swift */,
 				77EE523B211BDC790065E364 /* PostApi.swift */,
 				77EE523A211BDC790065E364 /* UserApi.swift */,
+				774C9211216B146D00702A69 /* SavedPostsApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -220,8 +218,7 @@
 		77EE5225211BD9790065E364 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				77EE5263211BDCFE0065E364 /* ActivityViewController.swift */,
-				77EE526C211BDCFF0065E364 /* CameraViewController.swift */,
+				77EE526C211BDCFF0065E364 /* CreatePostViewController.swift */,
 				77EE5267211BDCFF0065E364 /* CommentViewController.swift */,
 				77EE5264211BDCFF0065E364 /* DetailViewController.swift */,
 				77EE526E211BDCFF0065E364 /* DiscoverViewController.swift */,
@@ -413,14 +410,13 @@
 				77EE5231211BDC630065E364 /* Home.storyboard in Resources */,
 				77F1EF5A211B83E300A6F736 /* GoogleService-Info.plist in Resources */,
 				77EE5234211BDC630065E364 /* Profile.storyboard in Resources */,
-				77EE5235211BDC630065E364 /* Activity.storyboard in Resources */,
 				77EE5233211BDC630065E364 /* Start.storyboard in Resources */,
 				77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */,
 				77EE5232211BDC630065E364 /* Main.storyboard in Resources */,
 				77EE5287211BEAA40065E364 /* ProgressHUD.bundle in Resources */,
 				77EE528F211C9DC30065E364 /* Default-568h@2x.png in Resources */,
 				77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */,
-				77EE522F211BDC630065E364 /* Camera.storyboard in Resources */,
+				77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */,
 				77EE5230211BDC630065E364 /* Discover.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,7 +493,7 @@
 				77EE5278211BDCFF0065E364 /* SettingTableViewController.swift in Sources */,
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				77EE5246211BDC790065E364 /* Api.swift in Sources */,
-				77EE527A211BDCFF0065E364 /* CameraViewController.swift in Sources */,
+				77EE527A211BDCFF0065E364 /* CreatePostViewController.swift in Sources */,
 				77EE5245211BDC790065E364 /* CommentApi.swift in Sources */,
 				77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */,
 				77EE5251211BDCD90065E364 /* Comment.swift in Sources */,
@@ -507,7 +503,6 @@
 				77EE527D211BDCFF0065E364 /* FilterViewController.swift in Sources */,
 				77EE525C211BDCF60065E364 /* PhotoCollectionViewCell.swift in Sources */,
 				77EE5276211BDCFF0065E364 /* SignInViewController.swift in Sources */,
-				77EE5271211BDCFF0065E364 /* ActivityViewController.swift in Sources */,
 				77EE5274211BDCFF0065E364 /* ProfileUserViewController.swift in Sources */,
 				77EE5279211BDCFF0065E364 /* SearchViewController.swift in Sources */,
 				77EE524B211BDCB70065E364 /* AuthService.swift in Sources */,
@@ -521,6 +516,7 @@
 				77EE5261211BDCF60065E364 /* FilterCollectionViewCell.swift in Sources */,
 				77EE524D211BDCCC0065E364 /* Config.swift in Sources */,
 				77EE5240211BDC790065E364 /* Post_CommentApi.swift in Sources */,
+				774C9212216B146D00702A69 /* SavedPostsApi.swift in Sources */,
 				77EE528C211BEB350065E364 /* ProgressHUD.m in Sources */,
 				77EE5252211BDCD90065E364 /* Post.swift in Sources */,
 				77EE524A211BDCB70065E364 /* HelperService.swift in Sources */,
@@ -678,7 +674,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -696,7 +695,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_VERSION = 4.0;
@@ -712,7 +714,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -729,7 +735,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

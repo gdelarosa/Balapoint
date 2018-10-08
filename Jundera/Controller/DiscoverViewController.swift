@@ -26,13 +26,12 @@ class DiscoverViewController: UIViewController {
     }
     
     func loadTopPosts() {
-        //ProgressHUD.show("Loading...", interaction: false)
         self.posts.removeAll()
         self.collectionView.reloadData()
         Api.Post.observeTopPosts { (post) in
             self.posts.append(post)
             self.collectionView.reloadData()
-            //ProgressHUD.dismiss()
+            
         }
     }
     
