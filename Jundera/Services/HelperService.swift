@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  TO-DO: Should be optional to post a picture. Will have to change so that if there is no picture then the other data will be sent to the server.
 
 import Foundation
 import FirebaseStorage

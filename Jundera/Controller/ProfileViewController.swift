@@ -7,6 +7,7 @@
 //  User Profile - User can edit their information and view their posts
 
 import UIKit
+import Segmentio
 
 class ProfileViewController: UIViewController {
 
@@ -79,7 +80,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! ProfilePosts
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self

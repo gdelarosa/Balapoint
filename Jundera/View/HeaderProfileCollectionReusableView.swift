@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Segmentio
 
 protocol HeaderProfileCollectionReusableViewDelegate {
     func updateFollowButton(forUser user: Userr)
@@ -30,6 +31,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
     @IBOutlet weak var userSettingsButton: UIButton! // Settings button for user
+    @IBOutlet weak var personalMenu: Segmentio!
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
@@ -38,6 +40,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     var user: Userr? {
         didSet {
             updateView()
+            loadMenu()
         }
     }
     
@@ -48,7 +51,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     func updateView() {        
         self.nameLabel.text = user!.username
-        //self.goalLabel.text = user!.goal
+    
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             
@@ -147,6 +150,66 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             user!.isFollowing! = false
             delegate?.updateFollowButton(forUser: user!)
         }
+    }
+    
+    /// Swipe Menu for viewing Published - Draft - Private. Should only appear if the user is accessing their profile and not a visitor. 
+    func loadMenu() {
+        personalMenu.setup(content: segmentioContent(),
+                           style: SegmentioStyle.onlyLabel,
+                           options: segmentioOptions())
+        
+        personalMenu.selectedSegmentioIndex = 0
+        personalMenu.valueDidChange = { segmentio, segmentIndex in
+            print("Selected item: ", segmentIndex)
+        }
+    }
+    
+    func segmentioOptions() -> SegmentioOptions {
+        
+        let SegmentioStates = (
+            defaultState: SegmentioState(
+                backgroundColor: .clear,
+                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+                titleTextColor: .black
+            ),
+            selectedState: SegmentioState(
+                backgroundColor: .white,
+                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+                titleTextColor: .black
+            ),
+            highlightedState: SegmentioState(
+                backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
+                titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
+                titleTextColor: .black
+            )
+        )
+        
+        return SegmentioOptions(
+            backgroundColor: .white,
+            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 3),
+            scrollEnabled: true,
+            indicatorOptions: SegmentioIndicatorOptions(),
+            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(),
+            verticalSeparatorOptions: nil,
+            imageContentMode: .center,
+            labelTextAlignment: .center,
+            labelTextNumberOfLines: 1,
+            segmentStates: SegmentioStates,
+            animationDuration: 0.3
+        )
+        
+    }
+    
+    func segmentioContent() -> [SegmentioItem] {
+        return [
+            SegmentioItem(title: "Published", image: nil),
+            SegmentioItem(title: "Drafts", image: nil),
+            SegmentioItem(title: "Private", image: nil),
+        ]
+    }
+    
+    fileprivate func goToControllerAtIndex(_ index: Int) {
+        personalMenu.selectedSegmentioIndex = index
     }
 
 }

@@ -11,12 +11,13 @@ import AVFoundation
 
 class CreatePostViewController: UIViewController {
     
-    @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var captionTextView: UITextView!
-    @IBOutlet weak var removeButton: UIBarButtonItem!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var photo: UIImageView! // Should be optional to post a picture
+    @IBOutlet weak var captionTextView: UITextView! //
+   // @IBOutlet weak var removeButton: UIBarButtonItem! // Will not need
+    @IBOutlet weak var shareButton: UIButton! // Post
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
+    @IBOutlet weak var deletePost: UIButton! // Delete Post
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
@@ -44,10 +45,12 @@ class CreatePostViewController: UIViewController {
     func handlePost() {
         if selectedImage != nil {
            self.shareButton.isEnabled = true
-           self.removeButton.isEnabled = true
+            self.deletePost.isEnabled = true
+           
         } else {
            self.shareButton.isEnabled = true
-            self.removeButton.isEnabled = false
+            self.deletePost.isEnabled = false
+           
         }
     }
     
@@ -61,6 +64,7 @@ class CreatePostViewController: UIViewController {
         pickerController.mediaTypes = ["public.image", "public.movie"]
         present(pickerController, animated: true, completion: nil)
     }
+    
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
       
@@ -78,17 +82,21 @@ class CreatePostViewController: UIViewController {
         }
     }
     
+    /// Delete Button
     @IBAction func remove_TouchUpInside(_ sender: Any) {
         clean()
         handlePost()
     }
     
+    /// This will delete the information if you press the X button 
     func clean() {
         self.header.text = ""
         self.postTitle.text = "" //added
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
     }
+    
+    // TO-DO: Have an alert appear after tapping X. Should have the option to DELETE or SAVE AS DRAFT. If save as draft it will appear in the user profile. Will then have to clear out to start over.
     
 }
 

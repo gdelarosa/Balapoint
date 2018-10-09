@@ -38,7 +38,6 @@ class SettingTableViewController: UITableViewController {
         Api.Userr.observeCurrentUser { (userr) in
             self.usernnameTextField.text = userr.username
             self.emailTextField.text = userr.email
-            //self.goalTextField.text = userr.goal
             if let profileUrl = URL(string: userr.profileImageUrl!) {
                 self.profileImageView.sd_setImage(with: profileUrl)
             }
@@ -47,13 +46,13 @@ class SettingTableViewController: UITableViewController {
     
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
         if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-           // ProgressHUD.show("Waiting...")
+          
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
                 goal:goalTextField.text!, imageData: imageData, onSuccess: {
-               // ProgressHUD.showSuccess("Success")
+                print("Success!)")
                 self.delegate?.updateUserInfor()
             }, onError: { (errorMessage) in
-             //  ProgressHUD.showError(errorMessage)
+                print("Error: \(String(describing: errorMessage))")
             })
         }
     }
@@ -64,7 +63,7 @@ class SettingTableViewController: UITableViewController {
             let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
             self.present(signInVC, animated: true, completion: nil)
         }) { (errorMessage) in
-           // ProgressHUD.showError(errorMessage)
+            print("ERROR: \(String(describing: errorMessage))")
         }
     }
     

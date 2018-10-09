@@ -91,6 +91,9 @@
                                     <constraint firstAttribute="width" constant="21" id="vFO-Sw-0wj"/>
                                 </constraints>
                                 <state key="normal" image="Dark"/>
+                                <connections>
+                                    <action selector="remove_TouchUpInside:" destination="HT0-3V-yV6" eventType="touchUpInside" id="mhX-y7-PSZ"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PublishLine" translatesAutoresizingMaskIntoConstraints="NO" id="9HT-Vc-ePI">
                                 <rect key="frame" x="285" y="61" width="90" height="2"/>
@@ -129,17 +132,14 @@
                     <navigationItem key="navigationItem" title="Your Update" id="mWz-XP-Kmp">
                         <barButtonItem key="leftBarButtonItem" title="Remove" id="Irk-3v-oBE">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="remove_TouchUpInside:" destination="HT0-3V-yV6" id="IGg-uA-bZm"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="e3I-DW-326" id="MMV-Su-bHR"/>
+                        <outlet property="deletePost" destination="6qv-vu-drX" id="le2-9L-y2G"/>
                         <outlet property="header" destination="mrw-5V-ISW" id="awZ-do-Tnw"/>
                         <outlet property="photo" destination="HZJ-6L-E0e" id="M8n-mQ-cqH"/>
                         <outlet property="postTitle" destination="LB6-7E-EYx" id="Sic-7r-LQJ"/>
-                        <outlet property="removeButton" destination="Irk-3v-oBE" id="D6Z-UE-un4"/>
                         <outlet property="shareButton" destination="mHO-DK-mjg" id="Ydg-hB-eZv"/>
                     </connections>
                 </viewController>

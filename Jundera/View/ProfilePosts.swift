@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  Will display the users Published - Drafts - Private Posts
 
 import UIKit
 
@@ -12,9 +12,13 @@ protocol PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String)
 }
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+class ProfilePosts: UICollectionViewCell {
     
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     var delegate: PhotoCollectionViewCellDelegate?
     
