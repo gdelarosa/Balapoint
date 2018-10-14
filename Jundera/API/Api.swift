@@ -18,5 +18,5 @@ struct Api {
     static var Follow = FollowApi()
     static var Feed = FeedApi()
     static var HashTag = HashTagApi()
-    static var SavedPosts = SavedPostsApi()
+    static var SavedPosts = SavedPostsApi() //added for viewing saved posts.
 }

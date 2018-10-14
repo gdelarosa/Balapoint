@@ -41,7 +41,6 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        //setShadow()
         imageBackgroundShadow.isHidden = false
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
@@ -59,15 +58,6 @@ class HomeTableViewCell: UITableViewCell {
         self.updateLike(post: (self.post!))
     }
     
-//    func setShadow() {
-//        postImageView.layer.shadowColor = UIColor.black.cgColor
-//        postImageView.layer.shadowOpacity = 1
-//        postImageView.layer.shadowOffset = CGSize.zero
-//        postImageView.layer.shadowRadius = 10
-//        postImageView.layer.shadowPath = UIBezierPath(rect: postImageView.bounds).cgPath
-//
-//    }
-    
     func updateLike(post: Post) {
         
         let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell"
@@ -76,7 +66,7 @@ class HomeTableViewCell: UITableViewCell {
             return
         }
         if count != 0 {
-            print("Liked Item")
+            print("Liked Item: \(count)")
         }
        
     }
@@ -121,7 +111,7 @@ class HomeTableViewCell: UITableViewCell {
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }
-        print("You Tapped The Save Icon")
+        print("You Tapped the Save icon")
     }
     
     @objc func commentImageView_TouchUpInside() {

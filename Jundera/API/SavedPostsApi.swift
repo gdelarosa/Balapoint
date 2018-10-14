@@ -12,10 +12,10 @@ import FirebaseAuth
 
 class SavedPostsApi {
     
-    var REF_FEED = Database.database().reference().child("postsSaved")
+    var REF_MySavedPosts = Database.database().reference().child("postsSaved")
     
     func observeSavedPosts(withId id: String, completion: @escaping (Post) -> Void) {
-        REF_FEED.child(id).observe(.childAdded, with: {
+        REF_MySavedPosts.child(id).observe(.childAdded, with: {
             snapshot in
             let key = snapshot.key
             Api.Post.observePost(withId: key, completion: { (post) in
@@ -25,7 +25,7 @@ class SavedPostsApi {
     }
     
     func observeSavedPostsRemoved(withId id: String, completion: @escaping (Post) -> Void) {
-        REF_FEED.child(id).observe(.childRemoved, with: {
+        REF_MySavedPosts.child(id).observe(.childRemoved, with: {
             snapshot in
             let key = snapshot.key
             Api.Post.observePost(withId: key, completion: { (post) in

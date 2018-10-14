@@ -101,6 +101,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         swipeMenu.selectedSegmentioIndex = index
     }
     
+    /// Will load all posts onto users feed.
+    
     func loadPosts() {
         
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
@@ -130,19 +132,19 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CommentSegue" {
-            let commentVC = segue.destination as! CommentViewController
-            let postId = sender  as! String
-            commentVC.postId = postId
-        }
-        
-        if segue.identifier == "Home_ProfileSegue" {
-            let profileVC = segue.destination as! ProfileUserViewController
-            let userId = sender  as! String
-            profileVC.userId = userId
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "CommentSegue" {
+//            let commentVC = segue.destination as! CommentViewController
+//            let postId = sender  as! String
+//            commentVC.postId = postId
+//        }
+//        
+//        if segue.identifier == "Home_ProfileSegue" {
+//            let profileVC = segue.destination as! ProfileUserViewController
+//            let userId = sender  as! String
+//            profileVC.userId = userId
+//        }
+//    }
 }
 
 extension HomeViewController: UITableViewDataSource {

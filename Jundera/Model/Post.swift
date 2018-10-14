@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  Likes are just the posts we want to save. Will have to refactor later. 
 
 import Foundation
 import FirebaseAuth
@@ -35,7 +35,8 @@ extension Post {
         post.likes = dict["likes"] as? Dictionary<String, Any>
         post.ratio = dict["ratio"] as? CGFloat
         post.title = dict["title"] as? String
-        post.date = dict["date"] as? Date //added Date
+        post.date = dict["date"] as? Date
+        //post.saved = dict["saved"] as? Dictionary<String, Any>
         
         if let currentUserId = Auth.auth().currentUser?.uid {
             if post.likes != nil {
@@ -44,9 +45,5 @@ extension Post {
         }
       
         return post
-    }
-    //Probs dont need
-    static func transformPostVideo() {
-        
     }
 }

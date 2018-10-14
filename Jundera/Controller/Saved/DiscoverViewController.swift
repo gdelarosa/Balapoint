@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DiscoverViewController: UIViewController {
 
@@ -18,21 +19,29 @@ class DiscoverViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-       loadTopPosts()
+        //fetchMyPosts()
+       // fetchMySavedPosts()
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
-        loadTopPosts()
+        //fetchMyPosts()
+       // fetchMySavedPosts()
     }
     
-    func loadTopPosts() {
-        self.posts.removeAll()
-        self.collectionView.reloadData()
-        Api.Post.observeTopPosts { (post) in
-            self.posts.append(post)
-            self.collectionView.reloadData()
-            
+    // This is an example that will only display user's posts.
+    func fetchMyPosts() {
+        guard let currentUser = Api.Userr.CURRENT_USER else {
+            return
         }
+        Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observePost(withId: snapshot.key, completion: {
+                post in
+                
+                self.posts.append(post)
+                self.collectionView.reloadData()
+            })
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

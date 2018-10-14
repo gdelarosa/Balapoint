@@ -7,6 +7,7 @@
 //  Will display the users Published - Drafts - Private Posts
 
 import UIKit
+import SDWebImage
 
 protocol PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String)
@@ -19,6 +20,7 @@ class ProfilePosts: UICollectionViewCell {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var background: UIImageView! // May not need?
     
     var delegate: PhotoCollectionViewCellDelegate?
     

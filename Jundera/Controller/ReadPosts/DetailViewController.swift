@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  Allows user to view a post after clicking on it. 
 
 import UIKit
 
@@ -42,19 +42,19 @@ class DetailViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail_CommentVC" {
-            let commentVC = segue.destination as! CommentViewController
-            let postId = sender  as! String
-            commentVC.postId = postId
-        }
-        
-        if segue.identifier == "Detail_ProfileUserSegue" {
-            let profileVC = segue.destination as! ProfileUserViewController
-            let userId = sender  as! String
-            profileVC.userId = userId
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "Detail_CommentVC" {
+//            let commentVC = segue.destination as! CommentViewController
+//            let postId = sender  as! String
+//            commentVC.postId = postId
+//        }
+//        
+//        if segue.identifier == "Detail_ProfileUserSegue" {
+//            let profileVC = segue.destination as! ProfileUserViewController
+//            let userId = sender  as! String
+//            profileVC.userId = userId
+//        }
+//    }
     
 }
 

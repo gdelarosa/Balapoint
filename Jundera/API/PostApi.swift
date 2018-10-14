@@ -40,7 +40,6 @@ class PostApi {
                 completion(value, likeHandler)
             }
         })
-        
     }
     
     func observeTopPosts(completion: @escaping (Post) -> Void) {
@@ -55,18 +54,16 @@ class PostApi {
             })
         })
     }
-    
-//    //Date 10/7
-//    func setDate() {
-//        REF_POSTS.setValue(ServerValue.timestamp())
-//        REF_POSTS.observe(.value, with: {
-//            snap in
-//            if let t = snap.value as? TimeInterval {
-//                print(NSDate(timeIntervalSince1970: t/1000))
-//            }
-//        })
-//    }
-   
+    // Testing for displaying saved posts by User.
+    func observeSavedPosts(withId id: String, completion: @escaping (Post) -> Void) {
+        REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
+                completion(post)
+            }
+        })
+    }
     
     func removeObserveLikeCount(id: String, likeHandler: UInt) {
         Api.Post.REF_POSTS.child(id).removeObserver(withHandle: likeHandler)
