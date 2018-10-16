@@ -15,12 +15,12 @@ protocol PhotoCollectionViewCellDelegate {
 
 class ProfilePosts: UICollectionViewCell {
     
+  
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var background: UIImageView! // May not need?
     
     var delegate: PhotoCollectionViewCellDelegate?
     
@@ -29,17 +29,42 @@ class ProfilePosts: UICollectionViewCell {
             updateView()
         }
     }
+    var user: Userr? {
+        didSet {
+            updateUser()
+        }
+    }
+    
+    override func awakeFromNib() {
+        title.text = ""
+        header.text = ""
+        author.text = ""
+        date.text = ""
+    }
     
     func updateView() {
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             photo.sd_setImage(with: photoUrl)
         }
+        title.text = post?.title
+        header.text = post?.caption
+        
+        guard let creationDate = post?.creationDate else {
+            print("Unable to retrieve date")
+            return
+        }
+        date.text = creationDate.timeAgoDisplay()
+        
         
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         photo.addGestureRecognizer(tapGestureForPhoto)
         photo.isUserInteractionEnabled = true
 
+    }
+    
+    func updateUser() {
+       author.text = user?.username
     }
     
     @objc func photo_TouchUpInside() {
