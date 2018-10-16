@@ -49,13 +49,19 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         clear()
     }
     
-    func updateView() {        
-        self.nameLabel.text = user!.username
+    func updateView() {
+        nameLabel.text = user?.username
+        goalLabel.text = user?.bio
     
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             
            self.profileImage.sd_setImage(with: photoUrl)
+            profileImage.layer.borderWidth = 1
+            profileImage.layer.masksToBounds = true
+            profileImage.layer.borderColor = UIColor.clear.cgColor
+            profileImage.layer.cornerRadius = profileImage.frame.height/2
+            profileImage.clipsToBounds = true
         }
         
         Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in

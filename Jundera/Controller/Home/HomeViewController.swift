@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addLeftBarIcon(named: "Search")
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
@@ -32,6 +33,26 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
+    }
+    
+    func addLeftBarIcon(named:String) {
+        
+        let logoImage = UIImage.init(named: named)
+        let logoImageView = UIImageView.init(image: logoImage)
+        logoImageView.frame = CGRect(x:0.0,y:0.0, width:60,height:25.0)
+        logoImageView.contentMode = .scaleAspectFit
+        let imageItem = UIBarButtonItem.init(customView: logoImageView)
+        let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 60)
+        let heightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: 25)
+        heightConstraint.isActive = true
+        widthConstraint.isActive = true
+        navigationItem.rightBarButtonItem = imageItem
+        
+    }
+    
+    @objc func searchTapped() {
+        print("Search icon tapped")
+        //Action for searching 
     }
     
     /// Swipe Menu using Segmentio Pod

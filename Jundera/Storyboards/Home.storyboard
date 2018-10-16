@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Balapoint-->
         <scene sceneID="msA-aM-zcz">
             <objects>
                 <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,7 +149,7 @@
                             <constraint firstItem="2V7-TV-WOy" firstAttribute="top" secondItem="lBI-Vj-Fsn" secondAttribute="top" constant="130" id="zPO-t9-9xR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Xwx-Sg-AIS"/>
+                    <navigationItem key="navigationItem" title="Balapoint" id="Xwx-Sg-AIS"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="W9U-fS-EhU" id="pdU-f5-iW4"/>
                         <outlet property="searchDisplayController" destination="Zbs-tl-1Mv" id="94J-wN-qoF"/>
@@ -272,8 +272,8 @@
                                                     <rect key="frame" x="265" y="11" width="95" height="115"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-Zr-cuh">
-                                                    <rect key="frame" x="38" y="405" width="45" height="46"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-Zr-cuh">
+                                                    <rect key="frame" x="32" y="405" width="51" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zy-lM-Otb">
