@@ -64,15 +64,19 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCell", for: indexPath) as! DetailPostTableViewCell
         cell.post = post
         cell.user = user
-        cell.delegate = self
+        cell.detailDelegate = self as? DetailPostTableViewCellDelegate
         return cell
     }
 }
 
 extension DetailViewController: HomeTableViewCellDelegate {
+    func goToDetailPostVC(postId: String) {
+        performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
+    }
+    
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }

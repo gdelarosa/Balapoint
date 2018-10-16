@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
 		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
+		779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
 		77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* CreatePost.storyboard */; };
 		77EE5230211BDC630065E364 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5229211BDC630065E364 /* Discover.storyboard */; };
@@ -65,6 +66,7 @@
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EE5228211BDC630065E364 /* CreatePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
 		77EE5229211BDC630065E364 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				77EE5258211BDCF60065E364 /* HomeTableViewCell.swift */,
 				77EE5254211BDCF50065E364 /* PeopleTableViewCell.swift */,
 				77EE5255211BDCF50065E364 /* ProfilePosts.swift */,
+				779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				77EE527C211BDCFF0065E364 /* DiscoverViewController.swift in Sources */,
 				77EE525C211BDCF60065E364 /* ProfilePosts.swift in Sources */,
 				77EE5276211BDCFF0065E364 /* SignInViewController.swift in Sources */,
+				779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */,
 				77EE5274211BDCFF0065E364 /* ProfileUserViewController.swift in Sources */,
 				77EE5279211BDCFF0065E364 /* SearchViewController.swift in Sources */,
 				77EE524B211BDCB70065E364 /* AuthService.swift in Sources */,

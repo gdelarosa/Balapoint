@@ -13,8 +13,7 @@ import AVFoundation
 protocol HomeTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
-   // func didSavePost(post: Post) //added
-    
+    func goToDetailPostVC(postId: String)
 }
 
 class HomeTableViewCell: UITableViewCell {
@@ -96,6 +95,11 @@ class HomeTableViewCell: UITableViewCell {
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
+        
+        //Testing for going to detail view by tapping on the title. Will have to setup to let user tap on cell. 
+        let tapGestureForTitle = UITapGestureRecognizer(target: self, action: #selector(self.cell_TouchUpInside))
+        postTitleLabel.addGestureRecognizer(tapGestureForTitle)
+        postTitleLabel.isUserInteractionEnabled = true
 
     }
     
@@ -105,6 +109,12 @@ class HomeTableViewCell: UITableViewCell {
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
+        }
+    }
+    
+    @objc func cell_TouchUpInside() {
+        if let post = post?.id {
+            delegate?.goToDetailPostVC(postId: post)
         }
     }
 

@@ -10,11 +10,11 @@ import UIKit
 import SDWebImage
 import Segmentio
 
-class HomeViewController: UIViewController, UISearchBarDelegate {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!    
-    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var swipeMenu: Segmentio!
     
     var posts = [Post]()
@@ -31,7 +31,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        self.navigationController?.isNavigationBarHidden = true
         
     }
     
@@ -132,19 +131,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "CommentSegue" {
-//            let commentVC = segue.destination as! CommentViewController
-//            let postId = sender  as! String
-//            commentVC.postId = postId
-//        }
-//        
-//        if segue.identifier == "Home_ProfileSegue" {
-//            let profileVC = segue.destination as! ProfileUserViewController
-//            let userId = sender  as! String
-//            profileVC.userId = userId
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailPost_Segue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postID = sender  as! String
+            detailVC.postId = postID
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -164,6 +157,9 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: HomeTableViewCellDelegate {
+    func goToDetailPostVC(postId: String) {
+        performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
+    }
     
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "CommentSegue", sender: postId)
