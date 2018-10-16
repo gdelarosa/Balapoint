@@ -68,7 +68,7 @@ class HelperService {
     
     static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, title: String, onSuccess: @escaping () -> Void) {
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
-        let newPostReference = Api.Post.REF_POSTS.child(newPostId)
+        let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
         
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
@@ -98,9 +98,9 @@ class HelperService {
                 return
             }
             
-            Api.Feed.REF_FEED.child(Api.Userr.CURRENT_USER!.uid).child(newPostId).setValue(true)
+            Api.Feed.REF_FEED.child(Api.Userr.CURRENT_USER!.uid).child(newPostId!).setValue(true)
             
-            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
+            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId!)
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                   //  ProgressHUD.showError(error!.localizedDescription)

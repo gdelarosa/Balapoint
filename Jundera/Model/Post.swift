@@ -20,9 +20,7 @@ class Post {
     var isLiked: Bool?
     var ratio: CGFloat?
     var title: String?
-    var date: Date?
-    var isSaved: Bool? //added
-    var saved: Dictionary<String, Any>? //added 
+    var creationDate: Date?
 }
 
 extension Post {
@@ -37,17 +35,11 @@ extension Post {
         post.likes = dict["likes"] as? Dictionary<String, Any>
         post.ratio = dict["ratio"] as? CGFloat
         post.title = dict["title"] as? String
-        post.saved = dict["saved"] as? Dictionary<String, Any> //added
-      
-      
-        let secondsAgoFrom1970 = dict["date"] as? Double ?? 0
-        post.date = Date(timeIntervalSince1970: secondsAgoFrom1970)
+        
+        let secondsAgoFrom1970 = dict["creationDate"] as? Double ?? 0
+        post.creationDate = Date(timeIntervalSince1970: secondsAgoFrom1970)
         
         if let currentUserId = Auth.auth().currentUser?.uid {
-            //added for saved posts
-            if post.saved != nil {
-           post.isSaved = post.saved![currentUserId] != nil
-           }
             
             if post.likes != nil {
                 post.isLiked = post.likes![currentUserId] != nil

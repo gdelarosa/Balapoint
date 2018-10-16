@@ -13,7 +13,6 @@ class DiscoverViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = []
-    //var savedPosts = [Post]() // Testing
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +31,6 @@ class DiscoverViewController: UIViewController {
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
         }
-        Api.SavedPosts.REF_MySavedPosts.child(currentUser.uid).observe(.childAdded, with: {
-            snapshot in
-            
-            //)
-        //Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
-          //  snapshot in
-            Api.Post.observeSavedPostsTwo(withId: snapshot.key, completion: { (post) in
-                self.posts.append(post)
-                self.collectionView.reloadData()
-            })
-        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,18 +77,4 @@ extension DiscoverViewController: PhotoCollectionViewCellDelegate {
     }
 
 }
-//Added to test
-//extension Database {
-//
-//    static func fetchUserWithUID(_ uid: String, completion: @escaping (User) -> ()) {
-//        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let userDictionary = snapshot.value as? [String: Any] else { return }
-//            let user = User(uid: uid, dict: userDictionary)
-//            completion(user)
-//        }) { (err) in
-//            print("Failed to fetch user for posts:", err)
-//        }
-//    }
-//
-//}
-//
+

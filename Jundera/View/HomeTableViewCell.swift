@@ -13,6 +13,8 @@ import AVFoundation
 protocol HomeTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
+   // func didSavePost(post: Post) //added
+    
 }
 
 class HomeTableViewCell: UITableViewCell {
@@ -23,7 +25,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView! //Post Image
     @IBOutlet weak var likeImageView: UIImageView! // Save Post
     @IBOutlet weak var captionLabel: UILabel! // Heading
-    @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var postDateLabel: UILabel! // Date posted
     @IBOutlet weak var imageBackgroundShadow: UIImageView! //Might not use after all
     
     var delegate: HomeTableViewCellDelegate?
@@ -44,7 +46,12 @@ class HomeTableViewCell: UITableViewCell {
         imageBackgroundShadow.isHidden = false
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
-        
+        guard let creationDate = post?.creationDate else {
+            print("Unable to retrieve date")
+            return
+        }
+        postDateLabel.text = creationDate.timeAgoDisplay()
+       
         if (post?.ratio) != nil {
             layoutIfNeeded()
         }
@@ -108,9 +115,6 @@ class HomeTableViewCell: UITableViewCell {
             self.post?.likes = post.likes
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
-            //added
-            self.post?.saved  = post.saved
-            self.post?.isSaved = post.isSaved
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }

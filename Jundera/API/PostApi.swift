@@ -54,19 +54,6 @@ class PostApi {
             })
         })
     }
-    // Test 2
-    func observeSavedPostsTwo(withId id:String, completion: @escaping (Post) -> Void) {
-        REF_POSTS.queryOrdered(byChild: "saved").observeSingleEvent(of: .value, with: {
-            snapshot in
-            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
-            arraySnapshot.forEach({ (child) in
-                if let dict = child.value as? [String: Any] {
-                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
-                    completion(post)
-                }
-            })
-        })
-    }
     
     func removeObserveLikeCount(id: String, likeHandler: UInt) {
         Api.Post.REF_POSTS.child(id).removeObserver(withHandle: likeHandler)
@@ -78,10 +65,6 @@ class PostApi {
         postRef.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Api.Userr.CURRENT_USER?.uid {
                 var likes: Dictionary<String, Bool>
-                //added
-                var saved: Dictionary<String, Bool>
-                saved = post["saved"] as? [String : Bool] ?? [:]
-                
                 
                 likes = post["likes"] as? [String : Bool] ?? [:]
                 var likeCount = post["likeCount"] as? Int ?? 0
@@ -94,9 +77,7 @@ class PostApi {
                 }
                 post["likeCount"] = likeCount as AnyObject?
                 post["likes"] = likes as AnyObject?
-                //added
-                post["saved"] = saved as AnyObject? 
-                
+
                 currentData.value = post
                 
                 return TransactionResult.success(withValue: currentData)

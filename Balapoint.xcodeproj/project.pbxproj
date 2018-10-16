@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
-		774C9212216B146D00702A69 /* SavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C9211216B146D00702A69 /* SavedPostsApi.swift */; };
+		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
 		77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* CreatePost.storyboard */; };
 		77EE5230211BDC630065E364 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5229211BDC630065E364 /* Discover.storyboard */; };
@@ -17,18 +17,15 @@
 		77EE5233211BDC630065E364 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522C211BDC630065E364 /* Start.storyboard */; };
 		77EE5234211BDC630065E364 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE522D211BDC630065E364 /* Profile.storyboard */; };
 		77EE523F211BDC790065E364 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5236211BDC780065E364 /* FollowApi.swift */; };
-		77EE5240211BDC790065E364 /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5237211BDC780065E364 /* Post_CommentApi.swift */; };
 		77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5238211BDC780065E364 /* MyPostsApi.swift */; };
 		77EE5242211BDC790065E364 /* FeedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5239211BDC790065E364 /* FeedApi.swift */; };
 		77EE5243211BDC790065E364 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE523A211BDC790065E364 /* UserApi.swift */; };
 		77EE5244211BDC790065E364 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE523B211BDC790065E364 /* PostApi.swift */; };
-		77EE5245211BDC790065E364 /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE523C211BDC790065E364 /* CommentApi.swift */; };
 		77EE5246211BDC790065E364 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE523D211BDC790065E364 /* Api.swift */; };
 		77EE5247211BDC790065E364 /* HashTagApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE523E211BDC790065E364 /* HashTagApi.swift */; };
 		77EE524A211BDCB70065E364 /* HelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5248211BDCB70065E364 /* HelperService.swift */; };
 		77EE524B211BDCB70065E364 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5249211BDCB70065E364 /* AuthService.swift */; };
 		77EE524D211BDCCC0065E364 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE524C211BDCCC0065E364 /* Config.swift */; };
-		77EE5251211BDCD90065E364 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE524E211BDCD80065E364 /* Comment.swift */; };
 		77EE5252211BDCD90065E364 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE524F211BDCD80065E364 /* Post.swift */; };
 		77EE5253211BDCD90065E364 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5250211BDCD90065E364 /* User.swift */; };
 		77EE525B211BDCF60065E364 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5254211BDCF50065E364 /* PeopleTableViewCell.swift */; };
@@ -67,7 +64,7 @@
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
-		774C9211216B146D00702A69 /* SavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsApi.swift; sourceTree = "<group>"; };
+		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EE5228211BDC630065E364 /* CreatePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
 		77EE5229211BDC630065E364 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
@@ -76,18 +73,15 @@
 		77EE522C211BDC630065E364 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		77EE522D211BDC630065E364 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		77EE5236211BDC780065E364 /* FollowApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
-		77EE5237211BDC780065E364 /* Post_CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		77EE5238211BDC780065E364 /* MyPostsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
 		77EE5239211BDC790065E364 /* FeedApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedApi.swift; sourceTree = "<group>"; };
 		77EE523A211BDC790065E364 /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		77EE523B211BDC790065E364 /* PostApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
-		77EE523C211BDC790065E364 /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		77EE523D211BDC790065E364 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		77EE523E211BDC790065E364 /* HashTagApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTagApi.swift; sourceTree = "<group>"; };
 		77EE5248211BDCB70065E364 /* HelperService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperService.swift; sourceTree = "<group>"; };
 		77EE5249211BDCB70065E364 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		77EE524C211BDCCC0065E364 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		77EE524E211BDCD80065E364 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		77EE524F211BDCD80065E364 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		77EE5250211BDCD90065E364 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77EE5254211BDCF50065E364 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
@@ -238,15 +232,12 @@
 			isa = PBXGroup;
 			children = (
 				77EE523D211BDC790065E364 /* Api.swift */,
-				77EE523C211BDC790065E364 /* CommentApi.swift */,
 				77EE5239211BDC790065E364 /* FeedApi.swift */,
 				77EE5236211BDC780065E364 /* FollowApi.swift */,
 				77EE523E211BDC790065E364 /* HashTagApi.swift */,
 				77EE5238211BDC780065E364 /* MyPostsApi.swift */,
-				77EE5237211BDC780065E364 /* Post_CommentApi.swift */,
 				77EE523B211BDC790065E364 /* PostApi.swift */,
 				77EE523A211BDC790065E364 /* UserApi.swift */,
-				774C9211216B146D00702A69 /* SavedPostsApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -265,6 +256,7 @@
 			children = (
 				77F1EF39211B837300A6F736 /* AppDelegate.swift */,
 				77EE524C211BDCCC0065E364 /* Config.swift */,
+				779AC4922175828E000BE905 /* Extensions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -284,10 +276,10 @@
 			children = (
 				770BD3FC216FBFD400FFAB86 /* SignUp */,
 				770BD3FB216FBFC900FFAB86 /* SignIn */,
+				770BD3F7216FBE8500FFAB86 /* Home */,
 				770BD3FA216FBEDD00FFAB86 /* Create */,
 				770BD3F9216FBE9200FFAB86 /* Profile */,
 				770BD3F8216FBE8C00FFAB86 /* Saved */,
-				770BD3F7216FBE8500FFAB86 /* Home */,
 				770BD400216FC0D400FFAB86 /* ReadPosts */,
 			);
 			path = Controller;
@@ -308,7 +300,6 @@
 		77EE5227211BD9860065E364 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				77EE524E211BDCD80065E364 /* Comment.swift */,
 				77EE524F211BDCD80065E364 /* Post.swift */,
 				77EE5250211BDCD90065E364 /* User.swift */,
 			);
@@ -493,8 +484,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Jundera/Pods-Jundera-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GradientProgressBar/GradientProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -505,8 +495,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GradientProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -548,9 +537,7 @@
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				77EE5246211BDC790065E364 /* Api.swift in Sources */,
 				77EE527A211BDCFF0065E364 /* CreatePostViewController.swift in Sources */,
-				77EE5245211BDC790065E364 /* CommentApi.swift in Sources */,
 				77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */,
-				77EE5251211BDCD90065E364 /* Comment.swift in Sources */,
 				77EE5253211BDCD90065E364 /* User.swift in Sources */,
 				77EE527C211BDCFF0065E364 /* DiscoverViewController.swift in Sources */,
 				77EE525C211BDCF60065E364 /* ProfilePosts.swift in Sources */,
@@ -566,13 +553,12 @@
 				77EE5273211BDCFF0065E364 /* HomeViewController.swift in Sources */,
 				77EE5244211BDC790065E364 /* PostApi.swift in Sources */,
 				77EE524D211BDCCC0065E364 /* Config.swift in Sources */,
-				77EE5240211BDC790065E364 /* Post_CommentApi.swift in Sources */,
-				774C9212216B146D00702A69 /* SavedPostsApi.swift in Sources */,
 				77EE5252211BDCD90065E364 /* Post.swift in Sources */,
 				77EE524A211BDCB70065E364 /* HelperService.swift in Sources */,
 				77EE5270211BDCFF0065E364 /* SignUpViewController.swift in Sources */,
 				77EE5243211BDC790065E364 /* UserApi.swift in Sources */,
 				77EE5242211BDC790065E364 /* FeedApi.swift in Sources */,
+				779AC4932175828E000BE905 /* Extensions.swift in Sources */,
 				77EE523F211BDC790065E364 /* FollowApi.swift in Sources */,
 				77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */,
 				77EE525B211BDCF60065E364 /* PeopleTableViewCell.swift in Sources */,

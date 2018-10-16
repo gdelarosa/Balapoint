@@ -20,11 +20,6 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var commentLabel: KILabel!
     
     var delegate: CommentTableViewCellDelegate?
-    var comment: Comment? {
-        didSet {
-            updateView()
-        }
-    }
     
     var user: Userr? {
         didSet {
@@ -33,7 +28,6 @@ class CommentTableViewCell: UITableViewCell {
     }
 
     func updateView() {
-        commentLabel.text = comment?.commentText
         commentLabel.userHandleLinkTapHandler = {
             label, handle, rang in
             var mention = handle

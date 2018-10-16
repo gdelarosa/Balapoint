@@ -164,6 +164,7 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: HomeTableViewCellDelegate {
+    
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "CommentSegue", sender: postId)
     }

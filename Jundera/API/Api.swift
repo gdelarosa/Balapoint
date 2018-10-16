@@ -12,11 +12,8 @@ struct Api {
     
     static var Userr = UserApi()
     static var Post = PostApi()
-    static var Comment = CommentApi()
-    static var Post_Comment = Post_CommentApi()
     static var MyPosts = MyPostsApi()
     static var Follow = FollowApi()
     static var Feed = FeedApi()
     static var HashTag = HashTagApi()
-    static var SavedPosts = SavedPostsApi() //added for viewing saved posts.
 }
