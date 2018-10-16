@@ -94,13 +94,6 @@ extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegate
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
     }
 }
-//// Will lead to SETTINGS. not working
-//extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateUserSettingVC {
-//    func goToUsersSettings() {
-//        print("Pressed")
-//        performSegue(withIdentifier: "User_SettingSegue", sender: nil)
-//    }
-//}
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

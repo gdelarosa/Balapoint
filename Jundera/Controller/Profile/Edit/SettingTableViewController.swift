@@ -23,7 +23,7 @@ class SettingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Edit Profile"
+        navigationItem.title = "Edit"
         usernnameTextField.delegate = self
         emailTextField.delegate = self
         goalTextField.delegate = self
@@ -50,7 +50,7 @@ class SettingTableViewController: UITableViewController {
           
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
                 goal:goalTextField.text!, imageData: imageData, onSuccess: {
-                print("Success!)")
+                print("Success on updating user info!)")
                 self.delegate?.updateUserInfor()
             }, onError: { (errorMessage) in
                 print("Error: \(String(describing: errorMessage))")

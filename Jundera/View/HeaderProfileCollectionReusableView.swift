@@ -113,7 +113,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             configureUnFollowButton()
         } else {
             configureFollowButton()
-        }
+        } 
     }
     
     func configureFollowButton() {
