@@ -19,7 +19,7 @@ class DiscoverViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        fetchMyPosts()
+       // fetchMyPosts()
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
@@ -27,11 +27,11 @@ class DiscoverViewController: UIViewController {
     }
     
     // This is an example that will only display user's posts.
-    func fetchMyPosts() {
-        guard let currentUser = Api.Userr.CURRENT_USER else {
-            return
-        }
-    }
+//    func fetchMyPosts() {
+//        guard let currentUser = Api.Userr.CURRENT_USER else {
+//            return
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Discover_DetailSegue" {
