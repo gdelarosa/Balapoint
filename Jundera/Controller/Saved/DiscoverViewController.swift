@@ -13,19 +13,18 @@ class DiscoverViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = []
+    //var savedPosts = [Post]() // Testing
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        //fetchMyPosts()
-       // fetchMySavedPosts()
+        fetchMyPosts()
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
-        //fetchMyPosts()
-       // fetchMySavedPosts()
+      
     }
     
     // This is an example that will only display user's posts.
@@ -33,11 +32,13 @@ class DiscoverViewController: UIViewController {
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
         }
-        Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
+        Api.SavedPosts.REF_MySavedPosts.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: {
-                post in
-                
+            
+            //)
+        //Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
+          //  snapshot in
+            Api.Post.observeSavedPostsTwo(withId: snapshot.key, completion: { (post) in
                 self.posts.append(post)
                 self.collectionView.reloadData()
             })
@@ -88,4 +89,18 @@ extension DiscoverViewController: PhotoCollectionViewCellDelegate {
     }
 
 }
-
+//Added to test
+//extension Database {
+//
+//    static func fetchUserWithUID(_ uid: String, completion: @escaping (User) -> ()) {
+//        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let userDictionary = snapshot.value as? [String: Any] else { return }
+//            let user = User(uid: uid, dict: userDictionary)
+//            completion(user)
+//        }) { (err) in
+//            print("Failed to fetch user for posts:", err)
+//        }
+//    }
+//
+//}
+//

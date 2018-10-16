@@ -54,14 +54,17 @@ class PostApi {
             })
         })
     }
-    // Testing for displaying saved posts by User.
-    func observeSavedPosts(withId id: String, completion: @escaping (Post) -> Void) {
-        REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value, with: {
+    // Test 2
+    func observeSavedPostsTwo(withId id:String, completion: @escaping (Post) -> Void) {
+        REF_POSTS.queryOrdered(byChild: "saved").observeSingleEvent(of: .value, with: {
             snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
-                completion(post)
-            }
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach({ (child) in
+                if let dict = child.value as? [String: Any] {
+                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
+                    completion(post)
+                }
+            })
         })
     }
     
@@ -75,6 +78,11 @@ class PostApi {
         postRef.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Api.Userr.CURRENT_USER?.uid {
                 var likes: Dictionary<String, Bool>
+                //added
+                var saved: Dictionary<String, Bool>
+                saved = post["saved"] as? [String : Bool] ?? [:]
+                
+                
                 likes = post["likes"] as? [String : Bool] ?? [:]
                 var likeCount = post["likeCount"] as? Int ?? 0
                 if let _ = likes[uid] {
@@ -86,6 +94,8 @@ class PostApi {
                 }
                 post["likeCount"] = likeCount as AnyObject?
                 post["likes"] = likes as AnyObject?
+                //added
+                post["saved"] = saved as AnyObject? 
                 
                 currentData.value = post
                 

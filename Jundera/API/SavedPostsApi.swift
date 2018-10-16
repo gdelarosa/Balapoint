@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class SavedPostsApi {
     
-    var REF_MySavedPosts = Database.database().reference().child("postsSaved")
+    var REF_MySavedPosts = Database.database().reference().child("saved")
     
     func observeSavedPosts(withId id: String, completion: @escaping (Post) -> Void) {
         REF_MySavedPosts.child(id).observe(.childAdded, with: {

@@ -108,6 +108,9 @@ class HomeTableViewCell: UITableViewCell {
             self.post?.likes = post.likes
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
+            //added
+            self.post?.saved  = post.saved
+            self.post?.isSaved = post.isSaved
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }
