@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
+		7799A1F3217900B500A1DF91 /* TopicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */; };
 		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
 		779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				77EE5254211BDCF50065E364 /* PeopleTableViewCell.swift */,
 				77EE5255211BDCF50065E364 /* ProfilePosts.swift */,
 				779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */,
+				7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				77EE523F211BDC790065E364 /* FollowApi.swift in Sources */,
 				77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */,
 				77EE525B211BDCF60065E364 /* PeopleTableViewCell.swift in Sources */,
+				7799A1F3217900B500A1DF91 /* TopicImageCollectionViewCell.swift in Sources */,
 				77EE5247211BDC790065E364 /* HashTagApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

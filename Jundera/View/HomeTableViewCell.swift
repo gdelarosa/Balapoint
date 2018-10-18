@@ -25,7 +25,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var likeImageView: UIImageView! // Save Post
     @IBOutlet weak var captionLabel: UILabel! // Heading
     @IBOutlet weak var postDateLabel: UILabel! // Date posted
-    @IBOutlet weak var imageBackgroundShadow: UIImageView! //Might not use after all
     
     var delegate: HomeTableViewCellDelegate?
     
@@ -42,7 +41,10 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        imageBackgroundShadow.isHidden = false
+        postImageView.layer.cornerRadius = 8.0
+        postImageView.clipsToBounds = true
+        postTitleLabel.sizeToFit()
+        //captionLabel.sizeToFit()
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
         guard let creationDate = post?.creationDate else {
@@ -66,7 +68,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func updateLike(post: Post) {
         
-        let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell"
+        let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell2"
         likeImageView.image = UIImage(named: imageName)
         guard let count = post.likeCount else {
             return

@@ -1,24 +1,24 @@
 //
 //  HomeViewController.swift
-//  Metis
+//  Balapoint
 //
-//  Created by Gina De La Rosa on 12/15/17.
+//  Created by Gina De La Rosa on 05/01/18.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
 //  What user will first see after logging in or signing up.
     
 import UIKit
 import SDWebImage
-import Segmentio
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!    
-    
-    @IBOutlet weak var swipeMenu: Segmentio!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var posts = [Post]()
     var users = [Userr]()
+    
+    var imagesArray: [UIImage?] = [UIImage(named: "Travel.png"), UIImage(named: "Health.png"), UIImage(named: "Education.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Tech.png"), UIImage(named: "Beauty.png"), UIImage(named: "Lifestyle.png")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         loadPosts()
-        loadMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,11 +34,12 @@ class HomeViewController: UIViewController {
         
     }
     
+    /// Search Icon on Navigation Bar
     func addLeftBarIcon(named:String) {
         
         let logoImage = UIImage.init(named: named)
         let logoImageView = UIImageView.init(image: logoImage)
-        logoImageView.frame = CGRect(x:0.0,y:0.0, width:60,height:25.0)
+        logoImageView.frame = CGRect(x:0.0,y:0.0, width:50,height:25.0)
         logoImageView.contentMode = .scaleAspectFit
         let imageItem = UIBarButtonItem.init(customView: logoImageView)
         let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 60)
@@ -47,78 +47,13 @@ class HomeViewController: UIViewController {
         heightConstraint.isActive = true
         widthConstraint.isActive = true
         navigationItem.rightBarButtonItem = imageItem
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
         
     }
     
     @objc func searchTapped() {
         print("Search icon tapped")
         //Action for searching 
-    }
-    
-    /// Swipe Menu using Segmentio Pod
-    func loadMenu() {
-        swipeMenu.setup(content: segmentioContent(),
-                        style: SegmentioStyle.onlyLabel,
-                        options: segmentioOptions())
-
-        swipeMenu.selectedSegmentioIndex = 0
-        swipeMenu.valueDidChange = { segmentio, segmentIndex in
-            print("Selected item: ", segmentIndex)
-        }
-    }
-    
-   func segmentioOptions() -> SegmentioOptions {
-    
-    let SegmentioStates = (
-        defaultState: SegmentioState(
-            backgroundColor: .clear,
-            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            titleTextColor: .black
-        ),
-        selectedState: SegmentioState(
-            backgroundColor: .white,
-            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            titleTextColor: .black
-        ),
-        highlightedState: SegmentioState(
-            backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
-            titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
-            titleTextColor: .black
-        )
-    )
-        
-        return SegmentioOptions(
-            backgroundColor: .white,
-            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 5),
-            scrollEnabled: true,
-            indicatorOptions: SegmentioIndicatorOptions(),
-            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(),
-            verticalSeparatorOptions: nil,
-            imageContentMode: .center,
-            labelTextAlignment: .center,
-            labelTextNumberOfLines: 1,
-            segmentStates: SegmentioStates,
-            animationDuration: 0.3
-        )
-
-    }
-
-     func segmentioContent() -> [SegmentioItem] {
-        return [
-            SegmentioItem(title: "Home", image: nil),
-            SegmentioItem(title: "Tech", image: nil),
-            SegmentioItem(title: "Food", image: nil),
-            SegmentioItem(title: "Travel", image: nil),
-            SegmentioItem(title: "Beauty", image: nil),
-            SegmentioItem(title: "Politics", image: nil),
-            SegmentioItem(title: "College", image: nil),
-            SegmentioItem(title: "Health", image: nil),
-            SegmentioItem(title: "Science", image: nil)
-        ]
-    }
-    
-    fileprivate func goToControllerAtIndex(_ index: Int) {
-        swipeMenu.selectedSegmentioIndex = index
     }
     
     /// Will load all posts onto users feed.
@@ -159,8 +94,41 @@ class HomeViewController: UIViewController {
             detailVC.postId = postID
         }
     }
+    
+    // MARK: - CollectionView Data Source
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imagesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TopicImageCollectionViewCell
+
+        cell.imageView.image = imagesArray[indexPath.item]
+        
+        return cell
+    }
+}
+// MARK: CollectionView Layout
+extension HomeViewController : UICollectionViewDelegateFlowLayout{
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let collectionViewWidth = collectionView.bounds.width
+//        return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.5
+    }
 }
 
+// MARK: - TableView Data Source
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
