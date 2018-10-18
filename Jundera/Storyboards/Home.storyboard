@@ -313,9 +313,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wtW-cZ-Gak">
+                                                    <rect key="frame" x="32" y="149" width="310" height="248"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bodyText" destination="wtW-cZ-Gak" id="lne-wA-fPq"/>
                                             <outlet property="dateCreated" destination="FZt-lh-GUG" id="ko5-4o-jAc"/>
                                             <outlet property="hashtags" destination="giN-YH-aId" id="gJv-bj-UAP"/>
                                             <outlet property="headerLabel" destination="G3N-UI-fXD" id="zba-h1-N8N"/>

@@ -21,6 +21,7 @@ class Post {
     var ratio: CGFloat?
     var title: String?
     var creationDate: Date?
+    var body: String?
 }
 
 extension Post {
@@ -35,6 +36,7 @@ extension Post {
         post.likes = dict["likes"] as? Dictionary<String, Any>
         post.ratio = dict["ratio"] as? CGFloat
         post.title = dict["title"] as? String
+        post.body = dict["body"] as? String
         
         let secondsAgoFrom1970 = dict["creationDate"] as? Double ?? 0
         post.creationDate = Date(timeIntervalSince1970: secondsAgoFrom1970)

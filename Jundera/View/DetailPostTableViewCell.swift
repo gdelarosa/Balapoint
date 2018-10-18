@@ -22,6 +22,7 @@ class DetailPostTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var dateCreated: UILabel!
     @IBOutlet weak var hashtags: UILabel!
+    @IBOutlet weak var bodyText: UITextView!
     
     var detailDelegate: DetailPostTableViewCellDelegate?
     
@@ -42,6 +43,7 @@ class DetailPostTableViewCell: UITableViewCell {
         userName.text = ""
         dateCreated.text = ""
         hashtags.text = ""
+        bodyText.text = ""
     }
     
     func updateView() {
@@ -51,6 +53,7 @@ class DetailPostTableViewCell: UITableViewCell {
         }
         titleLabel.text = post?.title
         headerLabel.text = post?.caption
+        bodyText.text = post?.body
         
         guard let creationDate = post?.creationDate else {
             print("Unable to retrieve DATE created")

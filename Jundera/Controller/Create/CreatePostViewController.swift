@@ -12,9 +12,8 @@ import AVFoundation
 class CreatePostViewController: UIViewController {
     
     @IBOutlet weak var photo: UIImageView! // Should be optional to post a picture
-    @IBOutlet weak var captionTextView: UITextView! //
-   // @IBOutlet weak var removeButton: UIBarButtonItem! // Will not need
-    @IBOutlet weak var shareButton: UIButton! // Post
+    @IBOutlet weak var captionTextView: UITextView! // Post Body
+    @IBOutlet weak var shareButton: UIButton! // Post Button
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
     @IBOutlet weak var deletePost: UIButton! // Delete Post
@@ -43,7 +42,8 @@ class CreatePostViewController: UIViewController {
     }
     
     func handlePost() {
-        if selectedImage != nil {
+        
+        if postTitle != nil {
            self.shareButton.isEnabled = true
             self.deletePost.isEnabled = true
            
@@ -71,8 +71,8 @@ class CreatePostViewController: UIViewController {
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             let ratio = profileImg.size.width / profileImg.size.height
            
-            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: header.text!, title: postTitle.text!, onSuccess: {
-                print("Successfully sent to database!")
+            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: header.text!, title: postTitle.text!, body: captionTextView.text!, onSuccess: {
+                print("Successfully sent info to database!")
             self.clean()
             self.tabBarController?.selectedIndex = 0
         })
@@ -94,6 +94,7 @@ class CreatePostViewController: UIViewController {
         self.postTitle.text = "" //added
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
+        self.captionTextView.text = ""
     }
     
     // TO-DO: Have an alert appear after tapping X. Should have the option to DELETE or SAVE AS DRAFT. If save as draft it will appear in the user profile. Will then have to clear out to start over.
