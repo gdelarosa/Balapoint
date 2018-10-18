@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         
     }
     
-    /// Search Icon on Navigation Bar
+    ///Navigation Bar
     func addLeftBarIcon(named:String) {
         
         let logoImage = UIImage.init(named: named)

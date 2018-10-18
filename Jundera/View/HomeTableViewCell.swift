@@ -43,8 +43,10 @@ class HomeTableViewCell: UITableViewCell {
     func updateView() {
         postImageView.layer.cornerRadius = 8.0
         postImageView.clipsToBounds = true
+//        postImageView.dropShadow()
+
         postTitleLabel.sizeToFit()
-        //captionLabel.sizeToFit()
+        
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
         guard let creationDate = post?.creationDate else {
