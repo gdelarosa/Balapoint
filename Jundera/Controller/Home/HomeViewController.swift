@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var post: Post?
     
-    var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"), UIImage(named: "Travel.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png"), UIImage(named: "Education.png")]
+    var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

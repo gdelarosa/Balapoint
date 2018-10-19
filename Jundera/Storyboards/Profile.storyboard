@@ -116,7 +116,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click EDIT to make changes to YOUR profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65U-ER-96w">
-                                            <rect key="frame" x="3" y="182" width="369" height="38"/>
+                                            <rect key="frame" x="3" y="202" width="369" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="INL-h0-uVg"/>
                                             </constraints>
@@ -125,7 +125,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVl-UY-uii">
-                                            <rect key="frame" x="117.5" y="151" width="140" height="24"/>
+                                            <rect key="frame" x="117.5" y="171" width="140" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="E6f-Kn-VxS"/>
                                                 <constraint firstAttribute="height" constant="24" id="Seo-uk-VN2"/>
@@ -134,20 +134,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-r8-IU6">
-                                            <rect key="frame" x="145" y="64" width="85" height="79"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="85" id="Ls9-96-S4B"/>
-                                                <constraint firstAttribute="height" constant="79" id="eWF-LQ-6Vt"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="45"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjP-bj-sEC" customClass="Segmentio" customModule="Segmentio">
-                                            <rect key="frame" x="0.0" y="233" width="375" height="38"/>
+                                            <rect key="frame" x="0.0" y="253" width="375" height="18"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tN5-Pn-KVh">
@@ -233,6 +221,18 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-r8-IU6">
+                                            <rect key="frame" x="138" y="31" width="98" height="93"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="98" id="Ls9-96-S4B"/>
+                                                <constraint firstAttribute="height" constant="93" id="eWF-LQ-6Vt"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="45"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="PVl-UY-uii" firstAttribute="centerX" secondItem="65U-ER-96w" secondAttribute="centerX" id="0AO-aa-PED"/>
@@ -243,9 +243,9 @@
                                         <constraint firstItem="QjP-bj-sEC" firstAttribute="centerX" secondItem="BfR-36-Lpd" secondAttribute="centerX" id="8ib-ft-IyW"/>
                                         <constraint firstItem="dCE-r8-IU6" firstAttribute="centerX" secondItem="BfR-36-Lpd" secondAttribute="centerX" id="Grt-fT-ONo"/>
                                         <constraint firstItem="65U-ER-96w" firstAttribute="top" secondItem="PVl-UY-uii" secondAttribute="bottom" constant="7" id="Og4-ck-DZg"/>
-                                        <constraint firstItem="PVl-UY-uii" firstAttribute="top" secondItem="dCE-r8-IU6" secondAttribute="bottom" constant="8" symbolic="YES" id="WO4-hB-w8G"/>
+                                        <constraint firstItem="PVl-UY-uii" firstAttribute="top" secondItem="dCE-r8-IU6" secondAttribute="bottom" constant="27" id="WO4-hB-w8G"/>
                                         <constraint firstItem="QjP-bj-sEC" firstAttribute="top" secondItem="65U-ER-96w" secondAttribute="bottom" constant="13" id="iJY-h1-67l"/>
-                                        <constraint firstItem="dCE-r8-IU6" firstAttribute="top" secondItem="BfR-36-Lpd" secondAttribute="topMargin" constant="36" id="kJS-Bt-lqK"/>
+                                        <constraint firstItem="dCE-r8-IU6" firstAttribute="top" secondItem="BfR-36-Lpd" secondAttribute="topMargin" constant="23" id="kJS-Bt-lqK"/>
                                         <constraint firstItem="6fn-vx-EoZ" firstAttribute="top" secondItem="BfR-36-Lpd" secondAttribute="topMargin" constant="6" id="wrP-tO-ZHN"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="QjP-bj-sEC" secondAttribute="bottom" constant="-3" id="xDB-IC-Btq"/>
                                         <constraint firstItem="6fn-vx-EoZ" firstAttribute="leading" secondItem="BfR-36-Lpd" secondAttribute="leadingMargin" id="xfT-ym-AAH"/>
