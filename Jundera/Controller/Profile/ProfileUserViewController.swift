@@ -24,6 +24,7 @@ class ProfileUserViewController: UIViewController {
         collectionView.delegate = self
         fetchUser()
         fetchMyPosts()
+        
     }
     
     func fetchUser() {
@@ -31,7 +32,6 @@ class ProfileUserViewController: UIViewController {
             self.isFollowing(userId: userr.id!, completed: { (value) in
                 userr.isFollowing = value
                 self.userr = userr
-                //self.navigationItem.title = userr.username
                 self.collectionView.reloadData()
             })
         }

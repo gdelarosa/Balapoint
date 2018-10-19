@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class HomeViewController: UIViewController, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
     
     var posts = [Post]()
     var users = [Userr]()
+    
+    var post: Post?
     
     var imagesArray: [UIImage?] = [UIImage(named: "Travel.png"), UIImage(named: "Health.png"), UIImage(named: "Education.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Tech.png"), UIImage(named: "Beauty.png"), UIImage(named: "Lifestyle.png")]
     
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         loadPosts()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +50,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         heightConstraint.isActive = true
         widthConstraint.isActive = true
         navigationItem.rightBarButtonItem = imageItem
+        self.navigationItem.title = "Balapoint"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
-        
     }
     
     @objc func searchTapped() {
@@ -107,18 +110,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let segueIdentifier: String
+//        switch indexPath.row {
+//        case 0: segueIdentifier = ""
+//        case 1: segueIdentifier = ""
+//        case 2: segueIdentifier = ""
+//        default: segueIdentifier = ""
+//        }
+//        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+//    }
 }
 // MARK: CollectionView Layout
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let collectionViewWidth = collectionView.bounds.width
-//        return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
-//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -128,8 +133,8 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     }
 }
 
-// MARK: - TableView Data Source
-extension HomeViewController: UITableViewDataSource {
+// MARK: - TableView Data Source and Delegate
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -141,6 +146,10 @@ extension HomeViewController: UITableViewDataSource {
         cell.user = user
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Row Selected")
     }
     
 }

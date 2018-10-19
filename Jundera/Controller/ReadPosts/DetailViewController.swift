@@ -19,6 +19,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
+        setBackButton()
+    }
+    
+    func setBackButton() {
+        //Back buttion
+        let btnLeftMenu: UIButton = UIButton()
+        btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())
+        btnLeftMenu.addTarget(self, action: #selector(DetailViewController.onClickBack), for: UIControlEvents.touchUpInside)
+        btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
+        let barButton = UIBarButtonItem(customView: btnLeftMenu)
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    
+    @objc func onClickBack()
+    {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func loadPost() {

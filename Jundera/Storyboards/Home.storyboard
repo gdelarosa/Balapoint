@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Balapoint-->
+        <!--Home View Controller-->
         <scene sceneID="msA-aM-zcz">
             <objects>
                 <viewController id="ZeP-ac-4dh" customClass="HomeViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,7 +173,7 @@
                             <constraint firstItem="2V7-TV-WOy" firstAttribute="top" secondItem="lBI-Vj-Fsn" secondAttribute="top" constant="143" id="zPO-t9-9xR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Balapoint" id="Xwx-Sg-AIS"/>
+                    <navigationItem key="navigationItem" id="Xwx-Sg-AIS"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="W9U-fS-EhU" id="pdU-f5-iW4"/>
                         <outlet property="collectionView" destination="bzh-eR-LB9" id="4mb-IX-2SR"/>

@@ -22,8 +22,9 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self as? UICollectionViewDelegate
         fetchUser()
         fetchMyPosts()
+        
     }
-    
+
     func fetchUser() {
         Api.Userr.observeCurrentUser { (user) in
             self.user = user

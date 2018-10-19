@@ -100,7 +100,7 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
         
-        //Testing for going to detail view by tapping on the title. Will have to setup to let user tap on cell. 
+        //Testing for going to detail view by tapping on the title. Will have to setup to let user tap on cell.
         let tapGestureForTitle = UITapGestureRecognizer(target: self, action: #selector(self.cell_TouchUpInside))
         postTitleLabel.addGestureRecognizer(tapGestureForTitle)
         postTitleLabel.isUserInteractionEnabled = true
@@ -122,7 +122,6 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
 
-    
     @objc func likeImageView_TouchUpInside() {
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)
