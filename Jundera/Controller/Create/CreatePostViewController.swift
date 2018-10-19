@@ -67,37 +67,62 @@ class CreatePostViewController: UIViewController {
     
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-      
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            let ratio = profileImg.size.width / profileImg.size.height
-           
-            HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: header.text!, title: postTitle.text!, body: captionTextView.text!, onSuccess: {
-                print("Successfully sent info to database!")
-            self.clean()
-            self.tabBarController?.selectedIndex = 0
-        })
         
-        } else {
-            print("FAILED")
+        presentAlertWithTitle(title: "How would you like to publish?", message: "", options: "Make Public", " Make Private", "Cancel") {
+            (option) in
+            switch(option) {
+            case 0:
+               print("Public")
+               if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+                let ratio = profileImg.size.width / profileImg.size.height
+                
+                HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, onSuccess: {
+                    print("Successfully sent info to database!")
+                    self.clean()
+                    self.tabBarController?.selectedIndex = 0
+                })
+                
+               } else {
+                print("FAILED TO POST")
+               }
+                break
+            case 1:
+                print("Private")
+            default:
+                break
+            }
         }
+      
     }
     
-    /// Delete Button
+    /// Clear Button
     @IBAction func remove_TouchUpInside(_ sender: Any) {
-        clean()
-        handlePost()
+        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
+            (option) in
+            switch(option) {
+            case 0:
+                print("Clear Post")
+                self.clean()
+                self.handlePost()
+                break
+            case 1:
+               print("Save as draft")
+            case 2:
+                print("Cancel")
+            default:
+                break
+            }
+        }
     }
     
     /// This will delete the information if you press the X button 
     func clean() {
         self.header.text = ""
-        self.postTitle.text = "" //added
+        self.postTitle.text = ""
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
         self.captionTextView.text = ""
     }
-    
-    // TO-DO: Have an alert appear after tapping X. Should have the option to DELETE or SAVE AS DRAFT. If save as draft it will appear in the user profile. Will then have to clear out to start over.
     
 }
 
