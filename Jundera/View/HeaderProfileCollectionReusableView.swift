@@ -28,10 +28,10 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var myPostsCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel! // BIO
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
-    @IBOutlet weak var userSettingsButton: UIButton! // Settings button for user
     @IBOutlet weak var personalMenu: Segmentio!
+   //@IBOutlet weak var userSettingsButton: UIButton!
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
@@ -64,40 +64,41 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             profileImage.clipsToBounds = true
         }
         
-        Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
-             self.myPostsCountLabel.text = "\(count)"
-        }
+//        Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
+//             self.myPostsCountLabel.text = "\(count)"
+//        }
         
-        Api.Follow.fetchCountFollowing(userId: user!.id!) { (count) in
-            self.followingCountLabel.text = "\(count)"
-        }
-        
-        Api.Follow.fetchCountFollowers(userId: user!.id!) { (count) in
-            self.followersCountLabel.text = "\(count)"
-        }
+//        Api.Follow.fetchCountFollowing(userId: user!.id!) { (count) in
+//            self.followingCountLabel.text = "\(count)"
+//        }
+//
+//        Api.Follow.fetchCountFollowers(userId: user!.id!) { (count) in
+//            self.followersCountLabel.text = "\(count)"
+//        }
         
         if user?.id == Api.Userr.CURRENT_USER?.uid {
             followButton.setTitle("Edit", for: UIControlState.normal)
             followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
 
         } else {
+            followButton.isHidden = true
             updateStateFollowButton()
         }
-        
-        if user?.id == Api.Userr.CURRENT_USER?.uid {
-            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
-            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
-        } else {
-            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden. 
-        }
+//        
+//        if user?.id == Api.Userr.CURRENT_USER?.uid {
+//            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
+//            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
+//        } else {
+//            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden. 
+//        }
     }
     
     func clear() {
         self.nameLabel.text = ""
         self.goalLabel.text = ""
-        self.myPostsCountLabel.text = ""
-        self.followersCountLabel.text = ""
-        self.followingCountLabel.text = ""
+        //self.myPostsCountLabel.text = ""
+        //self.followersCountLabel.text = ""
+        //self.followingCountLabel.text = ""
     }
     
     @objc func goToSettingVC() {
@@ -194,8 +195,8 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             backgroundColor: .white,
             segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 3),
             scrollEnabled: true,
-            indicatorOptions: SegmentioIndicatorOptions(),
-            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(),
+            indicatorOptions: SegmentioIndicatorOptions(color: #colorLiteral(red: 0.1960784314, green: 0.6274509804, blue: 0.7882352941, alpha: 1)),
+            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(color: UIColor.clear),
             verticalSeparatorOptions: nil,
             imageContentMode: .center,
             labelTextAlignment: .center,

@@ -22,7 +22,18 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self as? UICollectionViewDelegate
         fetchUser()
         fetchMyPosts()
+        settingsBarButton()
         
+    }
+    
+    func settingsBarButton() {
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "Settings.png"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(goToUsersSettings), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect(x:0.0,y:0.0, width:45,height: 45.0)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+       
     }
 
     func fetchUser() {
@@ -47,7 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.navigationController?.isNavigationBarHidden = true
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,7 +121,7 @@ extension ProfileViewController: HeaderProfileCollectionReusableViewDelegateSwit
 
 // Will lead to SETTINGS.
 extension ProfileViewController: HeaderProfileCollectionReusableViewDelegateUserSettingVC  {
-    func goToUsersSettings() {
+    @objc func goToUsersSettings() {
         print("Pressed to go to SETTINGS VC")
         performSegue(withIdentifier: "User_SettingSegue", sender: nil)
     }

@@ -158,8 +158,8 @@
 			children = (
 				770BD3FF216FC02E00FFAB86 /* Edit */,
 				770BD3FD216FBFF500FFAB86 /* Settings */,
-				77EE5266211BDCFF0065E364 /* ProfileUserViewController.swift */,
 				77EE526D211BDCFF0065E364 /* ProfileViewController.swift */,
+				77EE5266211BDCFF0065E364 /* ProfileUserViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

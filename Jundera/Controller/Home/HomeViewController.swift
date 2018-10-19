@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLeftBarIcon(named: "Search")
+        settingsBarButton()
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
@@ -38,23 +38,19 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     ///Navigation Bar
-    func addLeftBarIcon(named:String) {
-        
-        let logoImage = UIImage.init(named: named)
-        let logoImageView = UIImageView.init(image: logoImage)
-        logoImageView.frame = CGRect(x:0.0,y:0.0, width:50,height:25.0)
-        logoImageView.contentMode = .scaleAspectFit
-        let imageItem = UIBarButtonItem.init(customView: logoImageView)
-        let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 60)
-        let heightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: 25)
-        heightConstraint.isActive = true
-        widthConstraint.isActive = true
-        navigationItem.rightBarButtonItem = imageItem
-        self.navigationItem.title = "Balapoint"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
-    }
+        func settingsBarButton() {
+            let button: UIButton = UIButton(type: UIButtonType.custom)
+            button.setImage(UIImage(named: "Search.png"), for: UIControlState.normal)
+            button.addTarget(self, action: #selector(goToSearch), for: UIControlEvents.touchUpInside)
+            button.frame = CGRect(x:0.0,y:0.0, width:25,height: 25.0)
+            let barButton = UIBarButtonItem(customView: button)
+            self.navigationItem.rightBarButtonItem = barButton
+            self.navigationItem.title = "Balapoint"
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
+        }
+
     
-    @objc func searchTapped() {
+    @objc func goToSearch() {
         print("Search icon tapped")
         //Action for searching 
     }
