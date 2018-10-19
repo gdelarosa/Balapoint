@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CreatePostViewController: UIViewController {
+class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var photo: UIImageView! // Should be optional to post a picture
     @IBOutlet weak var captionTextView: UITextView! // Post Body
@@ -23,7 +23,7 @@ class CreatePostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
@@ -38,9 +38,36 @@ class CreatePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        captionTextView.delegate = self
         handlePost()
     }
     
+    //Adds a bullet point to each new line
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+        if (text == "\n") {
+            if range.location == textView.text.count {
+                let updatedText: String = textView.text!.appendingFormat("\n \u{2022} ")
+                textView.text = updatedText
+            }
+            else {
+                let beginning: UITextPosition = textView.beginningOfDocument
+                let start: UITextPosition = captionTextView.position(from: beginning, offset: range.location)!
+                let end: UITextPosition = textView.position(from: start, offset: range.length)!
+                let textRange: UITextRange = captionTextView.textRange(from: start, to: end)!
+            
+                captionTextView.replace(textRange, withText: "\n \u{2022} ")
+            
+                let cursor: NSRange = NSMakeRange(range.location, 0)
+                    //NSMakeRange(range.location + "\n \u{2022} ", 0)
+            
+                textView.selectedRange = cursor
+            }
+            return false
+        }
+        return true
+    }
+
     func handlePost() {
         
         if postTitle != nil {
