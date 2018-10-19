@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         loadPost()
         setBackButton()
+        tableView.allowsSelection = true
     }
     
     func setBackButton() {
@@ -57,6 +58,7 @@ class DetailViewController: UIViewController {
         })
         
     }
+
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "Detail_CommentVC" {
@@ -74,7 +76,7 @@ class DetailViewController: UIViewController {
     
 }
 
-extension DetailViewController: UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -85,6 +87,32 @@ extension DetailViewController: UITableViewDataSource {
         cell.user = user
         cell.detailDelegate = self as? DetailPostTableViewCellDelegate
         return cell
+    }
+    
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Image Tapped")
+        let cell = tableView.cellForRow(at: indexPath) as! DetailPostTableViewCell
+        self.imageTapped(image: cell.postImage.image!)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func imageTapped(image:UIImage){
+        let newImageView = UIImageView(image: image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .white
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage(_:)))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
 }
 

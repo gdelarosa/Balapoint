@@ -42,7 +42,7 @@ class DetailPostTableViewCell: UITableViewCell {
         headerLabel.text = ""
         userName.text = ""
         dateCreated.text = ""
-        hashtags.text = ""
+       // hashtags.text = ""
         bodyText.text = ""
     }
     
