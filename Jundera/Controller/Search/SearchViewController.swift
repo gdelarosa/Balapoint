@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
     var users: [Userr] = []
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self

@@ -65,7 +65,7 @@ class SettingTableViewController: UITableViewController {
         if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
           
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
-                goal:goalTextField.text!, imageData: imageData, onSuccess: {
+                bio:goalTextField.text!, imageData: imageData, onSuccess: {
                 print("Success on updating user info!)")
                 self.delegate?.updateUserInfor()
             }, onError: { (errorMessage) in

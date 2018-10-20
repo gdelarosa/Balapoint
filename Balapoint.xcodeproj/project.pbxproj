@@ -139,7 +139,6 @@
 		770BD3F7216FBE8500FFAB86 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				770BD3FE216FC00500FFAB86 /* Search */,
 				77EE5265211BDCFF0065E364 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -282,6 +281,7 @@
 				770BD3FC216FBFD400FFAB86 /* SignUp */,
 				770BD3FB216FBFC900FFAB86 /* SignIn */,
 				770BD3F7216FBE8500FFAB86 /* Home */,
+				770BD3FE216FC00500FFAB86 /* Search */,
 				770BD3FA216FBEDD00FFAB86 /* Create */,
 				770BD3F9216FBE9200FFAB86 /* Profile */,
 				770BD3F8216FBE8C00FFAB86 /* Saved */,

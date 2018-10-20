@@ -300,7 +300,7 @@
                 <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DetailViewController" id="EsZ-9H-OHi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-nJ-qUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984" y="642"/>
+            <point key="canvasLocation" x="3774" y="623"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="sXz-Qz-Fs1">

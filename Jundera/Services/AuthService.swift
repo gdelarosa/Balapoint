@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class AuthService {
-    
+    // SIGN IN
     static func signIn(email: String, password: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
@@ -23,7 +23,7 @@ class AuthService {
         })
         
     }
-    
+    // SIGN UP
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
             if error != nil {
@@ -52,7 +52,7 @@ class AuthService {
         })
         
     }
-    
+    // SET USER INFO
     static func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String, onSuccess: @escaping () -> Void) {
         let ref = Database.database().reference()
         let usersReference = ref.child("users")
@@ -61,7 +61,8 @@ class AuthService {
         onSuccess()
     }
     
-    static func updateUserInfor(username: String, email: String, goal: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+    // UPDATE USER INFO
+    static func updateUserInfor(username: String, email: String, bio: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         
         Api.Userr.CURRENT_USER?.updateEmail(to: email, completion: { (error) in
             if error != nil {
@@ -69,8 +70,6 @@ class AuthService {
             } else {
                 let uid = Api.Userr.CURRENT_USER?.uid
                 let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(uid!)
-                //let storageItem = Storage.storage().reference().child(uid!) //added
-                
                 
                 storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
@@ -78,7 +77,7 @@ class AuthService {
                     }
                     storageRef.downloadURL(completion: { (url, error) in
                         if let profileImageUrl = url?.absoluteString {
-                            self.updateDatabase(profileImageUrl: profileImageUrl, username: username, email: email, goal: goal, onSuccess: onSuccess, onError: onError)
+                            self.updateDatabase(profileImageUrl: profileImageUrl, username: username, email: email, bio: bio, onSuccess: onSuccess, onError: onError)
                         }
                     })
                 })
@@ -86,9 +85,9 @@ class AuthService {
         })
         
     }
-    
-    static func updateDatabase(profileImageUrl: String, username: String, email: String, goal: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
-        let dict = ["username": username, "username_lowercase": username.lowercased(), "email": email, "goal": goal,
+    // UPDATE DATABASE WITH USER INFO
+    static func updateDatabase(profileImageUrl: String, username: String, email: String, bio: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+        let dict = ["username": username, "username_lowercase": username.lowercased(), "email": email, "bio": bio,
                     "profileImageUrl": profileImageUrl]
         Api.Userr.REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
             if error != nil {
@@ -100,6 +99,7 @@ class AuthService {
         })
     }
     
+    // LOG OUT
     static func logout(onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         do {
             try Auth.auth().signOut()
@@ -109,4 +109,17 @@ class AuthService {
             onError(logoutError.localizedDescription)
         }
     }
+    
+    // DELETE ACCOUNT
+    static func deleteAccount(onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+        
+        if Auth.auth().currentUser != nil {
+            Auth.auth().currentUser?.delete()
+            onSuccess()
+            print("Successfully deleted account")
+        } else {
+            onError("Error with deleting user.")
+        }
+    }
+    
 }

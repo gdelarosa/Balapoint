@@ -59,6 +59,9 @@ class PostApi {
         Api.Post.REF_POSTS.child(id).removeObserver(withHandle: likeHandler)
     }
     
+    func removePosts(id: String) {
+        Api.Post.REF_POSTS.child(id).removeValue()
+    }
     
     func incrementLikes(postId: String, onSucess: @escaping (Post) -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         let postRef = Api.Post.REF_POSTS.child(postId)

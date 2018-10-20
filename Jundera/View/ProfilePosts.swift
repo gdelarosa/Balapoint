@@ -43,6 +43,8 @@ class ProfilePosts: UICollectionViewCell {
     }
     
     func updateView() {
+        photo.layer.cornerRadius = 8.0
+        photo.clipsToBounds = true
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             photo.sd_setImage(with: photoUrl)

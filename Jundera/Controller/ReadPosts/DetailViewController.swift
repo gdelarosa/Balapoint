@@ -89,14 +89,14 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Image Tapped")
-        let cell = tableView.cellForRow(at: indexPath) as! DetailPostTableViewCell
-        self.imageTapped(image: cell.postImage.image!)
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Image Tapped")
+//        let cell = tableView.cellForRow(at: indexPath) as! DetailPostTableViewCell
+//        self.imageTapped(image: cell.postImage.image!)
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
-    func imageTapped(image:UIImage){
+    func imageTapped(image:UIImage) {
         let newImageView = UIImageView(image: image)
         newImageView.frame = UIScreen.main.bounds
         newImageView.backgroundColor = .white
