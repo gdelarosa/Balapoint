@@ -35,6 +35,28 @@ class UserSettingsTableViewController: UITableViewController {
     {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    // Logout
+    @IBAction func logoutBtn_TouchUpInside(_ sender: Any) {
+        AuthService.logout(onSuccess: {
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            self.present(signInVC, animated: true, completion: nil)
+        }) { (errorMessage) in
+            print("ERROR: \(String(describing: errorMessage))")
+        }
+    }
+    
+    // Delete Account
+    @IBAction func deleteAccount_TouchUpInside(_ sender: Any) {
+        AuthService.deleteAccount(onSuccess: {
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            self.present(signInVC, animated: true, completion: nil)
+            }, onError: { (errorString) in
+                print("Error with deleting account!")
+        })
+    }
 
     // MARK: - Table view data source
 

@@ -66,8 +66,8 @@ class SettingTableViewController: UITableViewController {
           
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
                 bio:goalTextField.text!, imageData: imageData, onSuccess: {
-                print("Success on updating user info!)")
                 self.delegate?.updateUserInfor()
+                print("Success on updating user info!)")
             }, onError: { (errorMessage) in
                 print("Error: \(String(describing: errorMessage))")
             })

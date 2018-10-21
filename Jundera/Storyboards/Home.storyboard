@@ -83,6 +83,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="-14" id="0iH-Bd-ZJH"/>
+                                                <constraint firstItem="8HR-Am-BIT" firstAttribute="top" secondItem="w06-SR-xaX" secondAttribute="bottom" constant="10" id="78Q-GX-VMh"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="baseline" secondItem="7Ma-zl-z3F" secondAttribute="baseline" constant="2" id="7fQ-wc-k9t"/>
                                                 <constraint firstItem="w06-SR-xaX" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leadingMargin" constant="10" id="7i1-29-vhj"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="30" id="J2s-SV-deL"/>
@@ -90,6 +91,7 @@
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="topMargin" id="PDD-KQ-0gM"/>
                                                 <constraint firstItem="7Ma-zl-z3F" firstAttribute="leading" secondItem="fEI-ug-Ldb" secondAttribute="trailing" constant="8" id="Pru-Wy-Tws"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="leading" secondItem="w06-SR-xaX" secondAttribute="trailing" constant="15.5" id="SzA-Le-Bhk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fEI-ug-Ldb" secondAttribute="trailing" constant="27" id="TfH-zj-BJi"/>
                                                 <constraint firstItem="vMY-aN-Ui7" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leadingMargin" constant="10" id="X7H-iM-XgK"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="top" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="21" id="ZoB-aH-j2b"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JAf-Ao-6LM" secondAttribute="trailing" constant="-6" id="Zr3-LX-OUj"/>
@@ -253,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailPostCell" rowHeight="526" id="HN9-U4-yFR" customClass="DetailPostTableViewCell" customModule="Balapoint" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailPostCell" rowHeight="526" id="HN9-U4-yFR" customClass="DetailPostTableViewCell" customModule="Balapoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="526"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HN9-U4-yFR" id="dmu-OO-grA">
@@ -266,7 +268,7 @@
                                                         <constraint firstAttribute="width" constant="167" id="Rla-mo-10D"/>
                                                         <constraint firstAttribute="height" constant="19" id="o9V-gy-HPX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -285,7 +287,7 @@
                                                         <constraint firstAttribute="height" constant="17" id="B4L-Xq-7o8"/>
                                                         <constraint firstAttribute="width" constant="83" id="Nau-ya-47Z"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="8"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
