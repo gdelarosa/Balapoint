@@ -41,7 +41,7 @@ class PostApi {
             }
         })
     }
-    
+    //Don't currently need 
     func observeTopPosts(completion: @escaping (Post) -> Void) {
         REF_POSTS.queryOrdered(byChild: "likeCount").observeSingleEvent(of: .value, with: {
             snapshot in

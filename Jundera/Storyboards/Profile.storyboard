@@ -297,7 +297,7 @@
         <!--DetailViewController-->
         <scene sceneID="3Xh-9t-AEW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DetailViewController" id="EsZ-9H-OHi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SavedPost" referencedIdentifier="DetailViewController" id="EsZ-9H-OHi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-nJ-qUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3774" y="623"/>
@@ -944,7 +944,7 @@
                                     <rect key="frame" x="-8" y="0.0" width="375" height="150"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="e7l-q5-cQS">
-                                    <rect key="frame" x="138" y="36" width="98" height="98"/>
+                                    <rect key="frame" x="138.5" y="36" width="98" height="98"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="98" id="My8-Y2-pVg"/>
                                         <constraint firstAttribute="width" constant="98" id="qjO-SQ-AVL"/>
@@ -985,7 +985,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-yD-FMP">
-                                                    <rect key="frame" x="101" y="14" width="260" height="17"/>
+                                                    <rect key="frame" x="101" y="13.5" width="260" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1076,7 +1076,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-dX-ZDK">
-                                                    <rect key="frame" x="106" y="14" width="255" height="17"/>
+                                                    <rect key="frame" x="106" y="13.5" width="255" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1122,33 +1122,6 @@
                                             <constraints>
                                                 <constraint firstItem="Ngd-oX-TuF" firstAttribute="centerY" secondItem="ms4-Oc-C5X" secondAttribute="centerY" id="4at-69-G3w"/>
                                                 <constraint firstItem="Ngd-oX-TuF" firstAttribute="centerX" secondItem="ms4-Oc-C5X" secondAttribute="centerX" id="VQk-bb-lxX"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="G09-Cz-RNT">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zKb-2s-nqD">
-                                        <rect key="frame" x="0.0" y="472" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zKb-2s-nqD" id="YDd-Xc-zXq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iW-jY-O1E">
-                                                    <rect key="frame" x="160" y="7" width="55" height="30"/>
-                                                    <state key="normal" title="Log Out">
-                                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="logoutBtn_TouchUpInside:" destination="CBw-2P-fkl" eventType="touchUpInside" id="ija-Xg-Zye"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5iW-jY-O1E" firstAttribute="centerX" secondItem="YDd-Xc-zXq" secondAttribute="centerX" id="8yX-IH-GGX"/>
-                                                <constraint firstItem="5iW-jY-O1E" firstAttribute="centerY" secondItem="YDd-Xc-zXq" secondAttribute="centerY" id="dhR-2f-N4w"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

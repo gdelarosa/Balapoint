@@ -1,6 +1,6 @@
 //
-//  DiscoverViewController.swift
-//  Metis
+//  SavedPostsViewController.swift
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
@@ -12,6 +12,7 @@ import Firebase
 class SavedPostsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var posts: [Post] = []
     
     override func viewDidLoad() {
@@ -19,7 +20,7 @@ class SavedPostsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-       // fetchMyPosts()
+       fetchMyPosts()
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
@@ -27,11 +28,12 @@ class SavedPostsViewController: UIViewController {
     }
     
     // This is an example that will only display user's posts.
-//    func fetchMyPosts() {
-//        guard let currentUser = Api.Userr.CURRENT_USER else {
-//            return
-//        }
-//    }
+    func fetchMyPosts() {
+        guard let currentUser = Api.Userr.CURRENT_USER else {
+            return
+        }
+        print(currentUser)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Discover_DetailSegue" {

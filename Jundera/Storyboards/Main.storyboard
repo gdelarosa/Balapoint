@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="1262" y="-1961"/>
         </scene>
-        <!--NavigationDiscover-->
+        <!--NavigationSaved-->
         <scene sceneID="XLh-JE-ZoN">
             <objects>
-                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="NavigationDiscover" id="Shz-k0-8eW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SavedPost" referencedIdentifier="NavigationSaved" id="Shz-k0-8eW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Yk8-mx-WFp"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hl-Ua-3Mr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,7 +24,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView! //Post Image
     @IBOutlet weak var likeImageView: UIImageView! // Save Post
     @IBOutlet weak var captionLabel: UILabel! // Heading
-    @IBOutlet weak var postDateLabel: UILabel! // Date posted
+    //@IBOutlet weak var postDateLabel: UILabel! // Date posted
     
     var delegate: HomeTableViewCellDelegate?
     
@@ -49,11 +49,11 @@ class HomeTableViewCell: UITableViewCell {
         
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
-        guard let creationDate = post?.creationDate else {
-            print("Unable to retrieve date")
-            return
-        }
-        postDateLabel.text = creationDate.timeAgoDisplay()
+        //guard let creationDate = post?.creationDate else {
+           // print("Unable to retrieve date")
+           // return
+        //}
+        //postDateLabel.text = creationDate.timeAgoDisplay()
        
         if (post?.ratio) != nil {
             layoutIfNeeded()
@@ -80,6 +80,16 @@ class HomeTableViewCell: UITableViewCell {
         }
        
     }
+    // Testing
+    func updateSavedPosts(post: Post) {
+        let image = post.saved == nil || !post.isSaved! ? "SaveInCell" : "SaveInCell2"
+        likeImageView.image = UIImage(named: image)
+        
+        if post.isSaved != nil {
+            print("TEST: Post Is Saved")
+        }
+        
+    }
     
     func setupUserInfo() {
         nameLabel.text = user?.username
@@ -90,7 +100,7 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.text = ""
         captionLabel.text = ""
         postTitleLabel.text = ""
-        postDateLabel.text = ""
+        //postDateLabel.text = ""
         
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
@@ -131,7 +141,11 @@ class HomeTableViewCell: UITableViewCell {
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }
-        print("You Tapped the Save icon")
+        print("You Tapped the Save icon to LIKE")
+    }
+    
+    @objc func savedImageView_TouchUpInside() {
+    
     }
     
     @objc func commentImageView_TouchUpInside() {

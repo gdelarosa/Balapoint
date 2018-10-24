@@ -17,6 +17,7 @@ class Userr {
     var isFollowing: Bool?
     var postTitle: String?
     var bio: String?
+    var website: String?
 }
 
 extension Userr {
@@ -28,6 +29,7 @@ extension Userr {
         user.id = key
         user.postTitle = dict["title"] as? String
         user.bio = dict["bio"] as? String
+        user.website = dict["website"] as? String
         return user
     }
 }

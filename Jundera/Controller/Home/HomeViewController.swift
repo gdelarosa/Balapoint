@@ -86,6 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
+    // Will segue go to DetailVC is title of post is selected.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailPost_Segue" {
             let detailVC = segue.destination as! DetailViewController
