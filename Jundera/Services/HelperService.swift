@@ -28,7 +28,7 @@ class HelperService {
     static func uploadCommentToServer(data: Data, caption: String, onSuccess: @escaping () -> Void) {
         
     }
-    //Wont need
+    //
     static func uploadVideoToFirebaseStorage(videoUrl: URL, onSuccess: @escaping (_ videoUrl: String) -> Void) {
         let videoIdString = NSUUID().uuidString
         

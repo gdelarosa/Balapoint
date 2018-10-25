@@ -66,6 +66,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
+                // TODO: Sort by date published 
+                self.posts.sort(by: {(p1, p2) -> Bool in
+                    return p1.creationDate?.compare(p2.creationDate!) == .orderedDescending
+                })
                 self.tableView.reloadData()
             })
         }

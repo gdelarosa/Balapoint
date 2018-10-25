@@ -120,15 +120,13 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
-    // CAUSES A CRASH
-    /// If a user taps on the user name label they will go to that profile.
-    
+    // Goes to user profile
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
-    
+    // Goes to detail post
     @objc func cell_TouchUpInside() {
         if let post = post?.id {
             delegate?.goToDetailPostVC(postId: post)

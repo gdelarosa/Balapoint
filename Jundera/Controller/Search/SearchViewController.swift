@@ -11,7 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     var searchBar = UISearchBar()
-    var users: [Userr] = []
+    //var users: [Userr] = []
     var posts: [Post] = []
 
     @IBOutlet weak var tableView: UITableView!
@@ -61,13 +61,13 @@ class SearchViewController: UIViewController {
     func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
         Api.Follow.isFollowing(userId: userId, completed: completed)
     }
-    
+    // Should prepare to go to detail post. See HOMEVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Search_ProfileSegue" {
             let profileVC = segue.destination as! ProfileUserViewController
             let userId = sender  as! String
             profileVC.userId = userId
-            profileVC.delegate = self
+           // profileVC.delegate = self
         }
     }
 
@@ -103,14 +103,14 @@ extension SearchViewController: PeopleTableViewCellDelegate {
         performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
     }
 }
-// Wont need 
-extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
-    func updateFollowButton(forUser user: Userr) {
-        for u in self.users {
-            if u.id == user.id {
-                u.isFollowing = user.isFollowing
-                self.tableView.reloadData()
-            }
-        }
-    }
-}
+// Wont need
+//extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
+//    func updateFollowButton(forUser user: Userr) {
+//        for u in self.users {
+//            if u.id == user.id {
+//                u.isFollowing = user.isFollowing
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
+//}

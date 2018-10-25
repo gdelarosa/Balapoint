@@ -41,23 +41,6 @@ class PostApi {
             }
         })
     }
-    //Don't currently need 
-    func observeTopPosts(completion: @escaping (Post) -> Void) {
-        REF_POSTS.queryOrdered(byChild: "likeCount").observeSingleEvent(of: .value, with: {
-            snapshot in
-            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
-            arraySnapshot.forEach({ (child) in
-                if let dict = child.value as? [String: Any] {
-                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
-                    completion(post)
-                }
-            })
-        })
-    }
-    
-    func observeSavedPosts(withId: String, completion: @escaping (Post) -> Void) {
-      
-    }
     
     func removeObserveLikeCount(id: String, likeHandler: UInt) {
         Api.Post.REF_POSTS.child(id).removeObserver(withHandle: likeHandler)

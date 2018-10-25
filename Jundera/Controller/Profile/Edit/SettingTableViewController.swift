@@ -103,6 +103,7 @@ class SettingTableViewController: UITableViewController {
         print("Profile image selected")
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.mediaTypes = ["public.image"]
         present(pickerController, animated: true, completion: nil)
     }
 
