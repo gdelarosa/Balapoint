@@ -117,6 +117,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DetailViewController: HomeTableViewCellDelegate {
+    func didSavePost(post: Post) {
+        print("Saved POST!")
+    }
+    
     func goToDetailPostVC(postId: String) {
         performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
     }

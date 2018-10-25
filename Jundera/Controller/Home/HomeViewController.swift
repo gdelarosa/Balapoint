@@ -8,6 +8,7 @@
     
 import UIKit
 import SDWebImage
+import Firebase
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -86,6 +87,24 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
+    //Save posts
+    func didSavePost(post: Post) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("saved").child(uid)
+        
+        guard let postId = post.id else { return }
+        
+        let values = [postId: post.uid]
+        ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
+            if let err = err {
+                print("Failed to put save post data in db:", err)
+                return
+            }
+            print("Successfully put save post in db")
+        }
+    }
+
+    
     // Will segue go to DetailVC is title of post is selected.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailPost_Segue" {
@@ -147,7 +166,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row Selected")
-        let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
+        _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
@@ -158,6 +177,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeViewController: HomeTableViewCellDelegate {
+    
     func goToDetailPostVC(postId: String) {
         performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
     }

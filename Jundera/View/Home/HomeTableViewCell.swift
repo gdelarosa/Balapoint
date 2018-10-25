@@ -14,6 +14,7 @@ protocol HomeTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
     func goToDetailPostVC(postId: String)
+    func didSavePost(post: Post)
 }
 
 class HomeTableViewCell: UITableViewCell {
@@ -66,6 +67,7 @@ class HomeTableViewCell: UITableViewCell {
         }
      
         self.updateLike(post: (self.post!))
+        //self.updateSavedPosts(post: (self.post!)) //testing
     }
     
     func updateLike(post: Post) {
@@ -78,17 +80,18 @@ class HomeTableViewCell: UITableViewCell {
         if count != 0 {
             print("Liked Item: \(count)")
         }
+        //delegate?.didSavePost(post: post)
+        //testing for save post
+        // The delegate is used in the HomeVC as well. Line 91. 
        
     }
-    // Testing
+    // Testing but not currently using. 
     func updateSavedPosts(post: Post) {
-        let image = post.saved == nil || !post.isSaved! ? "SaveInCell" : "SaveInCell2"
-        likeImageView.image = UIImage(named: image)
+        //guard let post = post else { return }
+//        let image = post.saved == nil || !post.isSaved! ? "SaveInCell" : "SavedInCell2"
+//        likeImageView.image = UIImage(named: image)
         
-        if post.isSaved != nil {
-            print("TEST: Post Is Saved")
-        }
-        
+        delegate?.didSavePost(post: post)
     }
     
     func setupUserInfo() {
@@ -135,6 +138,7 @@ class HomeTableViewCell: UITableViewCell {
     @objc func likeImageView_TouchUpInside() {
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)
+            self.updateSavedPosts(post: post)//testing
             self.post?.likes = post.likes
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
@@ -142,10 +146,6 @@ class HomeTableViewCell: UITableViewCell {
             print("Error: \(String(describing: errorMessage))")
         }
         print("You Tapped the Save icon to LIKE")
-    }
-    
-    @objc func savedImageView_TouchUpInside() {
-    
     }
     
     @objc func commentImageView_TouchUpInside() {

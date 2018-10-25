@@ -13,6 +13,7 @@ struct Api {
     static var Userr = UserApi()
     static var Post = PostApi()
     static var MyPosts = MyPostsApi()
+    static var MySavedPosts = MySavedPostsApi()
     static var Follow = FollowApi()
     static var Feed = FeedApi()
     static var HashTag = HashTagApi()
