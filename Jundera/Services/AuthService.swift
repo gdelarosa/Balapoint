@@ -62,7 +62,7 @@ class AuthService {
     }
     
     // UPDATE USER INFO
-    static func updateUserInfor(username: String, email: String, bio: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+    static func updateUserInfor(username: String, email: String, bio: String, website: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         
         Api.Userr.CURRENT_USER?.updateEmail(to: email, completion: { (error) in
             if error != nil {
@@ -77,7 +77,7 @@ class AuthService {
                     }
                     storageRef.downloadURL(completion: { (url, error) in
                         if let profileImageUrl = url?.absoluteString {
-                            self.updateDatabase(profileImageUrl: profileImageUrl, username: username, email: email, bio: bio, onSuccess: onSuccess, onError: onError)
+                            self.updateDatabase(profileImageUrl: profileImageUrl, username: username, email: email, bio: bio, website: website, onSuccess: onSuccess, onError: onError)
                         }
                     })
                 })
@@ -86,8 +86,8 @@ class AuthService {
         
     }
     // UPDATE DATABASE WITH USER INFO
-    static func updateDatabase(profileImageUrl: String, username: String, email: String, bio: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
-        let dict = ["username": username, "username_lowercase": username.lowercased(), "email": email, "bio": bio,
+    static func updateDatabase(profileImageUrl: String, username: String, email: String, bio: String, website: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+        let dict = ["username": username, "username_lowercase": username.lowercased(), "email": email, "bio": bio, "website": website,
                     "profileImageUrl": profileImageUrl]
         Api.Userr.REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
             if error != nil {

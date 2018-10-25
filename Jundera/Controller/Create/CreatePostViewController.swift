@@ -133,7 +133,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                 self.handlePost()
                 break
             case 1:
-               print("Save as draft")
+                print("Save as draft")
             case 2:
                 print("Cancel")
             default:

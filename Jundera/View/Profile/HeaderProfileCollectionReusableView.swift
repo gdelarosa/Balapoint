@@ -29,6 +29,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel! // BIO
+    @IBOutlet weak var websiteLabel: UILabel! // Website
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
     @IBOutlet weak var personalMenu: Segmentio!
    //@IBOutlet weak var userSettingsButton: UIButton!
@@ -52,6 +53,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     func updateView() {
         nameLabel.text = user?.username
         goalLabel.text = user?.bio
+        websiteLabel.text = user?.website
     
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
@@ -96,6 +98,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     func clear() {
         self.nameLabel.text = ""
         self.goalLabel.text = ""
+        self.websiteLabel.text = ""
         //self.myPostsCountLabel.text = ""
         //self.followersCountLabel.text = ""
         //self.followingCountLabel.text = ""

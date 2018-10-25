@@ -18,6 +18,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var goalTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
     
     var delegate: SettingTableViewControllerDelegate?
     
@@ -27,6 +28,7 @@ class SettingTableViewController: UITableViewController {
         usernnameTextField.delegate = self
         emailTextField.delegate = self
         goalTextField.delegate = self
+        websiteTextField.delegate = self
         fetchCurrentUser()
         setBackButton()
     }
@@ -55,6 +57,7 @@ class SettingTableViewController: UITableViewController {
             self.usernnameTextField.text = userr.username
             self.emailTextField.text = userr.email
             self.goalTextField.text = userr.bio
+            self.websiteTextField.text = userr.website
             if let profileUrl = URL(string: userr.profileImageUrl!) {
                 self.profileImageView.sd_setImage(with: profileUrl)
             }
@@ -65,8 +68,17 @@ class SettingTableViewController: UITableViewController {
         if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
           
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
-                bio:goalTextField.text!, imageData: imageData, onSuccess: {
+                                        bio:goalTextField.text!, website: websiteTextField.text!, imageData: imageData, onSuccess: {
                 self.delegate?.updateUserInfor()
+                self.presentAlertWithTitle(title: "Success", message: "Your profile has been updated.", options: "Ok") {
+                                                (option) in
+                                                switch(option) {
+                                                case 0:
+                                                    print("Clear Post")
+                                                default:
+                                                    break
+                                                }
+                                            }
                 print("Success on updating user info!)")
             }, onError: { (errorMessage) in
                 print("Error: \(String(describing: errorMessage))")
@@ -85,6 +97,7 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
+        print("Profile image selected")
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
