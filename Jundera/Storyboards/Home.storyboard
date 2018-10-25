@@ -192,6 +192,7 @@
                         <outlet property="tableView" destination="2V7-TV-WOy" id="Df0-ZL-dI2"/>
                         <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="tl5-Cp-x7c"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="PRe-je-SKZ"/>
+                        <segue destination="IKc-WK-6Vj" kind="show" identifier="Search_Segue" id="cfz-10-X0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56B-CE-3Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,6 +379,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es8-8b-kx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-879.20000000000005" y="939.58020989505258"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="pAk-2W-ovb">
+            <objects>
+                <viewController id="IKc-WK-6Vj" customClass="SearchViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uPs-ig-Mhd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rp4-n7-xxJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LLv-8f-lkb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nCl-BE-873">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="81" id="4sj-Wt-ALR" customClass="PeopleTableViewCell" customModule="Balapoint" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sj-Wt-ALR" id="aPa-q6-rtN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDb-pG-3P8">
+                                                    <rect key="frame" x="15" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="a80-2b-u9k"/>
+                                                        <constraint firstAttribute="width" constant="60" id="pas-Ke-eHI"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bma-JF-YDg">
+                                                    <rect key="frame" x="90" y="28.5" width="43" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.2345659292" blue="0.48899147729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cN0-N0-Bhk">
+                                                    <rect key="frame" x="260" y="22" width="100" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="D9S-6a-r1N"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <state key="normal" title="Support">
+                                                        <color key="titleColor" red="0.0" green="0.2345659292" blue="0.48899147729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cN0-N0-Bhk" secondAttribute="trailing" constant="15" id="6Hp-uN-5O8"/>
+                                                <constraint firstItem="sDb-pG-3P8" firstAttribute="top" secondItem="aPa-q6-rtN" secondAttribute="top" constant="10" id="77a-98-Xt5"/>
+                                                <constraint firstItem="bma-JF-YDg" firstAttribute="leading" secondItem="sDb-pG-3P8" secondAttribute="trailing" constant="15" id="Rvt-aE-HRB"/>
+                                                <constraint firstItem="sDb-pG-3P8" firstAttribute="leading" secondItem="aPa-q6-rtN" secondAttribute="leading" constant="15" id="ceB-bP-Shy"/>
+                                                <constraint firstItem="cN0-N0-Bhk" firstAttribute="centerY" secondItem="sDb-pG-3P8" secondAttribute="centerY" id="n92-qK-Oc4"/>
+                                                <constraint firstItem="bma-JF-YDg" firstAttribute="centerY" secondItem="sDb-pG-3P8" secondAttribute="centerY" id="oYg-sG-rKo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="followButton" destination="cN0-N0-Bhk" id="38O-bF-GAI"/>
+                                            <outlet property="nameLabel" destination="bma-JF-YDg" id="h13-Vt-No0"/>
+                                            <outlet property="profileImage" destination="sDb-pG-3P8" id="bfN-FF-uiM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IKc-WK-6Vj" id="byZ-oh-bI0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nCl-BE-873" secondAttribute="bottom" id="Fzm-Ev-ZKs"/>
+                            <constraint firstAttribute="trailing" secondItem="nCl-BE-873" secondAttribute="trailing" id="lqs-gk-PpI"/>
+                            <constraint firstItem="nCl-BE-873" firstAttribute="leading" secondItem="LLv-8f-lkb" secondAttribute="leading" id="oak-J2-ZBm"/>
+                            <constraint firstItem="nCl-BE-873" firstAttribute="top" secondItem="LLv-8f-lkb" secondAttribute="top" id="yDo-7Y-do8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="nCl-BE-873" id="hId-2d-Q1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzJ-va-GHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33" y="230"/>
         </scene>
     </scenes>
     <resources>

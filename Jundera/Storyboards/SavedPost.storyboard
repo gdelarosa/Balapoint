@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-tz-95v">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-tz-95v">
                                 <rect key="frame" x="0.0" y="28" width="375" height="639"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Za6-um-I6U">
@@ -90,14 +90,14 @@
                                             <constraint firstItem="yOX-6M-4l2" firstAttribute="top" secondItem="BNm-ow-rKK" secondAttribute="top" id="B7r-6h-uz8"/>
                                             <constraint firstItem="oBX-Sy-o1k" firstAttribute="leading" secondItem="ylc-vs-f3T" secondAttribute="trailing" constant="8" symbolic="YES" id="KpP-0N-bEy"/>
                                             <constraint firstItem="ylc-vs-f3T" firstAttribute="leading" secondItem="F0T-yK-4hB" secondAttribute="trailing" constant="31" id="V8d-eX-sns"/>
-                                            <constraint firstItem="MEj-Zc-cT1" firstAttribute="leading" secondItem="BNm-ow-rKK" secondAttribute="leadingMargin" constant="10" id="VyS-v2-22Y"/>
+                                            <constraint firstItem="MEj-Zc-cT1" firstAttribute="leading" secondItem="BNm-ow-rKK" secondAttribute="leadingMargin" constant="18" id="VyS-v2-22Y"/>
                                             <constraint firstItem="yOX-6M-4l2" firstAttribute="leading" secondItem="BNm-ow-rKK" secondAttribute="leadingMargin" constant="-4" id="WAf-g0-tuW"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="F0T-yK-4hB" secondAttribute="bottom" constant="20" id="Xdh-4i-Psg"/>
                                             <constraint firstItem="ylc-vs-f3T" firstAttribute="leading" secondItem="BNm-ow-rKK" secondAttribute="leadingMargin" constant="61" id="cPd-XU-b0I"/>
                                             <constraint firstItem="MEj-Zc-cT1" firstAttribute="leading" secondItem="YT6-fd-IjW" secondAttribute="leading" id="fFj-Lc-xjn"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ihy-cI-TOx" secondAttribute="trailing" constant="-4" id="gZa-vP-68i"/>
                                             <constraint firstItem="oBX-Sy-o1k" firstAttribute="top" secondItem="ihy-cI-TOx" secondAttribute="bottom" constant="2" id="hnH-ZH-fPh"/>
-                                            <constraint firstItem="MEj-Zc-cT1" firstAttribute="top" secondItem="BNm-ow-rKK" secondAttribute="topMargin" constant="-10" id="isp-e6-aF7"/>
+                                            <constraint firstItem="MEj-Zc-cT1" firstAttribute="top" secondItem="BNm-ow-rKK" secondAttribute="topMargin" constant="2" id="isp-e6-aF7"/>
                                             <constraint firstItem="MEj-Zc-cT1" firstAttribute="top" secondItem="ihy-cI-TOx" secondAttribute="top" id="kfK-S0-pq3"/>
                                             <constraint firstItem="YT6-fd-IjW" firstAttribute="top" secondItem="MEj-Zc-cT1" secondAttribute="bottom" constant="8" symbolic="YES" id="oeK-bQ-DzD"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="oBX-Sy-o1k" secondAttribute="trailing" constant="24" id="rbg-7E-Ob8"/>
@@ -137,11 +137,7 @@
                                 <action selector="refresh_TouchUpInside:" destination="YmS-jk-TSK" id="FES-YW-0gq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="FuV-d3-m4c">
-                            <connections>
-                                <segue destination="TMa-5I-kLu" kind="show" id="QfX-7l-xpp"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="FuV-d3-m4c"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="CKs-tz-95v" id="lWZ-2a-qbv"/>
@@ -453,7 +449,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="ICC-7m-ecB" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vk9-9j-CI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="-105"/>
+            <point key="canvasLocation" x="1606" y="-97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MMh-ev-dhI">

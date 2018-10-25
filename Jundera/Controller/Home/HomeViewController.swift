@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @objc func goToSearch() {
         print("Search icon tapped")
-        //Action for searching 
+        self.performSegue(withIdentifier: "Search_Segue", sender:SearchViewController())
     }
     
     /// Will load all posts onto users feed.

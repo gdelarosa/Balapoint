@@ -18,61 +18,26 @@ class SavedPostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        //collectionView.delegate = self
-        
-       //fetchMySavedPosts1()
-       fetchMySavedPosts2()
+        fetchMySavedPosts()
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
       
     }
-    func fetchMySavedPosts2() { //Working. 
+    
+    // Will display saved posts
+    func fetchMySavedPosts() {
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
         }
-        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childAdded, with: { //
+        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
                 self.posts.append(post)
                 self.collectionView.reloadData()
             })
-        })//
-    }
-    // Display User's Saved Posts - Not working
-    func fetchMySavedPosts1() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("saved").child(uid)
-        
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("Posts Liked: \(snapshot.value ?? "")")
-            if let savedPostsDict = snapshot.value as? [String: Any] {
-                savedPostsDict.forEach({ (uid, postId) in
-                    print("The post UID is \(uid). \n The postiD is \(postId)")
-                    let postRef = Database.database().reference().child("posts")
-                    postRef.child(uid).child(postId as! String).observeSingleEvent(of: .value, with: { snapshot in
-
-                            guard let dict = snapshot.value as? [String:Any] else {
-                                print("Unable to return dict")
-                                return
-                        }
-                            
-                            let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
-                        
-                            post.id = postId as? String
-
-                            self.posts.append(post)
-                            self.collectionView?.reloadData()
-                           print("Testing son")
-                        }, withCancel: { (err) in
-                            print("Failed to fetch post from db:", err)
-                        })
-                })
-            }
-        }) { (err) in
-            print("Failed to fetch saved posts from db:", err)
-        }
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
