@@ -13,6 +13,7 @@ import FirebaseAuth
 class UserApi {
     
     var REF_USERS = Database.database().reference().child("users")
+    var REF_POSTS = Database.database().reference().child("posts")
     
     func observeUserByUsername(username: String, completion: @escaping (Userr) -> Void) {
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryEqual(toValue: username).observeSingleEvent(of: .childAdded, with: {
@@ -57,7 +58,7 @@ class UserApi {
             }
         })
     }
-    
+    // Search for users
     func queryUsers(withText text: String, completion: @escaping (Userr) -> Void) {
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: {
             snapshot in
@@ -66,6 +67,20 @@ class UserApi {
                 if let dict = child.value as? [String: Any] {
                     let user = Userr.transformUser(dict: dict, key: child.key)
                     completion(user)
+                }
+            })
+        })
+    }
+    
+    // Search for posts
+    func queryPosts(withText text: String, completion: @escaping (Post) -> Void) {
+        REF_POSTS.queryOrdered(byChild: "title").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 5).observeSingleEvent(of: .value, with: {
+            snapshot in
+            snapshot.children.forEach({ (s) in
+                let child = s as! DataSnapshot
+                if let dict = child.value as? [String: Any] {
+                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
+                    completion(post)
                 }
             })
         })

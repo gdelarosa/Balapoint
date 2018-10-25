@@ -971,6 +971,11 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-o4-Uaf">
+                                    <rect key="frame" x="169" y="139" width="37" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -1152,6 +1157,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="UHv-n0-uqC" id="IJe-Ol-IpO"/>
                         <outlet property="goalTextField" destination="9V7-sy-nG7" id="20D-pw-M7P"/>
+                        <outlet property="loading" destination="fF4-o4-Uaf" id="BCD-uT-h48"/>
                         <outlet property="profileImageView" destination="e7l-q5-cQS" id="k6c-vM-2VD"/>
                         <outlet property="usernnameTextField" destination="j9S-yD-FMP" id="BDL-gC-zr1"/>
                         <outlet property="websiteTextField" destination="vmT-dX-ZDK" id="50I-ID-mE1"/>

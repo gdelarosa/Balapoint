@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
 
     var searchBar = UISearchBar()
     var users: [Userr] = []
+    var posts: [Post] = []
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,23 +25,36 @@ class SearchViewController: UIViewController {
         
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
-        
+        setBackButton()
         doSearch()
     }
     
+    func setBackButton() {
+        //Back buttion
+        let btnLeftMenu: UIButton = UIButton()
+        btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())
+        btnLeftMenu.addTarget(self, action: #selector(SearchViewController.onClickBack), for: UIControlEvents.touchUpInside)
+        btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
+        let barButton = UIBarButtonItem(customView: btnLeftMenu)
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    
+    @objc func onClickBack()
+    {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     func doSearch() {
-        if let searchText = searchBar.text?.lowercased() {
-            self.users.removeAll()
+        if let searchText = searchBar.text {
+            self.posts.removeAll()
             self.tableView.reloadData()
-                Api.Userr.queryUsers(withText: searchText, completion: { (user) in
-                    self.isFollowing(userId: user.id!, completed: { (value) in
-                        user.isFollowing = value
-                        
-                        self.users.append(user)
+
+                Api.Userr.queryPosts(withText: searchText, completion: { (post) in
+                       //self.post.isPublic = value
+                        self.posts.append(post)
                         self.tableView.reloadData()
-                        
                     })
-                })
+            
         }
     }
     
@@ -71,22 +85,25 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return posts.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
-        let user = users[indexPath.row]
-        cell.user = user
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        let post = posts[indexPath.row]
+        cell.post = post
+        cell.delegate = self as? HomeTableViewCellDelegate
         return cell
     }
 }
+
+// Will want to segue to the detail view of the post.
 extension SearchViewController: PeopleTableViewCellDelegate {
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
     }
 }
-
+// Wont need 
 extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
     func updateFollowButton(forUser user: Userr) {
         for u in self.users {

@@ -19,6 +19,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var delegate: SettingTableViewControllerDelegate?
     
@@ -65,11 +66,13 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
+        loading.startAnimating()
         if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
           
             AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!,
                                         bio:goalTextField.text!, website: websiteTextField.text!, imageData: imageData, onSuccess: {
                 self.delegate?.updateUserInfor()
+                self.loading.stopAnimating()
                 self.presentAlertWithTitle(title: "Success", message: "Your profile has been updated.", options: "Ok") {
                                                 (option) in
                                                 switch(option) {
