@@ -11,7 +11,6 @@ import UIKit
 import AVFoundation
 
 protocol HomeTableViewCellDelegate {
-    func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
     func goToDetailPostVC(postId: String)
     func didSavePost(post: Post)
@@ -120,10 +119,12 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
-    // Goes to user profile
+    // Goes to user profile. *CRASHES
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
+        } else {
+            print("Can't get user")
         }
     }
     // Goes to detail post
@@ -146,12 +147,12 @@ class HomeTableViewCell: UITableViewCell {
         print("You Tapped the Save icon to LIKE")
     }
     
-    @objc func commentImageView_TouchUpInside() {
-      print("commentImageView_TouchUpInside")
-        if let id = post?.id {
-            delegate?.goToCommentVC(postId: id)
-        }
-    }
+//    @objc func commentImageView_TouchUpInside() {
+//      print("commentImageView_TouchUpInside")
+//        if let id = post?.id {
+//            delegate?.goToCommentVC(postId: id)
+//        }
+//    }
 
     override func prepareForReuse() {
         super.prepareForReuse()

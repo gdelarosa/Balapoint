@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Explore-->
+        <!--Saved-->
         <scene sceneID="ETO-45-hGN">
             <objects>
                 <viewController id="YmS-jk-TSK" customClass="SavedPostsViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,14 +131,7 @@
                             <constraint firstItem="CKs-tz-95v" firstAttribute="leading" secondItem="DJl-El-zdB" secondAttribute="leading" id="xsh-KY-05M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Explore" id="16a-id-nVd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Niz-yn-x0v">
-                            <connections>
-                                <action selector="refresh_TouchUpInside:" destination="YmS-jk-TSK" id="FES-YW-0gq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="FuV-d3-m4c"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Saved" id="16a-id-nVd"/>
                     <connections>
                         <outlet property="collectionView" destination="CKs-tz-95v" id="lWZ-2a-qbv"/>
                         <segue destination="9Zs-x1-F35" kind="show" identifier="Discover_DetailSegue" id="CyN-Zv-ah0"/>
@@ -454,7 +447,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MMh-ev-dhI">
             <objects>
-                <navigationController storyboardIdentifier="NavigationSaved" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bHu-uM-mqL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationSaved" automaticallyAdjustsScrollViewInsets="NO" id="bHu-uM-mqL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Saved" selectedImage="SavedSelected" id="L5f-Jp-fQs">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,6 +455,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sOW-1d-uBo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

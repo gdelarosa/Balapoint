@@ -13,17 +13,16 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var photo: UIImageView! // Should be optional to post a picture
     @IBOutlet weak var captionTextView: UITextView! // Post Body
-    @IBOutlet weak var shareButton: UIButton! // Post Button
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
-    @IBOutlet weak var deletePost: UIButton! // Delete Post
+    
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        settingsBarButton()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
@@ -39,8 +38,51 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         captionTextView.delegate = self
-        handlePost()
+        //handlePost()
     }
+    
+    ///Navigation Bar
+    func settingsBarButton() {
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "Dark.png"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(deletePostInfo), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect(x:0.0,y:0.0, width:25,height: 25.0)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        let publishButton: UIButton = UIButton(type: UIButtonType.custom)
+        publishButton.addTarget(self, action: #selector(shareButton_TouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+        publishButton.setTitle("Publish", for: UIControlState.normal)
+        publishButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        let rightBarButton = UIBarButtonItem(customView: publishButton)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        
+        self.navigationItem.title = "Create"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
+    }
+    
+    // Deletes post info
+    @objc func deletePostInfo() {
+        print("Delete post button pressed on nav bar")
+        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
+            (option) in
+            switch(option) {
+            case 0:
+                print("Clear Post")
+                self.clean()
+                //self.handlePost()
+                break
+            case 1:
+                print("Save as draft")
+            case 2:
+                print("Cancel")
+            default:
+                break
+            }
+        }
+    }
+
     
     //Adds a bullet point to each new line
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -71,12 +113,12 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     func handlePost() {
         
         if postTitle != nil {
-           self.shareButton.isEnabled = true
-            self.deletePost.isEnabled = true
+          // self.shareButton.isEnabled = true
+            //self.deletePost.isEnabled = true
            
         } else {
-           self.shareButton.isEnabled = true
-            self.deletePost.isEnabled = false
+           //self.shareButton.isEnabled = true
+            //self.deletePost.isEnabled = false
            
         }
     }
@@ -94,53 +136,55 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        
-        presentAlertWithTitle(title: "How would you like to publish?", message: "", options: "Make Public", " Make Private", "Cancel") {
-            (option) in
-            switch(option) {
-            case 0:
-               print("Public")
-               if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-                let ratio = profileImg.size.width / profileImg.size.height
-                
-                HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, onSuccess: {
-                    print("Successfully sent info to database!")
-                    self.clean()
-                    self.tabBarController?.selectedIndex = 0
-                })
-                
-               } else {
-                print("FAILED TO POST")
-               }
-                break
-            case 1:
-                print("Private")
-            default:
-                break
+        if (postTitle.text?.isEmpty)! {
+            print("title is empty")
+        } else {
+            presentAlertWithTitle(title: "How would you like to publish?", message: "", options: "Make Public", " Make Private", "Cancel") {
+                (option) in
+                switch(option) {
+                case 0:
+                    print("Public")
+                    if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+                        let ratio = profileImg.size.width / profileImg.size.height
+                        
+                        HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, onSuccess: {
+                            print("Successfully sent info to database!")
+                            self.clean()
+                            self.tabBarController?.selectedIndex = 0
+                        })
+                        
+                    } else {
+                        print("FAILED TO POST")
+                    }
+                    break
+                case 1:
+                    print("Private")
+                default:
+                    break
+                }
             }
         }
-      
     }
     
-    /// Clear Button
-    @IBAction func remove_TouchUpInside(_ sender: Any) {
-        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
-            (option) in
-            switch(option) {
-            case 0:
-                print("Clear Post")
-                self.clean()
-                self.handlePost()
-                break
-            case 1:
-                print("Save as draft")
-            case 2:
-                print("Cancel")
-            default:
-                break
-            }
-        }
-    }
+//    /// Clear Button
+//    @IBAction func remove_TouchUpInside(_ sender: Any) {
+//        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
+//            (option) in
+//            switch(option) {
+//            case 0:
+//                print("Clear Post")
+//                self.clean()
+//                self.handlePost()
+//                break
+//            case 1:
+//                print("Save as draft")
+//            case 2:
+//                print("Cancel")
+//            default:
+//                break
+//            }
+//        }
+//    }
     
     /// This will delete the information if you press the X button 
     func clean() {

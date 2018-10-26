@@ -82,6 +82,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.Userr.observeUser(withId: uid, completion: {
             user in
@@ -91,7 +92,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
-    //Save posts
+    // Save posts
     func didSavePost(post: Post) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("saved").child(uid)
@@ -186,9 +187,6 @@ extension HomeViewController: HomeTableViewCellDelegate {
         performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
     }
     
-    func goToCommentVC(postId: String) {
-        performSegue(withIdentifier: "CommentSegue", sender: postId)
-    }
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }

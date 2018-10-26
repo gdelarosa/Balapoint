@@ -19,6 +19,8 @@ class SavedPostsViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         fetchMySavedPosts()
+        self.navigationItem.title = "Saved"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
     
     @IBAction func refresh_TouchUpInside(_ sender: Any) {
