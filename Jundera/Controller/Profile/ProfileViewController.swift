@@ -85,7 +85,7 @@ class ProfileViewController: UIViewController {
 }
 
 // Will return the posts in the users profile. TODO: Update UI.
-extension ProfileViewController: UICollectionViewDataSource {
+extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -107,6 +107,10 @@ extension ProfileViewController: UICollectionViewDataSource {
             headerViewCell.delegateUserSettings = self //added. Not sure if this is actually needed. Will circle back.
         }
         return headerViewCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Cell Selected")
     }
     
 }
