@@ -138,6 +138,13 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
         if (postTitle.text?.isEmpty)! {
             print("title is empty")
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.07
+            animation.repeatCount = 2
+            animation.autoreverses = true
+            animation.fromValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x - 10, y: postTitle.center.y))
+            animation.toValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x + 10, y: postTitle.center.y))
+            postTitle.layer.add(animation, forKey: "position")
         } else {
             presentAlertWithTitle(title: "How would you like to publish?", message: "", options: "Make Public", " Make Private", "Cancel") {
                 (option) in

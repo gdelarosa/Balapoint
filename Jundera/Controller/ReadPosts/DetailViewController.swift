@@ -19,11 +19,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
-        setBackButton()
+        setNavButtons()
         tableView.allowsSelection = true
     }
     
-    func setBackButton() {
+    func setNavButtons() {
         //Back buttion
         let btnLeftMenu: UIButton = UIButton()
         btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())
@@ -31,12 +31,24 @@ class DetailViewController: UIViewController {
         btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
         let barButton = UIBarButtonItem(customView: btnLeftMenu)
         self.navigationItem.leftBarButtonItem = barButton
+        
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "SaveInCell.png"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(savePost), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect(x:0.0,y:0.0, width:25,height: 25.0)
+        let barRightButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barRightButton
+        
     }
     
-    @objc func onClickBack()
-    {
+    @objc func onClickBack() {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func savePost() {
+        print("Save post selected")
+    }
+
 
     func loadPost() {
         Api.Post.observePost(withId: postId) { (post) in

@@ -17,7 +17,6 @@ class DetailPostTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var savePostIcon: UIImageView!
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var dateCreated: UILabel!
