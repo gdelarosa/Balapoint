@@ -142,3 +142,5 @@ extension ProfileViewController: PhotoCollectionViewCellDelegate {
         performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
 }
+
+

@@ -21,7 +21,7 @@ protocol HeaderProfileCollectionReusableViewDelegateUserSettingVC {
     func goToUsersSettings()
 }
 
-class HeaderProfileCollectionReusableView: UICollectionReusableView {
+class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewDelegate {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -29,7 +29,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel! // BIO
-    @IBOutlet weak var websiteLabel: UILabel! // Website
+    @IBOutlet weak var websiteUrl: UITextView!
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
     @IBOutlet weak var personalMenu: Segmentio!
    //@IBOutlet weak var userSettingsButton: UIButton!
@@ -42,6 +42,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         didSet {
             updateView()
             loadMenu()
+            
         }
     }
     
@@ -53,8 +54,8 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     func updateView() {
         nameLabel.text = user?.username
         goalLabel.text = user?.bio
-        websiteLabel.text = user?.website
-    
+        websiteUrl.text = user?.website
+
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             
@@ -64,6 +65,12 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             profileImage.layer.borderColor = UIColor.clear.cgColor
             profileImage.layer.cornerRadius = profileImage.frame.height/2
             profileImage.clipsToBounds = true
+        }
+        
+        func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+            makeURLOpen()
+            UIApplication.shared.open(URL, options: [:])
+            return false
         }
         
 //        Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
@@ -95,10 +102,29 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
 //        }
     }
     
+    func makeURLOpen() {
+        
+        let attributedString = NSMutableAttributedString(string: (user?.website)!, attributes:[NSAttributedStringKey.link: URL(string: (user?.website)!)!])
+        
+        websiteUrl.attributedText = attributedString
+        
+        guard let url = URL(string: (user?.website)!) else {
+            print("Not the right URL")
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        
+    }
+    
     func clear() {
         self.nameLabel.text = ""
         self.goalLabel.text = ""
-        self.websiteLabel.text = ""
+        self.websiteUrl.text = ""
         //self.myPostsCountLabel.text = ""
         //self.followersCountLabel.text = ""
         //self.followingCountLabel.text = ""
@@ -223,3 +249,5 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     }
 
 }
+
+
