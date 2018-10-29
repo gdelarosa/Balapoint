@@ -72,13 +72,7 @@ class DetailViewController: UIViewController {
     }
 
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "Detail_CommentVC" {
-//            let commentVC = segue.destination as! CommentViewController
-//            let postId = sender  as! String
-//            commentVC.postId = postId
-//        }
-//        
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
 //        if segue.identifier == "Detail_ProfileUserSegue" {
 //            let profileVC = segue.destination as! ProfileUserViewController
 //            let userId = sender  as! String

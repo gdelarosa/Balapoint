@@ -911,12 +911,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="e7l-q5-cQS">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="e7l-q5-cQS">
                                     <rect key="frame" x="138.5" y="36" width="98" height="98"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="98" id="My8-Y2-pVg"/>
-                                        <constraint firstAttribute="width" constant="98" id="qjO-SQ-AVL"/>
-                                    </constraints>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="40"/>
@@ -928,12 +925,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-tr-ex7">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-tr-ex7">
                                     <rect key="frame" x="62" y="0.0" width="251" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="96a-Vd-lzV"/>
-                                        <constraint firstAttribute="width" constant="146" id="Eo4-Gx-wqQ"/>
-                                    </constraints>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                                     <state key="normal" title="Change Profile Photo">
                                         <color key="titleColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -944,20 +938,10 @@
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="75J-8R-6ZI">
                                     <rect key="frame" x="-8" y="0.0" width="375" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="e7l-q5-cQS" firstAttribute="centerX" secondItem="JFd-u3-vfN" secondAttribute="centerX" id="70v-VA-2tv"/>
-                                <constraint firstAttribute="bottom" secondItem="75J-8R-6ZI" secondAttribute="bottom" constant="-7" id="GzA-Tg-vqh"/>
-                                <constraint firstItem="75J-8R-6ZI" firstAttribute="centerX" secondItem="o6S-tr-ex7" secondAttribute="centerX" id="WNR-lq-JA6"/>
-                                <constraint firstItem="e7l-q5-cQS" firstAttribute="centerY" secondItem="JFd-u3-vfN" secondAttribute="centerY" constant="-5" id="Wp6-e0-Uqf"/>
-                                <constraint firstItem="75J-8R-6ZI" firstAttribute="top" secondItem="JFd-u3-vfN" secondAttribute="top" id="bHg-jm-1wA"/>
-                                <constraint firstItem="o6S-tr-ex7" firstAttribute="top" secondItem="e7l-q5-cQS" secondAttribute="bottom" constant="8" id="grL-XC-NeD"/>
-                                <constraint firstItem="75J-8R-6ZI" firstAttribute="leading" secondItem="JFd-u3-vfN" secondAttribute="leading" id="v9p-by-xnU"/>
-                                <constraint firstAttribute="bottom" secondItem="o6S-tr-ex7" secondAttribute="bottom" constant="8" id="vrl-J2-zmT"/>
-                                <constraint firstItem="o6S-tr-ex7" firstAttribute="centerX" secondItem="JFd-u3-vfN" secondAttribute="centerX" id="zGO-JB-e6v"/>
-                            </constraints>
                             <variation key="default">
                                 <mask key="subviews">
                                     <exclude reference="75J-8R-6ZI"/>
@@ -975,7 +959,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-yD-FMP">
-                                                    <rect key="frame" x="101" y="13.5" width="260" height="17"/>
+                                                    <rect key="frame" x="70" y="14" width="291" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -988,7 +972,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="leading" secondItem="QlR-gJ-iwN" secondAttribute="trailing" constant="39" id="6lH-bj-qb7"/>
+                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="leading" secondItem="QlR-gJ-iwN" secondAttribute="trailing" constant="8" id="6lH-bj-qb7"/>
                                                 <constraint firstItem="QlR-gJ-iwN" firstAttribute="centerY" secondItem="IEW-Wc-G4h" secondAttribute="centerY" id="7ta-nx-JMm"/>
                                                 <constraint firstAttribute="trailing" secondItem="j9S-yD-FMP" secondAttribute="trailing" constant="14" id="8sX-wa-uOt"/>
                                                 <constraint firstItem="j9S-yD-FMP" firstAttribute="centerY" secondItem="IEW-Wc-G4h" secondAttribute="centerY" id="ibw-dp-kqB"/>
@@ -1004,7 +988,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-n0-uqC">
-                                                    <rect key="frame" x="104" y="13.5" width="256" height="17"/>
+                                                    <rect key="frame" x="62" y="14" width="298" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1017,7 +1001,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="leading" secondItem="ZH0-Om-suy" secondAttribute="trailing" constant="50" id="1pr-ew-28h"/>
+                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="leading" secondItem="ZH0-Om-suy" secondAttribute="trailing" constant="8" id="1pr-ew-28h"/>
                                                 <constraint firstItem="ZH0-Om-suy" firstAttribute="leading" secondItem="fAb-fM-eOD" secondAttribute="leading" constant="15" id="W9y-es-6Vg"/>
                                                 <constraint firstItem="UHv-n0-uqC" firstAttribute="centerY" secondItem="fAb-fM-eOD" secondAttribute="centerY" id="Ygh-nk-Zug"/>
                                                 <constraint firstAttribute="trailing" secondItem="UHv-n0-uqC" secondAttribute="trailing" constant="15" id="ZCj-pm-3eP"/>
@@ -1033,9 +1017,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9V7-sy-nG7">
-                                                    <rect key="frame" x="106" y="13" width="255" height="18"/>
+                                                    <rect key="frame" x="51" y="13" width="310" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="255" id="SnL-tZ-1kd"/>
+                                                        <constraint firstAttribute="width" constant="310" id="SnL-tZ-1kd"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1052,7 +1036,7 @@
                                                 <constraint firstItem="9V7-sy-nG7" firstAttribute="centerY" secondItem="evd-Ew-ZMZ" secondAttribute="centerY" id="4gM-gZ-9kh"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9V7-sy-nG7" secondAttribute="bottom" constant="2" id="8te-cb-a2G"/>
                                                 <constraint firstItem="9V7-sy-nG7" firstAttribute="centerY" secondItem="lcO-4Q-LKs" secondAttribute="centerY" id="FT2-c8-Wsg"/>
-                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="leading" secondItem="evd-Ew-ZMZ" secondAttribute="trailing" constant="45" id="aK3-Ef-Yos"/>
+                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="leading" secondItem="evd-Ew-ZMZ" secondAttribute="trailing" constant="-10" id="aK3-Ef-Yos"/>
                                                 <constraint firstItem="evd-Ew-ZMZ" firstAttribute="leading" secondItem="lcO-4Q-LKs" secondAttribute="leading" constant="15" id="gRU-6m-aSF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9V7-sy-nG7" secondAttribute="trailing" constant="-2" id="ohB-2u-Kp8"/>
                                             </constraints>
@@ -1066,7 +1050,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-dX-ZDK">
-                                                    <rect key="frame" x="106" y="13.5" width="255" height="17"/>
+                                                    <rect key="frame" x="83" y="14" width="279" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1081,8 +1065,8 @@
                                             <constraints>
                                                 <constraint firstItem="iKa-EJ-Vie" firstAttribute="centerY" secondItem="6Ah-uz-WVx" secondAttribute="centerY" id="2IG-5R-4SX"/>
                                                 <constraint firstItem="vmT-dX-ZDK" firstAttribute="centerY" secondItem="6Ah-uz-WVx" secondAttribute="centerY" id="5Iz-gd-aTn"/>
-                                                <constraint firstAttribute="trailing" secondItem="vmT-dX-ZDK" secondAttribute="trailing" constant="14" id="6Pl-na-Qr3"/>
-                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="leading" secondItem="iKa-EJ-Vie" secondAttribute="trailing" constant="31.5" id="vZX-A5-KpN"/>
+                                                <constraint firstAttribute="trailing" secondItem="vmT-dX-ZDK" secondAttribute="trailing" constant="13" id="6Pl-na-Qr3"/>
+                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="leading" secondItem="iKa-EJ-Vie" secondAttribute="trailing" constant="8.5" id="vZX-A5-KpN"/>
                                                 <constraint firstItem="iKa-EJ-Vie" firstAttribute="leading" secondItem="6Ah-uz-WVx" secondAttribute="leading" constant="15" id="yz3-hq-8bD"/>
                                             </constraints>
                                         </tableViewCellContentView>

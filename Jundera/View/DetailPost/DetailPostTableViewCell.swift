@@ -1,10 +1,10 @@
 //
 //  DetailPostTableViewCell.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 10/16/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
-//
+//  Will display the details of the post selected.
 
 import UIKit
 
@@ -85,6 +85,8 @@ class DetailPostTableViewCell: UITableViewCell {
         print("Selected User Avatar")
         if let id = user?.id {
             detailDelegate?.goToProfileUserVC(userId: id)
+        } else {
+            print("Unable to go to User Profile")
         }
     }
 

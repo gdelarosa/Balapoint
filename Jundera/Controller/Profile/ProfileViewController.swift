@@ -44,9 +44,12 @@ class ProfileViewController: UIViewController {
     }
     
     func fetchMyPosts() {
+        
         guard let currentUser = Api.Userr.CURRENT_USER else {
+            print("No current user in profile view controller")
             return
         }
+        
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
@@ -78,7 +81,7 @@ class ProfileViewController: UIViewController {
             print("Pressed")
             let userSettingVC = segue.destination as! UserSettingsTableViewController
             userSettingVC.delegate = self as? UserSettingTableViewControllerDelegate
-            //userSettingVC.delegate = self
+            
         }
     }
 
@@ -112,6 +115,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Cell Selected")
     }
+    
+    
     
 }
 

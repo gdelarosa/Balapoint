@@ -131,18 +131,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let segueIdentifier: String
-//        switch indexPath.row {
-//        case 0: segueIdentifier = ""
-//        case 1: segueIdentifier = ""
-//        case 2: segueIdentifier = ""
-//        default: segueIdentifier = ""
-//        }
-//        self.performSegue(withIdentifier: segueIdentifier, sender: self)
-//    }
 }
+
 // MARK: CollectionView Layout
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
     
@@ -173,10 +163,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         print("Row Selected")
         _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     }
     
 }

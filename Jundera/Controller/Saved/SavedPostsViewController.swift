@@ -23,10 +23,6 @@ class SavedPostsViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
     
-    @IBAction func refresh_TouchUpInside(_ sender: Any) {
-      
-    }
-    
     // Will display saved posts
     func fetchMySavedPosts() {
         guard let currentUser = Api.Userr.CURRENT_USER else {
@@ -42,8 +38,9 @@ class SavedPostsViewController: UIViewController {
         })
     }
     
+    // Will go to Detail Post
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Discover_DetailSegue" {
+        if segue.identifier == "Detail_Segue" {
             let detailVC = segue.destination as! DetailViewController
             let postId = sender  as! String
             detailVC.postId = postId
@@ -52,12 +49,14 @@ class SavedPostsViewController: UIViewController {
 }
 
 extension SavedPostsViewController: UICollectionViewDataSource {
+    // Will load number of saved posts
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
     
+    // Will display the saved posts
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! ProfilePosts
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedCollectionViewCell", for: indexPath) as! SavedPostsCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
@@ -66,24 +65,14 @@ extension SavedPostsViewController: UICollectionViewDataSource {
     }
 }
 
-//extension SavedPostsViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 2
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
-//    }
-//}
-
-extension SavedPostsViewController: PhotoCollectionViewCellDelegate {
-    func goToDetailVC(postId: String) {
-        performSegue(withIdentifier: "Discover_DetailSegue", sender: postId)
+// Performs Segue to Detail Post
+extension SavedPostsViewController: SavedCollectionViewCellDelegate {
+    func goToDetailSavedPost(postId: String) {
+        performSegue(withIdentifier: "Detail_Segue", sender: postId)
     }
-
+    
+    func goToPersonProfile(userId: String) {
+        performSegue(withIdentifier: "User_profileSegue", sender: userId)
+    }
 }
 
