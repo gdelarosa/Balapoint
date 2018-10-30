@@ -4,6 +4,7 @@
 //
 //  Created by Gina De La Rosa on 10/16/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
+
 //  Will display the details of the post selected.
 
 import UIKit
