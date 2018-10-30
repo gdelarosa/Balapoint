@@ -61,11 +61,11 @@ class DetailPostTableViewCell: UITableViewCell {
         headerLabel.text = post?.caption
         bodyText.text = post?.body
         
-        guard let creationDate = post?.creationDate else {
-            print("Unable to retrieve DATE created")
-            return
-        }
-        dateCreated.text = creationDate.timeAgoDisplay()
+//        guard let creationDate = post?.creationDate else {
+//            print("Unable to retrieve DATE created")
+//            return
+//        }
+//        dateCreated.text = creationDate.timeAgoDisplay()
     }
     
     func updateUser() {

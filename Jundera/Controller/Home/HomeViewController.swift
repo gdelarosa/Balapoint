@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicatorView.startAnimating()
         settingsBarButton()
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -51,7 +52,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
         }
 
-    
+    /// Go to Search View Controller
     @objc func goToSearch() {
         print("Search icon tapped")
         self.performSegue(withIdentifier: "Search_Segue", sender:SearchViewController())
@@ -60,7 +61,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     /// Will load all posts onto users feed.
     
     func loadPosts() {
-        
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
             guard let postUid = post.uid else {
                 return
@@ -81,6 +81,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             self.tableView.reloadData()
         }
+        activityIndicatorView.stopAnimating()
     }
     
     // Fetches User
@@ -174,6 +175,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+// MARK: Segue Actions
 extension HomeViewController: HomeTableViewCellDelegate {
     
     func goToDetailPostVC(postId: String) {

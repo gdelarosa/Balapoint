@@ -47,11 +47,11 @@ class HomeTableViewCell: UITableViewCell {
         
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
-        //guard let creationDate = post?.creationDate else {
-           // print("Unable to retrieve date")
-           // return
-        //}
-        //postDateLabel.text = creationDate.timeAgoDisplay()
+//        guard let creationDate = post?.creationDate else {
+//            print("Unable to retrieve date")
+//            return
+//        }
+//        postDateLabel.text = creationDate.timeAgoDisplay()
        
         if (post?.ratio) != nil {
             layoutIfNeeded()

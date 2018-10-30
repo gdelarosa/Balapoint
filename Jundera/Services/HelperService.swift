@@ -66,7 +66,7 @@ class HelperService {
             })
         }
     }
-    // Not currently using
+    
     static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, title: String, body: String, onSuccess: @escaping () -> Void) {
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
         let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
@@ -75,7 +75,7 @@ class HelperService {
             return
         }
         // Hashtag Reference
-        let words = caption.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        let words = body.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         for var word in words {
             if word.hasPrefix("#") {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)

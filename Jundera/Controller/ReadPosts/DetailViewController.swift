@@ -12,6 +12,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var postId = ""
+    var creationDate = ""
     
     var post = Post()
     var user = Userr()
