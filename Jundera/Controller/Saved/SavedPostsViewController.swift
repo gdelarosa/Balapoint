@@ -14,11 +14,13 @@ class SavedPostsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts: [Post] = []
+    var users = [Userr]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         fetchMySavedPosts()
+      
         self.navigationItem.title = "Saved"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
@@ -36,6 +38,16 @@ class SavedPostsViewController: UIViewController {
                 self.collectionView.reloadData()
             })
         })
+    }
+    
+    // Fetches User
+    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+        Api.Userr.observeUser(withId: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
+        })
+        
     }
     
     // Will go to Detail Post

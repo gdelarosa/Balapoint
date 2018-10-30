@@ -89,7 +89,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.users.append(user)
             completed()
         })
-        
     }
     
     // Save posts
@@ -117,7 +116,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let postID = sender  as! String
             detailVC.postId = postID
         }
+        // Testing to go to Profile View Controller 
+        if segue.identifier == "Home_ProfileSegue" {
+            let profileVC = segue.destination as! ProfileUserViewController
+            let userID = sender  as! String
+            profileVC.userId = userID
+        }
     }
+ 
     
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -66,7 +66,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-ug-Ldb">
-                                                    <rect key="frame" x="272" y="142" width="61" height="19"/>
+                                                    <rect key="frame" x="207" y="142" width="126" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="BLc-9u-CmX"/>
                                                     </constraints>
@@ -106,7 +106,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="vMY-aN-Ui7" secondAttribute="bottom" id="ue7-gr-TmR"/>
                                                 <constraint firstAttribute="bottom" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="-3" id="wFF-X4-W2D"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="11" id="wFY-Mv-lQg"/>
-                                                <constraint firstItem="fEI-ug-Ldb" firstAttribute="leading" secondItem="vMY-aN-Ui7" secondAttribute="trailing" constant="229" id="y2y-MD-7UD"/>
+                                                <constraint firstItem="fEI-ug-Ldb" firstAttribute="leading" secondItem="vMY-aN-Ui7" secondAttribute="trailing" constant="164" id="y2y-MD-7UD"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -392,6 +392,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="5iD-jC-YkC" id="rcc-TQ-LAF"/>
+                        <segue destination="f0n-3L-Duq" kind="show" identifier="Home_ProfileSegue" id="ods-Xw-1WO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es8-8b-kx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -493,6 +494,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzJ-va-GHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="229.83508245877064"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="B56-VJ-VpF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="f0n-3L-Duq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hrw-8R-Red" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-880" y="1375"/>
         </scene>
     </scenes>
     <resources>

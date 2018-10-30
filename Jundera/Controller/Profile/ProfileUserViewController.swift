@@ -7,6 +7,7 @@
 //  Other User Profile - Logged in user can view another person's profile 
 
 import UIKit
+import Segmentio
 
 class ProfileUserViewController: UIViewController {
 
@@ -21,9 +22,9 @@ class ProfileUserViewController: UIViewController {
         super.viewDidLoad()
         print("userId: \(userId)")
         collectionView.dataSource = self
-        collectionView.delegate = self
         fetchUser()
         fetchMyPosts()
+        setBackButton()
         
     }
     
@@ -92,20 +93,6 @@ extension ProfileUserViewController: UICollectionViewDataSource {
 extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
-    }
-}
-
-extension ProfileUserViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
     }
 }
 

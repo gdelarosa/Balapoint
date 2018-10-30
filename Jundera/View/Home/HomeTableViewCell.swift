@@ -18,7 +18,6 @@ protocol HomeTableViewCellDelegate {
 
 class HomeTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var postTitleLabel: UILabel! // Post Title
     @IBOutlet weak var nameLabel: UILabel! // User name of whom posted
     @IBOutlet weak var postImageView: UIImageView! //Post Image
@@ -145,13 +144,6 @@ class HomeTableViewCell: UITableViewCell {
         }
         print("You Tapped the Save icon to LIKE")
     }
-    
-//    @objc func commentImageView_TouchUpInside() {
-//      print("commentImageView_TouchUpInside")
-//        if let id = post?.id {
-//            delegate?.goToCommentVC(postId: id)
-//        }
-//    }
 
     override func prepareForReuse() {
         super.prepareForReuse()

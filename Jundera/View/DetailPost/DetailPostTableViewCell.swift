@@ -43,13 +43,19 @@ class DetailPostTableViewCell: UITableViewCell {
         dateCreated.text = ""
        // hashtags.text = ""
         bodyText.text = ""
+        
+        let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
+        userIcon.addGestureRecognizer(tapGestureForPhoto)
+        userIcon.isUserInteractionEnabled = true
     }
     
     func updateView() {
+        
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             postImage.sd_setImage(with: photoUrl)
         }
+        
         titleLabel.text = post?.title
         headerLabel.text = post?.caption
         bodyText.text = post?.body
@@ -59,12 +65,6 @@ class DetailPostTableViewCell: UITableViewCell {
             return
         }
         dateCreated.text = creationDate.timeAgoDisplay()
-        
-        
-        let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
-        userIcon.addGestureRecognizer(tapGestureForPhoto)
-        userIcon.isUserInteractionEnabled = true
-        
     }
     
     func updateUser() {

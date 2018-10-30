@@ -28,11 +28,11 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     @IBOutlet weak var myPostsCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel! // BIO
-    @IBOutlet weak var websiteUrl: UITextView!
+    @IBOutlet weak var goalLabel: UILabel! // Bio
+    @IBOutlet weak var websiteUrl: UITextView! // Website
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
     @IBOutlet weak var personalMenu: Segmentio!
-   //@IBOutlet weak var userSettingsButton: UIButton!
+    @IBOutlet weak var userSettingsButton: UIButton!
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
@@ -76,7 +76,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
 //        Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
 //             self.myPostsCountLabel.text = "\(count)"
 //        }
-        
+//        
 //        Api.Follow.fetchCountFollowing(userId: user!.id!) { (count) in
 //            self.followingCountLabel.text = "\(count)"
 //        }
@@ -93,12 +93,12 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
             followButton.isHidden = true
             updateStateFollowButton()
         }
-//        
+//CAUSES CRASHES MUST UPDATE! 
 //        if user?.id == Api.Userr.CURRENT_USER?.uid {
 //            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
 //            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
 //        } else {
-//            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden. 
+//            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden.
 //        }
     }
     

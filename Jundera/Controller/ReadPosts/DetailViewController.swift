@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var postId = ""
+    
     var post = Post()
     var user = Userr()
     
@@ -20,31 +21,19 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         loadPost()
         setNavButtons()
+        setBackButton()
         tableView.allowsSelection = true
     }
     
     func setNavButtons() {
-        //Back buttion
-        let btnLeftMenu: UIButton = UIButton()
-        btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())
-        btnLeftMenu.addTarget(self, action: #selector(DetailViewController.onClickBack), for: UIControlEvents.touchUpInside)
-        btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
-        let barButton = UIBarButtonItem(customView: btnLeftMenu)
-        self.navigationItem.leftBarButtonItem = barButton
-        
         let button: UIButton = UIButton(type: UIButtonType.custom)
         button.setImage(UIImage(named: "SaveInCell.png"), for: UIControlState.normal)
         button.addTarget(self, action: #selector(savePost), for: UIControlEvents.touchUpInside)
         button.frame = CGRect(x:0.0,y:0.0, width:25,height: 25.0)
         let barRightButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barRightButton
-        
     }
-    
-    @objc func onClickBack() {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
+
     @objc func savePost() {
         print("Save post selected")
     }
@@ -70,15 +59,14 @@ class DetailViewController: UIViewController {
         })
         
     }
-
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
-//        if segue.identifier == "Detail_ProfileUserSegue" {
-//            let profileVC = segue.destination as! ProfileUserViewController
-//            let userId = sender  as! String
-//            profileVC.userId = userId
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Home_ProfileSegue" {
+            let profileVC = segue.destination as! ProfileUserViewController
+            let userID = sender  as! String
+            profileVC.userId = userID
+        }
+    }
     
 }
 
@@ -94,13 +82,6 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         cell.detailDelegate = self as? DetailPostTableViewCellDelegate
         return cell
     }
-    
-//   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Image Tapped")
-//        let cell = tableView.cellForRow(at: indexPath) as! DetailPostTableViewCell
-//        self.imageTapped(image: cell.postImage.image!)
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
     
     func imageTapped(image:UIImage) {
         let newImageView = UIImageView(image: image)
@@ -128,13 +109,12 @@ extension DetailViewController: HomeTableViewCellDelegate {
     }
     
     func goToDetailPostVC(postId: String) {
+        print("Going to Detail Post")
         performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
     }
     
-    func goToCommentVC(postId: String) {
-        performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
-    }
     func goToProfileUserVC(userId: String) {
-        performSegue(withIdentifier: "Detail_ProfileUserSegue", sender: userId)
+        print("Going to Profile")
+        performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
 }

@@ -21,21 +21,6 @@ class UserSettingsTableViewController: UITableViewController {
         setBackButton()
     }
     
-    func setBackButton() {
-        //Back buttion
-        let btnLeftMenu: UIButton = UIButton()
-        btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())
-        btnLeftMenu.addTarget(self, action: #selector(UserSettingsTableViewController.onClickBack), for: UIControlEvents.touchUpInside)
-        btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
-        let barButton = UIBarButtonItem(customView: btnLeftMenu)
-        self.navigationItem.leftBarButtonItem = barButton
-    }
-    
-    @objc func onClickBack()
-    {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
     // Logout
     @IBAction func logoutBtn_TouchUpInside(_ sender: Any) {
         AuthService.logout(onSuccess: {
