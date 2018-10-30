@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var post: Post?
     
     var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
+    var topicTitles: [String?] = ["Lifestyle", "Tech", "Travel", "Food", "Media", "Education", "Finance", "Health", "Beauty"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +151,13 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.5
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
+        controller.navigationItem.title = topicTitles[indexPath.item]
+        controller.setBackButton()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 // MARK: - TableView Data Source and Delegate
@@ -167,11 +175,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Home Cell Selected")
-        _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Home Cell Selected")
+//        _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
+//        tableView.deselectRow(at: indexPath, animated: true)
+    //    }
     
 }
 

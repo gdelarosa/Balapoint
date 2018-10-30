@@ -1008,7 +1008,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-yD-FMP">
-                                                    <rect key="frame" x="70" y="14" width="291" height="17"/>
+                                                    <rect key="frame" x="70" y="13.5" width="291" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1037,7 +1037,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-n0-uqC">
-                                                    <rect key="frame" x="62" y="14" width="298" height="17"/>
+                                                    <rect key="frame" x="62" y="13.5" width="298" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1099,7 +1099,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-dX-ZDK">
-                                                    <rect key="frame" x="83" y="14" width="279" height="17"/>
+                                                    <rect key="frame" x="83" y="13.5" width="279" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1175,10 +1175,10 @@
         <image name="PostCell_Background" width="333" height="164"/>
         <image name="Profile" width="23" height="27"/>
         <image name="ProfileSelected" width="23" height="27"/>
-        <image name="placeholderImg" width="225" height="225"/>
+        <image name="placeholderImg" width="80" height="83"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MZn-63-CgU"/>
-        <segue reference="E1Z-P0-CWT"/>
+        <segue reference="pRK-3m-ebY"/>
+        <segue reference="49u-A6-ntL"/>
     </inferredMetricsTieBreakers>
 </document>
