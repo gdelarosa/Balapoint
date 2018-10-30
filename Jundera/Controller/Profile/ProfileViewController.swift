@@ -21,10 +21,25 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        if self.posts.isEmpty {
+            self.collectionView?.backgroundView = self.emptyHomeLabel
+        }
         fetchUser()
         fetchMyPosts()
         settingsBarButton()
     }
+    
+    //Empty State Label
+    let emptyHomeLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.text = "Ah...\n Your published posts will appear here."
+        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
+        messageLabel.numberOfLines = 2
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Futura", size: 20)
+        messageLabel.sizeToFit()
+        return messageLabel
+    }()
     
     func settingsBarButton() {
         let button: UIButton = UIButton(type: UIButtonType.custom)

@@ -19,11 +19,26 @@ class SavedPostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+//        if self.posts.isEmpty {
+//            self.collectionView?.backgroundView = self.emptyHomeLabel
+//        }
         fetchMySavedPosts()
       
         self.navigationItem.title = "Saved"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
+    
+    //Empty State Label
+    let emptyHomeLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.text = "Oh...\n Save posts and have them appear here."
+        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Futura", size: 20)
+        messageLabel.sizeToFit()
+        return messageLabel
+    }()
     
     // Will display saved posts
     func fetchMySavedPosts() {
@@ -37,6 +52,7 @@ class SavedPostsViewController: UIViewController {
                 self.posts.append(post)
                 self.collectionView.reloadData()
             })
+            
         })
     }
     

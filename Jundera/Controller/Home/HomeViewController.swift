@@ -33,6 +33,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         loadPosts()
+        if self.posts.isEmpty {
+            self.tableView?.backgroundView = self.emptyHomeLabel
+        }
         
     }
     
@@ -40,6 +43,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewWillAppear(animated);
         
     }
+    
+    // Empty State Label
+    let emptyHomeLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.text = "Hmm...\n Follow people to populate your feed."
+        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Futura", size: 20)
+        messageLabel.sizeToFit()
+        return messageLabel
+    }()
     
     ///Navigation Bar
         func settingsBarButton() {
@@ -62,10 +77,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     /// Will load all posts onto users feed.
     
     func loadPosts() {
+        
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
-            guard let postUid = post.uid else {
-                return
-            }
+            guard let postUid = post.uid else { return }
+            
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
                 // TODO: Sort by date published 
@@ -73,7 +88,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     return p1.creationDate?.compare(p2.creationDate!) == .orderedDescending
                 })
                 self.tableView.reloadData()
+                
             })
+            
         }
         
         Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
@@ -82,6 +99,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             self.tableView.reloadData()
         }
+//        if self.posts.isEmpty {
+//            self.tableView?.backgroundView = self.emptyHomeLabel
+//        }
+       
         activityIndicatorView.stopAnimating()
     }
     
