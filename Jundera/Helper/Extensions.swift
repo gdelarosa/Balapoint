@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 10/15/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
@@ -42,26 +42,8 @@ extension Date {
         return "\(quotient) \(unit)\(quotient == 1 ? "" : "s") ago"
     }
 }
-
-extension UIView {
-    
-    // Shadow 
-    func dropShadow(scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: -1, height: 1)
-        layer.shadowRadius = 1
-
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
-    
-   }
-}
-
 extension UIViewController {
-    
+    /// Custom Alert
     func presentAlertWithTitle(title: String, message: String, options: String..., completion: @escaping (Int) -> Void) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
@@ -72,7 +54,7 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // Custom back button for nav bar 
+    /// Custom back button for nav bar
     func setBackButton() {
         let btnLeftMenu: UIButton = UIButton()
         btnLeftMenu.setImage(UIImage(named: "back"), for: UIControlState())

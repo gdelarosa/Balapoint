@@ -1,9 +1,10 @@
 //
 //  PhotoCollectionViewCell.swift
-//  Metis
+//  Balapoint
 //
-//  Created by Gina De La Rosa on 11/15/17.
+//  Created by Gina De La Rosa on 10/15/18.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
+
 //  Will display the users Published - Drafts - Private Posts in their profile.
 
 import UIKit
@@ -60,8 +61,8 @@ class ProfilePosts: UICollectionViewCell {
         
         
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
-        photo.addGestureRecognizer(tapGestureForPhoto)
-        photo.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapGestureForPhoto)
+        title.isUserInteractionEnabled = true
 
     }
     

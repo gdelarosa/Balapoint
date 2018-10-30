@@ -4,6 +4,7 @@
 //
 //  Created by Gina De La Rosa on 05/01/18.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
+
 //  What user will first see after logging in or signing up.
     
 import UIKit
@@ -166,7 +167,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row Selected")
+        print("Home Cell Selected")
         _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
     }

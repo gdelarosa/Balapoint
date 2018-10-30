@@ -1,9 +1,10 @@
 //
 //  SavedPostsCollectionViewCell.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 10/29/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
+
 //  Will display Saved Posts
 
 import UIKit

@@ -1,9 +1,10 @@
 //
 //  ProfileViewController.swift
-//  Metis
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
+
 //  User Profile - User can edit their information and view their posts
 
 import UIKit
@@ -13,7 +14,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var userId = "" //testing
+    var userId = ""
     var user: Userr!
     var posts: [Post] = []
     
@@ -23,7 +24,6 @@ class ProfileViewController: UIViewController {
         fetchUser()
         fetchMyPosts()
         settingsBarButton()
-        
     }
     
     func settingsBarButton() {
@@ -87,7 +87,7 @@ class ProfileViewController: UIViewController {
 
 }
 
-// Will return the posts in the users profile. TODO: Update UI.
+// Will return the posts in the users profile.
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,17 +107,10 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         if let user = self.user {
             headerViewCell.user = user
             headerViewCell.delegate2 = self
-            headerViewCell.delegateUserSettings = self //added. Not sure if this is actually needed. Will circle back.
+            headerViewCell.delegateUserSettings = self
         }
         return headerViewCell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Cell Selected")
-    }
-    
-    
-    
 }
 
 extension ProfileViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
@@ -144,6 +137,7 @@ extension ProfileViewController: SettingTableViewControllerDelegate {
 
 extension ProfileViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
+        print("Pressed to go to Detail Post")
         performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
 }

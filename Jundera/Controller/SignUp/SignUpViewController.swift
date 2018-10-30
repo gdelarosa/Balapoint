@@ -1,10 +1,11 @@
 //
 //  SignUpViewController.swift
-//  Metis
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 8/12/18.
 //  Copyright © 2018 Gina Delarosa. All rights reserved.
-//
+
+// User Sign Up
 
 import UIKit
 
@@ -66,16 +67,14 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-       // ProgressHUD.show("Waiting...", interaction: false)
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
-                //ProgressHUD.showSuccess("Success")
                 self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
             }, onError: { (errorString) in
-               // ProgressHUD.showError(errorString!)
+               print("There was an error")
             })
         } else {
-            // ProgressHUD.showError("Profile Image can't be empty")
+           print("Profile Image Can't Be Empty")
         }
     }
 }

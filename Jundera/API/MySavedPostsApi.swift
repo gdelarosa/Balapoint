@@ -1,6 +1,6 @@
 //
 //  MySavedPostsApi.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 10/24/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.

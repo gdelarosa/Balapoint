@@ -1,9 +1,10 @@
 //
 //  UserSettingsTableViewController.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 8/19/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
+
 //  Allows user to view settings.
 
 import UIKit

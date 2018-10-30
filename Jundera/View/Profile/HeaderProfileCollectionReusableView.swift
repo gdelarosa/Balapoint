@@ -88,12 +88,12 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
         if user?.id == Api.Userr.CURRENT_USER?.uid {
             followButton.setTitle("Edit", for: UIControlState.normal)
             followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
-
         } else {
             followButton.isHidden = true
-            updateStateFollowButton()
+            //updateStateFollowButton()
         }
-//CAUSES CRASHES MUST UPDATE! 
+ 
+//CAUSES CRASHES MUST UPDATE!
 //        if user?.id == Api.Userr.CURRENT_USER?.uid {
 //            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
 //            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
@@ -146,6 +146,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
         } 
     }
     
+    // Mark: Configuration for following another user
     func configureFollowButton() {
         followButton.layer.borderWidth = 1
         followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
