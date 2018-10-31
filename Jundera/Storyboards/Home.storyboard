@@ -45,7 +45,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
-                                                    <rect key="frame" x="25" y="23" width="225.5" height="39"/>
+                                                    <rect key="frame" x="25" y="30" width="225.5" height="39"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden gems I'm willing to share in my neighborhood of Avalon" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Am-BIT">
-                                                    <rect key="frame" x="25" y="62" width="233" height="36"/>
+                                                    <rect key="frame" x="25" y="75" width="233" height="36"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="-14" id="0iH-Bd-ZJH"/>
-                                                <constraint firstItem="8HR-Am-BIT" firstAttribute="top" secondItem="w06-SR-xaX" secondAttribute="bottom" id="78Q-GX-VMh"/>
+                                                <constraint firstItem="8HR-Am-BIT" firstAttribute="top" secondItem="w06-SR-xaX" secondAttribute="bottom" constant="6" id="78Q-GX-VMh"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="baseline" secondItem="7Ma-zl-z3F" secondAttribute="baseline" constant="2" id="7fQ-wc-k9t"/>
                                                 <constraint firstItem="w06-SR-xaX" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leadingMargin" constant="10" id="7i1-29-vhj"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="30" id="J2s-SV-deL"/>
@@ -93,7 +93,7 @@
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="leading" secondItem="w06-SR-xaX" secondAttribute="trailing" constant="15.5" id="SzA-Le-Bhk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fEI-ug-Ldb" secondAttribute="trailing" constant="27" id="TfH-zj-BJi"/>
                                                 <constraint firstItem="vMY-aN-Ui7" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leadingMargin" constant="10" id="X7H-iM-XgK"/>
-                                                <constraint firstItem="fEI-ug-Ldb" firstAttribute="top" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="44" id="ZoB-aH-j2b"/>
+                                                <constraint firstItem="fEI-ug-Ldb" firstAttribute="top" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="31" id="ZoB-aH-j2b"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JAf-Ao-6LM" secondAttribute="trailing" constant="-6" id="Zr3-LX-OUj"/>
                                                 <constraint firstAttribute="trailing" secondItem="dHw-2h-ayO" secondAttribute="trailing" constant="27" id="aGB-os-Lss"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leading" constant="15" id="h6M-ct-8rV"/>
@@ -102,7 +102,7 @@
                                                 <constraint firstItem="vMY-aN-Ui7" firstAttribute="bottom" secondItem="fEI-ug-Ldb" secondAttribute="bottom" id="qI6-aw-rTx"/>
                                                 <constraint firstItem="7Ma-zl-z3F" firstAttribute="top" secondItem="JAf-Ao-6LM" secondAttribute="bottom" constant="14" id="qnW-Xq-xVe"/>
                                                 <constraint firstItem="JAf-Ao-6LM" firstAttribute="leading" secondItem="8HR-Am-BIT" secondAttribute="trailing" constant="8" id="reh-zv-zol"/>
-                                                <constraint firstItem="w06-SR-xaX" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="topMargin" constant="12" id="sYU-rY-hoI"/>
+                                                <constraint firstItem="w06-SR-xaX" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="topMargin" constant="19" id="sYU-rY-hoI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vMY-aN-Ui7" secondAttribute="bottom" id="ue7-gr-TmR"/>
                                                 <constraint firstAttribute="bottom" secondItem="dHw-2h-ayO" secondAttribute="bottom" constant="-3" id="wFF-X4-W2D"/>
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="11" id="wFY-Mv-lQg"/>

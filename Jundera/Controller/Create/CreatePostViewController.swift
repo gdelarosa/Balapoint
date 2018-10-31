@@ -66,18 +66,15 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     // Deletes post info
     @objc func deletePostInfo() {
         print("Delete post button pressed on nav bar")
-        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
+        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post.", options: "Yes", "Cancel") {
             (option) in
             switch(option) {
             case 0:
                 print("Clear Post")
                 self.clean()
-                //self.handlePost()
                 break
             case 1:
-                print("Save as draft")
-            case 2:
-                print("Cancel")
+                print("Cancelled")
             default:
                 break
             }

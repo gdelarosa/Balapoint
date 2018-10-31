@@ -19,6 +19,8 @@ class UserSettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Settings"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
         setBackButton()
     }
     
@@ -32,20 +34,30 @@ class UserSettingsTableViewController: UITableViewController {
             print("ERROR: \(String(describing: errorMessage))")
         }
     }
-    
     // Delete Account
     @IBAction func deleteAccount_TouchUpInside(_ sender: Any) {
-        AuthService.deleteAccount(onSuccess: {
-            let storyboard = UIStoryboard(name: "Start", bundle: nil)
-            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-            self.present(signInVC, animated: true, completion: nil)
-            }, onError: { (errorString) in
-                print("Error with deleting account!")
-        })
+        presentAlertWithTitle(title: "Are you sure?", message: "Deleting your account will result in all posts being deleted and information associated with your email.", options: "Yes Delete My Account", "Cancel") {
+            (option) in
+            switch(option) {
+            case 0:
+                print("Deleted Account")
+                AuthService.deleteAccount(onSuccess: {
+                    let storyboard = UIStoryboard(name: "Start", bundle: nil)
+                    let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                    self.present(signInVC, animated: true, completion: nil)
+                }, onError: { (errorString) in
+                    print("Error with deleting account!")
+                })
+                break
+            case 1:
+                print("Cancelled")
+            default:
+                break
+            }
+        }
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
