@@ -28,8 +28,8 @@ class SignUpViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-        signUpButton.isEnabled = false
-        handleTextField()
+        //signUpButton.isEnabled = false
+        //handleTextField()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,11 +67,21 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        if let profileImg = self.selectedImage,
+            let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
                 self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
             }, onError: { (errorString) in
-               print("There was an error")
+                let alertController = UIAlertController(title: "Oops!", message: errorString, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
+                    print("alert")
+                    alertController.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(alertAction)
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true, completion: nil)
+                }
             })
         } else {
            print("Profile Image Can't Be Empty")

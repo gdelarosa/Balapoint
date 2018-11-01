@@ -15,11 +15,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var skipButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         signInButton.isEnabled = false
         handleTextField()
     }
@@ -56,22 +54,53 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
+        let wrongPasswordAlert = UIAlertController(title: "Oops!", message: "Something went wrong. Please check that your email and or password is correct.", preferredStyle: .alert)
+        wrongPasswordAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        
         view.endEditing(true)
-        //ProgressHUD.show("Waiting...", interaction: false)
         AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
-            // ProgressHUD.showSuccess("Success")
             self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
-            
         }, onError: { error in
-            //ProgressHUD.showError(error!)
+            self.present(wrongPasswordAlert, animated: true, completion: nil)
         })
     }
     
-    // Allows user to skip but restricts use. Will only be allowed to browse essentially.
-    // TO DO: Sign up Anonymous with Firebase. 
-    @IBAction func skipToHomeButton(_ sender: Any) {
-        
+    /// Takes user to Terms and Conditions
+    @IBAction func goesToTermsPage(_ sender: Any) {
+        if let url = URL(string: "https://www.balapoint.com/terms.html") {
+            UIApplication.shared.open(url, options: [:])
+        }
     }
     
+    /// Takes user to Privacy Policy
+    @IBAction func goesToPrivacyPage(_ sender: Any) {
+        if let url = URL(string: "https://www.balapoint.com/privacypolicy.html") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    // Action to reset password
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
+        let forgotPasswordAlert = UIAlertController(title: "Forgot password?", message: "Enter email address", preferredStyle: .alert)
+        forgotPasswordAlert.addTextField { (textField) in
+            textField.placeholder = "Enter email address"
+        }
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Reset Password", style: .default, handler: { (action) in
+            let resetEmail = forgotPasswordAlert.textFields?.first?.text
+            Auth.auth().sendPasswordReset(withEmail: resetEmail!, completion: { (error) in
+                if error != nil{
+                    let resetFailedAlert = UIAlertController(title: "Reset Failed", message: "Error: \(String(describing: error?.localizedDescription))", preferredStyle: .alert)
+                    resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(resetFailedAlert, animated: true, completion: nil)
+                }else {
+                    let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
+                    resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(resetEmailSentAlert, animated: true, completion: nil)
+                }
+            })
+        }))
+        self.present(forgotPasswordAlert, animated: true, completion: nil)
+    }
     
 }

@@ -24,6 +24,18 @@ class UserSettingsTableViewController: UITableViewController {
         setBackButton()
     }
     
+    @IBAction func goToTermsPage(_ sender: Any) {
+        if let url = URL(string: "https://www.balapoint.com/terms.html") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @IBAction func goToPrivacyPage(_ sender: Any) {
+        if let url = URL(string: "https://www.balapoint.com/privacypolicy.html") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     // Logout
     @IBAction func logoutBtn_TouchUpInside(_ sender: Any) {
         AuthService.logout(onSuccess: {

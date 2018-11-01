@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -401,15 +401,6 @@
                                                         <constraint firstAttribute="height" constant="174" id="gXC-Ay-GGL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-ka-Yn9">
-                                                    <rect key="frame" x="69" y="482" width="167" height="19"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="167" id="t9E-h6-MYt"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4b-BP-mWb">
                                                     <rect key="frame" x="0.0" y="119" width="375" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -462,6 +453,15 @@
                                                         <constraint firstAttribute="height" constant="2" id="MzX-PD-Ody"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-ka-Yn9">
+                                                    <rect key="frame" x="69" y="492" width="167" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="167" id="t9E-h6-MYt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="B7R-MH-4R7" secondAttribute="bottom" constant="8" id="17V-H2-fE4"/>
@@ -469,13 +469,13 @@
                                                 <constraint firstItem="G3N-UI-fXD" firstAttribute="leading" secondItem="B7R-MH-4R7" secondAttribute="leading" constant="1" id="1xg-lo-Oom"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="centerX" secondItem="G3N-UI-fXD" secondAttribute="centerX" id="5v6-ro-3C3"/>
                                                 <constraint firstItem="Yiu-db-FGS" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" id="87R-gk-ira"/>
-                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="8" symbolic="YES" id="AmP-yq-1Rt"/>
+                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="18" id="AmP-yq-1Rt"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="G3N-UI-fXD" secondAttribute="leading" id="Bg8-8f-0f3"/>
                                                 <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="trailing" constant="8" symbolic="YES" id="E9g-bb-G1a"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leadingMargin" constant="-5" id="HJ2-ID-7aU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wtW-cZ-Gak" secondAttribute="trailing" constant="-1" id="Lh9-bX-B5w"/>
                                                 <constraint firstAttribute="trailing" secondItem="r4b-BP-mWb" secondAttribute="trailing" id="NHl-3R-WGI"/>
-                                                <constraint firstItem="FZt-lh-GUG" firstAttribute="top" secondItem="1hb-ka-Yn9" secondAttribute="bottom" constant="8" symbolic="YES" id="OH0-cU-PwG"/>
+                                                <constraint firstItem="FZt-lh-GUG" firstAttribute="top" secondItem="1hb-ka-Yn9" secondAttribute="bottom" constant="-2" id="OH0-cU-PwG"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="dmu-OO-grA" secondAttribute="top" constant="230" id="PIw-m8-mh1"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="B7R-MH-4R7" secondAttribute="bottom" constant="8" symbolic="YES" id="Png-xB-Joc"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="trailing" secondItem="Yiu-db-FGS" secondAttribute="trailing" id="TUP-iV-qbh"/>
