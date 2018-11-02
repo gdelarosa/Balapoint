@@ -74,7 +74,7 @@ class UserApi {
     
     // Search for posts
     func queryPosts(withText text: String, completion: @escaping (Post) -> Void) {
-        REF_POSTS.queryOrdered(byChild: "title").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 5).observeSingleEvent(of: .value, with: {
+        REF_POSTS.queryOrdered(byChild: "title").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: {
             snapshot in
             snapshot.children.forEach({ (s) in
                 let child = s as! DataSnapshot

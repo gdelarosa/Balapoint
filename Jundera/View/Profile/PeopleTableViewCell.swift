@@ -11,6 +11,7 @@ import UIKit
 protocol PeopleTableViewCellDelegate {
     
     func goToProfileUserVC(userId: String)
+    func goToDetailPost(postId: String)
 }
 
 class PeopleTableViewCell: UITableViewCell {
@@ -20,7 +21,14 @@ class PeopleTableViewCell: UITableViewCell {
     @IBOutlet weak var followButton: UIButton!
     
     var delegate: PeopleTableViewCellDelegate?
+    
     var user: Userr? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    var post: Post? {
         didSet {
             updateView()
         }
@@ -93,6 +101,12 @@ class PeopleTableViewCell: UITableViewCell {
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
+        }
+    }
+    
+    @objc func cell_TouchUpInside() {
+        if let post = post?.id {
+            delegate?.goToDetailPost(postId: post)
         }
     }
 

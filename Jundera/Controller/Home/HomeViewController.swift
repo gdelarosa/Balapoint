@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
+        tableView.allowsSelection = true
         loadPosts()
         if self.posts.isEmpty {
             self.tableView?.backgroundView = self.emptyHomeLabel
@@ -84,9 +85,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
                 // TODO: Sort by date published 
-                self.posts.sort(by: {(p1, p2) -> Bool in
-                    return p1.creationDate?.compare(p2.creationDate!) == .orderedDescending
-                })
+//                self.posts.sort(by: {(p1, p2) -> Bool in
+//                    return p1.date?.compare(p2.date!) == .orderedDescending
+//                })
                 self.tableView.reloadData()
                 
             })
@@ -183,9 +184,11 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
 
 // MARK: - TableView Data Source and Delegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
         let post = posts[indexPath.row]
@@ -196,12 +199,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Home Cell Selected")
-//        _ = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
-//        tableView.deselectRow(at: indexPath, animated: true)
-    //    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Section \(indexPath.section), Row : \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }
 
 // MARK: Segue Actions

@@ -53,11 +53,11 @@ class ProfilePosts: UICollectionViewCell {
         title.text = post?.title
         header.text = post?.caption
         
-        guard let creationDate = post?.creationDate else {
+        guard let creationDate = post?.date else {
             print("Unable to retrieve date")
             return
         }
-        date.text = creationDate.timeAgoDisplay()
+        //date.text = creationDate.timeAgoDisplay()
         
         
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))

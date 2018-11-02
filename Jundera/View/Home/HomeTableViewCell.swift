@@ -47,7 +47,9 @@ class HomeTableViewCell: UITableViewCell {
         
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
-//        guard let creationDate = post?.creationDate else {
+        //postDateLabel.text = post?.date
+        
+//        guard let creationDate = post?.date else {
 //            print("Unable to retrieve date")
 //            return
 //        }
@@ -147,11 +149,11 @@ class HomeTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("Reusing cell")
-       
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
+    
 }

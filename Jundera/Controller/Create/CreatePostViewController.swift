@@ -152,7 +152,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                         let ratio = profileImg.size.width / profileImg.size.height
                         
-                        HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, onSuccess: {
+                        HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, onSuccess: {
                             print("Successfully sent info to database!")
                             self.clean()
                             self.tabBarController?.selectedIndex = 0
@@ -170,26 +170,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
-    
-//    /// Clear Button
-//    @IBAction func remove_TouchUpInside(_ sender: Any) {
-//        presentAlertWithTitle(title: "Are you sure?", message: "Select yes to clear post or save as a draft", options: "Yes", "Draft", "Cancel") {
-//            (option) in
-//            switch(option) {
-//            case 0:
-//                print("Clear Post")
-//                self.clean()
-//                self.handlePost()
-//                break
-//            case 1:
-//                print("Save as draft")
-//            case 2:
-//                print("Cancel")
-//            default:
-//                break
-//            }
-//        }
-//    }
     
     /// This will delete the information if you press the X button 
     func clean() {

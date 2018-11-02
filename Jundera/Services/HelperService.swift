@@ -9,19 +9,20 @@
 
 import Foundation
 import FirebaseStorage
+import Firebase
 
 class HelperService {
     
-    static func uploadDataToServer(data: Data, videoUrl: URL? = nil, ratio: CGFloat, caption: String, title: String, body: String, onSuccess: @escaping () -> Void) {
+    static func uploadDataToServer(data: Data, videoUrl: URL? = nil, ratio: CGFloat, caption: String, title: String, body: String, date: Double, onSuccess: @escaping () -> Void) {
         if let videoUrl = videoUrl {
             self.uploadVideoToFirebaseStorage(videoUrl: videoUrl, onSuccess: { (videoUrl) in
                 uploadImageToFirebaseStorage(data: data, onSuccess: { (thumbnailImageUrl) in
-                    sendDataToDatabase(photoUrl: thumbnailImageUrl, videoUrl: videoUrl, ratio: ratio, caption: caption, title: title, body: body, onSuccess: onSuccess)
+                    sendDataToDatabase(photoUrl: thumbnailImageUrl, videoUrl: videoUrl, ratio: ratio, caption: caption, title: title, body: body, date: date, onSuccess: onSuccess)
                 })
             })
         } else {
             uploadImageToFirebaseStorage(data: data) { (photoUrl) in
-                self.sendDataToDatabase(photoUrl: photoUrl, ratio: ratio, caption: caption, title: title, body: body, onSuccess: onSuccess)
+                self.sendDataToDatabase(photoUrl: photoUrl, ratio: ratio, caption: caption, title: title, body: body, date: date, onSuccess: onSuccess)
             }
         }
     }
@@ -67,7 +68,7 @@ class HelperService {
         }
     }
     
-    static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, title: String, body: String, onSuccess: @escaping () -> Void) {
+    static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, title: String, body: String, date: Double, onSuccess: @escaping () -> Void) {
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
         let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
         
@@ -86,7 +87,8 @@ class HelperService {
         }
         
         let currentUserId = currentUser.uid
-        var dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio, "title": title, "body": body] as [String : Any]
+        
+        var dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio, "title": title, "body": body, "time_interval" : date] as [String : Any]
         
         //Wont need
         if let videoUrl = videoUrl {

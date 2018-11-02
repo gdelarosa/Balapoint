@@ -20,10 +20,11 @@ class Post {
     var isLiked: Bool?
     var ratio: CGFloat?
     var title: String?
-    var creationDate: Date?
     var body: String?
     var saved: Dictionary<String, Any>?
     var isSaved: Bool?
+    var date: Date?
+
 }
 
 extension Post {
@@ -41,9 +42,8 @@ extension Post {
         post.body = dict["body"] as? String
         post.saved = dict["saved"] as? Dictionary<String, Any>
         
-        
         let secondsAgoFrom1970 = dict["creationDate"] as? Double ?? 0
-        post.creationDate = Date(timeIntervalSince1970: secondsAgoFrom1970)
+        post.date = Date(timeIntervalSince1970: secondsAgoFrom1970)
         
         if let currentUserId = Auth.auth().currentUser?.uid {
             
