@@ -1108,7 +1108,7 @@
         <!--Report a Bug-->
         <scene sceneID="Lch-mz-1AI">
             <objects>
-                <viewController title="Report a Bug" id="t1t-BX-sNp" sceneMemberID="viewController">
+                <viewController title="Report a Bug" id="t1t-BX-sNp" customClass="ReportBugViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KyY-K5-u2Q"/>
                         <viewControllerLayoutGuide type="bottom" id="cF9-VE-d19"/>
@@ -1135,18 +1135,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info@balapoint.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVK-eX-bRQ">
-                                <rect key="frame" x="38" y="198" width="299" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="4no-zC-gQ0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwx-SK-pWo">
+                                <rect key="frame" x="89" y="207" width="197" height="30"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <state key="normal" title="info@balapoint.com">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="reportBugEmail:" destination="t1t-BX-sNp" eventType="touchUpInside" id="jNO-N3-PNE"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agB-0O-kXD">
-                                <rect key="frame" x="38" y="243" width="299" height="98"/>
-                                <string key="text">If you can, please let us know exactly what you are experiencing so we can address it properly. Once we receive your report about a bug or issue we will get back to you ASAP with the status. </string>
+                                <rect key="frame" x="33" y="245" width="309" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="0DI-6A-c3J"/>
+                                </constraints>
+                                <string key="text">If you can, please let us know exactly what you are experiencing so we can address it properly. Once we receive your report we will get back to you ASAP with the status. </string>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1155,18 +1159,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JJ4-eM-Bm8" firstAttribute="centerX" secondItem="gjp-T0-Q7u" secondAttribute="centerX" id="16g-ja-1Fv"/>
-                            <constraint firstItem="cF9-VE-d19" firstAttribute="top" secondItem="agB-0O-kXD" secondAttribute="bottom" constant="277" id="2wJ-CR-t7L"/>
-                            <constraint firstItem="IVK-eX-bRQ" firstAttribute="top" secondItem="EkW-3a-AtH" secondAttribute="bottom" constant="8" symbolic="YES" id="G38-md-QtV"/>
-                            <constraint firstItem="IVK-eX-bRQ" firstAttribute="leading" secondItem="agB-0O-kXD" secondAttribute="leading" id="Phm-6l-CWy"/>
+                            <constraint firstItem="rwx-SK-pWo" firstAttribute="top" secondItem="EkW-3a-AtH" secondAttribute="bottom" constant="17" id="2V8-TP-FXX"/>
+                            <constraint firstItem="rwx-SK-pWo" firstAttribute="centerX" secondItem="EkW-3a-AtH" secondAttribute="centerX" id="7Gs-Ya-MrT"/>
+                            <constraint firstItem="agB-0O-kXD" firstAttribute="leading" secondItem="gjp-T0-Q7u" secondAttribute="leadingMargin" constant="17" id="QaQ-hF-0xy"/>
                             <constraint firstItem="JJ4-eM-Bm8" firstAttribute="trailing" secondItem="EkW-3a-AtH" secondAttribute="trailing" id="STD-v2-Sd5"/>
                             <constraint firstItem="EkW-3a-AtH" firstAttribute="top" secondItem="JJ4-eM-Bm8" secondAttribute="bottom" constant="14" id="XBf-zn-RRh"/>
+                            <constraint firstItem="agB-0O-kXD" firstAttribute="centerX" secondItem="rwx-SK-pWo" secondAttribute="centerX" id="XPY-Xo-dJ4"/>
+                            <constraint firstItem="cF9-VE-d19" firstAttribute="top" secondItem="agB-0O-kXD" secondAttribute="bottom" constant="282" id="cs9-KD-QhJ"/>
+                            <constraint firstItem="agB-0O-kXD" firstAttribute="top" secondItem="rwx-SK-pWo" secondAttribute="bottom" constant="8" symbolic="YES" id="fVE-7J-tG9"/>
                             <constraint firstItem="JJ4-eM-Bm8" firstAttribute="leading" secondItem="EkW-3a-AtH" secondAttribute="leading" id="gBb-vQ-szH"/>
-                            <constraint firstItem="EkW-3a-AtH" firstAttribute="leading" secondItem="IVK-eX-bRQ" secondAttribute="leading" id="iZy-uk-odu"/>
+                            <constraint firstItem="rwx-SK-pWo" firstAttribute="leading" secondItem="gjp-T0-Q7u" secondAttribute="leadingMargin" constant="73" id="i71-fk-FQE"/>
                             <constraint firstItem="JJ4-eM-Bm8" firstAttribute="leading" secondItem="gjp-T0-Q7u" secondAttribute="leadingMargin" constant="22" id="mN0-1S-aFa"/>
-                            <constraint firstItem="EkW-3a-AtH" firstAttribute="trailing" secondItem="IVK-eX-bRQ" secondAttribute="trailing" id="mef-fS-03r"/>
                             <constraint firstItem="JJ4-eM-Bm8" firstAttribute="top" secondItem="KyY-K5-u2Q" secondAttribute="bottom" constant="20" id="nrc-e3-bfr"/>
-                            <constraint firstItem="IVK-eX-bRQ" firstAttribute="trailing" secondItem="agB-0O-kXD" secondAttribute="trailing" id="vdG-W8-q2E"/>
-                            <constraint firstItem="agB-0O-kXD" firstAttribute="top" secondItem="IVK-eX-bRQ" secondAttribute="bottom" constant="16" id="zK3-O9-S1L"/>
                         </constraints>
                     </view>
                 </viewController>
