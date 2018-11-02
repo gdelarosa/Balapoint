@@ -27,6 +27,12 @@ class ReportBugViewController: UIViewController, MFMailComposeViewControllerDele
             self.present(mc, animated: true, completion: nil)
         } else {
             print("Unable to open mail app")
+            let myalert = UIAlertController(title: "Oops!", message: "There was an issue opening your mail app. Please check your settings on your device.", preferredStyle: UIAlertControllerStyle.alert)
+            myalert.addAction(UIAlertAction(title: "Okay", style: .cancel) { (action:UIAlertAction!) in
+                print("Cancel")
+            })
+            
+            self.present(myalert, animated: true)
         }
     }
     
