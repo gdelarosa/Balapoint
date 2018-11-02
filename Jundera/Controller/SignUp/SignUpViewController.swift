@@ -8,6 +8,7 @@
 // User Sign Up
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
     
@@ -67,33 +68,40 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        if let profileImg = self.selectedImage,
-            let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            
-            AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
-                self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
-            }, onError: { (errorString) in
-                let alertController = UIAlertController(title: "Oops!", message: errorString, preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
-                    print("alert")
-                    alertController.dismiss(animated: true, completion: nil)
-                })
-                alertController.addAction(alertAction)
-                DispatchQueue.main.async {
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            })
-        } else {
-           print("Profile Image Can't Be Empty")
+    
+        var profileImg = self.selectedImage
+        if profileImg == nil {
+            profileImg = UIImage(named: "placeholderImg")
         }
+
+        let imageData = UIImageJPEGRepresentation(profileImg!, 0.1)
+
+        AuthService.signUp(username: self.usernameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, imageData: imageData!, onSuccess: {
+            self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
+        }, onError: { (errorString) in
+            let alertController = UIAlertController(title: "Oops!", message: errorString, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
+                print("alert")
+                alertController.dismiss(animated: true, completion: nil)
+            })
+            alertController.addAction(alertAction)
+            DispatchQueue.main.async {
+                self.present(alertController, animated: true, completion: nil)
+            }
+        })
     }
 }
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")
+        
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
             selectedImage = image
             profileImage.image = image
+            if profileImage.image == nil {
+                profileImage.image = UIImage(named: "placeholderImg")
+            }
         }
         dismiss(animated: true, completion: nil)
     }

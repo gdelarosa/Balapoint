@@ -8,6 +8,7 @@
 //  Allows user to view settings.
 
 import UIKit
+import Firebase
 
 protocol UserSettingTableViewControllerDelegate {
     func updateUserSettings()
@@ -46,25 +47,18 @@ class UserSettingsTableViewController: UITableViewController {
             print("ERROR: \(String(describing: errorMessage))")
         }
     }
-    // Delete Account
+    
+    // Delete Account: Need to add an alert before deleting.
     @IBAction func deleteAccount_TouchUpInside(_ sender: Any) {
-        presentAlertWithTitle(title: "Are you sure?", message: "Deleting your account will result in all posts being deleted and information associated with your email.", options: "Yes Delete My Account", "Cancel") {
-            (option) in
-            switch(option) {
-            case 0:
-                print("Deleted Account")
-                AuthService.deleteAccount(onSuccess: {
-                    let storyboard = UIStoryboard(name: "Start", bundle: nil)
-                    let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-                    self.present(signInVC, animated: true, completion: nil)
-                }, onError: { (errorString) in
-                    print("Error with deleting account!")
-                })
-                break
-            case 1:
-                print("Cancelled")
-            default:
-                break
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+            if let error = error {
+                print("Error with deleting account: \(error)")
+            } else {
+                print("Successfully deleted account")
+                let storyboard = UIStoryboard(name: "Start", bundle: nil)
+                let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                self.present(signInVC, animated: true, completion: nil)
             }
         }
     }

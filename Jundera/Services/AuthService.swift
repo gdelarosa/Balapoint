@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class AuthService {
-    // SIGN IN
+    /// SIGN IN
     static func signIn(email: String, password: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
@@ -23,7 +23,7 @@ class AuthService {
         })
         
     }
-    // SIGN UP
+    /// SIGN UP
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
@@ -41,6 +41,7 @@ class AuthService {
             let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(uid)
             
             storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                
                 if error != nil {
                     return
                 }
