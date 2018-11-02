@@ -23,6 +23,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        captionTextView.text = "Body"
+        captionTextView.textColor = UIColor.lightGray
         settingsBarButton()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
@@ -61,6 +63,20 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         
         self.navigationItem.title = "Create"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if captionTextView.textColor == UIColor.lightGray {
+            captionTextView.text = nil
+            captionTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if captionTextView.text.isEmpty {
+            captionTextView.text = "Body"
+            captionTextView.textColor = UIColor.lightGray
+        }
     }
     
     // Deletes post info
