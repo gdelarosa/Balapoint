@@ -42,8 +42,8 @@ extension Post {
         post.body = dict["body"] as? String
         post.saved = dict["saved"] as? Dictionary<String, Any>
         
-        let secondsAgoFrom1970 = dict["creationDate"] as? Double ?? 0
-        post.date = Date(timeIntervalSince1970: secondsAgoFrom1970)
+        let secondsAgoFrom1970 = dict["time_interval"] as? Double ?? 0
+        post.date = Date(timeIntervalSince1970: (secondsAgoFrom1970 / 1_000.0))
         
         if let currentUserId = Auth.auth().currentUser?.uid {
             

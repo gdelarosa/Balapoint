@@ -89,7 +89,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     return p1.date?.compare(p2.date!) == .orderedDescending
                 })
                 self.tableView.reloadData()
-                
             })
             
         }

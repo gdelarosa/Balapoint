@@ -8,7 +8,7 @@
 //  User Profile - User can edit their information and view their posts
 
 import UIKit
-import Segmentio
+//import Segmentio
 
 class ProfileViewController: UIViewController {
 
@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     //Empty State Label
     let emptyHomeLabel: UILabel = {
         let messageLabel = UILabel()
-        messageLabel.text = "Ah...\n Your published posts will appear here."
+        //messageLabel.text = "Ah...\n Your published posts will appear here."
         messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
         messageLabel.numberOfLines = 2
         messageLabel.textAlignment = .center

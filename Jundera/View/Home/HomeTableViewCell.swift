@@ -23,7 +23,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView! //Post Image
     @IBOutlet weak var likeImageView: UIImageView! // Save Post
     @IBOutlet weak var captionLabel: UILabel! // Heading
-    //@IBOutlet weak var postDateLabel: UILabel! // Date posted
+    @IBOutlet weak var postDateLabel: UILabel! // Date posted
     
     var delegate: HomeTableViewCellDelegate?
     
@@ -47,13 +47,13 @@ class HomeTableViewCell: UITableViewCell {
         
         captionLabel.text = post?.caption //header
         postTitleLabel.text = post?.title //title
-        //postDateLabel.text = post?.date
         
-//        guard let creationDate = post?.date else {
-//            print("Unable to retrieve date")
-//            return
-//        }
-//        postDateLabel.text = creationDate.timeAgoDisplay()
+        guard let creationDate = post?.date else {
+            print("UNABLE TO GET DATE")
+            return
+        }
+        postDateLabel.text = creationDate.timeAgoDisplay().lowercased()
+
        
         if (post?.ratio) != nil {
             layoutIfNeeded()

@@ -45,7 +45,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
-                                                    <rect key="frame" x="25" y="30" width="225.5" height="39"/>
+                                                    <rect key="frame" x="25" y="30" width="225.5" height="41"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,14 +59,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Saved" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-aN-Ui7">
-                                                    <rect key="frame" x="25" y="136" width="18" height="25"/>
+                                                    <rect key="frame" x="25" y="138" width="18" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="qzc-NZ-kdS"/>
                                                         <constraint firstAttribute="width" constant="18" id="wie-8R-KV4"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-ug-Ldb">
-                                                    <rect key="frame" x="207" y="142" width="126" height="19"/>
+                                                    <rect key="frame" x="207" y="144" width="36" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="BLc-9u-CmX"/>
                                                     </constraints>
@@ -75,7 +75,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden gems I'm willing to share in my neighborhood of Avalon" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Am-BIT">
-                                                    <rect key="frame" x="25" y="75" width="233" height="36"/>
+                                                    <rect key="frame" x="25" y="77" width="233" height="36"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -108,16 +108,12 @@
                                                 <constraint firstItem="dHw-2h-ayO" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="11" id="wFY-Mv-lQg"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="leading" secondItem="vMY-aN-Ui7" secondAttribute="trailing" constant="164" id="y2y-MD-7UD"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="7Ma-zl-z3F"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="8HR-Am-BIT" id="Fuv-n1-tln"/>
                                             <outlet property="likeImageView" destination="vMY-aN-Ui7" id="CLR-jf-8FE"/>
                                             <outlet property="nameLabel" destination="fEI-ug-Ldb" id="X0c-6D-SRe"/>
+                                            <outlet property="postDateLabel" destination="7Ma-zl-z3F" id="qka-ad-vRb"/>
                                             <outlet property="postImageView" destination="JAf-Ao-6LM" id="MAn-lZ-PMd"/>
                                             <outlet property="postTitleLabel" destination="w06-SR-xaX" id="2N3-ih-PPG"/>
                                         </connections>

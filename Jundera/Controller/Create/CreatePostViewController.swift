@@ -124,18 +124,18 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         return true
     }
 
-    func handlePost() {
-        
-        if postTitle != nil {
-          // self.shareButton.isEnabled = true
-            //self.deletePost.isEnabled = true
-           
-        } else {
-           //self.shareButton.isEnabled = true
-            //self.deletePost.isEnabled = false
-           
-        }
-    }
+//    func handlePost() {
+//        
+//        if postTitle != nil {
+//          // self.shareButton.isEnabled = true
+//            //self.deletePost.isEnabled = true
+//           
+//        } else {
+//           //self.shareButton.isEnabled = true
+//            //self.deletePost.isEnabled = false
+//           
+//        }
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

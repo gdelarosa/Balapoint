@@ -7,7 +7,7 @@
 //  Header for Profile
 
 import UIKit
-import Segmentio
+//import Segmentio
 
 protocol HeaderProfileCollectionReusableViewDelegate {
     func updateFollowButton(forUser user: Userr)
@@ -31,7 +31,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     @IBOutlet weak var goalLabel: UILabel! // Bio
     @IBOutlet weak var websiteUrl: UITextView! // Website
     @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
-    @IBOutlet weak var personalMenu: Segmentio!
+    //@IBOutlet weak var personalMenu: Segmentio!
     @IBOutlet weak var userSettingsButton: UIButton!
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
@@ -41,7 +41,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     var user: Userr? {
         didSet {
             updateView()
-            loadMenu()
+            //loadMenu()
             
         }
     }
@@ -190,64 +190,64 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     }
     
     /// Swipe Menu for viewing Published - Draft - Private. Should only appear if the user is accessing their profile and not a visitor. 
-    func loadMenu() {
-        personalMenu.setup(content: segmentioContent(),
-                           style: SegmentioStyle.onlyLabel,
-                           options: segmentioOptions())
-        
-        personalMenu.selectedSegmentioIndex = 0
-        personalMenu.valueDidChange = { segmentio, segmentIndex in
-            print("Selected item: ", segmentIndex)
-        }
-    }
-    
-    func segmentioOptions() -> SegmentioOptions {
-        
-        let SegmentioStates = (
-            defaultState: SegmentioState(
-                backgroundColor: .clear,
-                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-                titleTextColor: .black
-            ),
-            selectedState: SegmentioState(
-                backgroundColor: .white,
-                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-                titleTextColor: .black
-            ),
-            highlightedState: SegmentioState(
-                backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
-                titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
-                titleTextColor: .black
-            )
-        )
-        
-        return SegmentioOptions(
-            backgroundColor: .white,
-            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 3),
-            scrollEnabled: true,
-            indicatorOptions: SegmentioIndicatorOptions(color: #colorLiteral(red: 0.1960784314, green: 0.6274509804, blue: 0.7882352941, alpha: 1)),
-            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(color: UIColor.clear),
-            verticalSeparatorOptions: nil,
-            imageContentMode: .center,
-            labelTextAlignment: .center,
-            labelTextNumberOfLines: 1,
-            segmentStates: SegmentioStates,
-            animationDuration: 0.3
-        )
-        
-    }
-    
-    func segmentioContent() -> [SegmentioItem] {
-        return [
-            SegmentioItem(title: "Published", image: nil),
-            SegmentioItem(title: "Drafts", image: nil),
-            SegmentioItem(title: "Private", image: nil),
-        ]
-    }
-    
-    fileprivate func goToControllerAtIndex(_ index: Int) {
-        personalMenu.selectedSegmentioIndex = index
-    }
+//    func loadMenu() {
+//        personalMenu.setup(content: segmentioContent(),
+//                           style: SegmentioStyle.onlyLabel,
+//                           options: segmentioOptions())
+//
+//        personalMenu.selectedSegmentioIndex = 0
+//        personalMenu.valueDidChange = { segmentio, segmentIndex in
+//            print("Selected item: ", segmentIndex)
+//        }
+//    }
+//
+//    func segmentioOptions() -> SegmentioOptions {
+//
+//        let SegmentioStates = (
+//            defaultState: SegmentioState(
+//                backgroundColor: .clear,
+//                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+//                titleTextColor: .black
+//            ),
+//            selectedState: SegmentioState(
+//                backgroundColor: .white,
+//                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+//                titleTextColor: .black
+//            ),
+//            highlightedState: SegmentioState(
+//                backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
+//                titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
+//                titleTextColor: .black
+//            )
+//        )
+//
+//        return SegmentioOptions(
+//            backgroundColor: .white,
+//            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 3),
+//            scrollEnabled: true,
+//            indicatorOptions: SegmentioIndicatorOptions(color: #colorLiteral(red: 0.1960784314, green: 0.6274509804, blue: 0.7882352941, alpha: 1)),
+//            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(color: UIColor.clear),
+//            verticalSeparatorOptions: nil,
+//            imageContentMode: .center,
+//            labelTextAlignment: .center,
+//            labelTextNumberOfLines: 1,
+//            segmentStates: SegmentioStates,
+//            animationDuration: 0.3
+//        )
+//
+//    }
+//
+//    func segmentioContent() -> [SegmentioItem] {
+//        return [
+//            SegmentioItem(title: "Published", image: nil),
+//            SegmentioItem(title: "Drafts", image: nil),
+//            SegmentioItem(title: "Private", image: nil),
+//        ]
+//    }
+//
+//    fileprivate func goToControllerAtIndex(_ index: Int) {
+//        personalMenu.selectedSegmentioIndex = index
+//    }
 
 }
 

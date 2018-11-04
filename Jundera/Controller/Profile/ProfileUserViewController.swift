@@ -8,7 +8,7 @@
 //  Other User Profile - Logged in user can view another person's profile 
 
 import UIKit
-import Segmentio
+//import Segmentio
 
 class ProfileUserViewController: UIViewController {
 
@@ -26,6 +26,10 @@ class ProfileUserViewController: UIViewController {
         fetchUser()
         fetchMyPosts()
         setBackButton()
+        
+    }
+    
+    @IBAction func blockUserAction(_ sender: Any) {
         
     }
     
