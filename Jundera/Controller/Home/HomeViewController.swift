@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var post: Post?
     
     var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
+    
     var topicTitles: [String?] = ["Lifestyle", "Tech", "Travel", "Food", "Media", "Education", "Finance", "Health", "Beauty"]
     
     override func viewDidLoad() {
@@ -159,6 +160,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TopicImageCollectionViewCell
 
         cell.imageView.image = imagesArray[indexPath.item]
+        cell.topicTitle.text = topicTitles[indexPath.item]
         
         return cell
     }

@@ -12,5 +12,13 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectTopicButton: UIButton!
+    @IBOutlet weak var topicTitle: UILabel!
+    @IBOutlet weak var imageLayer: UIImageView!
     
+    override func awakeFromNib() {
+        imageView.layer.cornerRadius = 8.0
+        imageView.clipsToBounds = true
+        imageLayer.layer.cornerRadius = 8.0
+        imageLayer.clipsToBounds = true 
+    }
 }

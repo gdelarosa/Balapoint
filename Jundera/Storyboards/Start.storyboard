@@ -157,7 +157,7 @@
                             <constraint firstItem="KyD-Kf-79f" firstAttribute="top" secondItem="vnJ-SL-WOp" secondAttribute="bottom" constant="8" symbolic="YES" id="twr-Ei-n9n"/>
                             <constraint firstItem="6aY-zc-8S3" firstAttribute="top" secondItem="J8p-q5-1YG" secondAttribute="bottom" constant="66" id="uSZ-IM-UJB"/>
                             <constraint firstItem="6aY-zc-8S3" firstAttribute="trailing" secondItem="ZQP-ls-Eqm" secondAttribute="trailingMargin" id="wzy-kF-3Zw"/>
-                            <constraint firstItem="ZXT-90-Ic1" firstAttribute="top" secondItem="ZQP-ls-Eqm" secondAttribute="top" constant="364" id="zRz-Tg-QCG"/>
+                            <constraint firstItem="ZXT-90-Ic1" firstAttribute="leading" secondItem="ZQP-ls-Eqm" secondAttribute="leading" id="zeb-oz-yIz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -268,7 +268,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="H1i-ka-A1J" secondAttribute="trailing" constant="-15" id="dHq-TT-KZ0"/>
                             <constraint firstItem="GB4-9v-2XM" firstAttribute="top" secondItem="GCc-OU-G8C" secondAttribute="bottom" id="gjJ-I5-VcY"/>
                             <constraint firstAttribute="trailing" secondItem="GCc-OU-G8C" secondAttribute="trailing" constant="68" id="jTS-zY-imA"/>
-                            <constraint firstItem="H1i-ka-A1J" firstAttribute="top" secondItem="qoP-KS-OIZ" secondAttribute="top" constant="424" id="oKH-0Q-1c4"/>
                             <constraint firstItem="GCc-OU-G8C" firstAttribute="leading" secondItem="qoP-KS-OIZ" secondAttribute="leading" constant="68" id="s3T-hv-2zR"/>
                             <constraint firstAttribute="trailing" secondItem="VGC-TB-dJi" secondAttribute="trailing" constant="20" id="zag-Jh-B1k"/>
                         </constraints>
@@ -299,6 +298,6 @@
         <image name="placeholderImg" width="80" height="83"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="67q-py-SuJ"/>
+        <segue reference="JRp-rs-fkO"/>
     </inferredMetricsTieBreakers>
 </document>
