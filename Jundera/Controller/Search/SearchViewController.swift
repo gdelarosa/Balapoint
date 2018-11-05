@@ -14,13 +14,13 @@ class SearchViewController: UIViewController {
     //var users: [Userr] = []
     var posts: [Post] = []
     var post: Post?
+    var users = [Userr]()
     var delegate: HomeTableViewCellDelegate?
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.posts.removeAll()
         searchBar.delegate = self
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search Posts"
@@ -30,7 +30,6 @@ class SearchViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = searchItem
         setBackButton()
         tableView.allowsSelection = true
-        //doSearch()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,14 +99,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         let post = posts[indexPath.row]
+       // let user = users[indexPath.row]
         cell.post = post
-        //cell.delegate = self as? HomeTableViewCellDelegate
+//        cell.user = user
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Section \(indexPath.section), Row : \(indexPath.row)")
-        
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
@@ -128,6 +128,7 @@ extension SearchViewController: HomeTableViewCellDelegate {
         performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
     }
 }
+
 // Wont need
 //extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
 //    func updateFollowButton(forUser user: Userr) {

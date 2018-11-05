@@ -84,6 +84,7 @@ class HomeTableViewCell: UITableViewCell {
         // The delegate is used in the HomeVC as well. Line 91. 
        
     }
+    
     // Testing but not currently using. 
     func updateSavedPosts(post: Post) {
         //guard let post = post else { return }
@@ -102,7 +103,7 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.text = ""
         captionLabel.text = ""
         postTitleLabel.text = ""
-        //postDateLabel.text = ""
+        postDateLabel.text = ""
         
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
@@ -119,17 +120,20 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
-    // Goes to user profile. *CRASHES
+    // Goes to user profile.
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
+            print("Go to user profile")
             delegate?.goToProfileUserVC(userId: id)
         } else {
             print("Can't get user")
         }
     }
+    
     // Goes to detail post
     @objc func cell_TouchUpInside() {
         if let post = post?.id {
+            print("Go to Detail Post")
             delegate?.goToDetailPostVC(postId: post)
         }
     }

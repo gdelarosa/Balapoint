@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
-        setNavButtons()
+        //setNavButtons()
         setBackButton()
         tableView.allowsSelection = true
     }

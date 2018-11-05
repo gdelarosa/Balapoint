@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         activityIndicatorView.startAnimating()
         settingsBarButton()
+        tableView.reloadData()
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
@@ -84,7 +85,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
-                // TODO: Sort by date published 
                 self.posts.sort(by: {(p1, p2) -> Bool in
                     return p1.date?.compare(p2.date!) == .orderedDescending
                 })
@@ -96,7 +96,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
             self.posts = self.posts.filter { $0.id != post.id }
             self.users = self.users.filter { $0.id != post.uid }
-            
             self.tableView.reloadData()
         }
 //        if self.posts.isEmpty {
@@ -136,12 +135,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Will segue go to DetailVC is title of post is selected.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailPost_Segue" {
+            print("Segue to Detail")
             let detailVC = segue.destination as! DetailViewController
             let postID = sender  as! String
             detailVC.postId = postID
         }
         // Testing to go to Profile View Controller 
         if segue.identifier == "Home_ProfileSegue" {
+            print("Segue to profile")
             let profileVC = segue.destination as! ProfileUserViewController
             let userID = sender  as! String
             profileVC.userId = userID
@@ -163,7 +164,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
-// MARK: CollectionView Layout
+// MARK: CollectionView Layout for Topics
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

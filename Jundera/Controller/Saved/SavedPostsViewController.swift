@@ -15,10 +15,12 @@ class SavedPostsViewController: UIViewController {
     
     var posts: [Post] = []
     var users = [Userr]()
+    var post: Post? //testing
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        collectionView.reloadData()
 //        if self.posts.isEmpty {
 //            self.collectionView?.backgroundView = self.emptyHomeLabel
 //        }
@@ -40,7 +42,7 @@ class SavedPostsViewController: UIViewController {
         return messageLabel
     }()
     
-    // Will display saved posts
+    /// Will display saved posts
     func fetchMySavedPosts() {
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
@@ -88,7 +90,6 @@ extension SavedPostsViewController: UICollectionViewDataSource {
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
-
         return cell
     }
 }

@@ -7,7 +7,7 @@
 //  Header for Profile
 
 import UIKit
-//import Segmentio
+
 
 protocol HeaderProfileCollectionReusableViewDelegate {
     func updateFollowButton(forUser user: Userr)
@@ -23,16 +23,12 @@ protocol HeaderProfileCollectionReusableViewDelegateUserSettingVC {
 
 class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewDelegate {
     
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var myPostsCountLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var followersCountLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView! //Image
+    @IBOutlet weak var nameLabel: UILabel! // Name
     @IBOutlet weak var goalLabel: UILabel! // Bio
     @IBOutlet weak var websiteUrl: UITextView! // Website
-    @IBOutlet weak var followButton: UIButton! //This will be button to EDIT profile if it's user selecting it.
-    //@IBOutlet weak var personalMenu: Segmentio!
-    @IBOutlet weak var userSettingsButton: UIButton!
+    @IBOutlet weak var editButton: UIButton! // EDIT
+    @IBOutlet weak var followButton: UIButton! // Follow or Unfollow 
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
@@ -41,8 +37,6 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     var user: Userr? {
         didSet {
             updateView()
-            //loadMenu()
-            
         }
     }
     
@@ -73,46 +67,29 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
             return false
         }
         
-//        Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
-//             self.myPostsCountLabel.text = "\(count)"
-//        }
-//        
-//        Api.Follow.fetchCountFollowing(userId: user!.id!) { (count) in
-//            self.followingCountLabel.text = "\(count)"
-//        }
-//
-//        Api.Follow.fetchCountFollowers(userId: user!.id!) { (count) in
-//            self.followersCountLabel.text = "\(count)"
-//        }
+        if user?.id == Api.Userr.CURRENT_USER?.uid {
+            editButton.setTitle("Edit", for: UIControlState.normal)
+            editButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
+        } else {
+            editButton.isHidden = true
+        }
         
         if user?.id == Api.Userr.CURRENT_USER?.uid {
-            followButton.setTitle("Edit", for: UIControlState.normal)
-            followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
+          followButton.isHidden = true
         } else {
-            followButton.isHidden = true
-            //updateStateFollowButton()
+            updateStateFollowButton()
         }
- 
-//CAUSES CRASHES MUST UPDATE!
-//        if user?.id == Api.Userr.CURRENT_USER?.uid {
-//            userSettingsButton.setTitle("Settings", for: UIControlState.normal)
-//            userSettingsButton.addTarget(self, action: #selector(self.goToUsersSettings), for: UIControlEvents.touchUpInside)
-//        } else {
-//            userSettingsButton.isHidden = true //if user is on another users profile, the settings button should be hidden.
-//        }
     }
     
+    // Opens website URL
     func makeURLOpen() {
-        
         let attributedString = NSMutableAttributedString(string: (user?.website)!, attributes:[NSAttributedStringKey.link: URL(string: (user?.website)!)!])
         
         websiteUrl.attributedText = attributedString
-        
         guard let url = URL(string: (user?.website)!) else {
             print("Not the right URL")
             return
         }
-        
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -121,13 +98,11 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
         
     }
     
+    /// Clears labels
     func clear() {
         self.nameLabel.text = ""
         self.goalLabel.text = ""
         self.websiteUrl.text = ""
-        //self.myPostsCountLabel.text = ""
-        //self.followersCountLabel.text = ""
-        //self.followingCountLabel.text = ""
     }
     
     @objc func goToSettingVC() {
@@ -138,6 +113,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
         delegateUserSettings?.goToUsersSettings()
     }
     
+    /// Updates following status
     func updateStateFollowButton() {
         if user!.isFollowing! {
             configureUnFollowButton()
@@ -148,29 +124,30 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     
     // Mark: Configuration for following another user
     func configureFollowButton() {
-        followButton.layer.borderWidth = 1
-        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-        followButton.layer.cornerRadius = 5
-        followButton.clipsToBounds = true
+//        followButton.layer.borderWidth = 1
+//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+//        followButton.layer.cornerRadius = 5
+//        followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+//        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+//        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followButton.setTitle("Follow", for: UIControlState.normal)
         followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
     }
     
     func configureUnFollowButton() {
-        followButton.layer.borderWidth = 1
-        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-        followButton.layer.cornerRadius = 5
-        followButton.clipsToBounds = true
+//        followButton.layer.borderWidth = 1
+//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+//        followButton.layer.cornerRadius = 5
+//        followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        followButton.backgroundColor = UIColor.clear
+//        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+//        followButton.backgroundColor = UIColor.clear
         followButton.setTitle("Following", for: UIControlState.normal)
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
     
+    /// Follow Action
     @objc func followAction() {
         if user!.isFollowing! == false {
             Api.Follow.followAction(withUser: user!.id!)
@@ -180,6 +157,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
         }
     }
     
+    /// Unfollow Action
     @objc func unFollowAction() {
         if user!.isFollowing! == true {
             Api.Follow.unFollowAction(withUser: user!.id!)
@@ -188,67 +166,6 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
             delegate?.updateFollowButton(forUser: user!)
         }
     }
-    
-    /// Swipe Menu for viewing Published - Draft - Private. Should only appear if the user is accessing their profile and not a visitor. 
-//    func loadMenu() {
-//        personalMenu.setup(content: segmentioContent(),
-//                           style: SegmentioStyle.onlyLabel,
-//                           options: segmentioOptions())
-//
-//        personalMenu.selectedSegmentioIndex = 0
-//        personalMenu.valueDidChange = { segmentio, segmentIndex in
-//            print("Selected item: ", segmentIndex)
-//        }
-//    }
-//
-//    func segmentioOptions() -> SegmentioOptions {
-//
-//        let SegmentioStates = (
-//            defaultState: SegmentioState(
-//                backgroundColor: .clear,
-//                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-//                titleTextColor: .black
-//            ),
-//            selectedState: SegmentioState(
-//                backgroundColor: .white,
-//                titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-//                titleTextColor: .black
-//            ),
-//            highlightedState: SegmentioState(
-//                backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
-//                titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
-//                titleTextColor: .black
-//            )
-//        )
-//
-//        return SegmentioOptions(
-//            backgroundColor: .white,
-//            segmentPosition: SegmentioPosition.fixed(maxVisibleItems: 3),
-//            scrollEnabled: true,
-//            indicatorOptions: SegmentioIndicatorOptions(color: #colorLiteral(red: 0.1960784314, green: 0.6274509804, blue: 0.7882352941, alpha: 1)),
-//            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(color: UIColor.clear),
-//            verticalSeparatorOptions: nil,
-//            imageContentMode: .center,
-//            labelTextAlignment: .center,
-//            labelTextNumberOfLines: 1,
-//            segmentStates: SegmentioStates,
-//            animationDuration: 0.3
-//        )
-//
-//    }
-//
-//    func segmentioContent() -> [SegmentioItem] {
-//        return [
-//            SegmentioItem(title: "Published", image: nil),
-//            SegmentioItem(title: "Drafts", image: nil),
-//            SegmentioItem(title: "Private", image: nil),
-//        ]
-//    }
-//
-//    fileprivate func goToControllerAtIndex(_ index: Int) {
-//        personalMenu.selectedSegmentioIndex = index
-//    }
-
 }
 
 

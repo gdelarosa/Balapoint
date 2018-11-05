@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 10/30/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
-//
+//  Goes to selected Topic when tapped 
 
 import UIKit
 import Firebase
