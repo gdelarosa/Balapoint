@@ -48,8 +48,11 @@ extension Post {
         if let currentUserId = Auth.auth().currentUser?.uid {
             
             if post.likes != nil {
+                print("Post is liked")
                 post.isLiked = post.likes![currentUserId] != nil
             }
+            
+            
         }
         
         if let currentUserId = Auth.auth().currentUser?.uid {

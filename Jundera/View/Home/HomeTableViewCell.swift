@@ -77,7 +77,7 @@ class HomeTableViewCell: UITableViewCell {
             return
         }
         if count != 0 {
-            print("Liked Item: \(count)")
+            //print("Liked Item: \(count)")
         }
         //delegate?.didSavePost(post: post)
         //testing for save post

@@ -79,7 +79,7 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
             return
         }
         if count != 0 {
-            print("You have a saved post here.")
+            //print("You have a saved post here.")
         }
     }
     

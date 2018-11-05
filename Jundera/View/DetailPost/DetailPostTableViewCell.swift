@@ -8,9 +8,11 @@
 //  Will display the details of the post selected.
 
 import UIKit
+import Firebase
 
 protocol DetailPostTableViewCellDelegate {
     func goToProfileUserVC(userId: String)
+   // func didPressReport(post: Post)
 }
 
 class DetailPostTableViewCell: UITableViewCell {
@@ -60,13 +62,9 @@ class DetailPostTableViewCell: UITableViewCell {
         titleLabel.text = post?.title
         headerLabel.text = post?.caption
         bodyText.text = post?.body
-        
-//        guard let creationDate = post?.creationDate else {
-//            print("Unable to retrieve DATE created")
-//            return
-//        }
-//        dateCreated.text = creationDate.timeAgoDisplay()
     }
+    
+    
     
     func updateUser() {
         userName.text = user?.username
@@ -80,6 +78,7 @@ class DetailPostTableViewCell: UITableViewCell {
             let photoUrl = URL(string: userPhotoUrlString)
             userIcon.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
         }
+        
     }
     
     @objc func photo_TouchUpInside() {
@@ -89,6 +88,6 @@ class DetailPostTableViewCell: UITableViewCell {
         } else {
             print("Unable to go to User Profile")
         }
-    }
+    }    
 
 }

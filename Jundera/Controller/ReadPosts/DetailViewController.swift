@@ -8,6 +8,7 @@
 //  Allows user to view the details of the post.
 
 import UIKit
+import Firebase
 
 class DetailViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class DetailViewController: UIViewController {
     
     var post = Post()
     var user = Userr()
+
+    //var delegate: DetailPostTableViewCellDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -70,6 +73,44 @@ class DetailViewController: UIViewController {
         }
     }
     
+   
+    @IBAction func reportButton(_ sender: Any) {
+        didSelectOptions(post: post)
+    }
+    
+     /// Reporting Action
+     func didSelectOptions(post: Post) {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Report Post", style: .destructive, handler: { (_) in
+            
+            let confirmationController = UIAlertController(title: "Post Reported", message: "We take reports very seriously and will look into this matter for you", preferredStyle: .alert)
+            confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
+                confirmationController.dismiss(animated: true, completion: {
+                    controller.dismiss(animated: true, completion: nil)
+                })
+            }))
+            
+            let ref = Database.database().reference().child("reports").childByAutoId()
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            guard let postId = post.id else { return }
+            let values: [String:Any] = [
+                "uid": uid,
+                "time_interval": Date().timeIntervalSince1970,
+                "post": postId
+            ]
+            ref.updateChildValues(values, withCompletionBlock: { (err, _) in
+                if let err = err {
+                    print("Failed to report post:", err)
+                    return
+                }
+                print("Successfully reported post:", values["post"] as? String ?? "")
+                self.present(confirmationController, animated: true, completion: nil)
+            })
+            
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
 }
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -82,6 +123,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         cell.post = post
         cell.user = user
         cell.detailDelegate = self as? DetailPostTableViewCellDelegate
+        
         return cell
     }
     
