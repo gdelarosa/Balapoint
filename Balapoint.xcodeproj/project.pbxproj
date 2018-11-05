@@ -222,12 +222,12 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
-		770BD400216FC0D400FFAB86 /* ReadPosts */ = {
+		770BD400216FC0D400FFAB86 /* DetailPost */ = {
 			isa = PBXGroup;
 			children = (
 				77EE5264211BDCFF0065E364 /* DetailViewController.swift */,
 			);
-			path = ReadPosts;
+			path = DetailPost;
 			sourceTree = "<group>";
 		};
 		7776DC2B218125E900542D2C /* Home */ = {
@@ -340,7 +340,7 @@
 				770BD3FA216FBEDD00FFAB86 /* Create */,
 				770BD3F9216FBE9200FFAB86 /* Profile */,
 				770BD3F8216FBE8C00FFAB86 /* Saved */,
-				770BD400216FC0D400FFAB86 /* ReadPosts */,
+				770BD400216FC0D400FFAB86 /* DetailPost */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

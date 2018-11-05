@@ -8,7 +8,7 @@
 //  Other User Profile - Logged in user can view another person's profile 
 
 import UIKit
-//import Segmentio
+import Firebase
 
 class ProfileUserViewController: UIViewController {
 
@@ -26,11 +26,10 @@ class ProfileUserViewController: UIViewController {
         fetchUser()
         fetchMyPosts()
         setBackButton()
-        
     }
     
     @IBAction func blockUserAction(_ sender: Any) {
-        
+        didSelectOptions(user: userr)
     }
     
     func fetchUser() {
@@ -55,6 +54,39 @@ class ProfileUserViewController: UIViewController {
                 self.collectionView.reloadData()
             })
         }
+    }
+    
+    /// Block User Action: NEED TO TEST! 
+    func didSelectOptions(user: Userr) {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Block User", style: .destructive, handler: { (_) in
+            
+            let confirmationController = UIAlertController(title: "User Blocked", message: "You will no longer be able to view their posts.", preferredStyle: .alert)
+            confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
+                confirmationController.dismiss(animated: true, completion: {
+                    controller.dismiss(animated: true, completion: nil)
+                })
+            }))
+            
+            let ref = Database.database().reference().child("blocked").childByAutoId()
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            guard let userId = self.userr.id else { return }
+            let values: [String:Any] = [
+                "uid": uid,
+                "users": userId
+            ]
+            ref.updateChildValues(values, withCompletionBlock: { (err, _) in
+                if let err = err {
+                    print("Failed to block user:", err)
+                    return
+                }
+                print("Successfully blocked user:", values["users"] as? String ?? "")
+                self.present(confirmationController, animated: true, completion: nil)
+            })
+            
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
