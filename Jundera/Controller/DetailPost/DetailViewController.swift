@@ -18,14 +18,13 @@ class DetailViewController: UIViewController {
     var post = Post()
     var user = Userr()
 
-    //var delegate: DetailPostTableViewCellDelegate?
+    var delegate: DetailPostTableViewCellDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
-        //setNavButtons()
         setBackButton()
         tableView.allowsSelection = true
     }
@@ -67,9 +66,12 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Home_ProfileSegue" {
+            print("Segue to profile from DetailPostVC")
             let profileVC = segue.destination as! ProfileUserViewController
             let userID = sender  as! String
             profileVC.userId = userID
+        } else {
+            print("Unable to segue to user profile from detail post.")
         }
     }
     
@@ -122,17 +124,13 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCell", for: indexPath) as! DetailPostTableViewCell
         cell.post = post
         cell.user = user
-        cell.detailDelegate = self as? DetailPostTableViewCellDelegate
+        cell.detailDelegate = self
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
 
-extension DetailViewController: HomeTableViewCellDelegate {
+extension DetailViewController: DetailPostTableViewCellDelegate {
     func didSavePost(post: Post) {
         print("Saved POST!")
     }

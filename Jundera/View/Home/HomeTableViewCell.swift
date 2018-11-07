@@ -115,20 +115,22 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
         
-        // Will go to post
+        // Will go to Detail Post
         let tapGestureForTitle = UITapGestureRecognizer(target: self, action: #selector(self.cell_TouchUpInside))
         postTitleLabel.addGestureRecognizer(tapGestureForTitle)
         postTitleLabel.isUserInteractionEnabled = true
-        captionLabel.addGestureRecognizer(tapGestureForTitle)
-        captionLabel.isUserInteractionEnabled = true
         
+        // Will go to Detail Post
+        let tapGestureForHeader = UITapGestureRecognizer(target: self, action: #selector(self.cell_TouchUpInside))
+        captionLabel.addGestureRecognizer(tapGestureForHeader)
+        captionLabel.isUserInteractionEnabled = true
 
     }
     
     // Goes to user profile.
     @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
-            print("Go to user profile")
+            print("Go to User Profile - HOME CELL")
             delegate?.goToProfileUserVC(userId: id)
         } else {
             print("Can't get user")
@@ -138,7 +140,7 @@ class HomeTableViewCell: UITableViewCell {
     // Goes to detail post
     @objc func cell_TouchUpInside() {
         if let post = post?.id {
-            print("Go to Detail Post")
+            print("Go to Detail Post - HOME CELL")
             delegate?.goToDetailPostVC(postId: post)
         }
     }
@@ -155,14 +157,4 @@ class HomeTableViewCell: UITableViewCell {
         }
         print("You Tapped the Save icon to LIKE")
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-    
 }

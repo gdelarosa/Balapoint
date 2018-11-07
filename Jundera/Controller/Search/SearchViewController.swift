@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
         setBackButton()
-        doSearch()
+        //doSearch()
     }
     
         override func viewDidAppear(_ animated: Bool) {

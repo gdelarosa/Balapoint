@@ -21,7 +21,7 @@ class ProfileUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("userId: \(userId)")
+        //print("userId: \(userId)")
         collectionView.dataSource = self
         fetchUser()
         fetchMyPosts()

@@ -22,9 +22,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var post: Post?
     
-    var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
+    var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"),UIImage(named: "Politics.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
     
-    var topicTitles: [String?] = ["Lifestyle", "Tech", "Travel", "Food", "Media", "Education", "Finance", "Health", "Beauty"]
+    var topicTitles: [String?] = ["Lifestyle", "Tech", "Travel", "Food", "Politics", "Media", "Education", "Finance", "Health", "Beauty"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         tableView.dataSource = self
         tableView.allowsSelection = true
         loadPosts()
-        //startTimer()
        
         if self.posts.isEmpty {
             self.tableView?.backgroundView = self.emptyHomeLabel
@@ -134,53 +133,22 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
 
-    
     // Will segue go to DetailVC is title of post is selected.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailPost_Segue" {
-            print("Segue to Detail")
+            print("Segue to Detail from HOME VC")
             let detailVC = segue.destination as! DetailViewController
             let postID = sender  as! String
             detailVC.postId = postID
         }
         // Testing to go to Profile View Controller 
         if segue.identifier == "Home_ProfileSegue" {
-            print("Segue to profile")
+            print("Segue to profile from HomeVC")
             let profileVC = segue.destination as! ProfileUserViewController
             let userID = sender  as! String
             profileVC.userId = userID
         }
     }
-    
-    func startTimer() {
-        
-        _ =  Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
-    }
-    
-    
-    @objc func scrollAutomatically(_ timer1: Timer) {
-        
-        if let coll  = collectionView {
-            for cell in coll.visibleCells {
-                let indexPath: IndexPath? = coll.indexPath(for: cell)
-                if ((indexPath?.row)!  < imagesArray.count - 1){
-                    let indexPath1: IndexPath?
-                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-                    
-                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-                }
-                else{
-                    let indexPath1: IndexPath?
-                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
-                    coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-                }
-                
-            }
-        }
-    }
-    
-   
- 
     
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -232,10 +200,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Section \(indexPath.section), Row : \(indexPath.row)")
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Section \(indexPath.section), Row : \(indexPath.row)")
+//        tableView.deselectRow(at: indexPath, animated: false)
+//    }
 }
 
 // MARK: Segue Actions

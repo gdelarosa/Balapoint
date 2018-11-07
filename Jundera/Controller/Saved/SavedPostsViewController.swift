@@ -76,6 +76,8 @@ class SavedPostsViewController: UIViewController {
             detailVC.postId = postId
         }
     }
+    
+
 }
 
 extension SavedPostsViewController: UICollectionViewDataSource {

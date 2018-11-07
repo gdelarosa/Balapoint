@@ -41,16 +41,25 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
         header.text = ""
         author.text = ""
         
-        //Tap Title to go to Detail Post 
+        // Tap Title to go to Detail Post
         let tapGestureForTitle = UITapGestureRecognizer(target: self, action: #selector(self.title_TouchUpInside))
         title.addGestureRecognizer(tapGestureForTitle)
         title.isUserInteractionEnabled = true
         
-        //Tap User Name to go to Profile
+        // Tap header to go to Detail Post
+        let tapGestureForHeader = UITapGestureRecognizer(target: self, action: #selector(self.title_TouchUpInside))
+        header.addGestureRecognizer(tapGestureForHeader)
+        header.isUserInteractionEnabled = true
+        
+        // Tap image to go to Detail Post
+        let tapGestureForImage = UITapGestureRecognizer(target: self, action: #selector(self.title_TouchUpInside))
+        photo.addGestureRecognizer(tapGestureForImage)
+        photo.isUserInteractionEnabled = true
+        
+        // Tap User Name to go to Profile
         let tapGestureForProfile = UITapGestureRecognizer(target: self, action: #selector(self.profileImage_TouchUpInside))
         author.addGestureRecognizer(tapGestureForProfile)
         author.isUserInteractionEnabled = true
-
     }
     
     func updateView() {

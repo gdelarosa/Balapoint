@@ -50,6 +50,10 @@ class DetailPostTableViewCell: UITableViewCell {
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         userIcon.addGestureRecognizer(tapGestureForPhoto)
         userIcon.isUserInteractionEnabled = true
+        
+        let tapGestureForUsername = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
+        userName.addGestureRecognizer(tapGestureForUsername)
+        userName.isUserInteractionEnabled = true
     }
     
     func updateView() {
@@ -63,8 +67,6 @@ class DetailPostTableViewCell: UITableViewCell {
         headerLabel.text = post?.caption
         bodyText.text = post?.body
     }
-    
-    
     
     func updateUser() {
         userName.text = user?.username
@@ -82,8 +84,8 @@ class DetailPostTableViewCell: UITableViewCell {
     }
     
     @objc func photo_TouchUpInside() {
-        print("Selected User Avatar")
         if let id = user?.id {
+            print("Go to user profile - DETAIL POST CELL")
             detailDelegate?.goToProfileUserVC(userId: id)
         } else {
             print("Unable to go to User Profile")
