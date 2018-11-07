@@ -62,7 +62,6 @@ class HomeTableViewCell: UITableViewCell {
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
-            
         }
      
         self.updateLike(post: (self.post!))

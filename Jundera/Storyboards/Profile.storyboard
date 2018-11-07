@@ -198,7 +198,7 @@
         <!--DetailViewController-->
         <scene sceneID="3Xh-9t-AEW">
             <objects>
-                <viewControllerPlaceholder storyboardName="SavedPost" referencedIdentifier="DetailViewController" id="EsZ-9H-OHi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="DetailViewController" id="EsZ-9H-OHi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-nJ-qUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3774" y="623"/>
@@ -768,7 +768,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck2-cZ-HEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3301.5999999999999" y="1259.8200899550227"/>
+            <point key="canvasLocation" x="2842" y="910"/>
         </scene>
         <!--Membership-->
         <scene sceneID="nUv-4j-4cA">
@@ -1363,7 +1363,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAP-LT-g16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4024.8000000000002" y="1259.8200899550227"/>
+            <point key="canvasLocation" x="3903" y="1316"/>
         </scene>
     </scenes>
     <resources>
@@ -1374,7 +1374,7 @@
         <image name="placeholderImg" width="80" height="83"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MZn-63-CgU"/>
-        <segue reference="E1Z-P0-CWT"/>
+        <segue reference="pRK-3m-ebY"/>
+        <segue reference="49u-A6-ntL"/>
     </inferredMetricsTieBreakers>
 </document>

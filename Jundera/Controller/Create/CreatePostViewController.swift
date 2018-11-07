@@ -12,11 +12,10 @@ import AVFoundation
 
 class CreatePostViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var photo: UIImageView! // Should be optional to post a picture
-    @IBOutlet weak var captionTextView: UITextView! // Post Body
+    @IBOutlet weak var photo: UIImageView! // Image
+    @IBOutlet weak var captionTextView: UITextView! // Body
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
-    
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
@@ -35,6 +34,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             item.image = item.image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             item.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0)
         }
+        
+        
         
     }
     
@@ -97,7 +98,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    
     //Adds a bullet point to each new line
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
@@ -123,19 +123,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         }
         return true
     }
-
-//    func handlePost() {
-//        
-//        if postTitle != nil {
-//          // self.shareButton.isEnabled = true
-//            //self.deletePost.isEnabled = true
-//           
-//        } else {
-//           //self.shareButton.isEnabled = true
-//            //self.deletePost.isEnabled = false
-//           
-//        }
-//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -150,7 +137,12 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        if (postTitle.text?.isEmpty)! {
+        if (captionTextView.text?.isEmpty)! {
+            print("Body is empty")
+        } else {
+            
+        }
+        if (postTitle.text?.isEmpty)! || (captionTextView.text?.isEmpty)! {
             print("title is empty")
             let animation = CABasicAnimation(keyPath: "position")
             animation.duration = 0.07
@@ -160,26 +152,24 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             animation.toValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x + 10, y: postTitle.center.y))
             postTitle.layer.add(animation, forKey: "position")
         } else {
-            presentAlertWithTitle(title: "How would you like to publish?", message: "", options: "Make Public", " Make Private", "Cancel") {
+            presentAlertWithTitle(title: "Ready to publish?", message: "", options: "Yes!", "Cancel") {
                 (option) in
                 switch(option) {
                 case 0:
                     print("Public")
-                    if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-                        let ratio = profileImg.size.width / profileImg.size.height
+                   var profileImg = self.selectedImage
+                    if profileImg == nil {
+                        profileImg = UIImage(named: "placeholder-photo")
+                    }
+                    let imageData = UIImageJPEGRepresentation(profileImg!, 0.1)
+                    let ratio = profileImg!.size.width / profileImg!.size.height
                         
-                        HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, onSuccess: {
+                    HelperService.uploadDataToServer(data: imageData!, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, onSuccess: {
                             print("Successfully sent info to database!")
                             self.clean()
                             self.tabBarController?.selectedIndex = 0
                         })
-                        
-                    } else {
-                        print("FAILED TO POST")
-                    }
                     break
-                case 1:
-                    print("Private")
                 default:
                     break
                 }
