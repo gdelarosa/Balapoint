@@ -53,7 +53,7 @@ class ProfilePosts: UICollectionViewCell {
         title.text = post?.title
         header.text = post?.caption
         
-        guard let creationDate = post?.date else {
+        guard (post?.date) != nil else {
             print("Unable to retrieve date")
             return
         }

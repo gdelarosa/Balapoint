@@ -105,18 +105,23 @@ class HomeTableViewCell: UITableViewCell {
         postTitleLabel.text = ""
         postDateLabel.text = ""
         
+        // Will fill in saved icon
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
         likeImageView.isUserInteractionEnabled = true
         
+        // Will go to user profile
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
         
-        //Testing for going to detail view by tapping on the title. Will have to setup to let user tap on cell.
+        // Will go to post
         let tapGestureForTitle = UITapGestureRecognizer(target: self, action: #selector(self.cell_TouchUpInside))
         postTitleLabel.addGestureRecognizer(tapGestureForTitle)
         postTitleLabel.isUserInteractionEnabled = true
+        captionLabel.addGestureRecognizer(tapGestureForTitle)
+        captionLabel.isUserInteractionEnabled = true
+        
 
     }
     

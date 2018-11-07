@@ -1,84 +1,75 @@
 //
 //  SearchViewController.swift
-//  Metis
+//  Balapoint
 //
-//  Created by Gina De La Rosa on 11/15/17.
+//  Created by Gina De La Rosa on 10/15/18.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
 //  Search Bar - Will put this on the HomeViewController
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
 
     var searchBar = UISearchBar()
-    //var users: [Userr] = []
+    var users: [Userr] = []
     var posts: [Post] = []
-    var post: Post?
-    var users = [Userr]()
-    var delegate: HomeTableViewCellDelegate?
-
+    //var tags: [Hashtag] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = "Search Posts"
+        searchBar.placeholder = "Search users"
         searchBar.frame.size.width = view.frame.size.width - 60
         
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
         setBackButton()
-        tableView.allowsSelection = true
+        doSearch()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.global(qos: .default).async(execute: {() -> Void in
-            DispatchQueue.main.async(execute: {() -> Void in
-                self.searchBar.becomeFirstResponder()
-                self.tableView.reloadData()
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            DispatchQueue.global(qos: .default).async(execute: {() -> Void in
+                DispatchQueue.main.async(execute: {() -> Void in
+                    self.searchBar.becomeFirstResponder()
+                    self.tableView.reloadData()
+                })
             })
-        })
-        navigationController?.navigationBar.tintColor = .gray
-    }
+            navigationController?.navigationBar.tintColor = .gray
+        }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.barTintColor = .white
-    }
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            navigationController?.navigationBar.barTintColor = .white
+        }
     
     func doSearch() {
         if let searchText = searchBar.text {
-            self.posts.removeAll()
+            self.users.removeAll()
             self.tableView.reloadData()
-                Api.Userr.queryPosts(withText: searchText, completion: { (post) in
-                       //self.post.isPublic = value
-                        self.posts.append(post)
-                        self.tableView.reloadData()
-                    })
-            
+            Api.Userr.queryUsers(withText: searchText, completion: { (user) in
+                    self.users.append(user)
+                    self.tableView.reloadData()
+                })
+//            Api.Userr.queryTags(withText: searchText, completion: {(tags) in
+//                self.tags.append(tags)
+//                self.tableView.reloadData()
+//            })
         }
     }
-    
-    func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
-        Api.Follow.isFollowing(userId: userId, completed: completed)
-    }
-    
-    // Should prepare to go to detail post. See HOMEVC
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Search_ProfileSegue" {
             let profileVC = segue.destination as! ProfileUserViewController
             let userId = sender  as! String
             profileVC.userId = userId
         }
-        if segue.identifier == "DetailPost_Segue" {
-            let detailVC = segue.destination as! DetailViewController
-            let postID = sender  as! String
-            detailVC.postId = postID
-        }
     }
-
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -91,52 +82,24 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
-        let post = posts[indexPath.row]
-       // let user = users[indexPath.row]
-        cell.post = post
-//        cell.user = user
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        let user = users[indexPath.row]
+        cell.user = user
         cell.delegate = self
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Section \(indexPath.section), Row : \(indexPath.row)")
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
-
 }
-
-// Will want to segue to the detail view of the post.
-extension SearchViewController: HomeTableViewCellDelegate {
-    
-    func goToDetailPostVC(postId: String) {
-        performSegue(withIdentifier: "DetailPost_Segue", sender: postId)
-    }
-    
-    func didSavePost(post: Post) {
-        print("Nothing happening here")
-    }
-    
+extension SearchViewController: SearchTableViewCellDelegate {
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
     }
 }
 
-// Wont need
-//extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
-//    func updateFollowButton(forUser user: Userr) {
-//        for u in self.users {
-//            if u.id == user.id {
-//                u.isFollowing = user.isFollowing
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
-//}
+

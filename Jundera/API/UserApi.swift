@@ -14,6 +14,7 @@ class UserApi {
     
     var REF_USERS = Database.database().reference().child("users")
     var REF_POSTS = Database.database().reference().child("posts")
+    var REF_HASHTAG = Database.database().reference().child("hashtag")
     
     func observeUserByUsername(username: String, completion: @escaping (Userr) -> Void) {
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryEqual(toValue: username).observeSingleEvent(of: .childAdded, with: {
@@ -60,7 +61,7 @@ class UserApi {
     }
     // Search for users
     func queryUsers(withText text: String, completion: @escaping (Userr) -> Void) {
-        REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: {
+        REF_USERS.queryOrdered(byChild: "username").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: {
             snapshot in
             snapshot.children.forEach({ (s) in
                 let child = s as! DataSnapshot
@@ -81,6 +82,20 @@ class UserApi {
                 if let dict = child.value as? [String: Any] {
                     let post = Post.transformPostPhoto(dict: dict, key: child.key)
                     completion(post)
+                }
+            })
+        })
+    }
+    
+    // Search for Tags: Not using right now. 
+    func queryTags(withText text: String, completion: @escaping (Hashtag) -> Void) {
+        REF_HASHTAG.queryOrderedByKey().queryStarting(atValue: text).queryLimited(toFirst: 4).observeSingleEvent(of: .value, with: {
+            snapshot in
+            snapshot.children.forEach({ (s) in
+                let child = s as! DataSnapshot
+                if let dict = child.value as? [String: Any] {
+                    let tag = Hashtag.transformHashtag(dict: dict, key: child.key)
+                    completion(tag)
                 }
             })
         })

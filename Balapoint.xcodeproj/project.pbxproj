@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		770B4A27218909C40015D6AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B4A26218909C40015D6AA /* TestViewController.swift */; };
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
+		7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */; };
+		7764D9BB21927F2B00F7EFE1 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */; };
 		7776DC3021814B3700542D2C /* MySavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */; };
 		7779570E2187B93100A671C2 /* SavedPostsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */; };
 		778D2A15218F9432007CA6CD /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D2A14218F9432007CA6CD /* HelpViewController.swift */; };
@@ -71,6 +73,8 @@
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		770B4A26218909C40015D6AA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySavedPostsApi.swift; sourceTree = "<group>"; };
 		7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsCollectionViewCell.swift; sourceTree = "<group>"; };
 		778D2A14218F9432007CA6CD /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +234,14 @@
 			path = DetailPost;
 			sourceTree = "<group>";
 		};
+		7764D9B721923FB200F7EFE1 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 		7776DC2B218125E900542D2C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +360,7 @@
 		77EE5226211BD9800065E364 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7764D9B721923FB200F7EFE1 /* SearchView */,
 				7779570C2187B8FB00A671C2 /* SavedPostsView */,
 				7776DC2E218131B400542D2C /* DetailPost */,
 				7776DC2C218125F100542D2C /* Profile */,
@@ -361,6 +374,7 @@
 			children = (
 				77EE524F211BDCD80065E364 /* Post.swift */,
 				77EE5250211BDCD90065E364 /* User.swift */,
+				7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -596,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EE5278211BDCFF0065E364 /* SettingTableViewController.swift in Sources */,
+				7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */,
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				770B4A27218909C40015D6AA /* TestViewController.swift in Sources */,
 				77EE5246211BDC790065E364 /* Api.swift in Sources */,
@@ -614,6 +629,7 @@
 				77EE5272211BDCFF0065E364 /* DetailViewController.swift in Sources */,
 				7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */,
 				77EE5273211BDCFF0065E364 /* HomeViewController.swift in Sources */,
+				7764D9BB21927F2B00F7EFE1 /* Hashtag.swift in Sources */,
 				77EE5244211BDC790065E364 /* PostApi.swift in Sources */,
 				77EE524D211BDCCC0065E364 /* Config.swift in Sources */,
 				77EE5252211BDCD90065E364 /* Post.swift in Sources */,

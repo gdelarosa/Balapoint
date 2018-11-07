@@ -39,9 +39,7 @@ class PeopleTableViewCell: UITableViewCell {
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             profileImage.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
-            
         }
-        
         
         if user!.isFollowing! {
             configureUnFollowButton()
@@ -109,11 +107,5 @@ class PeopleTableViewCell: UITableViewCell {
             delegate?.goToDetailPost(postId: post)
         }
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
 
 }

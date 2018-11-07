@@ -24,6 +24,7 @@ class Post {
     var saved: Dictionary<String, Any>?
     var isSaved: Bool?
     var date: Date?
+    var hashtag: String?
 
 }
 
@@ -41,6 +42,7 @@ extension Post {
         post.title = dict["title"] as? String
         post.body = dict["body"] as? String
         post.saved = dict["saved"] as? Dictionary<String, Any>
+        post.hashtag = dict["hashtag"] as? String
         
         let secondsAgoFrom1970 = dict["time_interval"] as? Double ?? 0
         post.date = Date(timeIntervalSince1970: (secondsAgoFrom1970 / 1_000.0))
@@ -48,11 +50,9 @@ extension Post {
         if let currentUserId = Auth.auth().currentUser?.uid {
             
             if post.likes != nil {
-                print("Post is liked")
+               // print("Post is liked")
                 post.isLiked = post.likes![currentUserId] != nil
             }
-            
-            
         }
         
         if let currentUserId = Auth.auth().currentUser?.uid {
