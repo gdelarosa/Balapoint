@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77020E24219386A3007FB208 /* SavedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77020E23219386A3007FB208 /* SavedDetailViewController.swift */; };
 		770B4A27218909C40015D6AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B4A26218909C40015D6AA /* TestViewController.swift */; };
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
 		7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */; };
@@ -72,7 +71,6 @@
 
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
-		77020E23219386A3007FB208 /* SavedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDetailViewController.swift; sourceTree = "<group>"; };
 		770B4A26218909C40015D6AA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				77EE526E211BDCFF0065E364 /* SavedPostsViewController.swift */,
-				77020E23219386A3007FB208 /* SavedDetailViewController.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -612,7 +609,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77020E24219386A3007FB208 /* SavedDetailViewController.swift in Sources */,
 				77EE5278211BDCFF0065E364 /* SettingTableViewController.swift in Sources */,
 				7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */,
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,

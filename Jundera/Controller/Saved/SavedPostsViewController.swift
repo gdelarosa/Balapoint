@@ -19,8 +19,11 @@ class SavedPostsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
         collectionView.dataSource = self
-        collectionView.reloadData()
+        
 //        if self.posts.isEmpty {
 //            self.collectionView?.backgroundView = self.emptyHomeLabel
 //        }
@@ -29,6 +32,8 @@ class SavedPostsViewController: UIViewController {
         self.navigationItem.title = "Saved"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
+    
+  
     
     //Empty State Label
     let emptyHomeLabel: UILabel = {
@@ -44,6 +49,7 @@ class SavedPostsViewController: UIViewController {
     
     /// Will display saved posts
     func fetchMySavedPosts() {
+        self.collectionView.reloadData()
         guard let currentUser = Api.Userr.CURRENT_USER else {
             return
         }
@@ -56,6 +62,7 @@ class SavedPostsViewController: UIViewController {
             })
             
         })
+       
     }
     
     // Fetches User
@@ -75,8 +82,7 @@ class SavedPostsViewController: UIViewController {
             let postId = sender  as! String
             detailVC.postId = postId
         }
-    }
-    
+    }    
 
 }
 

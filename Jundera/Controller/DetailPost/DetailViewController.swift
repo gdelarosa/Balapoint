@@ -144,4 +144,8 @@ extension DetailViewController: DetailPostTableViewCellDelegate {
         print("Going to Profile")
         performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
+    
+    func didUnsavePost(post: Post) {
+        print("Unsaved Post")
+    }
 }

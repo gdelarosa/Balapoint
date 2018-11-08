@@ -9,11 +9,13 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 protocol HomeTableViewCellDelegate {
     func goToProfileUserVC(userId: String)
     func goToDetailPostVC(postId: String)
     func didSavePost(post: Post)
+    func didUnsavePost(post: Post)
 }
 
 class HomeTableViewCell: UITableViewCell {
@@ -68,29 +70,35 @@ class HomeTableViewCell: UITableViewCell {
         //self.updateSavedPosts(post: (self.post!)) //testing
     }
     
+    // Handle Save Post
+    @objc func handleSavePost() {
+        guard let post = post else { return }
+        delegate?.didSavePost(post: post)
+    }
+    
+    // Handle Unsave Post
+    @objc func handleUnsavePost() {
+        guard let post = post else { return }
+        delegate?.didUnsavePost(post: post)
+    }
+    
     func updateLike(post: Post) {
-        
-        let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell2"
+        //post.likes and post.isLiked
+        let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
         likeImageView.image = UIImage(named: imageName)
         guard let count = post.likeCount else {
+            print("Count Saved post")
             return
         }
         if count != 0 {
-            //print("Liked Item: \(count)")
+            
         }
-        //delegate?.didSavePost(post: post)
-        //testing for save post
-        // The delegate is used in the HomeVC as well. Line 91. 
-       
-    }
-    
-    // Testing but not currently using. 
-    func updateSavedPosts(post: Post) {
-        //guard let post = post else { return }
-//        let image = post.saved == nil || !post.isSaved! ? "SaveInCell" : "SavedInCell2"
-//        likeImageView.image = UIImage(named: image)
-        
-        delegate?.didSavePost(post: post)
+//        if post.isSaved == true {
+//            print("Post Is Saved")
+//        }
+//        if post.isSaved == false {
+//            print("Post Not Saved")
+//        }
     }
     
     func setupUserInfo() {
@@ -143,17 +151,23 @@ class HomeTableViewCell: UITableViewCell {
             delegate?.goToDetailPostVC(postId: post)
         }
     }
-
+    
+    
     @objc func likeImageView_TouchUpInside() {
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)
-            self.updateSavedPosts(post: post)//testing
-            self.post?.likes = post.likes
-            self.post?.isLiked = post.isLiked
-            self.post?.likeCount = post.likeCount
+            //self.post?.likes = post.likes
+            //self.post?.isLiked = post.isLiked
+            self.post?.isSaved = post.isSaved //testing 
+            //self.post?.likeCount = post.likeCount
+            self.delegate?.didSavePost(post: post)
+            self.delegate?.didUnsavePost(post: post) //testing
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }
-        print("You Tapped the Save icon to LIKE")
+    }
+    
+    @objc func unSave_TouchUpInside() {
+        self.delegate?.didUnsavePost(post: post!)
     }
 }

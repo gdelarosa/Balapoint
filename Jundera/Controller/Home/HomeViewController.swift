@@ -119,19 +119,49 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Save posts
     func didSavePost(post: Post) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+       
         let ref = Database.database().reference().child("saved").child(uid)
+       
         
         guard let postId = post.id else { return }
         
         let values = [postId: post.uid]
+        //isLiked
+        if post.isSaved == true {
         ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
             if let err = err {
                 print("Failed to put save post data in db:", err)
                 return
             }
             print("Successfully put save post in db")
+           }
+        } else { //tried postId
+            ref.child(post.id!).removeValue {_,_ in
+                print("post removed")
+            }
+//            ref.updateChildValues(values as [AnyHashable : Any]) {_,_ in
+//               ref.removeValue()
+//            }
+            print("Post is not saved")
         }
-    }
+ }
+    
+    func didUnsavePost(post: Post) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let ref = Database.database().reference().child("saved").child(uid)
+//        guard let postId = post.id else { return }
+//        let values = [postId: post.uid]
+//        //isLiked
+//        if post.isSaved == false {
+//            ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
+//                if let err = err {
+//                    print("Failed", err)
+//                }
+//                ref.removeValue()
+//                print("Removed Saved post in db")
+//            }
+//        }
+     }
 
     // Will segue go to DetailVC is title of post is selected.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -141,7 +171,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let postID = sender  as! String
             detailVC.postId = postID
         }
-        // Testing to go to Profile View Controller 
+        // Go to Profile View Controller
         if segue.identifier == "Home_ProfileSegue" {
             print("Segue to profile from HomeVC")
             let profileVC = segue.destination as! ProfileUserViewController
@@ -194,16 +224,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.post = post
         cell.user = user
         cell.delegate = self
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Section \(indexPath.section), Row : \(indexPath.row)")
-//        tableView.deselectRow(at: indexPath, animated: false)
-//    }
 }
 
 // MARK: Segue Actions

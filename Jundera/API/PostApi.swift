@@ -12,6 +12,7 @@ import FirebaseDatabase
 class PostApi {
     
     var REF_POSTS = Database.database().reference().child("posts")
+    var REF_SAVES = Database.database().reference().child("saved")
     
     func observePosts(completion: @escaping (Post) -> Void) {
         REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
@@ -52,21 +53,28 @@ class PostApi {
     
     func incrementLikes(postId: String, onSucess: @escaping (Post) -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         let postRef = Api.Post.REF_POSTS.child(postId)
+        
         postRef.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Api.Userr.CURRENT_USER?.uid {
                 var likes: Dictionary<String, Bool>
+                var saves: Dictionary<String, Bool> //testing
+                saves = post["saved"] as? [String : Bool] ?? [:] //testing
                 
                 likes = post["likes"] as? [String : Bool] ?? [:]
+                
                 var likeCount = post["likeCount"] as? Int ?? 0
                 if let _ = likes[uid] {
                     likeCount -= 1
                     likes.removeValue(forKey: uid)
+                    saves.removeValue(forKey: uid) //testing
                 } else {
                     likeCount += 1
                     likes[uid] = true
+                    saves[uid] = true //testing
                 }
                 post["likeCount"] = likeCount as AnyObject?
                 post["likes"] = likes as AnyObject?
+                post["saved"] = saves as AnyObject? //testing
 
                 currentData.value = post
                 

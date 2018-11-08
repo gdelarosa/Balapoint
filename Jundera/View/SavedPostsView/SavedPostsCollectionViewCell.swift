@@ -72,7 +72,8 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
         }
         title.text = post?.title
         header.text = post?.caption
-        updateLike(post: self.post!) //testing
+        updateLike(post: self.post!)
+        
     }
     
     func updateUser() {
@@ -81,15 +82,14 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
     
     /// Will update saved posts
     func updateLike(post: Post) {
-        
-        let imageName = post.likes == nil || !post.isLiked! ? "SaveInCell" : "SavedInCell2"
+        // post.likes and post.isLiked
+        let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
         savePostIcon.image = UIImage(named: imageName)
-        guard let count = post.likeCount else {
-            return
-        }
-        if count != 0 {
-            //print("You have a saved post here.")
-        }
+//        guard let count = post.likeCount else {
+//            return
+//        }
+//        if count != 0 {
+//        }
     }
     
     // Goes to Detail Post
