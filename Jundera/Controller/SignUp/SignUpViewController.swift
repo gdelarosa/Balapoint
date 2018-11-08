@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController {
+   var REF_USERS = Database.database().reference().child("users")
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -68,7 +69,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-    
+        
         var profileImg = self.selectedImage
         if profileImg == nil {
             profileImg = UIImage(named: "placeholderImg")

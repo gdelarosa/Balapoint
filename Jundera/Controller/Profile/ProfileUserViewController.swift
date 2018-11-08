@@ -71,18 +71,27 @@ class ProfileUserViewController: UIViewController {
             let ref = Database.database().reference().child("blocked").childByAutoId()
             guard let uid = Auth.auth().currentUser?.uid else { return }
             guard let userId = self.userr.id else { return }
-            let values: [String:Any] = [
-                "uid": uid,
-                "users": userId
-            ]
-            ref.updateChildValues(values, withCompletionBlock: { (err, _) in
-                if let err = err {
-                    print("Failed to block user:", err)
-                    return
+            
+            let updateData = ["blocked/\(userId)/\(uid)": true,
+                              "blocking/\(uid)/\(userId)" : true]
+           ref.updateChildValues(updateData) { error, _ in
+                if let error = error {
+                    print(error.localizedDescription)
                 }
-                print("Successfully blocked user:", values["users"] as? String ?? "")
-                self.present(confirmationController, animated: true, completion: nil)
-            })
+            }
+            print("User is blocked mofo!")
+//            let values: [String:Any] = [
+//                "uid": uid,
+//                "users": userId
+//            ]
+//            ref.updateChildValues(values, withCompletionBlock: { (err, _) in
+//                if let err = err {
+//                    print("Failed to block user:", err)
+//                    return
+//                }
+//                print("Successfully blocked user:", values["users"] as? String ?? "")
+//                self.present(confirmationController, animated: true, completion: nil)
+//            })
             
         }))
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

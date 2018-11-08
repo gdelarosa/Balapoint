@@ -414,6 +414,15 @@
                                                         <constraint firstAttribute="height" constant="174" id="gXC-Ay-GGL"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-ka-Yn9">
+                                                    <rect key="frame" x="69" y="496" width="167" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="167" id="t9E-h6-MYt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4b-BP-mWb">
                                                     <rect key="frame" x="0.0" y="119" width="375" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,12 +431,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title Here" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvG-kr-ict">
-                                                    <rect key="frame" x="10" y="119" width="349" height="61"/>
+                                                    <rect key="frame" x="10" y="119" width="351" height="61"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 24, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-lh-GUG">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 24, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-lh-GUG">
                                                     <rect key="frame" x="69" y="532" width="149" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="149" id="RyQ-u9-VDw"/>
@@ -437,54 +446,45 @@
                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-Zr-cuh">
-                                                    <rect key="frame" x="10" y="496" width="51" height="52"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="51" id="Qs0-e9-sjb"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden gems I'm willing to share in my neighborhood of Avalon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3N-UI-fXD">
-                                                    <rect key="frame" x="10" y="176" width="349" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden gems I'm willing to " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3N-UI-fXD">
+                                                    <rect key="frame" x="10" y="182" width="351" height="40"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtW-cZ-Gak">
-                                                    <rect key="frame" x="11" y="230" width="350" height="244"/>
+                                                    <rect key="frame" x="11" y="230" width="350" height="315"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="244" id="BHm-27-eni"/>
+                                                        <constraint firstAttribute="height" constant="315" id="BHm-27-eni"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-MH-4R7">
-                                                    <rect key="frame" x="9" y="220" width="351" height="2"/>
+                                                    <rect key="frame" x="9" y="220" width="353" height="2"/>
                                                     <color key="backgroundColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="MzX-PD-Ody"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-ka-Yn9">
-                                                    <rect key="frame" x="69" y="496" width="167" height="38"/>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-Zr-cuh">
+                                                    <rect key="frame" x="312" y="176" width="47" height="46"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="167" id="t9E-h6-MYt"/>
+                                                        <constraint firstAttribute="width" constant="47" id="Qs0-e9-sjb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="B7R-MH-4R7" secondAttribute="bottom" constant="8" id="17V-H2-fE4"/>
-                                                <constraint firstItem="B7R-MH-4R7" firstAttribute="top" secondItem="G3N-UI-fXD" secondAttribute="bottom" constant="8" symbolic="YES" id="1e3-gU-kU2"/>
+                                                <constraint firstItem="B7R-MH-4R7" firstAttribute="top" secondItem="G3N-UI-fXD" secondAttribute="bottom" constant="-2" id="1e3-gU-kU2"/>
                                                 <constraint firstItem="G3N-UI-fXD" firstAttribute="leading" secondItem="B7R-MH-4R7" secondAttribute="leading" constant="1" id="1xg-lo-Oom"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="centerX" secondItem="G3N-UI-fXD" secondAttribute="centerX" id="5v6-ro-3C3"/>
                                                 <constraint firstItem="Yiu-db-FGS" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" id="87R-gk-ira"/>
-                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="22" id="AmP-yq-1Rt"/>
+                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="-49" id="AmP-yq-1Rt"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="G3N-UI-fXD" secondAttribute="leading" id="Bg8-8f-0f3"/>
-                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="trailing" constant="8" symbolic="YES" id="E9g-bb-G1a"/>
+                                                <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="trailing" constant="-290" id="E9g-bb-G1a"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leadingMargin" constant="-5" id="HJ2-ID-7aU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wtW-cZ-Gak" secondAttribute="trailing" constant="-1" id="Lh9-bX-B5w"/>
                                                 <constraint firstAttribute="trailing" secondItem="r4b-BP-mWb" secondAttribute="trailing" id="NHl-3R-WGI"/>
@@ -496,18 +496,18 @@
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" id="XuP-AD-Z7e"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="top" secondItem="qvG-kr-ict" secondAttribute="top" id="aBg-Hk-zBR"/>
                                                 <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="FZt-lh-GUG" secondAttribute="leading" id="cct-Eb-MZ8"/>
-                                                <constraint firstItem="6EN-Zr-cuh" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="22" id="fjY-cA-HEM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6EN-Zr-cuh" secondAttribute="bottom" constant="-14" id="hqo-FG-RtQ"/>
-                                                <constraint firstItem="G3N-UI-fXD" firstAttribute="top" secondItem="Yiu-db-FGS" secondAttribute="bottom" constant="2" id="jNC-2n-CAb"/>
+                                                <constraint firstItem="6EN-Zr-cuh" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="-369" id="fjY-cA-HEM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6EN-Zr-cuh" secondAttribute="bottom" constant="312" id="hqo-FG-RtQ"/>
+                                                <constraint firstItem="G3N-UI-fXD" firstAttribute="top" secondItem="Yiu-db-FGS" secondAttribute="bottom" constant="8" id="jNC-2n-CAb"/>
                                                 <constraint firstItem="B7R-MH-4R7" firstAttribute="top" secondItem="qvG-kr-ict" secondAttribute="bottom" constant="40" id="jdY-xl-tfF"/>
-                                                <constraint firstItem="G3N-UI-fXD" firstAttribute="trailing" secondItem="dmu-OO-grA" secondAttribute="trailingMargin" constant="-1" id="mDq-ff-moh"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leadingMargin" constant="-4" id="nSg-yg-Qeh"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="bottom" secondItem="Yiu-db-FGS" secondAttribute="bottom" id="neD-fg-z6C"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="top" secondItem="Yiu-db-FGS" secondAttribute="bottom" constant="-55" id="okF-XU-Lm0"/>
+                                                <constraint firstAttribute="trailing" secondItem="G3N-UI-fXD" secondAttribute="trailing" constant="14" id="pqu-aG-7mm"/>
                                                 <constraint firstItem="G3N-UI-fXD" firstAttribute="trailing" secondItem="B7R-MH-4R7" secondAttribute="trailing" constant="-1" id="vfB-is-cj2"/>
                                                 <constraint firstItem="Yiu-db-FGS" firstAttribute="top" secondItem="dmu-OO-grA" secondAttribute="top" id="vtx-Hw-fOD"/>
                                                 <constraint firstAttribute="trailing" secondItem="Yiu-db-FGS" secondAttribute="trailing" id="wNc-Yb-xoG"/>
-                                                <constraint firstItem="B7R-MH-4R7" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="leading" constant="-1" id="xie-U5-fjx"/>
+                                                <constraint firstItem="B7R-MH-4R7" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="leading" constant="-303" id="xie-U5-fjx"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="leading" secondItem="Yiu-db-FGS" secondAttribute="leading" id="yRK-9X-SIT"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -551,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es8-8b-kx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="1034"/>
+            <point key="canvasLocation" x="-959.20000000000005" y="1033.1334332833585"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pAk-2W-ovb">

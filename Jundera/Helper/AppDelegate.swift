@@ -14,12 +14,23 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    //Blocked
+    var blockedRef: DatabaseReference!
+    var blockingRef: DatabaseReference!
+    private var blocked = Set<String>()
+    private var blocking = Set<String>()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         //Database.database().isPersistenceEnabled = true
         IQKeyboardManager.shared.enable = true
+        
+        //Blocking
+        if let uid = Auth.auth().currentUser?.uid {
+            blockedRef = Database.database().reference(withPath: "blocked/\(uid)")
+            blockingRef = Database.database().reference(withPath: "blocking/\(uid)")
+            observeBlocks()
+        }
         
         //Hide Autolayout Warning
         UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
@@ -47,6 +58,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // Block Users
+    
+    func observeBlocks() {
+        blockedRef.observe(.childAdded) { self.blocked.insert($0.key) }
+        blockingRef.observe(.childAdded) { self.blocking.insert($0.key) }
+        blockedRef.observe(.childRemoved) { self.blocked.remove($0.key) }
+        blockingRef.observe(.childRemoved) { self.blocking.remove($0.key) }
+    }
+    
+    func isBlocked(_ snapshot: DataSnapshot) -> Bool {
+        let author = snapshot.childSnapshot(forPath: "author/uid").value as! String
+        if blocked.contains(author) || blocking.contains(author) {
+            return true
+        }
+        return false
+    }
+    
+    func isBlocked(by person: String) -> Bool {
+        return blocked.contains(person)
+    }
+    
+    func isBlocking(_ person: String) -> Bool {
+        return blocking.contains(person)
     }
 
 
