@@ -31,6 +31,10 @@ class SettingTableViewController: UITableViewController {
         emailTextField.delegate = self
         goalTextField.delegate = self
         websiteTextField.delegate = self
+        profileImageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        profileImageView.layer.borderWidth = 2
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = 8
         fetchCurrentUser()
         setBackButton()
     }

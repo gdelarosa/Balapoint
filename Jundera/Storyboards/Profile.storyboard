@@ -1184,9 +1184,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="e7l-q5-cQS">
-                                    <rect key="frame" x="139" y="36" width="98" height="98"/>
+                                    <rect key="frame" x="138.5" y="36" width="98" height="98"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="98" id="DGO-NH-Iv8"/>
+                                        <constraint firstAttribute="height" constant="98" id="T30-vv-05R"/>
+                                        <constraint firstAttribute="width" constant="98" id="ck5-Vp-65h"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1194,7 +1195,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-o4-Uaf">
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-o4-Uaf">
                                     <rect key="frame" x="169" y="139" width="37" height="37"/>
                                     <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
@@ -1219,13 +1220,12 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="o6S-tr-ex7" firstAttribute="leading" secondItem="JFd-u3-vfN" secondAttribute="leading" constant="62" id="95g-x0-2z3"/>
-                                <constraint firstItem="fF4-o4-Uaf" firstAttribute="top" secondItem="e7l-q5-cQS" secondAttribute="bottom" constant="5" id="D60-Cj-9MO"/>
-                                <constraint firstItem="o6S-tr-ex7" firstAttribute="centerX" secondItem="e7l-q5-cQS" secondAttribute="centerX" id="FaL-xv-Rev"/>
+                                <constraint firstItem="e7l-q5-cQS" firstAttribute="top" secondItem="o6S-tr-ex7" secondAttribute="bottom" constant="6" id="Ecw-ep-uYJ"/>
                                 <constraint firstItem="o6S-tr-ex7" firstAttribute="centerX" secondItem="JFd-u3-vfN" secondAttribute="centerX" id="ZVO-qR-CJR"/>
-                                <constraint firstItem="e7l-q5-cQS" firstAttribute="top" secondItem="o6S-tr-ex7" secondAttribute="bottom" constant="6" id="bNR-N8-XYf"/>
+                                <constraint firstItem="e7l-q5-cQS" firstAttribute="leading" secondItem="JFd-u3-vfN" secondAttribute="leading" constant="138.5" id="ZhZ-ZR-s9S"/>
                                 <constraint firstAttribute="bottom" secondItem="fF4-o4-Uaf" secondAttribute="bottom" constant="4" id="dO1-fN-SFR"/>
-                                <constraint firstItem="e7l-q5-cQS" firstAttribute="centerX" secondItem="fF4-o4-Uaf" secondAttribute="centerX" id="gWd-a1-hGu"/>
                                 <constraint firstItem="o6S-tr-ex7" firstAttribute="top" secondItem="JFd-u3-vfN" secondAttribute="top" id="hbI-5E-uY7"/>
+                                <constraint firstItem="fF4-o4-Uaf" firstAttribute="top" secondItem="e7l-q5-cQS" secondAttribute="bottom" constant="5" id="rv3-7y-6i5"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="subviews">

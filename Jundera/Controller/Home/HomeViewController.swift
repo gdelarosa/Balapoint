@@ -26,20 +26,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var topicTitles: [String?] = ["Lifestyle", "Tech", "Travel", "Food", "Politics", "Media", "Education", "Finance", "Health", "Beauty"]
     
+    private var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicatorView.startAnimating()
+        
         settingsBarButton()
-        tableView.reloadData()
-        tableView.estimatedRowHeight = 521
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.dataSource = self
-        tableView.allowsSelection = true
+        setupView()
         loadPosts()
-       
-        if self.posts.isEmpty {
-            self.tableView?.backgroundView = self.emptyHomeLabel
-        }
+        //emptyState()
+        //loadPosts()
         
     }
     
@@ -47,6 +43,58 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewWillAppear(animated);
         
     }
+    
+    // Setup View
+    private func setupView() {
+        setupTableView()
+        setupActivityIndicatorView()
+    }
+    
+    // Setup TableView
+    private func setupTableView() {
+        tableView.isHidden = true
+        //tableView.reloadData()
+        
+            // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        
+        tableView.estimatedRowHeight = 521
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.dataSource = self
+        tableView.allowsSelection = true
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        loadPosts()
+    }
+    
+    // Activity Indicator Setup
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func updateView() {
+        let hasPosts = posts.count > 0
+        tableView.isHidden = !hasPosts
+        if hasPosts {
+            tableView.reloadData()
+        }
+    }
+    
+    // Empty State
+    func emptyState() {
+        if self.posts.isEmpty {
+            self.tableView?.backgroundView = self.emptyHomeLabel
+        }
+    }
+
     
     // Empty State Label
     let emptyHomeLabel: UILabel = {
@@ -81,30 +129,32 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     /// Will load all posts onto users feed.
     
     func loadPosts() {
-        
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
-            guard let postUid = post.uid else { return }
-            
-            self.fetchUser(uid: postUid, completed: {
-                self.posts.append(post)
-                self.posts.sort(by: {(p1, p2) -> Bool in
-                    return p1.date?.compare(p2.date!) == .orderedDescending
+            DispatchQueue.main.async {
+                self.posts.removeAll()
+                guard let postUid = post.uid else { return }
+                
+                self.fetchUser(uid: postUid, completed: {
+                    self.posts.append(post)
+                    self.posts.sort(by: {(p1, p2) -> Bool in
+                        return p1.date?.compare(p2.date!) == .orderedDescending
+                    })
+                    
+                    self.updateView()
+                    self.refreshControl.endRefreshing()
+                    self.activityIndicatorView.stopAnimating()
+                    //self.tableView.reloadData()
                 })
-                self.tableView.reloadData()
-            })
-            
+                Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
+                    self.posts = self.posts.filter { $0.id != post.id }
+                    self.users = self.users.filter { $0.id != post.uid }
+                    //self.tableView.reloadData()
+                    //self.updateView()
+                    //self.refreshControl.endRefreshing()
+                    //self.activityIndicatorView.stopAnimating()
+                }
+            }
         }
-        
-        Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
-            self.posts = self.posts.filter { $0.id != post.id }
-            self.users = self.users.filter { $0.id != post.uid }
-            self.tableView.reloadData()
-        }
-//        if self.posts.isEmpty {
-//            self.tableView?.backgroundView = self.emptyHomeLabel
-//        }
-       
-        activityIndicatorView.stopAnimating()
     }
     
     // Fetches User
