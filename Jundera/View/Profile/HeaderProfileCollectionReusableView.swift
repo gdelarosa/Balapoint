@@ -54,11 +54,14 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
             let photoUrl = URL(string: photoUrlString)
             
            self.profileImage.sd_setImage(with: photoUrl)
-            profileImage.layer.borderWidth = 1
-            profileImage.layer.masksToBounds = true
-            profileImage.layer.borderColor = UIColor.clear.cgColor
-            profileImage.layer.cornerRadius = profileImage.frame.height/2
+//            profileImage.layer.borderWidth = 1
+//            profileImage.layer.masksToBounds = true
+//            profileImage.layer.borderColor = UIColor.clear.cgColor
+//            profileImage.layer.cornerRadius = profileImage.frame.height/2
+            profileImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            profileImage.layer.borderWidth = 2
             profileImage.clipsToBounds = true
+            profileImage.layer.cornerRadius = 8
         }
         
         func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {

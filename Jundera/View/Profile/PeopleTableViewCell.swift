@@ -35,6 +35,11 @@ class PeopleTableViewCell: UITableViewCell {
     }
     
     func updateView() {
+        profileImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        profileImage.layer.borderWidth = 2
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = 8
+        
         nameLabel.text = user?.username
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
