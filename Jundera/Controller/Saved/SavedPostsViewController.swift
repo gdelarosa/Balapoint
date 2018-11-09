@@ -9,31 +9,82 @@
 import UIKit
 import Firebase
 
+class SavedPosts {
+    var thePosts = [SavedPosts]()
+    var key = ""
+}
+
 class SavedPostsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var posts: [Post] = []
     var users = [Userr]()
-    var post: Post? //testing
+    var post: Post?
+    var savePosts = [SavedPosts]() //testing
+    
+    private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-        collectionView.dataSource = self
-        
-//        if self.posts.isEmpty {
-//            self.collectionView?.backgroundView = self.emptyHomeLabel
-//        }
+        setupNavigation()
+        setupView()
         fetchMySavedPosts()
-      
-        self.navigationItem.title = "Saved"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
     }
     
-  
+    func setupNavigation() {
+        self.navigationItem.title = "Saved"
+    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Futura", size: 18)!]
+    }
+    
+    func setupView() {
+        setupCollectionView()
+        setupMessageLabel()
+        setupActivityIndicatorView()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.isHidden = true
+        
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        collectionView.dataSource = self
+    }
+    
+    
+    @objc private func refreshData(_ sender: Any) {
+        fetchMySavedPosts()
+    }
+    
+    // Activity Indicator Setup
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func updateView() {
+        let hasPosts = posts.count > 0
+        collectionView.isHidden = !hasPosts
+        messageLabel.isHidden = hasPosts
+        
+        if hasPosts {
+            collectionView.reloadData()
+        }
+        
+        self.activityIndicatorView.stopAnimating()
+       
+    }
+    
+    private func setupMessageLabel() {
+        messageLabel.isHidden = true
+        messageLabel.text = "Your saved posts will appear here."
+    }
     
     //Empty State Label
     let emptyHomeLabel: UILabel = {
@@ -49,21 +100,51 @@ class SavedPostsViewController: UIViewController {
     
     /// Will display saved posts
     func fetchMySavedPosts() {
-        self.collectionView.reloadData()
-        guard let currentUser = Api.Userr.CURRENT_USER else {
-            return
-        }
-        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childAdded, with: {
+        guard let currentUser = Api.Userr.CURRENT_USER else { return }
+    Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
+            DispatchQueue.main.async {
+            self.posts.removeAll()
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
                 self.posts.append(post)
-                self.collectionView.reloadData()
+                self.updateView()
+                self.refreshControl.endRefreshing()
+                self.activityIndicatorView.stopAnimating()
             })
+           }
             
         })
-       
+        //testing
+       Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childRemoved, with: { snapshot in
+        Api.Post.observePost(withId: snapshot.key , completion: { post in
+            if let index = self.posts.index(where: {$0.id == snapshot.key}) {
+                self.posts.remove(at: index)
+                self.collectionView.reloadData()
+            } else {
+                print("Post not found")
+              }
+            })
+        }) //end testing
+        self.updateView()
     }
+    
+    /// Will remove posts that were unsaved. Currently not using.
+    func updateRemovedPosts() {
+//        guard let currentUser = Api.Userr.CURRENT_USER else { return }
+//        if Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid) != nil {
+//        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).removeValue(completionBlock: { (error, ref) in
+//            if error != nil {
+//                print("Error: \(String(describing: error))")
+//                return
+//            }
+//            self.posts.removeAll()
+//            self.fetchMySavedPosts()
+//        })
+//       }
+    }
+    
+    
     
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {

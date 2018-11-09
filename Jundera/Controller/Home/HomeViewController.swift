@@ -34,16 +34,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         settingsBarButton()
         setupView()
         loadPosts()
-        //emptyState()
-        //loadPosts()
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        
-    }
-    
+
     // Setup View
     private func setupView() {
         setupTableView()
@@ -53,9 +45,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Setup TableView
     private func setupTableView() {
         tableView.isHidden = true
-        //tableView.reloadData()
         
-            // Add Refresh Control to Table View
+        // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -139,19 +130,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     self.posts.sort(by: {(p1, p2) -> Bool in
                         return p1.date?.compare(p2.date!) == .orderedDescending
                     })
-                    
                     self.updateView()
                     self.refreshControl.endRefreshing()
                     self.activityIndicatorView.stopAnimating()
-                    //self.tableView.reloadData()
                 })
                 Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
                     self.posts = self.posts.filter { $0.id != post.id }
                     self.users = self.users.filter { $0.id != post.uid }
-                    //self.tableView.reloadData()
-                    //self.updateView()
-                    //self.refreshControl.endRefreshing()
-                    //self.activityIndicatorView.stopAnimating()
                 }
             }
         }

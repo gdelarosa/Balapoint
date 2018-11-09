@@ -112,6 +112,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-kP-Wiq">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your saved posts will appear here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9l-pj-sna">
+                                <rect key="frame" x="62" y="323" width="254" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -123,14 +135,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Saved" id="16a-id-nVd"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="uEi-kP-Wiq" id="aDU-WN-VWs"/>
                         <outlet property="collectionView" destination="CKs-tz-95v" id="lWZ-2a-qbv"/>
+                        <outlet property="messageLabel" destination="Q9l-pj-sna" id="dcN-mn-ygR"/>
                         <segue destination="bVy-3p-Vry" kind="show" identifier="User_profileSegue" id="T95-WL-B3a"/>
                         <segue destination="sPl-ix-9Fh" kind="show" identifier="Detail_Segue" id="jnT-up-tij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdg-fO-ZDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="170"/>
+            <point key="canvasLocation" x="264.80000000000001" y="169.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MMh-ev-dhI">
