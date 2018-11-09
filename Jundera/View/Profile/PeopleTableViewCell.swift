@@ -1,15 +1,15 @@
 //
 //  PeopleTableViewCell.swift
-//  Metis
+//  Balapoint
 //
-//  Created by Gina De La Rosa on 11/15/17.
+//  Created by Gina De La Rosa on 10/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//  Will be other users profile. 
+//  Will be other users profile.
+//  MIGHT NOT BE USING. WILL CIRCLE BACK.
 
 import UIKit
 
 protocol PeopleTableViewCellDelegate {
-    
     func goToProfileUserVC(userId: String)
     func goToDetailPost(postId: String)
 }

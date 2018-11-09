@@ -8,6 +8,7 @@
 //  User Profile - User can edit their information and view their posts
 
 import UIKit
+import Firebase
 //import Segmentio
 
 class ProfileViewController: UIViewController {
@@ -151,6 +152,14 @@ extension ProfileViewController: SettingTableViewControllerDelegate {
 }
 
 extension ProfileViewController: PhotoCollectionViewCellDelegate {
+    func didSavePost(post: Post) {
+      print("Did save Post - ProfileVC")
+    }
+    
+    func didUnsavePost(post: Post) {
+        print("Unsaved Post - ProfileVC")
+    }
+    
     func goToDetailVC(postId: String) {
         print("Pressed to go to Detail Post")
         performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)

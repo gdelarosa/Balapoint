@@ -143,6 +143,34 @@ extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegate
 }
 
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
+    func didSavePost(post: Post) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("saved").child(uid)
+        guard let postId = post.id else { return }
+        
+        let values = [postId: post.uid]
+        
+        if post.isSaved == true {
+            ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
+                if let err = err {
+                    print("Failed to put save post data in db:", err)
+                    return
+                }
+                print("Successfully put save post in db")
+            }
+        } else {
+            ref.child(post.id!).removeValue {_,_ in
+                print("post removed")
+            }
+            
+            print("Post is not saved")
+        }
+    }
+    
+    func didUnsavePost(post: Post) {
+        print("Unsaved Post - ProfileUserVC")
+    }
+    
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postId)
     }

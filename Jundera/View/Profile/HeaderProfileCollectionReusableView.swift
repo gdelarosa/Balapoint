@@ -4,7 +4,8 @@
 //
 //  Created by Gina De La Rosa on 10/15/18.
 //  Copyright © 2018 Gina Delarosa. All rights reserved.
-//  Header for Profile
+//  Header for Profile.
+
 
 import UIKit
 
@@ -54,10 +55,6 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
             let photoUrl = URL(string: photoUrlString)
             
            self.profileImage.sd_setImage(with: photoUrl)
-//            profileImage.layer.borderWidth = 1
-//            profileImage.layer.masksToBounds = true
-//            profileImage.layer.borderColor = UIColor.clear.cgColor
-//            profileImage.layer.cornerRadius = profileImage.frame.height/2
             profileImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             profileImage.layer.borderWidth = 2
             profileImage.clipsToBounds = true
@@ -127,25 +124,11 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView, UITextViewD
     
     // Mark: Configuration for following another user
     func configureFollowButton() {
-//        followButton.layer.borderWidth = 1
-//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-//        followButton.layer.cornerRadius = 5
-//        followButton.clipsToBounds = true
-        
-//        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-//        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followButton.setTitle("Follow", for: UIControlState.normal)
         followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
     }
     
     func configureUnFollowButton() {
-//        followButton.layer.borderWidth = 1
-//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-//        followButton.layer.cornerRadius = 5
-//        followButton.clipsToBounds = true
-        
-//        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-//        followButton.backgroundColor = UIColor.clear
         followButton.setTitle("Following", for: UIControlState.normal)
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }

@@ -58,7 +58,7 @@
                                                         <constraint firstAttribute="width" constant="100" id="xdU-Iu-a1R"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Saved" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-aN-Ui7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptySave" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-aN-Ui7">
                                                     <rect key="frame" x="25" y="138" width="18" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="qzc-NZ-kdS"/>
@@ -184,6 +184,13 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follow people to fill your feed with posts." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30D-nF-NHZ">
+                                <rect key="frame" x="41" y="272" width="288" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -202,6 +209,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="W9U-fS-EhU" id="pdU-f5-iW4"/>
                         <outlet property="collectionView" destination="bzh-eR-LB9" id="4mb-IX-2SR"/>
+                        <outlet property="messageLabel" destination="30D-nF-NHZ" id="3lv-Pe-0wc"/>
                         <outlet property="searchDisplayController" destination="Zbs-tl-1Mv" id="94J-wN-qoF"/>
                         <outlet property="tableView" destination="2V7-TV-WOy" id="Df0-ZL-dI2"/>
                         <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="tl5-Cp-x7c"/>
@@ -629,6 +637,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EmptySave" width="18" height="25"/>
         <image name="Home" width="27" height="27"/>
         <image name="HomeSelected" width="27" height="27"/>
         <image name="Lifestyle" width="3911" height="2608"/>

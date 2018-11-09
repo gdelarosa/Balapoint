@@ -6,22 +6,25 @@
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
 
 //  Will display the users Published - Drafts - Private Posts in their profile.
+//  View for Other User Profile as well
 
 import UIKit
 import SDWebImage
 
 protocol PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String)
+    func didSavePost(post: Post) //added
+    func didUnsavePost(post: Post) //added
 }
 
 class ProfilePosts: UICollectionViewCell {
     
-  
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var savePost: UIImageView! //should only be visible if it's the other user profile.
     
     var delegate: PhotoCollectionViewCellDelegate?
     
@@ -58,21 +61,70 @@ class ProfilePosts: UICollectionViewCell {
             return
         }
         //date.text = creationDate.timeAgoDisplay()
+        //added
+        self.updateLike(post: (self.post!))
         
-        
+        // Gesture to go to detail
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         title.addGestureRecognizer(tapGestureForPhoto)
         title.isUserInteractionEnabled = true
+        
+        // Will fill in saved icon
+        let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.savePost_TouchUpInside))
+        savePost.addGestureRecognizer(tapGestureForLikeImageView)
+        savePost.isUserInteractionEnabled = true
 
+    }
+    // Handle Save Post
+    @objc func handleSavePost() {
+        guard let post = post else { return }
+        delegate?.didSavePost(post: post)
+    }
+    
+    // Handle Unsave Post
+    @objc func handleUnsavePost() {
+        guard let post = post else { return }
+        delegate?.didUnsavePost(post: post)
+    }
+    
+    // Handles Post Updates
+    func updateLike(post: Post) {
+        let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
+        savePost.image = UIImage(named: imageName)
+        guard let count = post.likeCount else {
+            print("Count Saved post")
+            return
+        }
+        if count != 0 {
+            
+        }
     }
     
     func updateUser() {
        author.text = user?.username
     }
     
+    // Goes to detail
     @objc func photo_TouchUpInside() {
         if let id = post?.id {
             delegate?.goToDetailVC(postId: id)
         }
+    }
+    
+    // Saves post action
+    @objc func savePost_TouchUpInside() {
+        Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
+            self.updateLike(post: post)
+            self.post?.isSaved = post.isSaved
+            self.delegate?.didSavePost(post: post)
+            self.delegate?.didUnsavePost(post: post)
+        }) { (errorMessage) in
+            print("Error: \(String(describing: errorMessage))")
+        }
+    }
+    
+    // Unsave Action
+    @objc func unSave_TouchUpInside() {
+        self.delegate?.didUnsavePost(post: post!)
     }
 }

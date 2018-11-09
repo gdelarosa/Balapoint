@@ -67,7 +67,7 @@ class HomeTableViewCell: UITableViewCell {
         }
      
         self.updateLike(post: (self.post!))
-        //self.updateSavedPosts(post: (self.post!)) //testing
+        //self.updateSavedPosts(post: (self.post!)) 
     }
     
     // Handle Save Post
@@ -81,7 +81,7 @@ class HomeTableViewCell: UITableViewCell {
         guard let post = post else { return }
         delegate?.didUnsavePost(post: post)
     }
-    
+    // Handles Post Updates
     func updateLike(post: Post) {
         //post.likes and post.isLiked
         let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
@@ -93,12 +93,6 @@ class HomeTableViewCell: UITableViewCell {
         if count != 0 {
             
         }
-//        if post.isSaved == true {
-//            print("Post Is Saved")
-//        }
-//        if post.isSaved == false {
-//            print("Post Not Saved")
-//        }
     }
     
     func setupUserInfo() {
@@ -152,7 +146,7 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-    
+    // Saves post action
     @objc func likeImageView_TouchUpInside() {
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)

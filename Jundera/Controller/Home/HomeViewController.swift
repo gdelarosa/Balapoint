@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var posts = [Post]()
     var users = [Userr]()
@@ -39,6 +40,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Setup View
     private func setupView() {
         setupTableView()
+        setupMessageLabel()
         setupActivityIndicatorView()
     }
     
@@ -74,30 +76,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func updateView() {
         let hasPosts = posts.count > 0
         tableView.isHidden = !hasPosts
+        messageLabel.isHidden = hasPosts
         if hasPosts {
             tableView.reloadData()
         }
     }
     
-    // Empty State
-    func emptyState() {
-        if self.posts.isEmpty {
-            self.tableView?.backgroundView = self.emptyHomeLabel
-        }
+    private func setupMessageLabel() {
+        messageLabel.isHidden = true
+        messageLabel.text = "Start following others to fill your feed."
     }
-
-    
-    // Empty State Label
-    let emptyHomeLabel: UILabel = {
-        let messageLabel = UILabel()
-        messageLabel.text = "Hmm...\n Follow people to populate your feed."
-        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Futura", size: 20)
-        messageLabel.sizeToFit()
-        return messageLabel
-    }()
     
     ///Navigation Bar
         func settingsBarButton() {

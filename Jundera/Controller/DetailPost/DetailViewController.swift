@@ -132,7 +132,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension DetailViewController: DetailPostTableViewCellDelegate {
     func didSavePost(post: Post) {
-        print("Saved POST!")
+        print("Saved POST!") //Isn't being used
     }
     
     func goToDetailPostVC(postId: String) {
@@ -146,6 +146,6 @@ extension DetailViewController: DetailPostTableViewCellDelegate {
     }
     
     func didUnsavePost(post: Post) {
-        print("Unsaved Post")
+        print("Unsaved Post") //Isn't being used
     }
 }

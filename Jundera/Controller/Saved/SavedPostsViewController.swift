@@ -4,7 +4,7 @@
 //
 //  Created by Gina De La Rosa on 11/15/17.
 //  Copyright © 2017 Gina Delarosa. All rights reserved.
-//
+//  User will be able to view their saved post
 
 import UIKit
 import Firebase
@@ -86,18 +86,6 @@ class SavedPostsViewController: UIViewController {
         messageLabel.text = "Your saved posts will appear here."
     }
     
-    //Empty State Label
-    let emptyHomeLabel: UILabel = {
-        let messageLabel = UILabel()
-        messageLabel.text = "Oh...\n Save posts and have them appear here."
-        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Futura", size: 20)
-        messageLabel.sizeToFit()
-        return messageLabel
-    }()
-    
     /// Will display saved posts
     func fetchMySavedPosts() {
         guard let currentUser = Api.Userr.CURRENT_USER else { return }
@@ -115,7 +103,6 @@ class SavedPostsViewController: UIViewController {
            }
             
         })
-        //testing
        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childRemoved, with: { snapshot in
         Api.Post.observePost(withId: snapshot.key , completion: { post in
             if let index = self.posts.index(where: {$0.id == snapshot.key}) {
@@ -125,7 +112,7 @@ class SavedPostsViewController: UIViewController {
                 print("Post not found")
               }
             })
-        }) //end testing
+        })
         self.updateView()
     }
     
