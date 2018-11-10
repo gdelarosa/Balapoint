@@ -47,10 +47,12 @@ class DetailPostTableViewCell: UITableViewCell {
        // hashtags.text = ""
         bodyText.text = ""
         
+        // Gesture for user profile
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         userIcon.addGestureRecognizer(tapGestureForPhoto)
         userIcon.isUserInteractionEnabled = true
         
+        // Gesture for user profile
         let tapGestureForUsername = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         userName.addGestureRecognizer(tapGestureForUsername)
         userName.isUserInteractionEnabled = true

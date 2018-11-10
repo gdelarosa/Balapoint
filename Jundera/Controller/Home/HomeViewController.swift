@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var users = [Userr]()
     
     var post: Post?
+     lazy var postsRef = Database.database().reference().child("posts")
     
     var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"),UIImage(named: "Politics.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
     

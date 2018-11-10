@@ -174,4 +174,8 @@ extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postId)
     }
+    
+    func didDeletePost(post: Post) {
+        print("Delete Post - ProfileUserVC.")
+    }
 }

@@ -68,22 +68,30 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12/22/18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-uz-pob">
-                                                    <rect key="frame" x="20" y="117" width="83" height="17"/>
+                                                    <rect key="frame" x="90" y="117" width="83" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="8"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EmptySave" translatesAutoresizingMaskIntoConstraints="NO" id="RjM-tv-2nm">
-                                                    <rect key="frame" x="21" y="115" width="13" height="19"/>
+                                                    <rect key="frame" x="248" y="113" width="13" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vc-GA-mEz">
+                                                    <rect key="frame" x="20" y="113" width="28" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="⋯">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="author" destination="5SD-hZ-ZE4" id="GFb-y9-Jk3"/>
                                             <outlet property="date" destination="h6f-uz-pob" id="v8R-KQ-Vca"/>
+                                            <outlet property="deletePostButton" destination="1Vc-GA-mEz" id="99w-8Z-2S7"/>
                                             <outlet property="header" destination="2Z5-LR-oL6" id="CD9-ys-wpb"/>
                                             <outlet property="photo" destination="01e-Zb-6Sf" id="B25-KM-aq9"/>
                                             <outlet property="savePost" destination="RjM-tv-2nm" id="7U5-5z-4uB"/>
@@ -423,6 +431,13 @@
                                                     <rect key="frame" x="20" y="130" width="18" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqA-08-yrS">
+                                                    <rect key="frame" x="253" y="130" width="28" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="⋯">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -449,6 +464,7 @@
                                         <connections>
                                             <outlet property="author" destination="iAc-3V-I8k" id="EhB-Cz-hZS"/>
                                             <outlet property="date" destination="VZ1-aP-dbO" id="mU3-Ay-Wqw"/>
+                                            <outlet property="deletePostButton" destination="bqA-08-yrS" id="WpP-Pe-WEf"/>
                                             <outlet property="header" destination="KqC-F4-WKp" id="m2y-XV-5bU"/>
                                             <outlet property="photo" destination="baA-fA-QVK" id="zmG-k1-hgg"/>
                                             <outlet property="savePost" destination="gkN-99-mMI" id="rTv-sV-lw5"/>
@@ -1205,7 +1221,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-o4-Uaf">
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-o4-Uaf">
                                     <rect key="frame" x="169" y="139" width="37" height="37"/>
                                     <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
@@ -1231,6 +1247,7 @@
                             <constraints>
                                 <constraint firstItem="o6S-tr-ex7" firstAttribute="leading" secondItem="JFd-u3-vfN" secondAttribute="leading" constant="62" id="95g-x0-2z3"/>
                                 <constraint firstItem="e7l-q5-cQS" firstAttribute="top" secondItem="o6S-tr-ex7" secondAttribute="bottom" constant="6" id="Ecw-ep-uYJ"/>
+                                <constraint firstItem="fF4-o4-Uaf" firstAttribute="centerX" secondItem="e7l-q5-cQS" secondAttribute="centerX" id="H1x-n1-FNv"/>
                                 <constraint firstItem="o6S-tr-ex7" firstAttribute="centerX" secondItem="JFd-u3-vfN" secondAttribute="centerX" id="ZVO-qR-CJR"/>
                                 <constraint firstItem="e7l-q5-cQS" firstAttribute="leading" secondItem="JFd-u3-vfN" secondAttribute="leading" constant="138.5" id="ZhZ-ZR-s9S"/>
                                 <constraint firstAttribute="bottom" secondItem="fF4-o4-Uaf" secondAttribute="bottom" constant="4" id="dO1-fN-SFR"/>
@@ -1423,7 +1440,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAP-LT-g16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2991" y="888"/>
+            <point key="canvasLocation" x="2989.5999999999999" y="862.21889055472275"/>
         </scene>
     </scenes>
     <resources>
@@ -1435,7 +1452,7 @@
         <image name="placeholderImg" width="80" height="83"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MZn-63-CgU"/>
-        <segue reference="E1Z-P0-CWT"/>
+        <segue reference="pRK-3m-ebY"/>
+        <segue reference="49u-A6-ntL"/>
     </inferredMetricsTieBreakers>
 </document>

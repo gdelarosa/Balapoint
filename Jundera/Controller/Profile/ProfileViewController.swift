@@ -164,6 +164,28 @@ extension ProfileViewController: PhotoCollectionViewCellDelegate {
         print("Pressed to go to Detail Post")
         performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
+    
+    func didDeletePost(post: Post) {
+        print("Did delete Post - ProfileVC")
+        /// Deleting Post Action
+            let controller = UIAlertController(title:"Delete Post?", message: "Are you sure you want to delete this post?", preferredStyle: .actionSheet)
+            controller.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+                
+                //guard let uid = Auth.auth().currentUser?.uid else { return }
+                // Will have to test to make sure only the owner can delete their post. 
+                guard let postId = post.id else { return }
+                let ref = Database.database().reference().child("posts")
+                ref.child(postId).removeValue(completionBlock: { (error, _) in
+                    if let error = error {
+                      print("There was an error deleting the post", error)
+                    }
+                    self.collectionView.reloadData() //testing
+                    print("Post \(postId) successfully deleted!")
+                })                
+            }))
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(controller, animated: true, completion: nil)
+    }
 }
 
 

@@ -13,8 +13,9 @@ import SDWebImage
 
 protocol PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String)
-    func didSavePost(post: Post) //added
-    func didUnsavePost(post: Post) //added
+    func didSavePost(post: Post)
+    func didUnsavePost(post: Post) //may not need?
+    func didDeletePost(post: Post)
 }
 
 class ProfilePosts: UICollectionViewCell {
@@ -24,7 +25,8 @@ class ProfilePosts: UICollectionViewCell {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var savePost: UIImageView! //should only be visible if it's the other user profile.
+    @IBOutlet weak var savePost: UIImageView! //only visible not post owner
+    @IBOutlet weak var deletePostButton: UIButton! //Only visible by post owner
     
     var delegate: PhotoCollectionViewCellDelegate?
     
@@ -61,7 +63,7 @@ class ProfilePosts: UICollectionViewCell {
             return
         }
         //date.text = creationDate.timeAgoDisplay()
-        //added
+        
         self.updateLike(post: (self.post!))
         
         // Gesture to go to detail
@@ -73,6 +75,11 @@ class ProfilePosts: UICollectionViewCell {
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.savePost_TouchUpInside))
         savePost.addGestureRecognizer(tapGestureForLikeImageView)
         savePost.isUserInteractionEnabled = true
+        
+        // Gesture to delete post
+        let tapGestureForDeletePost = UITapGestureRecognizer(target: self, action: #selector(self.deletePost_TouchUpInside))
+        deletePostButton.addGestureRecognizer(tapGestureForDeletePost)
+        deletePostButton.isUserInteractionEnabled = true
 
     }
     // Handle Save Post
@@ -126,5 +133,10 @@ class ProfilePosts: UICollectionViewCell {
     // Unsave Action
     @objc func unSave_TouchUpInside() {
         self.delegate?.didUnsavePost(post: post!)
+    }
+    
+    // Delete Post
+    @objc func deletePost_TouchUpInside() {
+        self.delegate?.didDeletePost(post: post!)
     }
 }
