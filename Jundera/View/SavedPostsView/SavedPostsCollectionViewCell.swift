@@ -9,10 +9,12 @@
 
 import UIKit
 import SDWebImage
+import Firebase
 
 protocol SavedCollectionViewCellDelegate {
     func goToDetailSavedPost(postId: String)
     func goToPersonProfile(userId: String)
+    func unsavePost(post: Post) //added
 }
 
 class SavedPostsCollectionViewCell: UICollectionViewCell {
@@ -60,6 +62,11 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
         let tapGestureForProfile = UITapGestureRecognizer(target: self, action: #selector(self.profileImage_TouchUpInside))
         author.addGestureRecognizer(tapGestureForProfile)
         author.isUserInteractionEnabled = true
+        
+        // Tap Filled in Saved Icon to Unsave
+        let tapGestureForSavedPost = UITapGestureRecognizer(target: self, action: #selector(self.unsavePost_TouchUpInside))
+        savePostIcon.addGestureRecognizer(tapGestureForSavedPost)
+        savePostIcon.isUserInteractionEnabled = true
     }
     
     func updateView() {
@@ -76,20 +83,15 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
         
     }
     
+    /// Updates user's name
     func updateUser() {
         author.text = user?.username
     }
     
-    /// Will update saved posts
+    /// Will update saved posts with icon
     func updateLike(post: Post) {
-        // post.likes and post.isLiked
         let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
         savePostIcon.image = UIImage(named: imageName)
-//        guard let count = post.likeCount else {
-//            return
-//        }
-//        if count != 0 {
-//        }
     }
     
     // Goes to Detail Post
@@ -109,4 +111,16 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
             print("Can't get user")
         }
     }
+    
+    // Unsaves a post
+    @objc func unsavePost_TouchUpInside() {
+        Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
+            self.updateLike(post: post)
+            self.post?.isSaved = post.isSaved
+            self.delegate?.unsavePost(post: post)
+        }) { (errorMessage) in
+            print("Error: \(String(describing: errorMessage))")
+        }
+    }
 }
+

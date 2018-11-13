@@ -143,6 +143,7 @@ extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegate
 }
 
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
+    
     func didSavePost(post: Post) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("saved").child(uid)
@@ -160,10 +161,8 @@ extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
             }
         } else {
             ref.child(post.id!).removeValue {_,_ in
-                print("post removed")
+                print("Post is unsaved")
             }
-            
-            print("Post is not saved")
         }
     }
     

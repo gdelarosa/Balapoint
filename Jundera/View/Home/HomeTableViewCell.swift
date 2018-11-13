@@ -15,7 +15,7 @@ protocol HomeTableViewCellDelegate {
     func goToProfileUserVC(userId: String)
     func goToDetailPostVC(postId: String)
     func didSavePost(post: Post)
-    func didUnsavePost(post: Post)
+    func didUnsavePost(post: Post) //probs dont need
 }
 
 class HomeTableViewCell: UITableViewCell {
@@ -72,18 +72,19 @@ class HomeTableViewCell: UITableViewCell {
     
     // Handle Save Post
     @objc func handleSavePost() {
+        print("saved a post")
         guard let post = post else { return }
         delegate?.didSavePost(post: post)
     }
     
     // Handle Unsave Post
     @objc func handleUnsavePost() {
+        print("Unsaved a post")
         guard let post = post else { return }
         delegate?.didUnsavePost(post: post)
     }
     // Handles Post Updates
     func updateLike(post: Post) {
-        //post.likes and post.isLiked
         let imageName = post.saved == nil || !post.isSaved! ? "EmptySave" : "FilledSave"
         likeImageView.image = UIImage(named: imageName)
         guard let count = post.likeCount else {
@@ -150,18 +151,17 @@ class HomeTableViewCell: UITableViewCell {
     @objc func likeImageView_TouchUpInside() {
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)
-            //self.post?.likes = post.likes
-            //self.post?.isLiked = post.isLiked
-            self.post?.isSaved = post.isSaved //testing 
-            //self.post?.likeCount = post.likeCount
+            self.post?.isSaved = post.isSaved
             self.delegate?.didSavePost(post: post)
-            self.delegate?.didUnsavePost(post: post) //testing
+            //self.delegate?.didUnsavePost(post: post)
         }) { (errorMessage) in
             print("Error: \(String(describing: errorMessage))")
         }
     }
     
+    //Nothing is happening here.
     @objc func unSave_TouchUpInside() {
+        print("Nothing happening here")
         self.delegate?.didUnsavePost(post: post!)
     }
 }

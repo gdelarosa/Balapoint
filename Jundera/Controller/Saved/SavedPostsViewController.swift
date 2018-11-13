@@ -101,7 +101,6 @@ class SavedPostsViewController: UIViewController {
                 self.activityIndicatorView.stopAnimating()
             })
            }
-            
         })
        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).observe(.childRemoved, with: { snapshot in
         Api.Post.observePost(withId: snapshot.key , completion: { post in
@@ -115,24 +114,7 @@ class SavedPostsViewController: UIViewController {
         })
         self.updateView()
     }
-    
-    /// Will remove posts that were unsaved. Currently not using.
-    func updateRemovedPosts() {
-//        guard let currentUser = Api.Userr.CURRENT_USER else { return }
-//        if Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid) != nil {
-//        Api.MySavedPosts.REF_MYSAVEDPOSTS.child(currentUser.uid).removeValue(completionBlock: { (error, ref) in
-//            if error != nil {
-//                print("Error: \(String(describing: error))")
-//                return
-//            }
-//            self.posts.removeAll()
-//            self.fetchMySavedPosts()
-//        })
-//       }
-    }
-    
-    
-    
+        
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.Userr.observeUser(withId: uid, completion: {
@@ -172,6 +154,30 @@ extension SavedPostsViewController: UICollectionViewDataSource {
 
 // Performs Segue to Detail Post
 extension SavedPostsViewController: SavedCollectionViewCellDelegate {
+    
+    func unsavePost(post: Post) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("saved").child(uid)
+        guard let postId = post.id else { return }
+        
+        let values = [postId: post.uid]
+        
+        if post.isSaved == true {
+            ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
+                if let err = err {
+                    print("Failed to put save post data in db:", err)
+                    return
+                }
+                print("Successfully put save post in db")
+            }
+        } else {
+            ref.child(post.id!).removeValue {_,_ in
+                print("Post is unsaved from SavedPostsVC")
+            }
+        }
+        
+    }
+    
     func goToDetailSavedPost(postId: String) {
         performSegue(withIdentifier: "Detail_Segue", sender: postId)
     }

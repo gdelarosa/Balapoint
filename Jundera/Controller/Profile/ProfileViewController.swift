@@ -9,38 +9,73 @@
 
 import UIKit
 import Firebase
-//import Segmentio
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var userId = ""
     var user: Userr!
     var posts: [Post] = []
     
+    private var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        if self.posts.isEmpty {
-            self.collectionView?.backgroundView = self.emptyHomeLabel
-        }
+        
         fetchUser()
         fetchMyPosts()
         settingsBarButton()
     }
     
-    //Empty State Label
-    let emptyHomeLabel: UILabel = {
-        let messageLabel = UILabel()
-        //messageLabel.text = "Ah...\n Your published posts will appear here."
-        messageLabel.textColor = #colorLiteral(red: 0.1538375616, green: 0.1488625407, blue: 0.1489177942, alpha: 1)
-        messageLabel.numberOfLines = 2
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Futura", size: 20)
-        messageLabel.sizeToFit()
-        return messageLabel
-    }()
+    
+    // Setup View
+    private func setupView() {
+        setupCollectionView()
+        setupMessageLabel()
+        setupActivityIndicatorView()
+    }
+    
+    // Setup TableView
+    private func setupCollectionView() {
+        collectionView.isHidden = true
+        
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    // Refreshes data
+    @objc private func refreshData(_ sender: Any) {
+        fetchMyPosts()
+    }
+    
+    // Activity Indicator Setup
+    private func setupActivityIndicatorView() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func updateView() {
+        let hasPosts = posts.count > 0
+        collectionView.isHidden = !hasPosts
+        messageLabel.isHidden = hasPosts
+        if hasPosts {
+            collectionView.reloadData()
+        }
+    }
+    
+    private func setupMessageLabel() {
+        messageLabel.isHidden = true
+        messageLabel.text = "Your published posts will appear here."
+    }
     
     func settingsBarButton() {
         let button: UIButton = UIButton(type: UIButtonType.custom)
@@ -60,24 +95,23 @@ class ProfileViewController: UIViewController {
     }
     
     func fetchMyPosts() {
-        
         guard let currentUser = Api.Userr.CURRENT_USER else {
             print("No current user in profile view controller")
             return
         }
-        
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
                 self.posts.append(post)
-                self.collectionView.reloadData()
+                self.posts.sort(by: {(p1, p2) -> Bool in
+                    return p1.date?.compare(p2.date!) == .orderedDescending
+                })
+                self.updateView()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             })
         })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -65,6 +65,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         tableView.allowsSelection = true
     }
     
+    // Refreshes data
     @objc private func refreshData(_ sender: Any) {
         loadPosts()
     }
@@ -126,6 +127,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 Api.Feed.observeFeedRemoved(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
                     self.posts = self.posts.filter { $0.id != post.id }
                     self.users = self.users.filter { $0.id != post.uid }
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -143,14 +145,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Save posts
     func didSavePost(post: Post) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-       
         let ref = Database.database().reference().child("saved").child(uid)
-       
-        
         guard let postId = post.id else { return }
         
         let values = [postId: post.uid]
-        //isLiked
+        
         if post.isSaved == true {
         ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
             if let err = err {
@@ -159,31 +158,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             print("Successfully put save post in db")
            }
-        } else { //tried postId
+        } else {
             ref.child(post.id!).removeValue {_,_ in
-                print("post removed")
+                print("Post is unsaved from HomeVC")
             }
-//            ref.updateChildValues(values as [AnyHashable : Any]) {_,_ in
-//               ref.removeValue()
-//            }
-            print("Post is not saved")
         }
  }
     
     func didUnsavePost(post: Post) {
+        print("This function is unused")
 //        guard let uid = Auth.auth().currentUser?.uid else { return }
 //        let ref = Database.database().reference().child("saved").child(uid)
-//        guard let postId = post.id else { return }
-//        let values = [postId: post.uid]
-//        //isLiked
+//       // guard let postId = post.id else { return }
+//        //let values = [postId: post.uid]
+//
 //        if post.isSaved == false {
-//            ref.updateChildValues(values as [AnyHashable : Any]) { (err, ref) in
-//                if let err = err {
-//                    print("Failed", err)
-//                }
-//                ref.removeValue()
-//                print("Removed Saved post in db")
+//            ref.child(post.id!).removeValue {_,_ in
+//                print("Post is unsaved")
 //            }
+//        } else {
+//            print("This post can't be unsaved")
 //        }
      }
 

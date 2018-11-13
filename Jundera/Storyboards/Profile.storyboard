@@ -210,6 +210,17 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your published posts will appear here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97x-id-gsn">
+                                <rect key="frame" x="71" y="500" width="232" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jWU-F1-IPt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -227,7 +238,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="jWU-F1-IPt" id="Fmq-jK-kIM"/>
                         <outlet property="collectionView" destination="SER-kB-uhd" id="ne8-t0-lK2"/>
+                        <outlet property="messageLabel" destination="97x-id-gsn" id="4dp-18-exF"/>
                         <segue destination="CBw-2P-fkl" kind="show" identifier="Profile_SettingSegue" id="pRK-3m-ebY"/>
                         <segue destination="EsZ-9H-OHi" kind="show" identifier="Profile_DetailSegue" id="49u-A6-ntL"/>
                         <segue destination="5HQ-9n-Lgp" kind="show" identifier="User_SettingSegue" id="L05-E0-EyC"/>
