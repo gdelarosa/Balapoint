@@ -28,8 +28,12 @@ class ProfileViewController: UIViewController {
         fetchUser()
         fetchMyPosts()
         settingsBarButton()
+        
+        if posts.count == 0 {
+            messageLabel.isHidden = false
+            activityIndicator.stopAnimating()
+        }
     }
-    
     
     // Setup View
     private func setupView() {
@@ -73,7 +77,7 @@ class ProfileViewController: UIViewController {
     
     private func setupMessageLabel() {
         messageLabel.isHidden = true
-        messageLabel.text = "Your published posts will appear here."
+        messageLabel.text = "Your published posts will appear here.🖌"
     }
     
     func settingsBarButton() {

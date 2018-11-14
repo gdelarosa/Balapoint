@@ -191,7 +191,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RGc-D2-4eZ">
                                         <rect key="frame" x="0.0" y="100" width="335" height="30"/>
@@ -237,22 +237,30 @@
                                     <action selector="dismiss_onClick:" destination="VTE-tb-V8W" eventType="touchUpInside" id="uuu-LI-2Rw"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fi6-di-qmP">
+                                <rect key="frame" x="165" y="175" width="37" height="36.5"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VGC-TB-dJi" firstAttribute="top" secondItem="fi6-di-qmP" secondAttribute="bottom" constant="25" id="3zx-eT-oPE"/>
                             <constraint firstItem="VGC-TB-dJi" firstAttribute="centerX" secondItem="qoP-KS-OIZ" secondAttribute="centerX" id="9ph-Iw-ydH"/>
                             <constraint firstItem="VGC-TB-dJi" firstAttribute="leading" secondItem="qoP-KS-OIZ" secondAttribute="leading" constant="20" id="AAI-ja-yPk"/>
                             <constraint firstItem="VGC-TB-dJi" firstAttribute="centerY" secondItem="qoP-KS-OIZ" secondAttribute="centerY" id="QIZ-M9-e0I"/>
                             <constraint firstItem="P38-dn-qAE" firstAttribute="top" secondItem="XaW-FK-Oxh" secondAttribute="bottom" constant="27" id="RxL-Hw-plB"/>
                             <constraint firstItem="P38-dn-qAE" firstAttribute="centerX" secondItem="qoP-KS-OIZ" secondAttribute="centerX" constant="-4" id="YVy-Jw-IZS"/>
                             <constraint firstItem="GB4-9v-2XM" firstAttribute="top" secondItem="GCc-OU-G8C" secondAttribute="bottom" id="gjJ-I5-VcY"/>
+                            <constraint firstItem="fi6-di-qmP" firstAttribute="top" secondItem="P38-dn-qAE" secondAttribute="bottom" constant="30" id="hTh-D3-uyR"/>
                             <constraint firstAttribute="trailing" secondItem="GCc-OU-G8C" secondAttribute="trailing" constant="68" id="jTS-zY-imA"/>
                             <constraint firstItem="GCc-OU-G8C" firstAttribute="leading" secondItem="qoP-KS-OIZ" secondAttribute="leading" constant="68" id="s3T-hv-2zR"/>
+                            <constraint firstItem="fi6-di-qmP" firstAttribute="centerX" secondItem="P38-dn-qAE" secondAttribute="centerX" id="w2J-Cr-hVw"/>
                             <constraint firstAttribute="trailing" secondItem="VGC-TB-dJi" secondAttribute="trailing" constant="20" id="zag-Jh-B1k"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="A7R-Y3-5e1" id="xqv-EE-8TL"/>
+                        <outlet property="loading" destination="fi6-di-qmP" id="prt-3C-Hoi"/>
                         <outlet property="passwordTextField" destination="RGc-D2-4eZ" id="l0X-4B-9R7"/>
                         <outlet property="profileImage" destination="P38-dn-qAE" id="pan-go-SfU"/>
                         <outlet property="signUpButton" destination="AAe-I9-EGi" id="XaB-Xx-8zZ"/>
@@ -274,7 +282,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholderImg" width="80" height="83"/>
+        <image name="placeholderImg" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JRp-rs-fkO"/>

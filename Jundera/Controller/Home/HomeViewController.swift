@@ -35,6 +35,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         settingsBarButton()
         setupView()
         loadPosts()
+        
+        if posts.count == 0 {
+            messageLabel.isHidden = false
+            activityIndicatorView.stopAnimating()
+        }
     }
 
     // Setup View
@@ -80,11 +85,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if hasPosts {
             tableView.reloadData()
         }
+        self.activityIndicatorView.stopAnimating()
     }
     
     private func setupMessageLabel() {
         messageLabel.isHidden = true
-        messageLabel.text = "Start following others to fill your feed."
+        messageLabel.text = "Welcome! 👋 Follow others to fill your feed."
     }
     
     ///Navigation Bar
@@ -136,6 +142,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         Api.Userr.observeUser(withId: uid, completion: {
             user in
             self.users.append(user)
+            
             completed()
         })
     }
