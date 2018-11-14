@@ -69,3 +69,14 @@ extension UIViewController {
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
+
+// Allows alert to appear in present view controller
+extension UIAlertController {
+    func presentInOwnWindow(animated: Bool, completion: (() -> Void)?) {
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(self, animated: animated, completion: completion)
+    }
+}

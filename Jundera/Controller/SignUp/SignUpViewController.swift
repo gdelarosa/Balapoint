@@ -10,7 +10,7 @@
 import UIKit
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
    var REF_USERS = Database.database().reference().child("users")
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -23,20 +23,26 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        profileImage.layer.cornerRadius = 40
+        profileImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        profileImage.layer.borderWidth = 2
         profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = 8
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-        //signUpButton.isEnabled = false
-        //handleTextField()
+        handleTextField()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+
     
     func handleTextField() {
         usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -45,15 +51,16 @@ class SignUpViewController: UIViewController {
         
     }
     
-    @objc func textFieldDidChange() {
+    @objc func textFieldDidChange(textField: UITextField) {
+        textField.text = usernameTextField.text?.lowercased()
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
+            
             let password = passwordTextField.text, !password.isEmpty else {
                 signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
                 signUpButton.isEnabled = false
                 return
         }
-        
-        signUpButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        signUpButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
         signUpButton.isEnabled = true
     }
     
@@ -92,6 +99,7 @@ class SignUpViewController: UIViewController {
         })
     }
 }
+
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -107,3 +115,4 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         dismiss(animated: true, completion: nil)
     }
 }
+

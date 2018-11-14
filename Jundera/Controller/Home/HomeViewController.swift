@@ -32,7 +32,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         settingsBarButton()
         setupView()
         loadPosts()
@@ -48,7 +47,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // Setup TableView
     private func setupTableView() {
         tableView.isHidden = true
-        
         // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
