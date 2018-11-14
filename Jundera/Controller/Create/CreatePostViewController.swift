@@ -152,7 +152,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             animation.toValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x + 10, y: postTitle.center.y))
             postTitle.layer.add(animation, forKey: "position")
         } else {
-            presentAlertWithTitle(title: "Ready to publish?", message: "", options: "Yes!", "Cancel") {
+            presentAlertWithTitle(title: "Ready to publish?", message: "", options: "Yes", "Cancel") {
                 (option) in
                 switch(option) {
                 case 0:

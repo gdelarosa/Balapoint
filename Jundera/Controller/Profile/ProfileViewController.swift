@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        
         fetchUser()
         fetchMyPosts()
         settingsBarButton()
@@ -199,21 +198,21 @@ extension ProfileViewController: PhotoCollectionViewCellDelegate {
         performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
     
+    ///  Deleting Post Action
     func didDeletePost(post: Post) {
-        print("Did delete Post - ProfileVC")
-        /// Deleting Post Action
+        print("Tapped to delete post - ProfileVC")
             let controller = UIAlertController(title:"Delete Post?", message: "Are you sure you want to delete this post?", preferredStyle: .actionSheet)
             controller.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
                 
-                //guard let uid = Auth.auth().currentUser?.uid else { return }
-                // Will have to test to make sure only the owner can delete their post. 
                 guard let postId = post.id else { return }
                 let ref = Database.database().reference().child("posts")
-                ref.child(postId).removeValue(completionBlock: { (error, _) in
+                
+                ref.child(postId).removeValue(completionBlock: { (error,_) in
+                    self.posts.removeAll()
+                    self.fetchMyPosts()
                     if let error = error {
                       print("There was an error deleting the post", error)
                     }
-                    self.collectionView.reloadData() //testing
                     print("Post \(postId) successfully deleted!")
                 })                
             }))

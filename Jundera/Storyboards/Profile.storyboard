@@ -209,6 +209,10 @@
                                         <outlet property="websiteUrl" destination="EzR-nR-Ide" id="e0C-Xa-Lg9"/>
                                     </connections>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="HbS-IN-ciJ" id="YS6-rx-2tX"/>
+                                    <outlet property="delegate" destination="HbS-IN-ciJ" id="eAN-bb-BcX"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your published posts will appear here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97x-id-gsn">
                                 <rect key="frame" x="71" y="500" width="232" height="18"/>
