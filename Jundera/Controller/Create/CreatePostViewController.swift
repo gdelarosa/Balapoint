@@ -16,6 +16,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var captionTextView: UITextView! // Body
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
@@ -156,7 +157,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                 (option) in
                 switch(option) {
                 case 0:
-                    print("Public")
+                   self.loading.startAnimating()
                    var profileImg = self.selectedImage
                     if profileImg == nil {
                         profileImg = UIImage(named: "placeholder-photo")
@@ -165,6 +166,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     let ratio = profileImg!.size.width / profileImg!.size.height
                         
                     HelperService.uploadDataToServer(data: imageData!, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, onSuccess: {
+                        self.loading.stopAnimating()
                             print("Successfully sent info to database!")
                             self.clean()
                             self.tabBarController?.selectedIndex = 0

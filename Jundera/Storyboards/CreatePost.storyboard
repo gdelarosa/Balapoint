@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,15 +56,21 @@
                                 <rect key="frame" x="16" y="282" width="343" height="2"/>
                                 <color key="backgroundColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3bL-M8-tF2">
+                                <rect key="frame" x="169" y="117" width="37" height="36"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3bL-M8-tF2" firstAttribute="centerX" secondItem="LB6-7E-EYx" secondAttribute="centerX" id="0Bo-Df-Bhp"/>
                             <constraint firstItem="HZJ-6L-E0e" firstAttribute="leading" secondItem="3mR-pw-Xb7" secondAttribute="leading" id="0g3-N8-u8d"/>
                             <constraint firstItem="XPn-YQ-Zma" firstAttribute="leading" secondItem="e3I-DW-326" secondAttribute="leading" id="1Ya-Fj-wcY"/>
                             <constraint firstItem="mrw-5V-ISW" firstAttribute="leading" secondItem="XPn-YQ-Zma" secondAttribute="leading" id="36I-nf-ubb"/>
                             <constraint firstItem="LB6-7E-EYx" firstAttribute="leading" secondItem="mrw-5V-ISW" secondAttribute="leading" id="6nB-UY-ZLb"/>
                             <constraint firstItem="LB6-7E-EYx" firstAttribute="leading" secondItem="3mR-pw-Xb7" secondAttribute="leadingMargin" id="GE4-fp-TLg"/>
                             <constraint firstItem="e3I-DW-326" firstAttribute="top" secondItem="mrw-5V-ISW" secondAttribute="bottom" constant="8" symbolic="YES" id="HYj-7p-S2K"/>
+                            <constraint firstItem="3bL-M8-tF2" firstAttribute="centerY" secondItem="HZJ-6L-E0e" secondAttribute="centerY" id="Iqb-4Y-OdX"/>
                             <constraint firstAttribute="trailing" secondItem="HZJ-6L-E0e" secondAttribute="trailing" id="K7P-VF-3rW"/>
                             <constraint firstItem="it2-vY-2CH" firstAttribute="top" secondItem="e3I-DW-326" secondAttribute="bottom" constant="30" id="U7c-up-9Rf"/>
                             <constraint firstItem="mrw-5V-ISW" firstAttribute="trailing" secondItem="XPn-YQ-Zma" secondAttribute="trailing" id="VBv-1q-RbQ"/>
@@ -72,6 +78,7 @@
                             <constraint firstItem="XPn-YQ-Zma" firstAttribute="trailing" secondItem="e3I-DW-326" secondAttribute="trailing" id="pLj-1S-Vgc"/>
                             <constraint firstItem="LB6-7E-EYx" firstAttribute="trailing" secondItem="XPn-YQ-Zma" secondAttribute="trailing" id="rFr-4J-2rs"/>
                             <constraint firstItem="HZJ-6L-E0e" firstAttribute="centerX" secondItem="LB6-7E-EYx" secondAttribute="centerX" id="raA-DA-xwD"/>
+                            <constraint firstItem="3bL-M8-tF2" firstAttribute="top" secondItem="Mrw-F2-FDq" secondAttribute="bottom" constant="53" id="v57-S7-Jk1"/>
                             <constraint firstItem="e3I-DW-326" firstAttribute="top" secondItem="XPn-YQ-Zma" secondAttribute="bottom" constant="8" symbolic="YES" id="vuq-8a-hMI"/>
                             <constraint firstItem="LB6-7E-EYx" firstAttribute="top" secondItem="HZJ-6L-E0e" secondAttribute="bottom" constant="10" id="yDo-Il-iCc"/>
                             <constraint firstItem="HZJ-6L-E0e" firstAttribute="top" secondItem="Mrw-F2-FDq" secondAttribute="bottom" id="yoq-4p-6PZ"/>
@@ -86,6 +93,7 @@
                     <connections>
                         <outlet property="captionTextView" destination="e3I-DW-326" id="MMV-Su-bHR"/>
                         <outlet property="header" destination="mrw-5V-ISW" id="awZ-do-Tnw"/>
+                        <outlet property="loading" destination="3bL-M8-tF2" id="MVX-QT-hJz"/>
                         <outlet property="photo" destination="HZJ-6L-E0e" id="M8n-mQ-cqH"/>
                         <outlet property="postTitle" destination="LB6-7E-EYx" id="Sic-7r-LQJ"/>
                     </connections>
@@ -120,6 +128,6 @@
     <resources>
         <image name="Create" width="24" height="27"/>
         <image name="CreateSelected" width="24" height="27"/>
-        <image name="placeholder-photo" width="840" height="600"/>
+        <image name="placeholder-photo" width="800" height="600"/>
     </resources>
 </document>

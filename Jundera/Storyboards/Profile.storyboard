@@ -1287,25 +1287,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-yD-FMP">
-                                                    <rect key="frame" x="70" y="13.5" width="291" height="17"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-yD-FMP">
+                                                    <rect key="frame" x="16" y="10" width="343" height="24"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlR-gJ-iwN">
-                                                    <rect key="frame" x="15" y="12.5" width="47" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="leading" secondItem="QlR-gJ-iwN" secondAttribute="trailing" constant="8" id="6lH-bj-qb7"/>
-                                                <constraint firstItem="QlR-gJ-iwN" firstAttribute="centerY" secondItem="IEW-Wc-G4h" secondAttribute="centerY" id="7ta-nx-JMm"/>
-                                                <constraint firstAttribute="trailing" secondItem="j9S-yD-FMP" secondAttribute="trailing" constant="14" id="8sX-wa-uOt"/>
-                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="centerY" secondItem="IEW-Wc-G4h" secondAttribute="centerY" id="ibw-dp-kqB"/>
-                                                <constraint firstItem="QlR-gJ-iwN" firstAttribute="leading" secondItem="IEW-Wc-G4h" secondAttribute="leading" constant="15" id="mrr-ki-VJ2"/>
+                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="trailing" secondItem="IEW-Wc-G4h" secondAttribute="trailingMargin" id="AiI-Sh-D2V"/>
+                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="leading" secondItem="IEW-Wc-G4h" secondAttribute="leadingMargin" id="YPK-E5-6Jy"/>
+                                                <constraint firstItem="j9S-yD-FMP" firstAttribute="centerY" secondItem="IEW-Wc-G4h" secondAttribute="centerY" id="nmr-gp-6fh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1316,25 +1308,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-n0-uqC">
-                                                    <rect key="frame" x="62" y="13.5" width="298" height="17"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-n0-uqC">
+                                                    <rect key="frame" x="16" y="11" width="343" height="24"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-Om-suy">
-                                                    <rect key="frame" x="15" y="13" width="39" height="18.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                    <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="leading" secondItem="ZH0-Om-suy" secondAttribute="trailing" constant="8" id="1pr-ew-28h"/>
-                                                <constraint firstItem="ZH0-Om-suy" firstAttribute="leading" secondItem="fAb-fM-eOD" secondAttribute="leading" constant="15" id="W9y-es-6Vg"/>
-                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="centerY" secondItem="fAb-fM-eOD" secondAttribute="centerY" id="Ygh-nk-Zug"/>
-                                                <constraint firstAttribute="trailing" secondItem="UHv-n0-uqC" secondAttribute="trailing" constant="15" id="ZCj-pm-3eP"/>
-                                                <constraint firstItem="ZH0-Om-suy" firstAttribute="centerY" secondItem="fAb-fM-eOD" secondAttribute="centerY" id="pEd-dl-86U"/>
+                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="leading" secondItem="fAb-fM-eOD" secondAttribute="leadingMargin" id="FOx-X4-9ou"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UHv-n0-uqC" secondAttribute="bottom" constant="-2" id="Jw8-7J-Ic6"/>
+                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="top" secondItem="fAb-fM-eOD" secondAttribute="topMargin" id="eiz-JR-KKm"/>
+                                                <constraint firstItem="UHv-n0-uqC" firstAttribute="trailing" secondItem="fAb-fM-eOD" secondAttribute="trailingMargin" id="zzW-0L-Cdi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1345,29 +1330,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9V7-sy-nG7">
-                                                    <rect key="frame" x="51" y="13" width="310" height="18"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Update your bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9V7-sy-nG7">
+                                                    <rect key="frame" x="16" y="11" width="343" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="310" id="SnL-tZ-1kd"/>
+                                                        <constraint firstAttribute="width" constant="343" id="SnL-tZ-1kd"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evd-Ew-ZMZ">
-                                                    <rect key="frame" x="15" y="12" width="46" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="centerY" secondItem="evd-Ew-ZMZ" secondAttribute="centerY" id="4gM-gZ-9kh"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="9V7-sy-nG7" secondAttribute="bottom" constant="2" id="8te-cb-a2G"/>
-                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="centerY" secondItem="lcO-4Q-LKs" secondAttribute="centerY" id="FT2-c8-Wsg"/>
-                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="leading" secondItem="evd-Ew-ZMZ" secondAttribute="trailing" constant="-10" id="aK3-Ef-Yos"/>
-                                                <constraint firstItem="evd-Ew-ZMZ" firstAttribute="leading" secondItem="lcO-4Q-LKs" secondAttribute="leading" constant="15" id="gRU-6m-aSF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9V7-sy-nG7" secondAttribute="trailing" constant="-2" id="ohB-2u-Kp8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9V7-sy-nG7" secondAttribute="bottom" constant="-2" id="8te-cb-a2G"/>
+                                                <constraint firstItem="9V7-sy-nG7" firstAttribute="centerY" secondItem="lcO-4Q-LKs" secondAttribute="centerY" constant="1" id="FT2-c8-Wsg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9V7-sy-nG7" secondAttribute="trailing" id="ohB-2u-Kp8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1378,25 +1354,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-dX-ZDK">
-                                                    <rect key="frame" x="83" y="13.5" width="279" height="17"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Update your website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-dX-ZDK">
+                                                    <rect key="frame" x="16" y="14" width="343" height="24"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKa-EJ-Vie">
-                                                    <rect key="frame" x="15" y="12.5" width="59.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="iKa-EJ-Vie" firstAttribute="centerY" secondItem="6Ah-uz-WVx" secondAttribute="centerY" id="2IG-5R-4SX"/>
-                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="centerY" secondItem="6Ah-uz-WVx" secondAttribute="centerY" id="5Iz-gd-aTn"/>
-                                                <constraint firstAttribute="trailing" secondItem="vmT-dX-ZDK" secondAttribute="trailing" constant="13" id="6Pl-na-Qr3"/>
-                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="leading" secondItem="iKa-EJ-Vie" secondAttribute="trailing" constant="8.5" id="vZX-A5-KpN"/>
-                                                <constraint firstItem="iKa-EJ-Vie" firstAttribute="leading" secondItem="6Ah-uz-WVx" secondAttribute="leading" constant="15" id="yz3-hq-8bD"/>
+                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="leading" secondItem="6Ah-uz-WVx" secondAttribute="leadingMargin" id="299-Pv-B0E"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vmT-dX-ZDK" secondAttribute="bottom" constant="-5" id="EBi-at-dTk"/>
+                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="trailing" secondItem="6Ah-uz-WVx" secondAttribute="trailingMargin" id="SbA-OX-fWa"/>
+                                                <constraint firstItem="vmT-dX-ZDK" firstAttribute="top" secondItem="6Ah-uz-WVx" secondAttribute="topMargin" constant="3" id="npP-md-Y4T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
