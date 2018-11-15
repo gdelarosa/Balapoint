@@ -143,10 +143,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="121" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPa-bV-FNE">
-                                                    <rect key="frame" x="5" y="8" width="93" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Lifestyle" translatesAutoresizingMaskIntoConstraints="NO" id="xiV-gi-9Vz">
                                                     <rect key="frame" x="5" y="0.0" width="111" height="91"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,7 +165,6 @@
                                         <connections>
                                             <outlet property="imageLayer" destination="LVp-To-8UI" id="6Fh-RX-uZ0"/>
                                             <outlet property="imageView" destination="xiV-gi-9Vz" id="NiU-QA-Jim"/>
-                                            <outlet property="selectTopicButton" destination="FPa-bV-FNE" id="66u-iV-T7W"/>
                                             <outlet property="topicTitle" destination="67p-k4-jVX" id="ESw-ba-2pb"/>
                                         </connections>
                                     </collectionViewCell>
@@ -216,7 +211,8 @@
                         <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="tl5-Cp-x7c"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="PRe-je-SKZ"/>
                         <segue destination="IKc-WK-6Vj" kind="show" identifier="Search_Segue" id="cfz-10-X0P"/>
-                        <segue destination="e1C-bs-JtM" kind="show" identifier="topic_Segue" id="53b-xx-YSG"/>
+                        <segue destination="e1C-bs-JtM" kind="show" identifier="TestViewController" id="53b-xx-YSG"/>
+                        <segue destination="e1C-bs-JtM" kind="show" identifier="secondTest" id="pIe-it-16v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56B-CE-3Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,12 +225,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-879.71014492753625" y="187.5"/>
+            <point key="canvasLocation" x="-880.79999999999995" y="186.65667166416793"/>
         </scene>
-        <!--Explore-->
+        <!--Test View Controller-->
         <scene sceneID="jX6-nD-fTG">
             <objects>
-                <viewController storyboardIdentifier="TestViewController" title="Explore" id="e1C-bs-JtM" customClass="TestViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" id="e1C-bs-JtM" customClass="TestViewController" customModule="Balapoint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lFg-Nb-uds"/>
                         <viewControllerLayoutGuide type="bottom" id="YVj-jr-LZI"/>
@@ -248,7 +244,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeTableViewCell" rowHeight="172" id="blI-1N-QOe" customClass="HomeTableViewCell" customModule="Balapoint" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TestCell" rowHeight="172" id="blI-1N-QOe" customClass="TestDetailTableViewCell" customModule="Balapoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="172"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blI-1N-QOe" id="Sav-gU-aGJ">
@@ -265,12 +261,6 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="8"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVl-h4-ev5">
-                                                    <rect key="frame" x="25" y="23" width="225.5" height="39"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
-                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Saved" translatesAutoresizingMaskIntoConstraints="NO" id="4kO-Ed-ZEB">
@@ -303,6 +293,19 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="e2Z-2f-YsE"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVl-h4-ev5">
+                                                    <rect key="frame" x="25" y="23" width="225.5" height="39"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jane Greyjoy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEH-Z6-iBe">
+                                                    <rect key="frame" x="107" y="142" width="126" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4kO-Ed-ZEB" firstAttribute="leading" secondItem="Sav-gU-aGJ" secondAttribute="leadingMargin" constant="10" id="03U-I2-6oK"/>
@@ -338,11 +341,13 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="captionLabel" destination="RzS-vp-cxT" id="Gb2-GL-sqW"/>
-                                            <outlet property="likeImageView" destination="4kO-Ed-ZEB" id="83J-VA-QdU"/>
-                                            <outlet property="nameLabel" destination="k2Q-7X-wpR" id="Zr0-iL-FmG"/>
-                                            <outlet property="postImageView" destination="LgK-il-OYY" id="GYk-mE-AMe"/>
-                                            <outlet property="postTitleLabel" destination="DVl-h4-ev5" id="nAY-Zx-eJm"/>
+                                            <outlet property="backgroundView" destination="4kC-DB-bXa" id="4tf-iu-8JQ"/>
+                                            <outlet property="captionLabel" destination="RzS-vp-cxT" id="f44-k7-1J1"/>
+                                            <outlet property="likeImageView" destination="4kO-Ed-ZEB" id="ZTW-is-eZo"/>
+                                            <outlet property="nameLabel" destination="k2Q-7X-wpR" id="nzt-63-QMR"/>
+                                            <outlet property="postDateLabel" destination="CEH-Z6-iBe" id="o6F-uj-HNV"/>
+                                            <outlet property="postImageView" destination="LgK-il-OYY" id="cho-Qx-OlJ"/>
+                                            <outlet property="postTitleLabel" destination="DVl-h4-ev5" id="o9r-QZ-LCu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -351,16 +356,21 @@
                                     <outlet property="delegate" destination="e1C-bs-JtM" id="PHb-62-GKL"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b99-oV-hLj">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="b99-oV-hLj" id="52s-t3-osh"/>
                         <outlet property="exploreTableView" destination="Kzh-jI-XPc" id="7Mo-0e-kx2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w78-in-RHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.80000000000000004" y="-69.715142428785612"/>
+            <point key="canvasLocation" x="215" y="-129"/>
         </scene>
         <!--ProfileUserViewController-->
         <scene sceneID="bM2-HW-fIG">
@@ -649,5 +659,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="PRe-je-SKZ"/>
         <segue reference="tl5-Cp-x7c"/>
+        <segue reference="pIe-it-16v"/>
     </inferredMetricsTieBreakers>
 </document>

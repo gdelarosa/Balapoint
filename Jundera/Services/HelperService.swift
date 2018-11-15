@@ -17,7 +17,7 @@ class HelperService {
         if let videoUrl = videoUrl {
             self.uploadVideoToFirebaseStorage(videoUrl: videoUrl, onSuccess: { (videoUrl) in
                 uploadImageToFirebaseStorage(data: data, onSuccess: { (thumbnailImageUrl) in
-                    sendDataToDatabase(photoUrl: thumbnailImageUrl, videoUrl: videoUrl, ratio: ratio, caption: caption, title: title, body: body, date: date, onSuccess: onSuccess)
+                    sendDataToDatabase(photoUrl: thumbnailImageUrl, videoUrl: videoUrl, ratio: ratio, caption: caption, title: title, body: body, date: date,  onSuccess: onSuccess)
                 })
             })
         } else {
@@ -72,16 +72,16 @@ class HelperService {
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
         let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
         
-        guard let currentUser = Api.Userr.CURRENT_USER else {
-            return
-        }
-        // Hashtag Reference
+        guard let currentUser = Api.Userr.CURRENT_USER else { return }
+        
+//        // Hashtag Reference
         let words = body.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         for var word in words {
             if word.hasPrefix("#") {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
                 word = word.trimmingCharacters(in: CharacterSet.symbols)
-                let newHashReference = Api.HashTag.REF_HASHTAG.child(word.lowercased())
+                let newHashId = Api.HashTag.REF_HASHTAG.childByAutoId().key
+                let newHashReference = Api.HashTag.REF_HASHTAG.child(word.lowercased()).child(newHashId!)
                 newHashReference.setValue([newPostId: true])
             }
         }
@@ -97,20 +97,19 @@ class HelperService {
         newPostReference.setValue(dict, withCompletionBlock: {
             (error, ref) in
             if error != nil {
-               // ProgressHUD.showError(error!.localizedDescription)
+               print(error!.localizedDescription)
                 return
             }
             
-            Api.Feed.REF_FEED.child(Api.Userr.CURRENT_USER!.uid).child(newPostId!).setValue(true)
+    Api.Feed.REF_FEED.child(Api.Userr.CURRENT_USER!.uid).child(newPostId!).setValue(true)
             
             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId!)
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
-                  //  ProgressHUD.showError(error!.localizedDescription)
+                 print(error!.localizedDescription)
                     return
                 }
             })
-           // ProgressHUD.showSuccess("Success")
             onSuccess()
         })
     }

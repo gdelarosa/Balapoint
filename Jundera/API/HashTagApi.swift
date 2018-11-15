@@ -12,4 +12,12 @@ import FirebaseDatabase
 class HashTagApi {
     
     var REF_HASHTAG = Database.database().reference().child("hashtag")
+    
+//    var CURRENT_HASHTAG: Hashtag? {
+//        if let currentTag =  {
+//            return currentTag
+//        }
+//        
+//        return nil
+//    }
 }

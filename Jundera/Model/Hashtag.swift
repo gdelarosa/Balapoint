@@ -1,10 +1,10 @@
 //
 //  Hashtag.swift
-//  Jundera
+//  Balapoint
 //
 //  Created by Gina De La Rosa on 11/6/18.
 //  Copyright © 2018 Gina De La Rosa. All rights reserved.
-//
+//  May not need this afterall
 
 import Foundation
 import Firebase

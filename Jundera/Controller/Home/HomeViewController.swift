@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var users = [Userr]()
     
     var post: Post?
-     lazy var postsRef = Database.database().reference().child("posts")
+    lazy var postsRef = Database.database().reference().child("posts")
     
     var imagesArray: [UIImage?] = [UIImage(named: "Lifestyle.png"), UIImage(named: "Tech.png"), UIImage(named: "Travel.png"), UIImage(named: "Food.png"),UIImage(named: "Politics.png"), UIImage(named: "Media.png"), UIImage(named: "Education.png"), UIImage(named: "Finance.png"), UIImage(named: "Health.png"), UIImage(named: "Beauty.png")]
     
@@ -124,6 +124,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     self.posts.sort(by: {(p1, p2) -> Bool in
                         return p1.date?.compare(p2.date!) == .orderedDescending
                     })
+                    
                     self.updateView()
                     self.refreshControl.endRefreshing()
                     self.activityIndicatorView.stopAnimating()
@@ -203,7 +204,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    // MARK: - CollectionView Data Source
+    // MARK: - CollectionView Data Source for Topics
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesArray.count
     }
@@ -227,12 +228,22 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.5
     }
-    
+    // Will navigate to selected topic vc 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
         controller.navigationItem.title = topicTitles[indexPath.item]
         controller.setBackButton()
         self.navigationController?.pushViewController(controller, animated: true)
+        
+//        if indexPath.item == 0 {
+//            print("Selected the first topic")
+//          self.performSegue(withIdentifier: "TestViewController", sender: self)
+//        } else if (indexPath.item == 1){
+//            self.performSegue(withIdentifier: "secondTest", sender: self)
+//            print ("Selected the second topic")
+//        } else {
+//            print("Not selected ")
+//        }
     }
 }
 

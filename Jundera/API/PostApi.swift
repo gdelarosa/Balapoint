@@ -13,6 +13,7 @@ class PostApi {
     
     var REF_POSTS = Database.database().reference().child("posts")
     var REF_SAVES = Database.database().reference().child("saved")
+    var REF_HASHTAG = Database.database().reference().child("hashtag")
     
     func observePosts(completion: @escaping (Post) -> Void) {
         REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
@@ -32,6 +33,18 @@ class PostApi {
             }
         })
     }
+    
+    //Testing hashtag
+//    func observeHashtagPost( completion: @escaping (Post) -> Void) {
+//        REF_POSTS.child("tech").observeSingleEvent(of: DataEventType.value, with: {
+//            snapshot in
+//            if let dict = snapshot.value as? [String: Any] {
+//                let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
+//                completion(post)
+//                print("Post is \(String(describing: post.uid))")
+//            }
+//        })
+//    }
     
     func observeLikeCount(withPostId id: String, completion: @escaping (Int, UInt) -> Void) {
         var likeHandler: UInt!

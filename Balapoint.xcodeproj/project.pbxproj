@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		770B4A27218909C40015D6AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B4A26218909C40015D6AA /* TestViewController.swift */; };
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
+		775B18E5219D043600F74EE2 /* TestDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */; };
 		7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */; };
 		7764D9BB21927F2B00F7EFE1 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */; };
 		7776DC3021814B3700542D2C /* MySavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */; };
@@ -73,6 +74,7 @@
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
 		770B4A26218909C40015D6AA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySavedPostsApi.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */,
+				775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */,
 			);
 			path = HomeTopic;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				77EE5279211BDCFF0065E364 /* SearchViewController.swift in Sources */,
 				77EE524B211BDCB70065E364 /* AuthService.swift in Sources */,
 				77EE525F211BDCF60065E364 /* HomeTableViewCell.swift in Sources */,
+				775B18E5219D043600F74EE2 /* TestDetailCollectionViewCell.swift in Sources */,
 				77F1EF3A211B837300A6F736 /* AppDelegate.swift in Sources */,
 				77EE5272211BDCFF0065E364 /* DetailViewController.swift in Sources */,
 				7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */,

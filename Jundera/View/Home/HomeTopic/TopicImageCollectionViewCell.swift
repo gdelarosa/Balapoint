@@ -11,7 +11,6 @@ import UIKit
 class TopicImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var selectTopicButton: UIButton!
     @IBOutlet weak var topicTitle: UILabel!
     @IBOutlet weak var imageLayer: UIImageView!
     
@@ -21,4 +20,6 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         imageLayer.layer.cornerRadius = 8.0
         imageLayer.clipsToBounds = true 
     }
+    
+    
 }
