@@ -212,15 +212,9 @@ extension TestViewController: UITableViewDataSource {
     
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.post = posts[indexPath.row]
+        cell.userTest = users[indexPath.row]
         cell.delegate = self
-        cell.captionLabel.text = post.caption
         
-        if let photoUrlString = post.photoUrl {
-            let photoUrl = URL(string: photoUrlString)
-            cell.postImageView.sd_setImage(with: photoUrl)
-        } else {
-            print("Unable to get photo")
-        }
         return cell
     }
 }
