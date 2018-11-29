@@ -34,11 +34,13 @@ class TestDetailTableViewCell: UITableViewCell {
         }
     }
     
-    var user: Userr? {
+    var userTest: Userr? {
         didSet {
             setupUserInfo()
         }
     }
+    
+    var shot: DataSnapshot?
     
     func updateView() {
         postImageView.layer.cornerRadius = 8.0
@@ -53,6 +55,8 @@ class TestDetailTableViewCell: UITableViewCell {
             print("UNABLE TO GET DATE")
             return
         }
+        print("Caption: \(String(describing: post?.caption))")
+        print("Date is: \(creationDate)")
         postDateLabel.text = creationDate.timeAgoDisplay().lowercased()
         
         
@@ -95,7 +99,8 @@ class TestDetailTableViewCell: UITableViewCell {
     }
     
     func setupUserInfo() {
-        nameLabel.text = user?.username
+        nameLabel.text = userTest?.username
+        print("TEST - User is: \(String(describing: userTest?.username))")
     }
     
     override func awakeFromNib() {
@@ -104,6 +109,9 @@ class TestDetailTableViewCell: UITableViewCell {
         captionLabel.text = ""
         postTitleLabel.text = ""
         postDateLabel.text = ""
+        
+        //updateView()
+       
         
         // Will fill in saved icon
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
@@ -129,7 +137,7 @@ class TestDetailTableViewCell: UITableViewCell {
     
     // Goes to user profile.
     @objc func nameLabel_TouchUpInside() {
-        if let id = user?.id {
+        if let id = userTest?.id {
             print("Go to User Profile - HOME CELL")
             delegate?.goToProfileUserVC(userId: id)
         } else {

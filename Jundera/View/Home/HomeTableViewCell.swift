@@ -27,6 +27,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel! // Heading
     @IBOutlet weak var postDateLabel: UILabel! // Date posted
     
+    
     var delegate: HomeTableViewCellDelegate?
     
     var post: Post? {
@@ -98,6 +99,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func setupUserInfo() {
         nameLabel.text = user?.username
+        //print("HOME - User is: \(String(describing: user?.username))")
     }
     
       override func awakeFromNib() {

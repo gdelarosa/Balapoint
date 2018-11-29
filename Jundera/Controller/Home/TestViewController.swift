@@ -15,7 +15,6 @@ class TestViewController: UIViewController {
     @IBOutlet weak var exploreTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    
     var post = Post()
     var postIds: [String: Any]?
     var postSnapshots = [DataSnapshot]()
@@ -28,11 +27,11 @@ class TestViewController: UIViewController {
     private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        //loadFeed()
         loadUserPosts()
         exploreTableView.isHidden = false
-        //loadPosts()
-       // setupView()
         activityIndicatorView.isHidden = true
         if posts.count == 0 {
             activityIndicatorView.stopAnimating()
@@ -53,6 +52,7 @@ private func setupTableView() {
     } else {
         exploreTableView.addSubview(refreshControl)
     }
+
     
     // Configure Refresh Control
     refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
@@ -81,40 +81,76 @@ private func updateView() {
     }
     self.activityIndicatorView.stopAnimating()
 }
-    func loadFeed() {
-        loadingPostCount = postSnapshots.count + 12
-        self.exploreTableView?.performBatchUpdates({
-            for _ in 1...12 {
-                if let postId = self.postIds?.popFirst()?.key {
-                    Database.database().reference(withPath: "posts/\(postId)").observeSingleEvent(of: .value, with: { postSnapshot in
-                        self.postSnapshots.append(postSnapshot)
-                        self.exploreTableView?.insertRows(at: [IndexPath(item: self.postSnapshots.count - 1, section: 0)], with: UITableViewRowAnimation.none)
-                    })
-                } else {
-                    break
-                }
-            }
-        }, completion: nil)
-    }
+//    func loadFeed() {
+//        loadingPostCount = posts.count + 12
+//        self.exploreTableView?.performBatchUpdates({
+//            for _ in 1...12 {
+//                if let postId = self.postIds?.popFirst()?.key {
+//                    
+//                  //  Database.database().reference(withPath: "posts/\(postId)").observeSingleEvent(of: .value, with: { snapshot in
+//                        
+//                        //Api.Post.observeHashtag { (post) in
+////                            Database.database().reference(withPath: "posts/\(postId)").observeSingleEvent(of: .value, with : {
+////                                snapshot in
+////                                self.posts.append(post)
+////                                self.exploreTableView.reloadData()
+////                            })
+//                    
+//                        }
+////                        Api.Post.observePost(withId: postId, completion: { post in
+////                            self.posts.append(post)
+////                            self.exploreTableView?.insertRows(at: [IndexPath(item: self.posts.count - 1, section: 0)], with: UITableViewRowAnimation.none)
+////                        })
+////                        let post = Post.transformPostPhoto(dict: self.postIds!, key: snapshot.key)
+////                        self.posts.append(post)
+////                        self.exploreTableView?.insertRows(at: [IndexPath(item: self.posts.count - 1, section: 0)], with: UITableViewRowAnimation.none)
+////                        print("Data: \(post), \(snapshot.key), \(snapshot) \(String(describing: self.postIds))")
+//                   // })
+//                } else {
+//                    break
+//                }
+//            }
+//        }, completion: nil)
+//    }
     
     func loadUserPosts() {
-        Database.database().reference(withPath: "hashtag/media").observeSingleEvent(of: .value, with: {
-            if let posts = $0.value as? [String: Any] {
-                self.postIds = posts
-                self.loadingPostCount = posts.count
-                self.loadFeed()
-                print("Post \(posts)")
-            }
-        })
+        Api.Post.observeTopPosts { (post) in
+            guard let postUid = post.uid else { return }
+            //print("The post uid is: \(postUid)")
+            self.fetchUser(uid: postUid, completed: {
+                self.posts.append(post)
+                 self.exploreTableView.reloadData()
+//                self.posts.sort(by: {(p1, p2) -> Bool in
+//                    return p1.date?.compare(p2.date!) == .orderedDescending
+//                })
+                
+                //self.updateView()
+                //self.refreshControl.endRefreshing()
+                //self.activityIndicatorView.stopAnimating()
+            })
+           // self.posts.append(post)
+//            self.exploreTableView.reloadData()
+        }
+//        Api.Post.observeHashtag { (post) in
+//            //self.posts.append(post)
+//           // self.exploreTableView.reloadData()
+//            self.loadFeed()
+//        }
+//        Database.database().reference(withPath: "hashtag/media").observeSingleEvent(of: .value, with: {
+//            if let posts = $0.value as? [String: Any] {
+//                self.postIds = posts
+//                self.loadingPostCount = posts.count
+//                self.loadFeed()
+//                print(posts)
+//            }
+//        })
     }
-    
     
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.Userr.observeUser(withId: uid, completion: {
             user in
             self.users.append(user)
-            
             completed()
         })
     }
@@ -168,36 +204,23 @@ private func updateView() {
 extension TestViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postSnapshots.count
-            //posts.count
-        
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! TestDetailTableViewCell
-//        let post = posts[indexPath.row]
-//        //let user = users[indexPath.row]
-//        cell.selectionStyle = UITableViewCellSelectionStyle.none
-//        cell.post = post
-//        //cell.user = user
-//        cell.delegate = self
-//        self.exploreTableView.reloadData()
+    
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.post = posts[indexPath.row]
+        cell.delegate = self
+        cell.captionLabel.text = post.caption
         
-        
-        let postSnapshot = postSnapshots[indexPath.row]
-
-        if let value = postSnapshot.value as? [String: Any], let photoUrl = value["photoUrl"] as? String {
-          
-           // let imageView = UIImageView()
-            cell.postImageView.sd_setImage(with: URL(string: photoUrl), completed: nil)
-            
-//            cell.backgroundView = imageView
-//            imageView.sd_setImage(with: URL(string: photoUrl), completed: nil)
-//            imageView.contentMode = .scaleAspectFill
-//            imageView.isAccessibilityElement = true
-            //imageView.accessibilityLabel = "Photo with hashtag \(hashtag)"
+        if let photoUrlString = post.photoUrl {
+            let photoUrl = URL(string: photoUrlString)
+            cell.postImageView.sd_setImage(with: photoUrl)
+        } else {
+            print("Unable to get photo")
         }
-        
         return cell
     }
 }

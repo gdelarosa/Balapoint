@@ -14,6 +14,8 @@ class PostApi {
     var REF_POSTS = Database.database().reference().child("posts")
     var REF_SAVES = Database.database().reference().child("saved")
     var REF_HASHTAG = Database.database().reference().child("hashtag")
+    //testing
+    var REF_POSTSHASHTAG = Database.database().reference().child("posts/body")
     
     func observePosts(completion: @escaping (Post) -> Void) {
         REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
@@ -34,17 +36,35 @@ class PostApi {
         })
     }
     
-    //Testing hashtag
-//    func observeHashtagPost( completion: @escaping (Post) -> Void) {
-//        REF_POSTS.child("tech").observeSingleEvent(of: DataEventType.value, with: {
+    // Testing
+//    func observeHashtag(completion: @escaping (Post) -> Void) {
+//        REF_HASHTAG.child("media").observeSingleEvent(of: .value, with: {
 //            snapshot in
-//            if let dict = snapshot.value as? [String: Any] {
-//                let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
-//                completion(post)
-//                print("Post is \(String(describing: post.uid))")
-//            }
+//            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+//            arraySnapshot.forEach({ (child) in
+//                if let dict = child.value as? [String: Any] {
+//                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
+//                    completion(post)
+//                    print(dict)
+//                }
+//            })
 //        })
 //    }
+    // Working but not showing comment 
+    //Testing by searching each post with a specific hashtag
+    func observeTopPosts(completion: @escaping (Post) -> Void) {
+        REF_POSTS.queryOrdered(byChild: "hashtag").queryStarting(atValue: "cooking").observeSingleEvent(of: .value, with: {
+            snapshot in
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach({ (child) in
+                if let dict = child.value as? [String: Any] {
+                    let post = Post.transformPostPhoto(dict: dict, key: child.key)
+                    completion(post)
+                    //print(dict)
+                }
+            })
+        })
+    }
     
     func observeLikeCount(withPostId id: String, completion: @escaping (Int, UInt) -> Void) {
         var likeHandler: UInt!

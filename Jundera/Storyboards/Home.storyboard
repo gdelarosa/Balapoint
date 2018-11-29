@@ -342,9 +342,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backgroundView" destination="4kC-DB-bXa" id="4tf-iu-8JQ"/>
-                                            <outlet property="captionLabel" destination="RzS-vp-cxT" id="f44-k7-1J1"/>
+                                            <outlet property="captionLabel" destination="RzS-vp-cxT" id="Pns-qx-edh"/>
                                             <outlet property="likeImageView" destination="4kO-Ed-ZEB" id="ZTW-is-eZo"/>
-                                            <outlet property="nameLabel" destination="k2Q-7X-wpR" id="nzt-63-QMR"/>
+                                            <outlet property="nameLabel" destination="k2Q-7X-wpR" id="50I-kj-458"/>
                                             <outlet property="postDateLabel" destination="CEH-Z6-iBe" id="o6F-uj-HNV"/>
                                             <outlet property="postImageView" destination="LgK-il-OYY" id="cho-Qx-OlJ"/>
                                             <outlet property="postTitleLabel" destination="DVl-h4-ev5" id="o9r-QZ-LCu"/>
@@ -370,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w78-in-RHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="-129"/>
+            <point key="canvasLocation" x="191" y="-165"/>
         </scene>
         <!--ProfileUserViewController-->
         <scene sceneID="bM2-HW-fIG">

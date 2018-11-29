@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var posts = [Post]()
     var users = [Userr]()
     
+
     var post: Post?
     lazy var postsRef = Database.database().reference().child("posts")
     

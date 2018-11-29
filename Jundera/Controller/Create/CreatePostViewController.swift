@@ -17,6 +17,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var postTitle: UITextField! // Title
     @IBOutlet weak var header: UITextField! // Header
     @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var hashtag: UITextField! //Hashtag Testing
     
     var selectedImage: UIImage?
     var videoUrl: URL? //Wont need
@@ -153,7 +154,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             animation.toValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x + 10, y: postTitle.center.y))
             postTitle.layer.add(animation, forKey: "position")
         } else {
-            presentAlertWithTitle(title: "Ready to publish?", message: "", options: "Yes", "Cancel") {
+            presentAlertWithTitle(title: "Ready to publish? You will not be able to edit your post after you publish.", message: "", options: "Yes", "Cancel") {
                 (option) in
                 switch(option) {
                 case 0:
@@ -165,7 +166,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     let imageData = UIImageJPEGRepresentation(profileImg!, 0.1)
                     let ratio = profileImg!.size.width / profileImg!.size.height
                         
-                    HelperService.uploadDataToServer(data: imageData!, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, onSuccess: {
+                   HelperService.uploadDataToServer(data: imageData!, videoUrl: self.videoUrl, ratio: ratio, caption: self.header.text!, title: self.postTitle.text!, body: self.captionTextView.text!, date: Date().timeIntervalSince1970, hashtag: self.hashtag.text!, onSuccess: {
                         self.loading.stopAnimating()
                             print("Successfully sent info to database!")
                             self.clean()
