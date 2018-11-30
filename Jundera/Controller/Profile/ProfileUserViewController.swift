@@ -19,17 +19,29 @@ class ProfileUserViewController: UIViewController {
     var userId = ""
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     
+    //Test
+      var uid: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("userId: \(userId)")
         collectionView.dataSource = self
         fetchUser()
         fetchMyPosts()
         setBackButton()
+        
     }
     
     @IBAction func blockUserAction(_ sender: Any) {
-        didSelectOptions(user: userr)
+        Helper.shared.blockUser(uid: userr.id!, VC: self)
+       // presentAlert()
+    }
+    
+    func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
+        Api.Follow.isFollowing(userId: userId, completed: completed)
+    }
+    
+    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
+        Api.Blocking.isBlocking(userId: userId, completed: completed)
     }
     
     func fetchUser() {
@@ -39,11 +51,12 @@ class ProfileUserViewController: UIViewController {
                 self.userr = userr
                 self.collectionView.reloadData()
             })
+            
+//            self.isBlocking(userId: userr.id!, completed: { (values) in
+//                userr.isBlocking = values
+//                self.userr = userr
+//            })
         }
-    }
-    
-    func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
-        Api.Follow.isFollowing(userId: userId, completed: completed)
     }
     
     func fetchMyPosts() {
@@ -56,43 +69,60 @@ class ProfileUserViewController: UIViewController {
         }
     }
     
+     func blockAction() {
+        if userr!.isBlocking! == false {
+            Api.Blocking.blockAction(withUser: userr!.id!)
+            userr!.isFollowing! = true
+            print("User is blocked mofo!")
+        }
+    }
+    
+     func unblockAction() {
+        if userr!.isBlocking! == true {
+            Api.Blocking.unblockAction(withUser: userr!.id!)
+            userr!.isBlocking! = false
+        }
+        
+    }
+    
+    func presentAlert() {
+        if userr!.isBlocking! == false {
+            didBlock()
+        } else {
+            didUnblock()
+        }
+    }
+    
     /// Block User Action: NEED TO TEST! 
-    func didSelectOptions(user: Userr) {
+    func didBlock() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Block User", style: .destructive, handler: { (_) in
             
-            let confirmationController = UIAlertController(title: "User Blocked", message: "You will no longer be able to view their posts.", preferredStyle: .alert)
+            let confirmationController = UIAlertController(title: "User Blocked", message: "They will not be able to view your posts or follow you.", preferredStyle: .alert)
+            confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
+                confirmationController.dismiss(animated: true, completion: {
+                    controller.dismiss(animated: true, completion: nil)
+                })
+            }))
+        
+            self.blockAction()
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func didUnblock() {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Unblock User", style: .destructive, handler: { (_) in
+            
+            let confirmationController = UIAlertController(title: "User Unblocked", message: "They will be able to follow you.", preferredStyle: .alert)
             confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
                 confirmationController.dismiss(animated: true, completion: {
                     controller.dismiss(animated: true, completion: nil)
                 })
             }))
             
-            let ref = Database.database().reference().child("blocked").childByAutoId()
-            guard let uid = Auth.auth().currentUser?.uid else { return }
-            guard let userId = self.userr.id else { return }
-            
-            let updateData = ["blocked/\(userId)/\(uid)": true,
-                              "blocking/\(uid)/\(userId)" : true]
-           ref.updateChildValues(updateData) { error, _ in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-            print("User is blocked mofo!")
-//            let values: [String:Any] = [
-//                "uid": uid,
-//                "users": userId
-//            ]
-//            ref.updateChildValues(values, withCompletionBlock: { (err, _) in
-//                if let err = err {
-//                    print("Failed to block user:", err)
-//                    return
-//                }
-//                print("Successfully blocked user:", values["users"] as? String ?? "")
-//                self.present(confirmationController, animated: true, completion: nil)
-//            })
-            
+            self.unblockAction()
         }))
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(controller, animated: true, completion: nil)

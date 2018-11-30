@@ -18,6 +18,7 @@ class Userr {
     var postTitle: String?
     var bio: String?
     var website: String?
+    var isBlocking: Bool?
 }
 
 extension Userr {

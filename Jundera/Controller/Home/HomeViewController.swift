@@ -20,6 +20,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var posts = [Post]()
     var users = [Userr]()
+    var blockList = [String]()
+    var userr: Userr!
     
 
     var post: Post?
@@ -35,12 +37,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         settingsBarButton()
         setupView()
-        loadPosts()
+       // loadPosts()
 
 //        if posts.count == 0 {
 //            messageLabel.isHidden = false
 //            activityIndicatorView.stopAnimating()
 //        }
+        //Testing for blocked users
+        loadBlockList(completion: {
+            self.loadPosts()
+            self.removeBlockFeed()
+            //self.addUnblockFeed()
+        })
     }
 
     // Setup View
@@ -121,10 +129,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 guard let postUid = post.uid else { return }
                 
                 self.fetchUser(uid: postUid, completed: {
-                
-//                    self.posts.sort(by: {(p1, p2) -> Bool in
-//                        return p1.date?.compare(p2.date!) == .orderedDescending
-//                    })
+                    
                     self.posts.append(post)
                     
                     self.updateView()
@@ -140,12 +145,51 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    // Testing Blocking
+    func loadBlockList(completion: @escaping () -> Void) {
+        guard let uid = Api.Userr.CURRENT_USER?.uid else {return}
+        
+        Api.USER_BLOCK.observeBlockList(uid: uid, completion: { (id) in
+            self.blockList.append(id)
+        })
+        completion()
+    }
+    
+    func removeBlockFeed() {
+        guard let currentUserUID = Api.Userr.CURRENT_USER?.uid else {return}
+        
+        Api.USER_BLOCK.observeBlock(uid: currentUserUID) { (id) in
+            self.posts = self.posts.filter{$0.uid != id}
+            self.users = self.users.filter{$0.id != id}
+            self.tableView.reloadData()
+        }
+    }
+    
+//    func addUnblockFeed() {
+//        guard let currentUserUID = Api.Userr.CURRENT_USER?.uid else {return}
+//
+//        Api.USER_BLOCK.observeUnblock(uid: currentUserUID) { (id) in
+//            Api.USER_POST.observeUserPostSingleEvent(uid: id, completion: { (postID) in
+//                Api.POST.observeSinglePost(postId: postID, completion: { (post) in
+//                    self.loadUser(uid: post.uid!, completed: {(user) in
+//                        self.users.insert(user, at: 0)
+//                        self.posts.insert(post, at: 0)
+//                        self.tableView.reloadData()
+//                    })
+//                })
+//            })
+//        }
+//    }
+    
+    // 1st test
+    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
+        Api.Blocking.isBlocking(userId: userId, completed: completed)
+    }
+    
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
-        Api.Userr.observeUser(withId: uid, completion: {
-            user in
+        Api.Userr.observeUser(withId: uid, completion: { user in
             self.users.append(user)
-            
             completed()
         })
     }

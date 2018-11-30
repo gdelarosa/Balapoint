@@ -17,4 +17,6 @@ struct Api {
     static var Follow = FollowApi()
     static var Feed = FeedApi()
     static var HashTag = HashTagApi()
+    static var Blocking = BlockApi()
+    static let USER_BLOCK = UserBlock() // TESTING 
 }

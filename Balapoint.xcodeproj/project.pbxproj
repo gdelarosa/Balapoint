@@ -18,6 +18,9 @@
 		7799A1F3217900B500A1DF91 /* TopicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */; };
 		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
 		779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */; };
+		779AC65221B1B86500F108AC /* BlockingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC65121B1B86500F108AC /* BlockingApi.swift */; };
+		779AC65521B1E86C00F108AC /* UserBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC65421B1E86C00F108AC /* UserBlock.swift */; };
+		779AC65721B1E8A300F108AC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC65621B1E8A300F108AC /* Helper.swift */; };
 		77BE161521B0B38000609F20 /* TechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161421B0B38000609F20 /* TechViewController.swift */; };
 		77BE161721B0BB3F00609F20 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161621B0BB3F00609F20 /* TravelViewController.swift */; };
 		77BE161921B0BB4B00609F20 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161821B0BB4B00609F20 /* FoodViewController.swift */; };
@@ -92,6 +95,9 @@
 		7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
+		779AC65121B1B86500F108AC /* BlockingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingApi.swift; sourceTree = "<group>"; };
+		779AC65421B1E86C00F108AC /* UserBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBlock.swift; sourceTree = "<group>"; };
+		779AC65621B1E8A300F108AC /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		77BCA80B2179621100F4AF32 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = "../../Library/Developer/Xcode/DerivedData/FoldingCell-amuygqodqeojuncalioaolkondfi/Build/Products/Debug-iphonesimulator/FoldingCell.framework"; sourceTree = "<group>"; };
 		77BE161421B0B38000609F20 /* TechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechViewController.swift; sourceTree = "<group>"; };
 		77BE161621B0BB3F00609F20 /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +310,15 @@
 			path = SavedPostsView;
 			sourceTree = "<group>";
 		};
+		779AC65321B1E84F00F108AC /* TestBlock */ = {
+			isa = PBXGroup;
+			children = (
+				779AC65421B1E86C00F108AC /* UserBlock.swift */,
+				779AC65621B1E8A300F108AC /* Helper.swift */,
+			);
+			path = TestBlock;
+			sourceTree = "<group>";
+		};
 		77BE161321B09E5200609F20 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +360,7 @@
 				77EE523B211BDC790065E364 /* PostApi.swift */,
 				77EE523A211BDC790065E364 /* UserApi.swift */,
 				7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */,
+				779AC65121B1B86500F108AC /* BlockingApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -440,6 +456,7 @@
 		77F1EF38211B837300A6F736 /* Jundera */ = {
 			isa = PBXGroup;
 			children = (
+				779AC65321B1E84F00F108AC /* TestBlock */,
 				77EE5227211BD9860065E364 /* Model */,
 				77EE5226211BD9800065E364 /* View */,
 				77EE5225211BD9790065E364 /* Controller */,
@@ -648,8 +665,10 @@
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				770B4A27218909C40015D6AA /* LifestyleViewController.swift in Sources */,
 				77EE5246211BDC790065E364 /* Api.swift in Sources */,
+				779AC65221B1B86500F108AC /* BlockingApi.swift in Sources */,
 				77EE527A211BDCFF0065E364 /* CreatePostViewController.swift in Sources */,
 				77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */,
+				779AC65721B1E8A300F108AC /* Helper.swift in Sources */,
 				77EE5253211BDCD90065E364 /* User.swift in Sources */,
 				77EE527C211BDCFF0065E364 /* SavedPostsViewController.swift in Sources */,
 				77EE525C211BDCF60065E364 /* ProfilePosts.swift in Sources */,
@@ -682,6 +701,7 @@
 				77BE162321B0BB8700609F20 /* HealthViewController.swift in Sources */,
 				77BE161521B0B38000609F20 /* TechViewController.swift in Sources */,
 				779AC4932175828E000BE905 /* Extensions.swift in Sources */,
+				779AC65521B1E86C00F108AC /* UserBlock.swift in Sources */,
 				77EE523F211BDC790065E364 /* FollowApi.swift in Sources */,
 				77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */,
 				77D73389218BD0010090D8DC /* ReportBugViewController.swift in Sources */,
@@ -836,7 +856,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -854,7 +877,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = Jundera/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_VERSION = 4.0;
@@ -870,7 +896,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -887,7 +917,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6GUQ7XNWR;
 				INFOPLIST_FILE = JunderaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.JunderaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

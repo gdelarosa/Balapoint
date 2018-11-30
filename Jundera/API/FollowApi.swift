@@ -33,7 +33,7 @@ class FollowApi {
             snapshot in
             if let dict = snapshot.value as? [String: Any] {
                 for key in dict.keys {
-                    Database.database().reference().child("feed").child(Api.Userr.CURRENT_USER!.uid).child(key).removeValue()
+            Database.database().reference().child("feed").child(Api.Userr.CURRENT_USER!.uid).child(key).removeValue()
                 }
             }
         })
