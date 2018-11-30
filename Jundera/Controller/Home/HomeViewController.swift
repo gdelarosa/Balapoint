@@ -232,18 +232,17 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     }
     // Will navigate to selected topic vc 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selcted a cell")
         
         let lifestyle = self.storyboard?.instantiateViewController(withIdentifier: "Lifestyle") as! LifestyleViewController
         let tech = self.storyboard?.instantiateViewController(withIdentifier: "Tech") as! TechViewController
         let travel = self.storyboard?.instantiateViewController(withIdentifier: "Travel") as! TravelViewController
-//        let food = self.storyboard?.instantiateViewController(withIdentifier: "Food") as! FoodViewController
-//        let politics = self.storyboard?.instantiateViewController(withIdentifier: "Politics") as! PoliticsViewController
-//        let media = self.storyboard?.instantiateViewController(withIdentifier: "Media") as! MediaViewController
-//        let education = self.storyboard?.instantiateViewController(withIdentifier: "Education") as! EducationViewController
-//        let finance = self.storyboard?.instantiateViewController(withIdentifier: "Finance") as! FinanceViewController
-//        let health = self.storyboard?.instantiateViewController(withIdentifier: "Health") as! HealthViewController
-//        let beauty = self.storyboard?.instantiateViewController(withIdentifier: "Beauty") as! BeautyViewController
+        let food = self.storyboard?.instantiateViewController(withIdentifier: "Food") as! FoodViewController
+        let politics = self.storyboard?.instantiateViewController(withIdentifier: "Politics") as! PoliticsViewController
+        let media = self.storyboard?.instantiateViewController(withIdentifier: "Media") as! MediaViewController
+        let education = self.storyboard?.instantiateViewController(withIdentifier: "Education") as! EducationViewController
+        let finance = self.storyboard?.instantiateViewController(withIdentifier: "Finance") as! FinanceViewController
+        let health = self.storyboard?.instantiateViewController(withIdentifier: "Health") as! HealthViewController
+        let beauty = self.storyboard?.instantiateViewController(withIdentifier: "Beauty") as! BeautyViewController
         
         if indexPath.item == 0 {
           print("Selected Lifestyle")
@@ -260,41 +259,41 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
             travel.navigationItem.title = topicTitles[indexPath.item]
             travel.setBackButton()
             self.navigationController?.pushViewController(travel, animated: true)
-//        } else if (indexPath.item == 3) {
-//            print ("Selected Food")
-//            food.navigationItem.title = topicTitles[indexPath.item]
-//            food.setBackButton()
-//            self.navigationController?.pushViewController(food, animated: true)
-//        } else if (indexPath.item == 4) {
-//            print ("Selected Politics")
-//            politics.navigationItem.title = topicTitles[indexPath.item]
-//            politics.setBackButton()
-//            self.navigationController?.pushViewController(politics, animated: true)
-//        } else if (indexPath.item == 5) {
-//            print ("Selected Media")
-//            media.navigationItem.title = topicTitles[indexPath.item]
-//            media.setBackButton()
-//            self.navigationController?.pushViewController(media, animated: true)
-//        } else if (indexPath.item == 6) {
-//            print ("Selected Education")
-//            education.navigationItem.title = topicTitles[indexPath.item]
-//            education.setBackButton()
-//            self.navigationController?.pushViewController(education, animated: true)
-//        } else if (indexPath.item == 7) {
-//            print ("Selected Finance")
-//            finance.navigationItem.title = topicTitles[indexPath.item]
-//            finance.setBackButton()
-//            self.navigationController?.pushViewController(finance, animated: true)
-//        } else if (indexPath.item == 8) {
-//            print ("Selected Health")
-//            health.navigationItem.title = topicTitles[indexPath.item]
-//            health.setBackButton()
-//            self.navigationController?.pushViewController(health, animated: true)
-//        } else if (indexPath.item == 9) {
-//            print ("Selected Beauty")
-//            beauty.navigationItem.title = topicTitles[indexPath.item]
-//            beauty.setBackButton()
-//            self.navigationController?.pushViewController(beauty, animated: true)
+       } else if (indexPath.item == 3) {
+            print ("Selected Food")
+            food.navigationItem.title = topicTitles[indexPath.item]
+            food.setBackButton()
+            self.navigationController?.pushViewController(food, animated: true)
+        } else if (indexPath.item == 4) {
+            print ("Selected Politics")
+            politics.navigationItem.title = topicTitles[indexPath.item]
+            politics.setBackButton()
+            self.navigationController?.pushViewController(politics, animated: true)
+        } else if (indexPath.item == 5) {
+            print ("Selected Media")
+            media.navigationItem.title = topicTitles[indexPath.item]
+            media.setBackButton()
+            self.navigationController?.pushViewController(media, animated: true)
+        } else if (indexPath.item == 6) {
+            print ("Selected Education")
+            education.navigationItem.title = topicTitles[indexPath.item]
+            education.setBackButton()
+            self.navigationController?.pushViewController(education, animated: true)
+        } else if (indexPath.item == 7) {
+            print ("Selected Finance")
+            finance.navigationItem.title = topicTitles[indexPath.item]
+            finance.setBackButton()
+            self.navigationController?.pushViewController(finance, animated: true)
+        } else if (indexPath.item == 8) {
+            print ("Selected Health")
+            health.navigationItem.title = topicTitles[indexPath.item]
+            health.setBackButton()
+            self.navigationController?.pushViewController(health, animated: true)
+        } else if (indexPath.item == 9) {
+            print ("Selected Beauty")
+            beauty.navigationItem.title = topicTitles[indexPath.item]
+            beauty.setBackButton()
+            self.navigationController?.pushViewController(beauty, animated: true)
         } else {
             print("Unrecognized Topic Selected")
         }

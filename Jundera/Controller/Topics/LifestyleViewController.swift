@@ -82,9 +82,8 @@ private func setupTableView() {
     }
     
     func loadUserPosts() {
-        Api.HashTag.observeTopPosts { (post) in
+        Api.HashTag.observeLifestyle { (post) in
             guard let postUid = post.uid else { return }
-            //print("The post uid is: \(postUid)")
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
                  self.exploreTableView.reloadData()

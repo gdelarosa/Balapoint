@@ -12,8 +12,8 @@ import SDWebImage
 
 class FoodViewController: UIViewController {
     
-    @IBOutlet weak var foodTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var foodTableView: UITableView!
     
     var post = Post()
     var postIds: [String: Any]?
