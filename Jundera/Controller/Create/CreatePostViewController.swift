@@ -145,7 +145,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             
         }
         if (postTitle.text?.isEmpty)! || (captionTextView.text?.isEmpty)! {
-            print("title is empty")
+            //print("title is empty")
             let animation = CABasicAnimation(keyPath: "position")
             animation.duration = 0.07
             animation.repeatCount = 2

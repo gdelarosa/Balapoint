@@ -11,45 +11,48 @@ import FirebaseDatabase
 
 class BlockApi {
     
-    var REF_BLOCKED = Database.database().reference().child("blocked")
-    var REF_BLOCKING = Database.database().reference().child("blocking")
+    let REF_USER_BLOCK = Database.database().reference().child("user-block")
     
-    func blockAction(withUser id: String) {
-        Api.MyPosts.REF_MYPOSTS.child(id).observeSingleEvent(of: .value, with: {
-            snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                for key in dict.keys {
-             Database.database().reference().child("feed").child(Api.Userr.CURRENT_USER!.uid).child(key).setValue(true)
-                }
-            }
-        })
-        REF_BLOCKED.child(id).child(Api.Userr.CURRENT_USER!.uid).setValue(true)
-        REF_BLOCKING.child(Api.Userr.CURRENT_USER!.uid).child(id).setValue(true)
+    func blockUser(targetUID: String) {
+        guard let uid = Api.Userr.CURRENT_USER?.uid else {return}
+        REF_USER_BLOCK.child(uid).child(targetUID).setValue(true)
     }
     
-    func unblockAction(withUser id: String) {
-        
-        Api.MyPosts.REF_MYPOSTS.child(id).observeSingleEvent(of: .value, with: {
-            snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                for key in dict.keys {
-                    Database.database().reference().child("feed").child(Api.Userr.CURRENT_USER!.uid).child(key).removeValue()
-                }
-            }
-        })
-        
-        REF_BLOCKED.child(id).child(Api.Userr.CURRENT_USER!.uid).setValue(NSNull())
-        REF_BLOCKING.child(Api.Userr.CURRENT_USER!.uid).child(id).setValue(NSNull())
+    func unblockUser(targetUID: String) {
+        guard let uid = Api.Userr.CURRENT_USER?.uid else {return}
+        REF_USER_BLOCK.child(uid).child(targetUID).setValue(NSNull())
     }
     
-    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
-        REF_BLOCKED.child(userId).child(Api.Userr.CURRENT_USER!.uid).observeSingleEvent(of: .value, with: {
-            snapshot in
+    func checkIfBlocked(targetUID: String, completion: @escaping (Bool) -> Void) {
+        guard let uid = Api.Userr.CURRENT_USER?.uid else {return}
+        REF_USER_BLOCK.child(uid).child(targetUID).observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull {
-                completed(false)
-            } else {
-                completed(true)
+                completion(false)
+            }else {
+                completion(true)
             }
+        })
+    }
+    
+    func observeBlockList(uid: String, completion: @escaping (String) -> Void) {
+        REF_USER_BLOCK.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String : AnyObject] {
+                for key in dict.keys {
+                    completion(key)
+                }
+            }
+        })
+    }
+    
+    func observeBlock(uid: String, completion: @escaping (String) -> Void) {
+        REF_USER_BLOCK.child(uid).observe(.childAdded, with: { (snapshot) in
+            completion(snapshot.key)
+        })
+    }
+    
+    func observeUnblock(uid: String, completion: @escaping (String) -> Void) {
+        REF_USER_BLOCK.child(uid).observe(.childRemoved, with: { (snapshot) in
+            completion(snapshot.key)
         })
     }
 }

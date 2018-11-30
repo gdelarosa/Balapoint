@@ -100,7 +100,6 @@ class TopicDetailTableViewCell: UITableViewCell {
     
     func setupUserInfo() {
         nameLabel.text = userTest?.username
-        print("TEST - User is: \(String(describing: userTest?.username))")
     }
     
     override func awakeFromNib() {

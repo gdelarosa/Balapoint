@@ -18,9 +18,7 @@ class ProfileUserViewController: UIViewController {
     var posts: [Post] = []
     var userId = ""
     var delegate: HeaderProfileCollectionReusableViewDelegate?
-    
-    //Test
-      var uid: String?
+    var uid: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +30,13 @@ class ProfileUserViewController: UIViewController {
     }
     
     @IBAction func blockUserAction(_ sender: Any) {
-        Helper.shared.blockUser(uid: userr.id!, VC: self)
-       // presentAlert()
+        BlockingHelper.shared.blockUser(uid: userr.id!, VC: self)
     }
     
     func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
         Api.Follow.isFollowing(userId: userId, completed: completed)
     }
-    
-    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
-        Api.Blocking.isBlocking(userId: userId, completed: completed)
-    }
+
     
     func fetchUser() {
         Api.Userr.observeUser(withId: userId) { (userr) in
@@ -51,11 +45,6 @@ class ProfileUserViewController: UIViewController {
                 self.userr = userr
                 self.collectionView.reloadData()
             })
-            
-//            self.isBlocking(userId: userr.id!, completed: { (values) in
-//                userr.isBlocking = values
-//                self.userr = userr
-//            })
         }
     }
     
@@ -67,65 +56,6 @@ class ProfileUserViewController: UIViewController {
                 self.collectionView.reloadData()
             })
         }
-    }
-    
-     func blockAction() {
-        if userr!.isBlocking! == false {
-            Api.Blocking.blockAction(withUser: userr!.id!)
-            userr!.isFollowing! = true
-            print("User is blocked mofo!")
-        }
-    }
-    
-     func unblockAction() {
-        if userr!.isBlocking! == true {
-            Api.Blocking.unblockAction(withUser: userr!.id!)
-            userr!.isBlocking! = false
-        }
-        
-    }
-    
-    func presentAlert() {
-        if userr!.isBlocking! == false {
-            didBlock()
-        } else {
-            didUnblock()
-        }
-    }
-    
-    /// Block User Action: NEED TO TEST! 
-    func didBlock() {
-        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction(title: "Block User", style: .destructive, handler: { (_) in
-            
-            let confirmationController = UIAlertController(title: "User Blocked", message: "They will not be able to view your posts or follow you.", preferredStyle: .alert)
-            confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
-                confirmationController.dismiss(animated: true, completion: {
-                    controller.dismiss(animated: true, completion: nil)
-                })
-            }))
-        
-            self.blockAction()
-        }))
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(controller, animated: true, completion: nil)
-    }
-    
-    func didUnblock() {
-        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction(title: "Unblock User", style: .destructive, handler: { (_) in
-            
-            let confirmationController = UIAlertController(title: "User Unblocked", message: "They will be able to follow you.", preferredStyle: .alert)
-            confirmationController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
-                confirmationController.dismiss(animated: true, completion: {
-                    controller.dismiss(animated: true, completion: nil)
-                })
-            }))
-            
-            self.unblockAction()
-        }))
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(controller, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -165,6 +95,7 @@ extension ProfileUserViewController: UICollectionViewDataSource {
         return headerViewCell
     }
 }
+
 // Will lead to EDITING profile
 extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {

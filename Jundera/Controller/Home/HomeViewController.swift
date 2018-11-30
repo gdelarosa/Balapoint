@@ -145,11 +145,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    // Testing Blocking
+    /// Loads blocked feed
     func loadBlockList(completion: @escaping () -> Void) {
         guard let uid = Api.Userr.CURRENT_USER?.uid else {return}
         
-        Api.USER_BLOCK.observeBlockList(uid: uid, completion: { (id) in
+        Api.blockUser.observeBlockList(uid: uid, completion: { (id) in
             self.blockList.append(id)
         })
         completion()
@@ -158,7 +158,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func removeBlockFeed() {
         guard let currentUserUID = Api.Userr.CURRENT_USER?.uid else {return}
         
-        Api.USER_BLOCK.observeBlock(uid: currentUserUID) { (id) in
+        Api.blockUser.observeBlock(uid: currentUserUID) { (id) in
             self.posts = self.posts.filter{$0.uid != id}
             self.users = self.users.filter{$0.id != id}
             self.tableView.reloadData()
@@ -182,9 +182,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //    }
     
     // 1st test
-    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
-        Api.Blocking.isBlocking(userId: userId, completed: completed)
-    }
+//    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
+//        Api.Blocking.isBlocking(userId: userId, completed: completed)
+//    }
     
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
