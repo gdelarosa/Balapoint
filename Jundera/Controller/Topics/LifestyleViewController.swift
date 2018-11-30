@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SDWebImage
 
-class TestViewController: UIViewController {
+class LifestyleViewController: UIViewController {
     
     @IBOutlet weak var exploreTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -27,9 +27,8 @@ class TestViewController: UIViewController {
     private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        //loadFeed()
+        setBackButton()
         loadUserPosts()
         exploreTableView.isHidden = false
         activityIndicatorView.isHidden = true
@@ -62,59 +61,28 @@ private func setupTableView() {
     exploreTableView.allowsSelection = true
 }
 
-// Refreshes data
-@objc private func refreshData(_ sender: Any) {
-    
-}
-
-// Activity Indicator Setup
-private func setupActivityIndicatorView() {
-    activityIndicatorView.startAnimating()
-}
-
-private func updateView() {
-    let hasPosts = posts.count > 0
-    exploreTableView.isHidden = !hasPosts
-   
-    if hasPosts {
-        exploreTableView.reloadData()
+    // Refreshes data
+    @objc private func refreshData(_ sender: Any) {
+        
     }
-    self.activityIndicatorView.stopAnimating()
-}
-//    func loadFeed() {
-//        loadingPostCount = posts.count + 12
-//        self.exploreTableView?.performBatchUpdates({
-//            for _ in 1...12 {
-//                if let postId = self.postIds?.popFirst()?.key {
-//                    
-//                  //  Database.database().reference(withPath: "posts/\(postId)").observeSingleEvent(of: .value, with: { snapshot in
-//                        
-//                        //Api.Post.observeHashtag { (post) in
-////                            Database.database().reference(withPath: "posts/\(postId)").observeSingleEvent(of: .value, with : {
-////                                snapshot in
-////                                self.posts.append(post)
-////                                self.exploreTableView.reloadData()
-////                            })
-//                    
-//                        }
-////                        Api.Post.observePost(withId: postId, completion: { post in
-////                            self.posts.append(post)
-////                            self.exploreTableView?.insertRows(at: [IndexPath(item: self.posts.count - 1, section: 0)], with: UITableViewRowAnimation.none)
-////                        })
-////                        let post = Post.transformPostPhoto(dict: self.postIds!, key: snapshot.key)
-////                        self.posts.append(post)
-////                        self.exploreTableView?.insertRows(at: [IndexPath(item: self.posts.count - 1, section: 0)], with: UITableViewRowAnimation.none)
-////                        print("Data: \(post), \(snapshot.key), \(snapshot) \(String(describing: self.postIds))")
-//                   // })
-//                } else {
-//                    break
-//                }
-//            }
-//        }, completion: nil)
-//    }
+
+    // Activity Indicator Setup
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func updateView() {
+        let hasPosts = posts.count > 0
+        exploreTableView.isHidden = !hasPosts
+        
+        if hasPosts {
+            exploreTableView.reloadData()
+        }
+        self.activityIndicatorView.stopAnimating()
+    }
     
     func loadUserPosts() {
-        Api.Post.observeTopPosts { (post) in
+        Api.HashTag.observeTopPosts { (post) in
             guard let postUid = post.uid else { return }
             //print("The post uid is: \(postUid)")
             self.fetchUser(uid: postUid, completed: {
@@ -123,27 +91,11 @@ private func updateView() {
 //                self.posts.sort(by: {(p1, p2) -> Bool in
 //                    return p1.date?.compare(p2.date!) == .orderedDescending
 //                })
-                
                 //self.updateView()
                 //self.refreshControl.endRefreshing()
                 //self.activityIndicatorView.stopAnimating()
             })
-           // self.posts.append(post)
-//            self.exploreTableView.reloadData()
         }
-//        Api.Post.observeHashtag { (post) in
-//            //self.posts.append(post)
-//           // self.exploreTableView.reloadData()
-//            self.loadFeed()
-//        }
-//        Database.database().reference(withPath: "hashtag/media").observeSingleEvent(of: .value, with: {
-//            if let posts = $0.value as? [String: Any] {
-//                self.postIds = posts
-//                self.loadingPostCount = posts.count
-//                self.loadFeed()
-//                print(posts)
-//            }
-//        })
     }
     
     // Fetches User
@@ -201,14 +153,14 @@ private func updateView() {
 
 }
 
-extension TestViewController: UITableViewDataSource {
+extension LifestyleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! TestDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! TopicDetailTableViewCell
     
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.post = posts[indexPath.row]
@@ -220,7 +172,7 @@ extension TestViewController: UITableViewDataSource {
 }
 
 // MARK: Segue Actions
-extension TestViewController: DetailTopicDelegate {
+extension LifestyleViewController: DetailTopicDelegate {
     
     func goToDetailPostVC(postId: String) {
         performSegue(withIdentifier: "DetailPost_Segue", sender: postId)

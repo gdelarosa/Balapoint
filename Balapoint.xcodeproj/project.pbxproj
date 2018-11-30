@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		770B4A27218909C40015D6AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B4A26218909C40015D6AA /* TestViewController.swift */; };
+		770B4A27218909C40015D6AA /* LifestyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B4A26218909C40015D6AA /* LifestyleViewController.swift */; };
 		7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */; };
-		775B18E5219D043600F74EE2 /* TestDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */; };
+		775B18E5219D043600F74EE2 /* TopicDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B18E4219D043600F74EE2 /* TopicDetailCollectionViewCell.swift */; };
 		7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */; };
 		7764D9BB21927F2B00F7EFE1 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */; };
 		7776DC3021814B3700542D2C /* MySavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */; };
@@ -18,6 +18,15 @@
 		7799A1F3217900B500A1DF91 /* TopicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */; };
 		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
 		779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */; };
+		77BE161521B0B38000609F20 /* TechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161421B0B38000609F20 /* TechViewController.swift */; };
+		77BE161721B0BB3F00609F20 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161621B0BB3F00609F20 /* TravelViewController.swift */; };
+		77BE161921B0BB4B00609F20 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161821B0BB4B00609F20 /* FoodViewController.swift */; };
+		77BE161B21B0BB5600609F20 /* PoliticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161A21B0BB5600609F20 /* PoliticsViewController.swift */; };
+		77BE161D21B0BB6100609F20 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161C21B0BB6100609F20 /* MediaViewController.swift */; };
+		77BE161F21B0BB6B00609F20 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE161E21B0BB6B00609F20 /* EducationViewController.swift */; };
+		77BE162121B0BB7A00609F20 /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE162021B0BB7A00609F20 /* FinanceViewController.swift */; };
+		77BE162321B0BB8700609F20 /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE162221B0BB8700609F20 /* HealthViewController.swift */; };
+		77BE162521B0BB9000609F20 /* BeautyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE162421B0BB9000609F20 /* BeautyViewController.swift */; };
 		77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */; };
 		77D73389218BD0010090D8DC /* ReportBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D73388218BD0010090D8DC /* ReportBugViewController.swift */; };
 		77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5228211BDC630065E364 /* CreatePost.storyboard */; };
@@ -72,9 +81,9 @@
 
 /* Begin PBXFileReference section */
 		1687317C2DCB1D48B0D1D476 /* Pods-Jundera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.release.xcconfig"; sourceTree = "<group>"; };
-		770B4A26218909C40015D6AA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		770B4A26218909C40015D6AA /* LifestyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleViewController.swift; sourceTree = "<group>"; };
 		7724B239212A8F9C0071C460 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
-		775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		775B18E4219D043600F74EE2 /* TopicDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		7764D9B8219240DB00F7EFE1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7764D9BA21927F2B00F7EFE1 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySavedPostsApi.swift; sourceTree = "<group>"; };
@@ -84,6 +93,15 @@
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
 		77BCA80B2179621100F4AF32 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = "../../Library/Developer/Xcode/DerivedData/FoldingCell-amuygqodqeojuncalioaolkondfi/Build/Products/Debug-iphonesimulator/FoldingCell.framework"; sourceTree = "<group>"; };
+		77BE161421B0B38000609F20 /* TechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechViewController.swift; sourceTree = "<group>"; };
+		77BE161621B0BB3F00609F20 /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
+		77BE161821B0BB4B00609F20 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		77BE161A21B0BB5600609F20 /* PoliticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticsViewController.swift; sourceTree = "<group>"; };
+		77BE161C21B0BB6100609F20 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		77BE161E21B0BB6B00609F20 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
+		77BE162021B0BB7A00609F20 /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
+		77BE162221B0BB8700609F20 /* HealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
+		77BE162421B0BB9000609F20 /* BeautyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyViewController.swift; sourceTree = "<group>"; };
 		77C826B0211B8C4200094A49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77D73388218BD0010090D8DC /* ReportBugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBugViewController.swift; sourceTree = "<group>"; };
 		77EE5228211BDC630065E364 /* CreatePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
@@ -154,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				77EE5265211BDCFF0065E364 /* HomeViewController.swift */,
-				770B4A26218909C40015D6AA /* TestViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -247,8 +264,8 @@
 		7776DC2B218125E900542D2C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7776DC2D2181318900542D2C /* HomeTopic */,
 				77EE5258211BDCF60065E364 /* HomeTableViewCell.swift */,
+				7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -263,13 +280,12 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		7776DC2D2181318900542D2C /* HomeTopic */ = {
+		7776DC2D2181318900542D2C /* Topics */ = {
 			isa = PBXGroup;
 			children = (
-				7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */,
-				775B18E4219D043600F74EE2 /* TestDetailCollectionViewCell.swift */,
+				775B18E4219D043600F74EE2 /* TopicDetailCollectionViewCell.swift */,
 			);
-			path = HomeTopic;
+			path = Topics;
 			sourceTree = "<group>";
 		};
 		7776DC2E218131B400542D2C /* DetailPost */ = {
@@ -286,6 +302,23 @@
 				7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */,
 			);
 			path = SavedPostsView;
+			sourceTree = "<group>";
+		};
+		77BE161321B09E5200609F20 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				770B4A26218909C40015D6AA /* LifestyleViewController.swift */,
+				77BE161421B0B38000609F20 /* TechViewController.swift */,
+				77BE161621B0BB3F00609F20 /* TravelViewController.swift */,
+				77BE161821B0BB4B00609F20 /* FoodViewController.swift */,
+				77BE161A21B0BB5600609F20 /* PoliticsViewController.swift */,
+				77BE161C21B0BB6100609F20 /* MediaViewController.swift */,
+				77BE161E21B0BB6B00609F20 /* EducationViewController.swift */,
+				77BE162021B0BB7A00609F20 /* FinanceViewController.swift */,
+				77BE162221B0BB8700609F20 /* HealthViewController.swift */,
+				77BE162421B0BB9000609F20 /* BeautyViewController.swift */,
+			);
+			path = Topics;
 			sourceTree = "<group>";
 		};
 		77EE5220211BD9520065E364 /* Storyboards */ = {
@@ -348,6 +381,7 @@
 		77EE5225211BD9790065E364 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				77BE161321B09E5200609F20 /* Topics */,
 				770BD3FC216FBFD400FFAB86 /* SignUp */,
 				770BD3FB216FBFC900FFAB86 /* SignIn */,
 				770BD3F7216FBE8500FFAB86 /* Home */,
@@ -368,6 +402,7 @@
 				7776DC2E218131B400542D2C /* DetailPost */,
 				7776DC2C218125F100542D2C /* Profile */,
 				7776DC2B218125E900542D2C /* Home */,
+				7776DC2D2181318900542D2C /* Topics */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,7 +650,7 @@
 				77EE5278211BDCFF0065E364 /* SettingTableViewController.swift in Sources */,
 				7764D9B9219240DB00F7EFE1 /* SearchTableViewCell.swift in Sources */,
 				77EE525D211BDCF60065E364 /* HeaderProfileCollectionReusableView.swift in Sources */,
-				770B4A27218909C40015D6AA /* TestViewController.swift in Sources */,
+				770B4A27218909C40015D6AA /* LifestyleViewController.swift in Sources */,
 				77EE5246211BDC790065E364 /* Api.swift in Sources */,
 				77EE527A211BDCFF0065E364 /* CreatePostViewController.swift in Sources */,
 				77EE5241211BDC790065E364 /* MyPostsApi.swift in Sources */,
@@ -626,26 +661,35 @@
 				779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */,
 				77EE5274211BDCFF0065E364 /* ProfileUserViewController.swift in Sources */,
 				77EE5279211BDCFF0065E364 /* SearchViewController.swift in Sources */,
+				77BE162521B0BB9000609F20 /* BeautyViewController.swift in Sources */,
 				77EE524B211BDCB70065E364 /* AuthService.swift in Sources */,
 				77EE525F211BDCF60065E364 /* HomeTableViewCell.swift in Sources */,
-				775B18E5219D043600F74EE2 /* TestDetailCollectionViewCell.swift in Sources */,
+				775B18E5219D043600F74EE2 /* TopicDetailCollectionViewCell.swift in Sources */,
 				77F1EF3A211B837300A6F736 /* AppDelegate.swift in Sources */,
 				77EE5272211BDCFF0065E364 /* DetailViewController.swift in Sources */,
 				7724B23A212A8F9C0071C460 /* UserSettingsTableViewController.swift in Sources */,
 				77EE5273211BDCFF0065E364 /* HomeViewController.swift in Sources */,
 				7764D9BB21927F2B00F7EFE1 /* Hashtag.swift in Sources */,
+				77BE161921B0BB4B00609F20 /* FoodViewController.swift in Sources */,
 				77EE5244211BDC790065E364 /* PostApi.swift in Sources */,
 				77EE524D211BDCCC0065E364 /* Config.swift in Sources */,
+				77BE162121B0BB7A00609F20 /* FinanceViewController.swift in Sources */,
 				77EE5252211BDCD90065E364 /* Post.swift in Sources */,
 				77EE524A211BDCB70065E364 /* HelperService.swift in Sources */,
 				77EE5270211BDCFF0065E364 /* SignUpViewController.swift in Sources */,
+				77BE161F21B0BB6B00609F20 /* EducationViewController.swift in Sources */,
 				77EE5243211BDC790065E364 /* UserApi.swift in Sources */,
+				77BE161B21B0BB5600609F20 /* PoliticsViewController.swift in Sources */,
 				7779570E2187B93100A671C2 /* SavedPostsCollectionViewCell.swift in Sources */,
+				77BE161D21B0BB6100609F20 /* MediaViewController.swift in Sources */,
 				77EE5242211BDC790065E364 /* FeedApi.swift in Sources */,
+				77BE162321B0BB8700609F20 /* HealthViewController.swift in Sources */,
+				77BE161521B0B38000609F20 /* TechViewController.swift in Sources */,
 				779AC4932175828E000BE905 /* Extensions.swift in Sources */,
 				77EE523F211BDC790065E364 /* FollowApi.swift in Sources */,
 				77EE527B211BDCFF0065E364 /* ProfileViewController.swift in Sources */,
 				77D73389218BD0010090D8DC /* ReportBugViewController.swift in Sources */,
+				77BE161721B0BB3F00609F20 /* TravelViewController.swift in Sources */,
 				778D2A15218F9432007CA6CD /* HelpViewController.swift in Sources */,
 				7776DC3021814B3700542D2C /* MySavedPostsApi.swift in Sources */,
 				77EE525B211BDCF60065E364 /* PeopleTableViewCell.swift in Sources */,

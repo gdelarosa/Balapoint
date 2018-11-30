@@ -17,7 +17,7 @@ protocol DetailTopicDelegate {
     func didUnsavePost(post: Post) //probs dont need
 }
 
-class TestDetailTableViewCell: UITableViewCell {
+class TopicDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postTitleLabel: UILabel! // Post Title
     @IBOutlet weak var nameLabel: UILabel! // User name of whom posted

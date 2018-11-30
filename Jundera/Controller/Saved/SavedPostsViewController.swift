@@ -145,8 +145,9 @@ extension SavedPostsViewController: UICollectionViewDataSource {
     // Will display the saved posts
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedCollectionViewCell", for: indexPath) as! SavedPostsCollectionViewCell
-        let post = posts[indexPath.row]
-        cell.post = post
+        //let post = posts[indexPath.row]
+        //cell.user = users[indexPath.row]
+        cell.post = posts[indexPath.row]
         cell.delegate = self
         return cell
     }
