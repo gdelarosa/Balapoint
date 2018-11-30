@@ -24,7 +24,7 @@ class Post {
     var saved: Dictionary<String, Any>?
     var isSaved: Bool?
     var date: Date?
-    var hashtag: String? //testing
+    var hashtag: String?
 
 }
 
@@ -43,6 +43,7 @@ extension Post {
         post.body = dict["body"] as? String
         post.saved = dict["saved"] as? Dictionary<String, Any>
         post.hashtag = dict["hashtag"] as? String //testing
+      
         
         let secondsAgoFrom1970 = dict["time_interval"] as? Double ?? 0
         post.date = Date(timeIntervalSince1970: (secondsAgoFrom1970 / 1_000.0))

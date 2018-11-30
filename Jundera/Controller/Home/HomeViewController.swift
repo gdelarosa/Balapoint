@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         settingsBarButton()
         setupView()
         loadPosts()
-        
+
 //        if posts.count == 0 {
 //            messageLabel.isHidden = false
 //            activityIndicatorView.stopAnimating()
@@ -121,10 +121,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 guard let postUid = post.uid else { return }
                 
                 self.fetchUser(uid: postUid, completed: {
+                
+//                    self.posts.sort(by: {(p1, p2) -> Bool in
+//                        return p1.date?.compare(p2.date!) == .orderedDescending
+//                    })
                     self.posts.append(post)
-                    self.posts.sort(by: {(p1, p2) -> Bool in
-                        return p1.date?.compare(p2.date!) == .orderedDescending
-                    })
                     
                     self.updateView()
                     self.refreshControl.endRefreshing()
@@ -309,8 +310,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
-        let post = posts[indexPath.row]
-        let user = users[indexPath.row]
+        
+        let post = posts.reversed()[indexPath.row]
+        let user = users.reversed()[indexPath.row]
+
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.post = post
         cell.user = user

@@ -24,7 +24,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        captionTextView.text = "Body"
+        captionTextView.text = "●"
         captionTextView.textColor = UIColor.lightGray
         settingsBarButton()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
@@ -154,7 +154,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             animation.toValue = NSValue(cgPoint: CGPoint(x: postTitle.center.x + 10, y: postTitle.center.y))
             postTitle.layer.add(animation, forKey: "position")
         } else {
-            presentAlertWithTitle(title: "Ready to publish? You will not be able to edit your post after you publish.", message: "", options: "Yes", "Cancel") {
+            presentAlertWithTitle(title: "Ready to Publish? You will not be able to edit your post after you publish.", message: "", options: "YES", "Cancel") {
                 (option) in
                 switch(option) {
                 case 0:
