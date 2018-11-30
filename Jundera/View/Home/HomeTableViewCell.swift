@@ -99,7 +99,6 @@ class HomeTableViewCell: UITableViewCell {
     
     func setupUserInfo() {
         nameLabel.text = user?.username
-        //print("HOME - User is: \(String(describing: user?.username))")
     }
     
       override func awakeFromNib() {

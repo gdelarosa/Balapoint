@@ -20,10 +20,9 @@ class SavedPostsViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    var posts: [Post] = []
+    var posts = [Post]()
     var users = [Userr]()
     var post: Post?
-    var savePosts = [SavedPosts]() //testing
     
     private var refreshControl = UIRefreshControl()
     
@@ -95,10 +94,17 @@ class SavedPostsViewController: UIViewController {
             self.posts.removeAll()
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
-                self.posts.append(post)
-                self.updateView()
-                self.refreshControl.endRefreshing()
-                self.activityIndicatorView.stopAnimating()
+                guard let postUid = post.uid else { return }
+                self.fetchUser(uid: postUid, completed: {
+                    self.posts.append(post)
+                    self.posts.sort(by: {(p1, p2) -> Bool in
+                        return p1.date?.compare(p2.date!) == .orderedDescending
+                    })
+                    
+                    self.updateView()
+                    self.refreshControl.endRefreshing()
+                    self.activityIndicatorView.stopAnimating()
+                })
             })
            }
         })
@@ -145,9 +151,8 @@ extension SavedPostsViewController: UICollectionViewDataSource {
     // Will display the saved posts
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedCollectionViewCell", for: indexPath) as! SavedPostsCollectionViewCell
-        //let post = posts[indexPath.row]
-        //cell.user = users[indexPath.row]
         cell.post = posts[indexPath.row]
+        cell.user = users[indexPath.row]
         cell.delegate = self
         return cell
     }

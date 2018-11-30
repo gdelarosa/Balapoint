@@ -37,10 +37,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupView()
         loadPosts()
         
-        if posts.count == 0 {
-            messageLabel.isHidden = false
-            activityIndicatorView.stopAnimating()
-        }
+//        if posts.count == 0 {
+//            messageLabel.isHidden = false
+//            activityIndicatorView.stopAnimating()
+//        }
     }
 
     // Setup View

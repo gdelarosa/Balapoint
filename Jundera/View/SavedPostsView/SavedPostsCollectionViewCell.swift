@@ -80,12 +80,13 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
         title.text = post?.title
         header.text = post?.caption
         updateLike(post: self.post!)
+        print("Title is: \(String(describing: post?.title))")
         
     }
     
-    /// Updates user's name
     func updateUser() {
         author.text = user?.username
+        print("User is: \(String(describing: user?.username))")
     }
     
     /// Will update saved posts with icon

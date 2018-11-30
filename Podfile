@@ -11,7 +11,5 @@ pod 'Firebase/Storage'
 pod 'SDWebImage'
 pod 'KILabel'
 #pod 'GradientProgressBar', '~> 1.0'
-#pod 'Segmentio'
-#pod 'FoldingCell', '~> 3.1.4'
 
 end
