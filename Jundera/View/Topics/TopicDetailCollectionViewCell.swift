@@ -132,7 +132,6 @@ class TopicDetailTableViewCell: UITableViewCell {
     
     // Goes to user profile.
     @objc func nameLabel_TouchUpInside() {
-        
         if let id = userTest?.id {
             delegate?.goToProfileUserVC(userId: id)
         } else {

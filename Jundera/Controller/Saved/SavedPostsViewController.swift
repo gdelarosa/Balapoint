@@ -138,6 +138,12 @@ class SavedPostsViewController: UIViewController {
             let postId = sender  as! String
             detailVC.postId = postId
         }
+        
+        if segue.identifier == "User_profileSegue" {
+            let personVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            personVC.userId = userId
+        }
     }    
 
 }

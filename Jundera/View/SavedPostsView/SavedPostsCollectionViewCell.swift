@@ -14,7 +14,7 @@ import Firebase
 protocol SavedCollectionViewCellDelegate {
     func goToDetailSavedPost(postId: String)
     func goToPersonProfile(userId: String)
-    func unsavePost(post: Post) //added
+    func unsavePost(post: Post)
 }
 
 class SavedPostsCollectionViewCell: UICollectionViewCell {
@@ -105,6 +105,7 @@ class SavedPostsCollectionViewCell: UICollectionViewCell {
     
     // Goes to user profile.
     @objc func profileImage_TouchUpInside() {
+        print("Pressed user name in SPCVC")
         if let id = user?.id {
             delegate?.goToPersonProfile(userId: id)
         } else {
