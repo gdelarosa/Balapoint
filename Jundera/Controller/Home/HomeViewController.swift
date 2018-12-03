@@ -37,17 +37,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         settingsBarButton()
         setupView()
-       // loadPosts()
 
-//        if posts.count == 0 {
-//            messageLabel.isHidden = false
-//            activityIndicatorView.stopAnimating()
-//        }
-        //Testing for blocked users
         loadBlockList(completion: {
             self.loadPosts()
             self.removeBlockFeed()
-            //self.addUnblockFeed()
         })
     }
 
@@ -121,7 +114,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     /// Will load all posts onto users feed.
-    
     func loadPosts() {
         Api.Feed.observeFeed(withId: Api.Userr.CURRENT_USER!.uid) { (post) in
             DispatchQueue.main.async {
@@ -181,11 +173,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        }
 //    }
     
-    // 1st test
-//    func isBlocking(userId: String, completed: @escaping (Bool) -> Void) {
-//        Api.Blocking.isBlocking(userId: userId, completed: completed)
-//    }
-    
     // Fetches User
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.Userr.observeUser(withId: uid, completion: { user in
@@ -219,18 +206,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func didUnsavePost(post: Post) {
         print("This function is unused")
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let ref = Database.database().reference().child("saved").child(uid)
-//       // guard let postId = post.id else { return }
-//        //let values = [postId: post.uid]
-//
-//        if post.isSaved == false {
-//            ref.child(post.id!).removeValue {_,_ in
-//                print("Post is unsaved")
-//            }
-//        } else {
-//            print("This post can't be unsaved")
-//        }
      }
 
     // Will segue go to DetailVC is title of post is selected.

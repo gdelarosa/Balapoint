@@ -33,10 +33,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-2h-ayO">
-                                                    <rect key="frame" x="15" y="11" width="372" height="164"/>
+                                                    <rect key="frame" x="15" y="11" width="333" height="164"/>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/22/18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ma-zl-z3F">
-                                                    <rect key="frame" x="290" y="144" width="83" height="16.5"/>
+                                                    <rect key="frame" x="251" y="144" width="83" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="83" id="JnW-2x-fpt"/>
                                                     </constraints>
@@ -45,13 +45,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
-                                                    <rect key="frame" x="25" y="18" width="264.5" height="59"/>
+                                                    <rect key="frame" x="25" y="18" width="225.5" height="59"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JAf-Ao-6LM">
-                                                    <rect key="frame" x="305" y="30" width="100" height="100"/>
+                                                    <rect key="frame" x="266" y="30" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="CS8-d6-oik"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="tKT-Fo-rJk"/>
@@ -66,7 +66,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-ug-Ldb">
-                                                    <rect key="frame" x="207" y="144" width="165" height="19"/>
+                                                    <rect key="frame" x="207" y="144" width="126" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="BLc-9u-CmX"/>
                                                     </constraints>
@@ -368,6 +368,7 @@
                         <outlet property="activityIndicatorView" destination="b99-oV-hLj" id="52s-t3-osh"/>
                         <outlet property="exploreTableView" destination="Kzh-jI-XPc" id="7Mo-0e-kx2"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="son-Dl-Eur"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="OC0-tC-17e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w78-in-RHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,7 +381,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="uBe-ef-2g2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kki-ba-Bbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-264" y="652"/>
+            <point key="canvasLocation" x="-90" y="637"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NA5-Al-Kln">
@@ -419,7 +420,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="594" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-jC-YkC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailPostCell" rowHeight="594" id="HN9-U4-yFR" customClass="DetailPostTableViewCell" customModule="Balapoint" customModuleProvider="target">
@@ -575,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es8-8b-kx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.20000000000005" y="637.33133433283365"/>
+            <point key="canvasLocation" x="2926" y="1159"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pAk-2W-ovb">
@@ -641,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzJ-va-GHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-881" y="1012"/>
+            <point key="canvasLocation" x="-2222" y="902"/>
         </scene>
         <!--ProfileUserViewController-->
         <scene sceneID="B56-VJ-VpF">
@@ -649,7 +650,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="f0n-3L-Duq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrw-8R-Red" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="1115"/>
+            <point key="canvasLocation" x="2925" y="1658"/>
         </scene>
         <!--Tech View Controller-->
         <scene sceneID="YGA-dU-qbE">
@@ -791,6 +792,7 @@
                         <outlet property="activityView" destination="fi7-sF-K2X" id="qGS-Ai-7sT"/>
                         <outlet property="techTableView" destination="H82-ND-a4s" id="eFo-Kv-C1X"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="XWk-vb-KTJ"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="RUa-ce-Jgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVb-lv-FmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -937,6 +939,7 @@
                         <outlet property="activityIndicatorView" destination="3eb-YN-kev" id="dU3-35-6sY"/>
                         <outlet property="travelTableView" destination="EXc-VC-ZbF" id="ffv-cc-7no"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="amt-a0-wLP"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="0Yy-hC-PT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnW-LL-U06" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1083,6 +1086,7 @@
                         <outlet property="activityIndicatorView" destination="3Pj-dT-jXl" id="So7-9T-W8a"/>
                         <outlet property="foodTableView" destination="eAv-ac-Uq0" id="nsg-Wh-17K"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="Gre-5e-Bfa"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="V0v-7g-Adb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O55-kJ-HhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1229,6 +1233,7 @@
                         <outlet property="activityIndicatorView" destination="FLF-yq-XzS" id="GAP-ve-cTO"/>
                         <outlet property="politicsTableView" destination="9Oj-ad-JXL" id="5Zk-mB-bUF"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="eqY-bg-9aa"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="3Hx-Nv-oeg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qS-jA-HmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1375,6 +1380,7 @@
                         <outlet property="activityIndicatorView" destination="ZAV-ve-Z0v" id="vr6-0U-nia"/>
                         <outlet property="mediaTableView" destination="rmW-nr-YZy" id="5ai-FM-qhI"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="xeG-2G-7Va"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="KuZ-9i-w2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51T-fz-vfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1521,6 +1527,7 @@
                         <outlet property="activityIndicatorView" destination="CFV-yp-rzg" id="3gV-aV-Tu6"/>
                         <outlet property="eduTableView" destination="Ea5-uX-ATP" id="JMj-9Z-CH3"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="cw9-Fq-PCx"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="9il-wh-qEP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7Q-57-Dvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1667,6 +1674,7 @@
                         <outlet property="activityIndicatorView" destination="3aw-k2-OsB" id="zyf-O5-V8U"/>
                         <outlet property="finance" destination="KwQ-nj-7Lk" id="Ucd-z0-znu"/>
                         <segue destination="2fg-Qz-txh" kind="show" identifier="DetailPost_Segue" id="PM5-P0-6dH"/>
+                        <segue destination="uBe-ef-2g2" kind="show" identifier="Home_ProfileSegue" id="4DJ-Yw-0HE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBV-df-cAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1976,7 +1984,7 @@
         <image name="Saved" width="18" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PRe-je-SKZ"/>
-        <segue reference="tl5-Cp-x7c"/>
+        <segue reference="PM5-P0-6dH"/>
+        <segue reference="4DJ-Yw-0HE"/>
     </inferredMetricsTieBreakers>
 </document>

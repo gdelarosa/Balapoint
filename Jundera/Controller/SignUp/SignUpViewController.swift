@@ -45,7 +45,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
-    
     func handleTextField() {
         usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         emailTextField.addTarget(self, action: #selector(self.textCheck), for: UIControlEvents.editingChanged)

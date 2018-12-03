@@ -48,8 +48,8 @@ class TopicDetailTableViewCell: UITableViewCell {
         
         postTitleLabel.sizeToFit()
         
-        captionLabel.text = post?.caption //header
-        postTitleLabel.text = post?.title //title
+        captionLabel.text = post?.caption
+        postTitleLabel.text = post?.title
         
         guard let creationDate = post?.date else {
             print("UNABLE TO GET DATE")
@@ -68,9 +68,7 @@ class TopicDetailTableViewCell: UITableViewCell {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
-        
         self.updateLike(post: (self.post!))
-       
     }
     
     // Handle Save Post
@@ -109,9 +107,7 @@ class TopicDetailTableViewCell: UITableViewCell {
         postTitleLabel.text = ""
         postDateLabel.text = ""
         
-        //updateView()
        
-        
         // Will fill in saved icon
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
@@ -136,8 +132,8 @@ class TopicDetailTableViewCell: UITableViewCell {
     
     // Goes to user profile.
     @objc func nameLabel_TouchUpInside() {
+        
         if let id = userTest?.id {
-            print("Go to User Profile - HOME CELL")
             delegate?.goToProfileUserVC(userId: id)
         } else {
             print("Can't get user")
@@ -147,7 +143,6 @@ class TopicDetailTableViewCell: UITableViewCell {
     // Goes to detail post
     @objc func cell_TouchUpInside() {
         if let post = post?.id {
-            print("Go to Detail Post - HOME CELL")
             delegate?.goToDetailPostVC(postId: post)
         }
     }
