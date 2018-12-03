@@ -33,10 +33,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-2h-ayO">
-                                                    <rect key="frame" x="15" y="11" width="333" height="164"/>
+                                                    <rect key="frame" x="15" y="11" width="372" height="164"/>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/22/18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ma-zl-z3F">
-                                                    <rect key="frame" x="251" y="144" width="83" height="16.5"/>
+                                                    <rect key="frame" x="290" y="144" width="83" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="83" id="JnW-2x-fpt"/>
                                                     </constraints>
@@ -45,13 +45,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Where The Locals Go" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-SR-xaX">
-                                                    <rect key="frame" x="25" y="18" width="225.5" height="59"/>
+                                                    <rect key="frame" x="25" y="18" width="264.5" height="59"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JAf-Ao-6LM">
-                                                    <rect key="frame" x="266" y="30" width="100" height="100"/>
+                                                    <rect key="frame" x="305" y="30" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="CS8-d6-oik"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="tKT-Fo-rJk"/>
@@ -66,7 +66,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-ug-Ldb">
-                                                    <rect key="frame" x="207" y="144" width="126" height="19"/>
+                                                    <rect key="frame" x="207" y="144" width="165" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="BLc-9u-CmX"/>
                                                     </constraints>
@@ -436,7 +436,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Greyjoy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-ka-Yn9">
-                                                    <rect key="frame" x="69" y="531" width="167" height="16"/>
+                                                    <rect key="frame" x="69" y="567" width="167" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="167" id="t9E-h6-MYt"/>
                                                     </constraints>
@@ -458,7 +458,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 24, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-lh-GUG">
-                                                    <rect key="frame" x="69" y="545" width="149" height="17"/>
+                                                    <rect key="frame" x="69" y="581" width="149" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="149" id="RyQ-u9-VDw"/>
                                                         <constraint firstAttribute="height" constant="17" id="c3X-FT-cGz"/>
@@ -474,11 +474,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtW-cZ-Gak">
-                                                    <rect key="frame" x="11" y="230" width="350" height="315"/>
+                                                    <rect key="frame" x="11" y="230" width="349" height="353"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="315" id="BHm-27-eni"/>
-                                                    </constraints>
                                                     <color key="textColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -491,35 +488,34 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-Zr-cuh">
-                                                    <rect key="frame" x="312" y="176" width="47" height="27"/>
+                                                    <rect key="frame" x="312" y="244" width="47" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="47" id="Qs0-e9-sjb"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="B7R-MH-4R7" secondAttribute="bottom" constant="8" id="17V-H2-fE4"/>
                                                 <constraint firstItem="B7R-MH-4R7" firstAttribute="top" secondItem="G3N-UI-fXD" secondAttribute="bottom" constant="-2" id="1e3-gU-kU2"/>
                                                 <constraint firstItem="G3N-UI-fXD" firstAttribute="leading" secondItem="B7R-MH-4R7" secondAttribute="leading" constant="1" id="1xg-lo-Oom"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="centerX" secondItem="G3N-UI-fXD" secondAttribute="centerX" id="5v6-ro-3C3"/>
+                                                <constraint firstAttribute="bottom" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="11" id="6wN-IA-kSW"/>
                                                 <constraint firstItem="Yiu-db-FGS" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" id="87R-gk-ira"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="G3N-UI-fXD" secondAttribute="leading" id="Bg8-8f-0f3"/>
                                                 <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="trailing" constant="-290" id="E9g-bb-G1a"/>
                                                 <constraint firstItem="qvG-kr-ict" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leadingMargin" constant="-5" id="HJ2-ID-7aU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="wtW-cZ-Gak" secondAttribute="trailing" constant="-1" id="Lh9-bX-B5w"/>
                                                 <constraint firstAttribute="trailing" secondItem="r4b-BP-mWb" secondAttribute="trailing" id="NHl-3R-WGI"/>
                                                 <constraint firstItem="FZt-lh-GUG" firstAttribute="top" secondItem="1hb-ka-Yn9" secondAttribute="bottom" constant="-2" id="OH0-cU-PwG"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="dmu-OO-grA" secondAttribute="top" constant="230" id="PIw-m8-mh1"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="top" secondItem="B7R-MH-4R7" secondAttribute="bottom" constant="8" symbolic="YES" id="Png-xB-Joc"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="trailing" secondItem="Yiu-db-FGS" secondAttribute="trailing" id="TUP-iV-qbh"/>
                                                 <constraint firstAttribute="bottom" secondItem="FZt-lh-GUG" secondAttribute="bottom" constant="-4" id="WCk-Ik-GMn"/>
+                                                <constraint firstItem="wtW-cZ-Gak" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" constant="11" id="XfJ-mr-luI"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leading" id="XuP-AD-Z7e"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="top" secondItem="qvG-kr-ict" secondAttribute="top" id="aBg-Hk-zBR"/>
                                                 <constraint firstItem="1hb-ka-Yn9" firstAttribute="leading" secondItem="FZt-lh-GUG" secondAttribute="leading" id="cct-Eb-MZ8"/>
-                                                <constraint firstItem="6EN-Zr-cuh" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" constant="-369" id="fjY-cA-HEM"/>
+                                                <constraint firstAttribute="trailing" secondItem="wtW-cZ-Gak" secondAttribute="trailing" constant="15" id="f8r-Gi-XJG"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6EN-Zr-cuh" secondAttribute="bottom" constant="312" id="hqo-FG-RtQ"/>
                                                 <constraint firstItem="G3N-UI-fXD" firstAttribute="top" secondItem="Yiu-db-FGS" secondAttribute="bottom" constant="8" id="jNC-2n-CAb"/>
-                                                <constraint firstItem="FZt-lh-GUG" firstAttribute="top" secondItem="wtW-cZ-Gak" secondAttribute="bottom" id="jcl-7V-kn3"/>
                                                 <constraint firstItem="B7R-MH-4R7" firstAttribute="top" secondItem="qvG-kr-ict" secondAttribute="bottom" constant="40" id="jdY-xl-tfF"/>
                                                 <constraint firstItem="wtW-cZ-Gak" firstAttribute="leading" secondItem="dmu-OO-grA" secondAttribute="leadingMargin" constant="-4" id="nSg-yg-Qeh"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="bottom" secondItem="Yiu-db-FGS" secondAttribute="bottom" id="neD-fg-z6C"/>
@@ -531,6 +527,13 @@
                                                 <constraint firstItem="B7R-MH-4R7" firstAttribute="leading" secondItem="6EN-Zr-cuh" secondAttribute="leading" constant="-303" id="xie-U5-fjx"/>
                                                 <constraint firstItem="r4b-BP-mWb" firstAttribute="leading" secondItem="Yiu-db-FGS" secondAttribute="leading" id="yRK-9X-SIT"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="1hb-ka-Yn9"/>
+                                                    <exclude reference="FZt-lh-GUG"/>
+                                                    <exclude reference="6EN-Zr-cuh"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bodyText" destination="wtW-cZ-Gak" id="lne-wA-fPq"/>
@@ -572,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es8-8b-kx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="639"/>
+            <point key="canvasLocation" x="799.20000000000005" y="637.33133433283365"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pAk-2W-ovb">

@@ -24,15 +24,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         profileImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         profileImage.layer.borderWidth = 2
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = 8
+        loading.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-        //handleTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,14 +48,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func handleTextField() {
         usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        //emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        //passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textCheck), for: UIControlEvents.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textCheck), for: UIControlEvents.editingChanged)
         
     }
     
-    @objc func textFieldDidChange(textField: UITextField) {
-        textField.text = usernameTextField.text?.lowercased()
+    @objc func textCheck() {
         guard let username = usernameTextField.text, !username.isEmpty,
+            
             let email = emailTextField.text, !email.isEmpty,
             
             let password = passwordTextField.text, !password.isEmpty else {
@@ -64,6 +65,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         signUpButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
         signUpButton.isEnabled = true
+    }
+    
+    @objc func textFieldDidChange(textField: UITextField) {
+        textField.text = usernameTextField.text?.lowercased()
     }
     
     @objc func handleSelectProfileImageView() {
@@ -78,6 +83,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
+        loading.isHidden = false
         self.loading.startAnimating()
         var profileImg = self.selectedImage
         if profileImg == nil {
@@ -90,6 +96,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             self.loading.stopAnimating()
             self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
         }, onError: { (errorString) in
+            
             let alertController = UIAlertController(title: "Oops!", message: errorString, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Okay", style: .default, handler: { (alert) in
                 print("alert")
@@ -97,6 +104,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             })
             alertController.addAction(alertAction)
             DispatchQueue.main.async {
+                self.loading.isHidden = true
+                self.loading.stopAnimating()
                 self.present(alertController, animated: true, completion: nil)
             }
         })

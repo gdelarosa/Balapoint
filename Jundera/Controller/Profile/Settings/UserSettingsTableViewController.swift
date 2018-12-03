@@ -48,19 +48,26 @@ class UserSettingsTableViewController: UITableViewController {
         }
     }
     
-    // Delete Account: Need to add an alert before deleting.
+    // Delete Account
     @IBAction func deleteAccount_TouchUpInside(_ sender: Any) {
-        let user = Auth.auth().currentUser
-        user?.delete { error in
-            if let error = error {
-                print("Error with deleting account: \(error)")
-            } else {
-                print("Successfully deleted account")
-                let storyboard = UIStoryboard(name: "Start", bundle: nil)
-                let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-                self.present(signInVC, animated: true, completion: nil)
+        let controller = UIAlertController(title:"Are you sure?", message: "Deleting your account will delete your posts and information.", preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Yes, I'm sure.", style: .destructive, handler: { (_) in
+            let user = Auth.auth().currentUser
+
+            user?.delete { error in
+                if let error = error {
+                    print("There was an error deleting this user: \(error)")
+                } else {
+                    Auth.auth().currentUser?.delete()
+                    print("Successfully deleted account")
+                    let storyboard = UIStoryboard(name: "Start", bundle: nil)
+                    let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                    self.present(signInVC, animated: true, completion: nil)
+                }
             }
-        }
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

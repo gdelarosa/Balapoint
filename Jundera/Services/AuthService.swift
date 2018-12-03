@@ -124,18 +124,6 @@ class AuthService {
         }
     }
     
-    // DELETE ACCOUNT
-    static func deleteAccount(onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
-        
-        if Auth.auth().currentUser != nil {
-            Auth.auth().currentUser?.delete()
-            onSuccess()
-            print("Successfully deleted account")
-        } else {
-            onError("Error with deleting user.")
-        }
-    }
-    
     // Alert for username existing
     static func usernameAlert() {
         let alertController = UIAlertController(title: "Sorry", message: "This username has already been taken. Please try another.", preferredStyle: .alert)
