@@ -90,9 +90,6 @@ class EducationViewController: UIViewController {
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
                 self.eduTableView.reloadData()
-                //                self.posts.sort(by: {(p1, p2) -> Bool in
-                //                    return p1.date?.compare(p2.date!) == .orderedDescending
-                //                })
                 //self.updateView()
                 //self.refreshControl.endRefreshing()
                 //self.activityIndicatorView.stopAnimating()

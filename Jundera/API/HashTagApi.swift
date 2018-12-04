@@ -14,7 +14,6 @@ class HashTagApi {
     var REF_HASHTAG = Database.database().reference().child("hashtag")
     var REF_POSTS = Database.database().reference().child("posts")
 
-    
     /// Topic: Food
     func observeFood(completion: @escaping (Post) -> Void) {
         REF_POSTS.queryOrdered(byChild: "hashtag").queryEqual(toValue: "food").observeSingleEvent(of: .value, with: {
@@ -101,6 +100,7 @@ class HashTagApi {
     
     /// Topic: Media
     func observeMedia(completion: @escaping (Post) -> Void) {
+        
         REF_POSTS.queryOrdered(byChild: "hashtag").queryEqual(toValue: "media").observeSingleEvent(of: .value, with: {
             snapshot in
             let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()

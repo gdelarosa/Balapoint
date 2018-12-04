@@ -35,13 +35,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         settingsBarButton()
-        setupView()
-
+       
         loadBlockList(completion: {
             self.loadPosts()
             self.removeBlockFeed()
         })
+        setupView()
     }
 
     // Setup View

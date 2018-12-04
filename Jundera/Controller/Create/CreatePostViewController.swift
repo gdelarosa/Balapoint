@@ -36,15 +36,11 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             item.image = item.image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             item.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0)
         }
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         captionTextView.delegate = self
-        //handlePost()
     }
     
     ///Navigation Bar
@@ -118,7 +114,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             
                 let cursor: NSRange = NSMakeRange(range.location, 0)
                     //NSMakeRange(range.location + "\n \u{2022} ", 0)
-            
                 textView.selectedRange = cursor
             }
             return false
@@ -145,7 +140,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             
         }
         if (postTitle.text?.isEmpty)! || (captionTextView.text?.isEmpty)! {
-            //print("title is empty")
             let animation = CABasicAnimation(keyPath: "position")
             animation.duration = 0.07
             animation.repeatCount = 2

@@ -81,7 +81,8 @@ class HelperService {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
                 word = word.trimmingCharacters(in: CharacterSet.symbols)
                 let newHashId = Api.HashTag.REF_HASHTAG.childByAutoId().key
-                let newHashReference = Api.HashTag.REF_HASHTAG.child(word.lowercased()).child(newHashId!)
+                let newHashReference =
+                    Api.HashTag.REF_POSTS.child(word.lowercased()).child(newHashId!)
                 newHashReference.setValue([newPostId: true])
             }
         }
