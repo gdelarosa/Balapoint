@@ -58,6 +58,13 @@ class DetailPostTableViewCell: UITableViewCell {
         userName.isUserInteractionEnabled = true
     }
     
+    func adjustUITextViewHeight(arg : UITextView)
+    {
+        arg.translatesAutoresizingMaskIntoConstraints = true
+        arg.sizeToFit()
+        arg.isScrollEnabled = false
+    }
+    
     func updateView() {
         
         if let photoUrlString = post?.photoUrl {
