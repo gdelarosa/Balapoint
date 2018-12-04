@@ -814,20 +814,20 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="Wez-dY-Erc"/>
                                 </constraints>
-                                <string key="text">Easily create a post by clicking the pen icon. Once you select a photo, title, headline, and write content you can publish your post to the public. We plan to implement a private feature if you choose to keep a post private.</string>
+                                <string key="text">Easily create a post by clicking the pen icon. Once you select a photo, title, headline, and write content you can publish your post to the public. </string>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65A-b5-yHc">
-                                <rect key="frame" x="11" y="478" width="353" height="66"/>
+                                <rect key="frame" x="11" y="478" width="353" height="62.5"/>
                                 <string key="text">You're profile can be edited at anytime and will be public for anyone to view. That includes: your profile photo, username, bio, and website. You can also access your settings which allow you to sign out or delete your account.</string>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you are having issues or would like to get in touch, please email us at: info@balapoint.com" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w59-bB-ZBJ">
-                                <rect key="frame" x="8" y="552" width="356" height="58"/>
+                                <rect key="frame" x="8" y="548.5" width="356" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="n6u-pq-25Z"/>
                                 </constraints>
@@ -845,7 +845,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently you can search for posts by title. We plan to update the search feature to include searching users and topics." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJZ-le-I5D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently you can search for users. We plan to update the search feature to include searching posts and topics." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJZ-le-I5D">
                                 <rect key="frame" x="8" y="184" width="354" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="A2M-F2-uh9"/>
@@ -876,7 +876,6 @@
                             <constraint firstItem="YBc-d7-EVe" firstAttribute="top" secondItem="ZlJ-nc-hUb" secondAttribute="bottom" constant="1" id="Dac-I2-SAM"/>
                             <constraint firstItem="w59-bB-ZBJ" firstAttribute="top" secondItem="65A-b5-yHc" secondAttribute="bottom" constant="8" symbolic="YES" id="E2X-D1-t2c"/>
                             <constraint firstItem="65A-b5-yHc" firstAttribute="trailing" secondItem="w59-bB-ZBJ" secondAttribute="trailing" id="Ed0-5Y-cVy"/>
-                            <constraint firstItem="65A-b5-yHc" firstAttribute="centerX" secondItem="geW-3m-mLP" secondAttribute="centerX" id="GPy-R2-1HV"/>
                             <constraint firstItem="YBc-d7-EVe" firstAttribute="leading" secondItem="CJZ-le-I5D" secondAttribute="leading" id="Gzr-pG-OkA"/>
                             <constraint firstItem="ZlJ-nc-hUb" firstAttribute="leading" secondItem="YBc-d7-EVe" secondAttribute="leading" id="Jle-bz-gLm"/>
                             <constraint firstAttribute="trailing" secondItem="BEe-z9-Jwh" secondAttribute="trailing" constant="301" id="Jxs-2g-Tr8"/>
@@ -904,7 +903,6 @@
                             <constraint firstItem="SgR-jh-IbW" firstAttribute="leading" secondItem="BEe-z9-Jwh" secondAttribute="leading" id="nw4-4Y-b7w"/>
                             <constraint firstItem="BEe-z9-Jwh" firstAttribute="leading" secondItem="geW-3m-mLP" secondAttribute="leading" constant="8" id="p9c-CM-vOj"/>
                             <constraint firstItem="ZlJ-nc-hUb" firstAttribute="top" secondItem="TGt-0f-p5x" secondAttribute="bottom" constant="13" id="ppe-kI-yJ0"/>
-                            <constraint firstItem="Xm9-Ed-G3h" firstAttribute="top" secondItem="w59-bB-ZBJ" secondAttribute="bottom" constant="8" symbolic="YES" id="q6g-dV-Kar"/>
                             <constraint firstItem="eGK-Rt-2wz" firstAttribute="trailing" secondItem="geW-3m-mLP" secondAttribute="trailingMargin" id="tyr-aC-eUm"/>
                             <constraint firstItem="65A-b5-yHc" firstAttribute="top" secondItem="VkV-cZ-ppi" secondAttribute="bottom" constant="8" symbolic="YES" id="vhT-wx-8OO"/>
                             <constraint firstItem="VkV-cZ-ppi" firstAttribute="leading" secondItem="geW-3m-mLP" secondAttribute="leading" constant="9" id="y5X-Z3-AI0"/>

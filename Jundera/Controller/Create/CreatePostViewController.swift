@@ -181,6 +181,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         self.photo.image = UIImage(named: "placeholder-photo")
         self.selectedImage = nil
         self.captionTextView.text = ""
+        self.hashtag.text = ""
     }
     
 }

@@ -116,6 +116,7 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -128,9 +129,14 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension DetailViewController: DetailPostTableViewCellDelegate {
+    
     func didSavePost(post: Post) {
         print("Saved POST!") //Isn't being used
     }
