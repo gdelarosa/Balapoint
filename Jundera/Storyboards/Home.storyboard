@@ -185,12 +185,12 @@
                                     <outlet property="delegate" destination="ZeP-ac-4dh" id="63c-eU-gnP"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-fS-EhU">
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-fS-EhU">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow people to fill your feed with posts." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30D-nF-NHZ">
-                                <rect key="frame" x="25" y="272" width="325" height="20"/>
+                                <rect key="frame" x="16" y="272" width="343" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +201,7 @@
                             <constraint firstAttribute="trailing" secondItem="bzh-eR-LB9" secondAttribute="trailing" id="0p1-j1-360"/>
                             <constraint firstItem="2V7-TV-WOy" firstAttribute="leading" secondItem="lBI-Vj-Fsn" secondAttribute="leading" id="2wB-eF-aLR"/>
                             <constraint firstAttribute="bottom" secondItem="2V7-TV-WOy" secondAttribute="bottom" id="A59-Q5-Fww"/>
-                            <constraint firstItem="30D-nF-NHZ" firstAttribute="leading" secondItem="lBI-Vj-Fsn" secondAttribute="leading" constant="25" id="CCd-8Q-DmU"/>
+                            <constraint firstItem="30D-nF-NHZ" firstAttribute="leading" secondItem="lBI-Vj-Fsn" secondAttribute="leading" constant="16" id="CCd-8Q-DmU"/>
                             <constraint firstItem="W9U-fS-EhU" firstAttribute="centerY" secondItem="lBI-Vj-Fsn" secondAttribute="centerY" id="GuL-Np-1Yq"/>
                             <constraint firstItem="W9U-fS-EhU" firstAttribute="centerX" secondItem="lBI-Vj-Fsn" secondAttribute="centerX" id="KHh-Xj-tQv"/>
                             <constraint firstItem="30D-nF-NHZ" firstAttribute="centerX" secondItem="lBI-Vj-Fsn" secondAttribute="centerX" id="R2Z-29-Fu5"/>

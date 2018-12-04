@@ -37,12 +37,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         tableView.reloadData()
         settingsBarButton()
-       
+        setupView()
         loadBlockList(completion: {
             self.loadPosts()
             self.removeBlockFeed()
         })
-        setupView()
+      
     }
 
     // Setup View
@@ -50,12 +50,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupTableView()
         setupMessageLabel()
         setupActivityIndicatorView()
+        updateView()
     }
     
     // Setup TableView
     private func setupTableView() {
         tableView.isHidden = true
-        // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {

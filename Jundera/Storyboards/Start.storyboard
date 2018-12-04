@@ -104,7 +104,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="265-Mg-Oly">
-                                <rect key="frame" x="135.5" y="337" width="104" height="30"/>
+                                <rect key="frame" x="135" y="389" width="104" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WnU-Jn-vqR"/>
                                     <constraint firstAttribute="width" constant="104" id="Z7C-vh-Oq9"/>
@@ -125,7 +125,7 @@
                             <constraint firstItem="J8p-q5-1YG" firstAttribute="centerX" secondItem="6aY-zc-8S3" secondAttribute="centerX" id="A32-tj-rm6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1eo-2B-bOT" secondAttribute="trailing" constant="74" id="AQC-iI-wdH"/>
                             <constraint firstItem="kor-sC-4NC" firstAttribute="top" secondItem="e9m-w3-yO4" secondAttribute="bottom" constant="6" id="GLg-qi-VF1"/>
-                            <constraint firstAttribute="bottom" secondItem="265-Mg-Oly" secondAttribute="bottom" constant="300" id="L0B-uA-NKB"/>
+                            <constraint firstAttribute="bottom" secondItem="265-Mg-Oly" secondAttribute="bottom" constant="248" id="L0B-uA-NKB"/>
                             <constraint firstItem="J8p-q5-1YG" firstAttribute="leading" secondItem="ZQP-ls-Eqm" secondAttribute="leadingMargin" constant="36" id="NBj-Ua-2oj"/>
                             <constraint firstItem="J8p-q5-1YG" firstAttribute="top" secondItem="rdv-cb-WF9" secondAttribute="bottom" constant="45" id="Sds-gs-hGF"/>
                             <constraint firstItem="HAZ-Ns-pwh" firstAttribute="firstBaseline" secondItem="aDO-kj-cet" secondAttribute="firstBaseline" id="TUq-sd-kdD"/>
@@ -285,6 +285,6 @@
         <image name="placeholderImg" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JRp-rs-fkO"/>
+        <segue reference="67q-py-SuJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -82,7 +82,7 @@ class SavedPostsViewController: UIViewController {
     
     private func setupMessageLabel() {
         messageLabel.isHidden = true
-        messageLabel.text = "Your saved posts will appear here. 📌"
+        messageLabel.text = "Your saved posts will appear here 🔒."
     }
     
     /// Will display saved posts

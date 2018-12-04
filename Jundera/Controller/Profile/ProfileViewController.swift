@@ -77,7 +77,7 @@ class ProfileViewController: UIViewController {
     
     private func setupMessageLabel() {
         messageLabel.isHidden = true
-        messageLabel.text = "Your published posts will appear here.🖌"
+        messageLabel.text = "Your published posts will appear here 🖌."
     }
     
     func settingsBarButton() {

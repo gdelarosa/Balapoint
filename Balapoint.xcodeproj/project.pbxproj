@@ -15,6 +15,7 @@
 		7776DC3021814B3700542D2C /* MySavedPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */; };
 		7779570E2187B93100A671C2 /* SavedPostsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */; };
 		778D2A15218F9432007CA6CD /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D2A14218F9432007CA6CD /* HelpViewController.swift */; };
+		7798898021B742F600DD3D12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7798897F21B742F500DD3D12 /* GoogleService-Info.plist */; };
 		7799A1F3217900B500A1DF91 /* TopicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */; };
 		779AC4932175828E000BE905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC4922175828E000BE905 /* Extensions.swift */; };
 		779AC49721765FFD000BE905 /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */; };
@@ -66,7 +67,6 @@
 		77F1EF3A211B837300A6F736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1EF39211B837300A6F736 /* AppDelegate.swift */; };
 		77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EF40211B837500A6F736 /* Assets.xcassets */; };
 		77F1EF4F211B837500A6F736 /* JunderaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1EF4E211B837500A6F736 /* JunderaTests.swift */; };
-		77F1EF5A211B83E300A6F736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */; };
 		FCCB581FA9876A08FAF66C43 /* Pods_Jundera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3F92B613BE9A6A9FB5B203 /* Pods_Jundera.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +90,7 @@
 		7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySavedPostsApi.swift; sourceTree = "<group>"; };
 		7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsCollectionViewCell.swift; sourceTree = "<group>"; };
 		778D2A14218F9432007CA6CD /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		7798897F21B742F500DD3D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		77F1EF4A211B837500A6F736 /* JunderaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JunderaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F1EF4E211B837500A6F736 /* JunderaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunderaTests.swift; sourceTree = "<group>"; };
 		77F1EF50211B837500A6F736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FC0B253E598B62A10199A9C /* Pods-Jundera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jundera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jundera/Pods-Jundera.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3F92B613BE9A6A9FB5B203 /* Pods_Jundera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jundera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -452,7 +452,7 @@
 				77EE5221211BD95C0065E364 /* API */,
 				77EE5220211BD9520065E364 /* Storyboards */,
 				77F1EF45211B837500A6F736 /* Info.plist */,
-				77F1EF59211B83E200A6F736 /* GoogleService-Info.plist */,
+				7798897F21B742F500DD3D12 /* GoogleService-Info.plist */,
 			);
 			path = Jundera;
 			sourceTree = "<group>";
@@ -569,13 +569,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EE5231211BDC630065E364 /* Home.storyboard in Resources */,
-				77F1EF5A211B83E300A6F736 /* GoogleService-Info.plist in Resources */,
 				77EE5234211BDC630065E364 /* Profile.storyboard in Resources */,
 				77EE5233211BDC630065E364 /* Start.storyboard in Resources */,
 				77F1EF41211B837500A6F736 /* Assets.xcassets in Resources */,
 				77EE5232211BDC630065E364 /* Main.storyboard in Resources */,
 				77EE528F211C9DC30065E364 /* Default-568h@2x.png in Resources */,
 				77C826B1211B8C4200094A49 /* LaunchScreen.storyboard in Resources */,
+				7798898021B742F600DD3D12 /* GoogleService-Info.plist in Resources */,
 				77EE522F211BDC630065E364 /* CreatePost.storyboard in Resources */,
 				77EE5230211BDC630065E364 /* SavedPost.storyboard in Resources */,
 			);

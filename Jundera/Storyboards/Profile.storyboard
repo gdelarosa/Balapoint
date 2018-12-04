@@ -38,7 +38,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="toR-Cg-zLj">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="toR-Cg-zLj">
                                                     <rect key="frame" x="12" y="8" width="333" height="134"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -93,6 +93,11 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="toR-Cg-zLj"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="author" destination="5SD-hZ-ZE4" id="GFb-y9-Jk3"/>
                                             <outlet property="date" destination="h6f-uz-pob" id="v8R-KQ-Vca"/>
@@ -219,8 +224,8 @@
                                     <outlet property="delegate" destination="HbS-IN-ciJ" id="eAN-bb-BcX"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your published posts will appear here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97x-id-gsn">
-                                <rect key="frame" x="55" y="500" width="264" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your published posts will appear here 🖌." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97x-id-gsn">
+                                <rect key="frame" x="16" y="500" width="343" height="28"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -232,9 +237,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A6A-tR-9WX" firstAttribute="top" secondItem="97x-id-gsn" secondAttribute="bottom" constant="100" id="KJi-Pz-Q6L"/>
-                            <constraint firstItem="97x-id-gsn" firstAttribute="leading" secondItem="gDM-Oj-yDL" secondAttribute="leading" constant="55" id="WVf-rb-ATk"/>
-                            <constraint firstAttribute="trailing" secondItem="97x-id-gsn" secondAttribute="trailing" constant="56" id="cIg-iV-B1n"/>
+                            <constraint firstItem="A6A-tR-9WX" firstAttribute="top" secondItem="97x-id-gsn" secondAttribute="bottom" constant="90" id="KJi-Pz-Q6L"/>
+                            <constraint firstItem="97x-id-gsn" firstAttribute="leading" secondItem="gDM-Oj-yDL" secondAttribute="leading" constant="16" id="WVf-rb-ATk"/>
+                            <constraint firstAttribute="trailing" secondItem="97x-id-gsn" secondAttribute="trailing" constant="16" id="cIg-iV-B1n"/>
                             <constraint firstItem="97x-id-gsn" firstAttribute="top" secondItem="NS3-tb-Nu7" secondAttribute="bottom" constant="436" id="cXG-ga-4g3"/>
                             <constraint firstAttribute="trailing" secondItem="SER-kB-uhd" secondAttribute="trailing" id="uYF-zN-L6j"/>
                             <constraint firstItem="SER-kB-uhd" firstAttribute="top" secondItem="gDM-Oj-yDL" secondAttribute="top" id="wV8-qh-QFu"/>
@@ -256,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEd-dK-oHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="19"/>
+            <point key="canvasLocation" x="2512.8000000000002" y="18.440779610194905"/>
         </scene>
         <!--DetailViewController-->
         <scene sceneID="3Xh-9t-AEW">
@@ -318,7 +323,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-c4-ks1">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PostCell_Background" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-c4-ks1">
                                                     <rect key="frame" x="11" y="5" width="333" height="164"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baA-fA-QVK">
@@ -376,6 +381,11 @@
                                             <constraint firstItem="mZU-c4-ks1" firstAttribute="leading" secondItem="dyS-cs-ifN" secondAttribute="leadingMargin" constant="-5" id="VJG-S3-MiK"/>
                                             <constraint firstItem="mZU-c4-ks1" firstAttribute="top" secondItem="dyS-cs-ifN" secondAttribute="topMargin" constant="5" id="zb0-fE-L6X"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="mZU-c4-ks1"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="author" destination="iAc-3V-I8k" id="EhB-Cz-hZS"/>
                                             <outlet property="date" destination="VZ1-aP-dbO" id="mU3-Ay-Wqw"/>
@@ -1211,7 +1221,7 @@
         <image name="placeholderImg" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MZn-63-CgU"/>
-        <segue reference="E1Z-P0-CWT"/>
+        <segue reference="pRK-3m-ebY"/>
+        <segue reference="49u-A6-ntL"/>
     </inferredMetricsTieBreakers>
 </document>

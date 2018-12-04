@@ -93,8 +93,8 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your saved posts will appear here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9l-pj-sna">
-                                <rect key="frame" x="62" y="323" width="254" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your saved posts will appear here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9l-pj-sna">
+                                <rect key="frame" x="16" y="323" width="343" height="51"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -102,16 +102,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Q9l-pj-sna" firstAttribute="leading" secondItem="DJl-El-zdB" secondAttribute="leadingMargin" constant="46" id="0dA-5p-1VN"/>
+                            <constraint firstItem="Q9l-pj-sna" firstAttribute="leading" secondItem="DJl-El-zdB" secondAttribute="leadingMargin" id="0dA-5p-1VN"/>
                             <constraint firstAttribute="trailing" secondItem="CKs-tz-95v" secondAttribute="trailing" id="845-rQ-FoQ"/>
                             <constraint firstAttribute="bottom" secondItem="CKs-tz-95v" secondAttribute="bottom" id="Nfn-lz-2bo"/>
-                            <constraint firstItem="VfO-sM-quz" firstAttribute="top" secondItem="Q9l-pj-sna" secondAttribute="bottom" constant="266" id="QUz-Yd-p09"/>
+                            <constraint firstItem="VfO-sM-quz" firstAttribute="top" secondItem="Q9l-pj-sna" secondAttribute="bottom" constant="244" id="QUz-Yd-p09"/>
                             <constraint firstItem="uEi-kP-Wiq" firstAttribute="centerX" secondItem="CKs-tz-95v" secondAttribute="centerX" id="SrC-YY-7au"/>
-                            <constraint firstItem="Q9l-pj-sna" firstAttribute="bottom" secondItem="uEi-kP-Wiq" secondAttribute="bottom" id="UB0-lQ-gxy"/>
+                            <constraint firstItem="Q9l-pj-sna" firstAttribute="bottom" secondItem="uEi-kP-Wiq" secondAttribute="bottom" constant="22" id="UB0-lQ-gxy"/>
                             <constraint firstItem="CKs-tz-95v" firstAttribute="top" secondItem="DJl-El-zdB" secondAttribute="top" constant="28" id="YA7-NQ-fz5"/>
                             <constraint firstItem="Q9l-pj-sna" firstAttribute="top" secondItem="uWp-KF-wlS" secondAttribute="bottom" constant="259" id="ruC-dV-H1B"/>
                             <constraint firstItem="CKs-tz-95v" firstAttribute="leading" secondItem="DJl-El-zdB" secondAttribute="leading" id="xsh-KY-05M"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q9l-pj-sna" secondAttribute="trailing" constant="43" id="zkA-iE-Cxz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q9l-pj-sna" secondAttribute="trailing" id="zkA-iE-Cxz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Saved" id="16a-id-nVd"/>
