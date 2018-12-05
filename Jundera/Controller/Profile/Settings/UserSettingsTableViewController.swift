@@ -25,14 +25,14 @@ class UserSettingsTableViewController: UITableViewController {
         setBackButton()
     }
     
-    @IBAction func goToTermsPage(_ sender: Any) {
-        if let url = URL(string: "https://www.balapoint.com/terms.html") {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
+//    @IBAction func goToTermsPage(_ sender: Any) {
+//        if let url = URL(string: "https://www.balapoint.com/terms.html") {
+//            UIApplication.shared.open(url, options: [:])
+//        }
+//    }
     
     @IBAction func goToPrivacyPage(_ sender: Any) {
-        if let url = URL(string: "https://www.balapoint.com/privacypolicy.html") {
+        if let url = URL(string: "https://app.termly.io/document/privacy-policy/e0616598-966c-4640-82f6-442bfc25f28b") {
             UIApplication.shared.open(url, options: [:])
         }
     }
@@ -75,10 +75,7 @@ class UserSettingsTableViewController: UITableViewController {
         return 3
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-
-
-
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 
+//    }
 }
