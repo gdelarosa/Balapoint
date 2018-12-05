@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SearchViewController: UIViewController {
 
     var searchBar = UISearchBar()
@@ -24,11 +23,12 @@ class SearchViewController: UIViewController {
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search users"
         searchBar.frame.size.width = view.frame.size.width - 60
-        
+        self.searchBar.autocorrectionType = .no
+        self.searchBar.autocapitalizationType = .none
+        self.searchBar.spellCheckingType = .no
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
         setBackButton()
-        //doSearch()
     }
     
         override func viewDidAppear(_ animated: Bool) {
