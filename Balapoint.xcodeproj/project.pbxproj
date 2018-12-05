@@ -90,7 +90,7 @@
 		7776DC2F21814B3700542D2C /* MySavedPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySavedPostsApi.swift; sourceTree = "<group>"; };
 		7779570D2187B93100A671C2 /* SavedPostsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsCollectionViewCell.swift; sourceTree = "<group>"; };
 		778D2A14218F9432007CA6CD /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		7798897F21B742F500DD3D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7798897F21B742F500DD3D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../iOS/Jundera_Materials/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7799A1F2217900B500A1DF91 /* TopicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		779AC4922175828E000BE905 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		779AC49621765FFD000BE905 /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -537,6 +537,11 @@
 					77F1EF35211B837300A6F736 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					77F1EF49211B837500A6F736 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -844,7 +849,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -865,7 +870,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.balapoint;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ginadlr.Balapoint;
 				PRODUCT_NAME = Balapoint;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
