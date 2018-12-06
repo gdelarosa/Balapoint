@@ -57,7 +57,7 @@
                                 <color key="backgroundColor" red="0.15297964219999999" green="0.14901810879999999" blue="0.14901974800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tag: e.g. lifestyle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSE-xO-nMN">
-                                <rect key="frame" x="16" y="580" width="134" height="30"/>
+                                <rect key="frame" x="16" y="580" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,7 +83,7 @@
                             <constraint firstItem="mrw-5V-ISW" firstAttribute="trailing" secondItem="XPn-YQ-Zma" secondAttribute="trailing" id="VBv-1q-RbQ"/>
                             <constraint firstItem="mrw-5V-ISW" firstAttribute="top" secondItem="LB6-7E-EYx" secondAttribute="bottom" constant="8" symbolic="YES" id="aOA-KA-4yB"/>
                             <constraint firstItem="it2-vY-2CH" firstAttribute="top" secondItem="FSE-xO-nMN" secondAttribute="bottom" constant="8" id="dKN-Mf-WUU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FSE-xO-nMN" secondAttribute="trailing" constant="209" id="iO4-ZM-ocX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FSE-xO-nMN" secondAttribute="trailing" id="iO4-ZM-ocX"/>
                             <constraint firstItem="XPn-YQ-Zma" firstAttribute="trailing" secondItem="e3I-DW-326" secondAttribute="trailing" id="pLj-1S-Vgc"/>
                             <constraint firstItem="LB6-7E-EYx" firstAttribute="trailing" secondItem="XPn-YQ-Zma" secondAttribute="trailing" id="rFr-4J-2rs"/>
                             <constraint firstItem="HZJ-6L-E0e" firstAttribute="centerX" secondItem="LB6-7E-EYx" secondAttribute="centerX" id="raA-DA-xwD"/>
