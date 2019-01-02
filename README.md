@@ -1,6 +1,6 @@
 # Balapoint
 Balapoint is an iOS application that allows users to create and publish bulleted lists. 
-![mockup2](https://user-images.githubusercontent.com/9616943/50607672-dd1f6080-0e7e-11e9-8079-5ed8473ee969.png)
+![bplatest](https://user-images.githubusercontent.com/9616943/50608319-28d30980-0e81-11e9-84a7-2c8f2ed98ac3.png)
 
 ### Features 
 * Sign Up with Firebase's authentication. No user can have same name, 6 length min., and valid email are required. 
