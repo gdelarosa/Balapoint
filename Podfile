@@ -10,6 +10,5 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'SDWebImage'
 pod 'KILabel'
-#pod 'GradientProgressBar', '~> 1.0'
 
 end
